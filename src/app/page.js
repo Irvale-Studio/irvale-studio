@@ -25,7 +25,7 @@ export default function Home() {
       <div className="bg-dark-2 py-5 border-y border-[var(--border-dark)]">
         <Marquee
           items={marqueeItems}
-          separator="—"
+          separator="·"
           className="font-display italic text-[length:var(--type-body)] text-text-light/20 tracking-[0.12em]"
           speed={60}
         />

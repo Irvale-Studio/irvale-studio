@@ -11,9 +11,9 @@ export default function Marquee({ items, separator = '·', className = '', speed
         style={{ '--marquee-speed': `${speed}s` }}
       >
         {repeated.map((item, i) => (
-          <span key={i} className="inline-flex items-center gap-4 shrink-0">
+          <span key={i} className="inline-flex items-center gap-12 md:gap-16 shrink-0">
             <span>{item}</span>
-            <span className="opacity-40">{separator}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gold/30 shrink-0" />
           </span>
         ))}
       </div>
