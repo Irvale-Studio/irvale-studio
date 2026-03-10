@@ -35,12 +35,16 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  other: {
+    'content-language': 'en',
+    'google': 'notranslate',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${cormorant.variable} ${dmSans.variable} antialiased`}>
+    <html lang="en" translate="no">
+      <body className={`${cormorant.variable} ${dmSans.variable} antialiased notranslate`}>
         <Preloader />
         <SmoothScroll>
           <Navbar />
