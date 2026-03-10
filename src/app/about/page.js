@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
-import MagneticButton from '@/components/ui/MagneticButton';
 
 export const metadata = {
   title: 'About — Irvale Studio',
@@ -156,14 +155,9 @@ export default function AboutPage() {
           >
             Let&rsquo;s build something worth remembering
           </RevealText>
-          <MagneticButton className="inline-block">
-            <Link
-              href="/contact"
-              className="inline-block font-body text-sm font-medium bg-gold text-dark px-10 py-4 hover:bg-gold-light transition-colors"
-            >
-              Start a Project →
-            </Link>
-          </MagneticButton>
+          <Link href="/contact" className="btn-primary px-10">
+            <span>Start a Project →</span>
+          </Link>
         </div>
       </section>
     </main>

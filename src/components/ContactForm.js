@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Eyebrow from '@/components/ui/Eyebrow';
-import MagneticButton from '@/components/ui/MagneticButton';
 import { cn } from '@/lib/utils';
 
 const nicheOptions = [
@@ -255,15 +254,13 @@ export default function ContactForm() {
 
           {/* Submit */}
           <div className="pt-4">
-            <MagneticButton className="w-full md:w-auto">
-              <button
-                type="submit"
-                disabled={status === 'submitting'}
-                className="w-full font-body text-sm font-medium bg-gold text-dark px-10 py-4 hover:bg-gold-light transition-colors disabled:opacity-60"
-              >
-                {status === 'submitting' ? 'Sending...' : 'Send Enquiry →'}
-              </button>
-            </MagneticButton>
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="btn-primary w-full md:w-auto px-10 disabled:opacity-60 disabled:pointer-events-none"
+            >
+              <span>{status === 'submitting' ? 'Sending...' : 'Send Enquiry →'}</span>
+            </button>
           </div>
 
           {status === 'error' && (

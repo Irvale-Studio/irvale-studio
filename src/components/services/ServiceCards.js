@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import SectionReveal from '@/components/ui/SectionReveal';
-import MagneticButton from '@/components/ui/MagneticButton';
 import { cn } from '@/lib/utils';
 
 const tiers = [
@@ -102,19 +101,15 @@ export default function ServiceCards() {
                 ))}
               </ul>
 
-              <MagneticButton>
-                <Link
-                  href="/contact"
-                  className={cn(
-                    'block text-center font-body text-sm font-medium py-3 transition-colors',
-                    tier.highlighted
-                      ? 'bg-gold text-dark hover:bg-gold-light'
-                      : 'border border-gold/40 text-gold-muted hover:bg-gold/5'
-                  )}
-                >
-                  Get Started →
-                </Link>
-              </MagneticButton>
+              <Link
+                href="/contact"
+                className={cn(
+                  'block text-center py-3',
+                  tier.highlighted ? 'btn-primary' : 'btn-outline'
+                )}
+              >
+                <span>Get Started →</span>
+              </Link>
             </div>
           ))}
         </SectionReveal>

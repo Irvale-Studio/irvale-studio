@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import MagneticButton from '@/components/ui/MagneticButton';
 
 export default function NotFound() {
   return (
@@ -14,14 +13,9 @@ export default function NotFound() {
         <p className="font-body text-sm text-text-muted-light font-light mb-8">
           The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
         </p>
-        <MagneticButton className="inline-block">
-          <Link
-            href="/"
-            className="inline-block font-body text-sm font-medium border border-gold/40 text-gold px-8 py-3 hover:bg-gold/5 transition-colors"
-          >
-            Back to Home →
-          </Link>
-        </MagneticButton>
+        <Link href="/" className="btn-outline">
+          <span>Back to Home →</span>
+        </Link>
       </div>
     </main>
   );

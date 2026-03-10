@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import RevealText from '@/components/ui/RevealText';
-import MagneticButton from '@/components/ui/MagneticButton';
 
 export default function HeroSection() {
   const sectionRef = useRef(null);
@@ -59,22 +58,12 @@ export default function HeroSection() {
         </RevealText>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <MagneticButton>
-            <Link
-              href="/contact"
-              className="inline-block font-body text-sm font-medium bg-gold text-dark px-8 py-3.5 hover:bg-gold-light transition-colors"
-            >
-              Start a Project →
-            </Link>
-          </MagneticButton>
-          <MagneticButton>
-            <Link
-              href="/work"
-              className="inline-block font-body text-sm font-medium text-text-light border border-white/20 px-8 py-3.5 hover:border-white/40 transition-colors"
-            >
-              View Our Work
-            </Link>
-          </MagneticButton>
+          <Link href="/contact" className="btn-primary">
+            <span>Start a Project →</span>
+          </Link>
+          <Link href="/work" className="btn-outline">
+            <span>View Our Work</span>
+          </Link>
         </div>
       </div>
     </section>

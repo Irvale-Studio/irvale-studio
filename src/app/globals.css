@@ -92,6 +92,84 @@ h1, h2, h3, h4, h5, h6 {
   animation: marquee var(--marquee-speed, 30s) linear infinite;
 }
 
+/* Button styles */
+.btn-primary {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  background: var(--color-gold);
+  color: var(--color-dark);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold-light);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.25);
+}
+
+.btn-primary:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary span,
+.btn-primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  color: var(--color-gold);
+  overflow: hidden;
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-outline:hover {
+  color: var(--color-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-outline span,
+.btn-outline > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Scrollbar hiding utility */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

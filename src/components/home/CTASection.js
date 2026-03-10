@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import RevealText from '@/components/ui/RevealText';
-import MagneticButton from '@/components/ui/MagneticButton';
-
 export default function CTASection() {
   return (
     <section className="bg-dark py-[var(--section-gap)]">
@@ -22,14 +20,9 @@ export default function CTASection() {
           Tell us about your brand. We&rsquo;ll tell you how we&rsquo;d build it.
         </p>
 
-        <MagneticButton className="inline-block">
-          <Link
-            href="/contact"
-            className="inline-block font-body text-sm font-medium bg-gold text-dark px-10 py-4 hover:bg-gold-light transition-colors"
-          >
-            Start a Project →
-          </Link>
-        </MagneticButton>
+        <Link href="/contact" className="btn-primary px-10">
+          <span>Start a Project →</span>
+        </Link>
 
         <p className="font-body text-xs text-text-muted-light mt-6">
           We respond within 24 hours.

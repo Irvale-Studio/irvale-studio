@@ -3,7 +3,6 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
 import Counter from '@/components/ui/Counter';
-import MagneticButton from '@/components/ui/MagneticButton';
 
 export const metadata = {
   title: 'AI Visibility — Irvale Studio',
@@ -74,14 +73,9 @@ export default function AIVisibilityPage() {
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-lg mb-8">
             When someone asks ChatGPT for the best spa in your city — we make sure they hear your name.
           </p>
-          <MagneticButton>
-            <Link
-              href="/contact"
-              className="inline-block font-body text-sm font-medium bg-gold text-dark px-8 py-3.5 hover:bg-gold-light transition-colors"
-            >
-              Book an AI Audit →
-            </Link>
-          </MagneticButton>
+          <Link href="/contact" className="btn-primary">
+            <span>Book an AI Audit →</span>
+          </Link>
         </div>
       </section>
 
@@ -184,14 +178,9 @@ export default function AIVisibilityPage() {
                 <p className="font-body text-sm text-text-muted-light font-light leading-relaxed flex-1">
                   {plan.description}
                 </p>
-                <MagneticButton className="mt-6">
-                  <Link
-                    href="/contact"
-                    className="block text-center font-body text-sm font-medium border border-gold/40 text-gold py-3 hover:bg-gold/5 transition-colors"
-                  >
-                    Enquire →
-                  </Link>
-                </MagneticButton>
+                <Link href="/contact" className="btn-outline block text-center mt-6 py-3">
+                  <span>Enquire →</span>
+                </Link>
               </div>
             ))}
           </SectionReveal>
@@ -210,14 +199,9 @@ export default function AIVisibilityPage() {
           >
             The future of search is here. Is your brand ready?
           </RevealText>
-          <MagneticButton className="inline-block">
-            <Link
-              href="/contact"
-              className="inline-block font-body text-sm font-medium bg-gold text-dark px-10 py-4 hover:bg-gold-light transition-colors"
-            >
-              Start with an AI Audit →
-            </Link>
-          </MagneticButton>
+          <Link href="/contact" className="btn-primary px-10">
+            <span>Start with an AI Audit →</span>
+          </Link>
         </div>
       </section>
     </main>

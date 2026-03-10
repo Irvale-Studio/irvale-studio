@@ -6,7 +6,6 @@ import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import MagneticButton from '@/components/ui/MagneticButton';
 
 const navLinks = [
   { href: '/work', label: 'Work' },
@@ -108,14 +107,9 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <MagneticButton>
-              <Link
-                href="/contact"
-                className="font-body text-sm font-medium text-gold border border-gold/40 px-5 py-2.5 hover:bg-gold/10 transition-colors"
-              >
-                Start a Project →
-              </Link>
-            </MagneticButton>
+            <Link href="/contact" className="btn-outline py-2.5 px-5">
+              <span>Start a Project →</span>
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -163,7 +157,7 @@ export default function Navbar() {
           href="/contact"
           ref={(el) => { linksRef.current[navLinks.length] = el; }}
           onClick={() => setMobileOpen(false)}
-          className="font-body text-sm font-medium text-gold border border-gold/40 px-8 py-3 mt-4"
+          className="btn-outline px-8 py-3 mt-4"
         >
           Start a Project →
         </Link>
