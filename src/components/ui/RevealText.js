@@ -36,7 +36,7 @@ export default function RevealText({ children, as: Tag = 'p', className = '', de
   return (
     <Tag ref={containerRef} className={cn('flex flex-wrap', className)}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+        <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.15em]">
           <span className="word-inner inline-block">{word}</span>
         </span>
       ))}
