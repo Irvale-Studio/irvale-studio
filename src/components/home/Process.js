@@ -138,7 +138,7 @@ export default function Process() {
               <div
                 key={step.number}
                 ref={(el) => (cardsRef.current[i] = el)}
-                className="border-t border-gold/30 pt-8 pb-8 md:min-h-[70vh] md:flex md:flex-col md:justify-center"
+                className="border-t border-gold/30 pt-8 pb-8 md:min-h-[40vh] md:flex md:flex-col md:justify-center"
               >
                 <span className="font-display text-gold text-sm tracking-wider block mb-4">
                   {step.number}
