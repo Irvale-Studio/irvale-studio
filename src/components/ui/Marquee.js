@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 
 export default function Marquee({ items, separator = '·', className = '', speed = 30 }) {
   // Repeat items enough times for seamless loop on wide screens
-  const repeated = [...items, ...items, ...items, ...items];
+  const repeated = [...items, ...items, ...items, ...items, ...items, ...items];
 
   return (
     <div className={cn('overflow-hidden whitespace-nowrap', className)}>

@@ -8,8 +8,8 @@ const clients = [
   'Chiang Mai Go Tours',
 ];
 
-// Duplicate enough times to fill wide screens
-const items = [...clients, ...clients, ...clients, ...clients];
+// Duplicate enough times for seamless loop on wide screens
+const items = [...clients, ...clients, ...clients, ...clients, ...clients, ...clients, ...clients, ...clients];
 
 export default function TrustLogos() {
   return (

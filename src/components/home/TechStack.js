@@ -20,8 +20,8 @@ const tools = [
   { name: 'WordPress', logo: '/logos/wordpress.svg' },
 ];
 
-// Duplicate for seamless loop
-const items = [...tools, ...tools];
+// Duplicate enough for seamless loop on wide screens
+const items = [...tools, ...tools, ...tools, ...tools];
 
 function LogoItem({ tool }) {
   return (
