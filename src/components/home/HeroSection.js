@@ -23,7 +23,7 @@ export default function HeroSection() {
 
     // Cinematic clip-path reveal: thin strip → full image
     gsap.set(imageWrapper, {
-      clipPath: 'inset(40% 0% 40% 0%)',
+      clipPath: 'inset(100% 0% 0% 0%)',
       scale: 1.15,
     });
 
