@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -55,6 +55,147 @@ const services = [
   },
 ];
 
+function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef, outcomeRef }) {
+  const tiltRef = useRef(null);
+  const glowRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const card = tiltRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Keep rotation subtle — max 6deg for luxury restraint
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+
+    gsap.to(card, {
+      rotateX,
+      rotateY,
+      duration: 0.4,
+      ease: 'power2.out',
+      transformPerspective: 800,
+    });
+
+    // Move glow to follow cursor
+    if (glowRef.current) {
+      gsap.to(glowRef.current, {
+        x: x - rect.width / 2,
+        y: y - rect.height / 2,
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const card = tiltRef.current;
+    if (!card) return;
+
+    gsap.to(card, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 0.6,
+      ease: 'power3.out',
+    });
+
+    if (glowRef.current) {
+      gsap.to(glowRef.current, {
+        opacity: 0,
+        duration: 0.4,
+      });
+    }
+  }, []);
+
+  return (
+    <div
+      ref={(el) => {
+        tiltRef.current = el;
+        cardRef(el);
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="service-card group relative border border-[var(--border-light)] bg-cream p-8 md:p-10 will-change-transform transition-[border-color,box-shadow] duration-500 ease-out hover:border-gold/30 hover:shadow-[0_8px_40px_rgba(201,169,110,0.12)] active:scale-[0.98]"
+      style={{ transformStyle: 'preserve-3d' }}
+    >
+      {/* Animated gradient border glow — visible on hover */}
+      <div className="absolute -inset-px rounded-[1px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 service-border-glow" />
+      </div>
+
+      {/* Cursor glow follow */}
+      <div
+        ref={glowRef}
+        className="absolute w-64 h-64 rounded-full pointer-events-none opacity-0"
+        style={{
+          background: 'radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%)',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+
+      {/* Card content — slightly "lifted" in 3D */}
+      <div style={{ transform: 'translateZ(20px)' }}>
+        {/* Top row: number + icon */}
+        <div className="flex items-start justify-between mb-6">
+          <div className="overflow-hidden">
+            <span
+              ref={numberRef}
+              className="font-display text-[clamp(48px,5vw,72px)] text-gold/15 leading-none block"
+            >
+              {service.number}
+            </span>
+          </div>
+          <div
+            ref={iconRef}
+            className="text-gold/40 transition-colors duration-500 group-hover:text-gold"
+          >
+            {service.icon}
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark mb-1 transition-colors duration-500 group-hover:text-gold-muted">
+          {service.title}
+        </h3>
+
+        {/* Subtitle */}
+        <p className="font-body text-xs text-gold-muted uppercase tracking-[0.15em] mb-5">
+          {service.subtitle}
+        </p>
+
+        {/* Gold accent line */}
+        <div
+          ref={accentRef}
+          className="h-px bg-gradient-to-r from-gold/50 to-gold/0 w-2/3 mb-5"
+        />
+
+        {/* Description */}
+        <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-dark font-light mb-6">
+          {service.description}
+        </p>
+
+        {/* Outcome */}
+        <div
+          ref={outcomeRef}
+          className="border-t border-[var(--border-light)] pt-5"
+        >
+          <p className="font-body text-sm text-gold-muted font-medium italic">
+            {service.outcome}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesOverview() {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
@@ -86,7 +227,7 @@ export default function ServicesOverview() {
           });
         }
 
-        // Staggered card reveal with clip-path wipe
+        // Staggered card reveal with GSAP timelines
         cardsRef.current.forEach((card, i) => {
           if (!card) return;
 
@@ -101,7 +242,7 @@ export default function ServicesOverview() {
           // Card slides up and fades in
           tl.from(card, {
             y: 60,
-            opacity: 0,
+            autoAlpha: 0,
             duration: 0.9,
             ease: 'power3.out',
             delay: i * 0.2,
@@ -113,7 +254,7 @@ export default function ServicesOverview() {
               numbersRef.current[i],
               {
                 yPercent: 100,
-                opacity: 0,
+                autoAlpha: 0,
                 duration: 0.7,
                 ease: 'power3.out',
               },
@@ -127,7 +268,7 @@ export default function ServicesOverview() {
               iconsRef.current[i],
               {
                 scale: 0,
-                opacity: 0,
+                autoAlpha: 0,
                 duration: 0.5,
                 ease: 'back.out(1.7)',
               },
@@ -155,7 +296,7 @@ export default function ServicesOverview() {
               outcomesRef.current[i],
               {
                 y: 20,
-                opacity: 0,
+                autoAlpha: 0,
                 duration: 0.6,
                 ease: 'power2.out',
               },
@@ -171,7 +312,7 @@ export default function ServicesOverview() {
           if (!card) return;
           gsap.from(card, {
             y: 40,
-            opacity: 0,
+            autoAlpha: 0,
             duration: 0.8,
             ease: 'power2.out',
             delay: i * 0.1,
@@ -211,63 +352,16 @@ export default function ServicesOverview() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[var(--grid-gap)]">
           {services.map((service, i) => (
-            <div
+            <ServiceCard
               key={service.number}
-              ref={(el) => (cardsRef.current[i] = el)}
-              className="service-card group relative border border-[var(--border-light)] bg-cream p-8 md:p-10 transition-all duration-500 ease-out hover:border-gold/30 hover:shadow-[0_8px_40px_rgba(201,169,110,0.08)] hover:-translate-y-1"
-            >
-              {/* Top row: number + icon */}
-              <div className="flex items-start justify-between mb-6">
-                <div className="overflow-hidden">
-                  <span
-                    ref={(el) => (numbersRef.current[i] = el)}
-                    className="font-display text-[clamp(48px,5vw,72px)] text-gold/15 leading-none block"
-                  >
-                    {service.number}
-                  </span>
-                </div>
-                <div
-                  ref={(el) => (iconsRef.current[i] = el)}
-                  className="text-gold/40 transition-colors duration-500 group-hover:text-gold"
-                >
-                  {service.icon}
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark mb-1 transition-colors duration-500 group-hover:text-gold-muted">
-                {service.title}
-              </h3>
-
-              {/* Subtitle */}
-              <p className="font-body text-xs text-gold-muted uppercase tracking-[0.15em] mb-5">
-                {service.subtitle}
-              </p>
-
-              {/* Gold accent line */}
-              <div
-                ref={(el) => (accentsRef.current[i] = el)}
-                className="h-px bg-gradient-to-r from-gold/50 to-gold/0 w-2/3 mb-5"
-              />
-
-              {/* Description */}
-              <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-dark font-light mb-6">
-                {service.description}
-              </p>
-
-              {/* Outcome */}
-              <div
-                ref={(el) => (outcomesRef.current[i] = el)}
-                className="border-t border-[var(--border-light)] pt-5"
-              >
-                <p className="font-body text-sm text-gold-muted font-medium italic">
-                  {service.outcome}
-                </p>
-              </div>
-
-              {/* Hover corner accent */}
-              <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-t-gold/0 border-l-[40px] border-l-transparent transition-all duration-500 group-hover:border-t-gold/10" />
-            </div>
+              service={service}
+              index={i}
+              cardRef={(el) => (cardsRef.current[i] = el)}
+              numberRef={(el) => (numbersRef.current[i] = el)}
+              iconRef={(el) => (iconsRef.current[i] = el)}
+              accentRef={(el) => (accentsRef.current[i] = el)}
+              outcomeRef={(el) => (outcomesRef.current[i] = el)}
+            />
           ))}
         </div>
 
