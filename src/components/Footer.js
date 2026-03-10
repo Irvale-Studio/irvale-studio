@@ -57,7 +57,7 @@ export default function Footer() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       {/* Giant background wordmark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-x-0 bottom-16 flex items-end justify-center pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <span
           className="font-display uppercase tracking-[0.2em] text-[clamp(120px,15vw,280px)] leading-none"
           style={{
@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       <div
-        className="relative z-10 mx-auto px-[var(--gutter)] pt-20 md:pt-32 pb-10"
+        className="relative z-10 mx-auto px-[var(--gutter)] pt-24 md:pt-40 pb-24 md:pb-36"
         style={{ maxWidth: 'var(--max-width)' }}
       >
         {/* Main footer grid */}
