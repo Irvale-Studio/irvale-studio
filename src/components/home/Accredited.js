@@ -101,7 +101,7 @@ function CredentialCard({ credential }) {
       </span>
 
       {/* Title — always visible, prominent */}
-      <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light/90 mb-0 transition-colors duration-500 group-hover:text-text-light">
+      <h3 className="font-display text-[clamp(16px,1.8vw,24px)] leading-[1.2] text-text-light/90 mb-0 whitespace-nowrap transition-colors duration-500 group-hover:text-text-light">
         {credential.title}
       </h3>
 
