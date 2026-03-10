@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" fill="currentColor">
+  <path d="M20 6C20 6 26 14 26 20s-6 14-6 14c0 0-6-8-6-14s6-14 6-14z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M20 6C20 6 14 14 14 20s6 14 6 14" fill="none" stroke="currentColor" stroke-width="2"/>
+  <text x="38" y="26" font-family="system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="0.3">Gemini</text>
+</svg>

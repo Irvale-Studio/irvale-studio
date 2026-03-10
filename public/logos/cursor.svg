@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="currentColor">
+  <rect x="8" y="8" width="24" height="24" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M16 16l8 4-8 4z" fill="currentColor"/>
+  <text x="40" y="26" font-family="system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="0.3">Cursor</text>
+</svg>

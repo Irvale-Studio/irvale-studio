@@ -1,16 +1,23 @@
 'use client';
 
+import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';
 
 const tools = [
-  // AI & Development
-  'Claude', 'ChatGPT', 'Cursor', 'Gemini',
-  // Frameworks
-  'React', 'Next.js', 'Vercel',
-  // Platforms
-  'Google', 'Instagram', 'Facebook', 'TikTok',
-  // Extra
-  'Figma', 'Shopify', 'WordPress',
+  { name: 'Claude', logo: '/logos/claude.svg' },
+  { name: 'ChatGPT', logo: '/logos/chatgpt.svg' },
+  { name: 'Cursor', logo: '/logos/cursor.svg' },
+  { name: 'Gemini', logo: '/logos/gemini.svg' },
+  { name: 'React', logo: '/logos/react.svg' },
+  { name: 'Next.js', logo: '/logos/nextjs.svg' },
+  { name: 'Vercel', logo: '/logos/vercel.svg' },
+  { name: 'Google', logo: '/logos/google.svg' },
+  { name: 'Instagram', logo: '/logos/instagram.svg' },
+  { name: 'Facebook', logo: '/logos/facebook.svg' },
+  { name: 'TikTok', logo: '/logos/tiktok.svg' },
+  { name: 'Figma', logo: '/logos/figma.svg' },
+  { name: 'Shopify', logo: '/logos/shopify.svg' },
+  { name: 'WordPress', logo: '/logos/wordpress.svg' },
 ];
 
 export default function TechStack() {
@@ -29,13 +36,15 @@ export default function TechStack() {
           className="flex animate-marquee items-center gap-12 md:gap-16 whitespace-nowrap"
           style={{ '--marquee-speed': '25s' }}
         >
-          {[...tools, ...tools].map((name, i) => (
-            <span
+          {[...tools, ...tools].map((tool, i) => (
+            <Image
               key={i}
-              className="font-body text-sm md:text-base font-medium text-text-dark/25 tracking-[0.1em] uppercase shrink-0"
-            >
-              {name}
-            </span>
+              src={tool.logo}
+              alt={tool.name}
+              width={120}
+              height={40}
+              className="h-8 md:h-10 w-auto shrink-0 opacity-25 grayscale"
+            />
           ))}
         </div>
       </div>
