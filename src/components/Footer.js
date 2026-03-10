@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       <div
-        className="relative z-10 mx-auto px-[var(--gutter)] pt-32 md:pt-48 pb-40 md:pb-56"
+        className="relative z-10 mx-auto px-[var(--gutter)] pt-32 md:pt-48 pb-20 md:pb-32"
         style={{ maxWidth: 'var(--max-width)' }}
       >
         {/* Main footer grid */}
@@ -160,7 +160,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+      </div>
+
+      {/* Bottom bar — pinned to very bottom */}
+      <div
+        className="relative z-10 mx-auto px-[var(--gutter)] pb-8"
+        style={{ maxWidth: 'var(--max-width)' }}
+      >
         <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-[11px] text-text-muted-light/30 tracking-wide">
             &copy; {new Date().getFullYear()} Irvale Studio. All rights reserved.
