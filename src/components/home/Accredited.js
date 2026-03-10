@@ -108,7 +108,7 @@ function CredentialCard({ credential }) {
 }
 
 /* ─── Mobile accordion item ─── */
-function AccordionItem({ credential, isOpen, onClick, progress }) {
+function AccordionItem({ credential, isOpen, onClick }) {
   return (
     <div className={`border-b border-white/[0.06] transition-colors duration-300 ${isOpen ? 'bg-dark-2/60' : ''}`}>
       <button
@@ -140,12 +140,6 @@ function AccordionItem({ credential, isOpen, onClick, progress }) {
           </p>
         </div>
       </div>
-
-      {isOpen && (
-        <div className="h-[2px] bg-white/[0.04]">
-          <div className="h-full bg-gold/40 transition-none" style={{ width: `${progress}%` }} />
-        </div>
-      )}
     </div>
   );
 }
@@ -156,10 +150,10 @@ export default function Accredited() {
 
   // Mobile accordion state
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
-  const startTimeRef = useRef(Date.now());
+  const pauseTimerRef = useRef(null);
 
   useEffect(() => {
     const mql = window.matchMedia('(max-width: 767px)');
@@ -170,31 +164,21 @@ export default function Accredited() {
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return;
-
-    startTimeRef.current = Date.now();
-    setProgress(0);
-
-    const progressInterval = setInterval(() => {
-      const elapsed = Date.now() - startTimeRef.current;
-      setProgress(Math.min((elapsed / AUTO_CYCLE_DURATION) * 100, 100));
-    }, 50);
+    if (!isMobile || paused) return;
 
     timerRef.current = setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % credentials.length);
     }, AUTO_CYCLE_DURATION);
 
-    return () => {
-      clearInterval(progressInterval);
-      clearTimeout(timerRef.current);
-    };
-  }, [activeIndex, isMobile]);
+    return () => clearTimeout(timerRef.current);
+  }, [activeIndex, isMobile, paused]);
 
   const handleAccordionClick = useCallback((i) => {
     clearTimeout(timerRef.current);
+    clearTimeout(pauseTimerRef.current);
     setActiveIndex(i);
-    startTimeRef.current = Date.now();
-    setProgress(0);
+    setPaused(true);
+    pauseTimerRef.current = setTimeout(() => setPaused(false), 10000);
   }, []);
 
   // Desktop animations
@@ -250,15 +234,14 @@ export default function Accredited() {
           ))}
         </div>
 
-        {/* Mobile: auto-cycling accordion */}
-        <div className="md:hidden border-t border-white/[0.06]">
+        {/* Mobile: auto-cycling accordion — fixed height prevents layout shift */}
+        <div className="md:hidden border-t border-white/[0.06] min-h-[480px]">
           {credentials.map((cred, i) => (
             <AccordionItem
               key={i}
               credential={cred}
               isOpen={activeIndex === i}
               onClick={() => handleAccordionClick(i)}
-              progress={activeIndex === i ? progress : 0}
             />
           ))}
         </div>

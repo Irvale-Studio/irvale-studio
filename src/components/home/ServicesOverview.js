@@ -209,7 +209,9 @@ export default function ServicesOverview() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
+  const pauseTimerRef = useRef(null);
   const startTimeRef = useRef(Date.now());
 
   // Detect mobile
@@ -221,9 +223,9 @@ export default function ServicesOverview() {
     return () => mql.removeEventListener('change', handler);
   }, []);
 
-  // Auto-cycle accordion on mobile
+  // Auto-cycle accordion on mobile (respects pause)
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || paused) return;
 
     startTimeRef.current = Date.now();
     setProgress(0);
@@ -242,13 +244,15 @@ export default function ServicesOverview() {
       clearInterval(progressInterval);
       clearTimeout(timerRef.current);
     };
-  }, [activeIndex, isMobile]);
+  }, [activeIndex, isMobile, paused]);
 
   const handleAccordionClick = useCallback((i) => {
     clearTimeout(timerRef.current);
+    clearTimeout(pauseTimerRef.current);
     setActiveIndex(i);
-    startTimeRef.current = Date.now();
-    setProgress(0);
+    setPaused(true);
+    // Resume auto-cycle after 10 seconds of no interaction
+    pauseTimerRef.current = setTimeout(() => setPaused(false), 10000);
   }, []);
 
   // Desktop GSAP animations
@@ -351,8 +355,8 @@ export default function ServicesOverview() {
           ))}
         </div>
 
-        {/* Mobile: auto-cycling accordion */}
-        <div className="md:hidden border-t border-[var(--border-light)]">
+        {/* Mobile: auto-cycling accordion — fixed height prevents layout shift */}
+        <div className="md:hidden border-t border-[var(--border-light)] min-h-[360px]">
           {services.map((service, i) => (
             <AccordionItem
               key={service.number}
