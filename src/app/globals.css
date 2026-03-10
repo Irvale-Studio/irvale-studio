@@ -82,6 +82,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Smooth scrolling for reduced-motion preference */
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-speed, 30s) linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

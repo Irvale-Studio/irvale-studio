@@ -1,5 +1,11 @@
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+import Navbar from "@/components/Navbar";
+import Preloader from "@/components/Preloader";
+import TransitionLayout from "@/components/TransitionLayout";
+import Footer from "@/components/Footer";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -25,7 +31,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${cormorant.variable} ${dmSans.variable} antialiased`}>
-        {children}
+        <Preloader />
+        <CustomCursor />
+        <SmoothScroll>
+          <Navbar />
+          <TransitionLayout>
+            {children}
+          </TransitionLayout>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
