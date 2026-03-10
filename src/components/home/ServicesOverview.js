@@ -13,21 +13,22 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     number: '01',
-    title: 'Get Found',
-    subtitle: 'Design & Development',
+    title: 'Get Recommended',
+    subtitle: 'AI Visibility',
     description:
-      'A bespoke website that builds trust on first impression and converts visitors into enquiries through considered design and intuitive booking flows.',
-    outcome: '2–3x more enquiries within the first quarter.',
+      'When someone asks ChatGPT for the best spa or top golf clubs near them, your name comes up. We optimise your brand for AI-powered search.',
+    outcome: '400+ waitlist in 3 months for Crestview Members Club.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-        <circle cx="11" cy="11" r="8" />
-        <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M2 17l10 5 10-5" />
+        <path d="M2 12l10 5 10-5" />
       </svg>
     ),
   },
   {
     number: '02',
-    title: 'Get Chosen',
+    title: 'Get Found',
     subtitle: 'SEO & Search Strategy',
     description:
       'Technical SEO and content strategy that puts you ahead of competitors in Google for the searches your ideal customers are making.',
@@ -40,16 +41,15 @@ const services = [
   },
   {
     number: '03',
-    title: 'Get Recommended',
-    subtitle: 'AI Visibility',
+    title: 'Get Chosen',
+    subtitle: 'Design & Development',
     description:
-      'When someone asks ChatGPT for the best spa or top golf clubs near them, your name comes up. We optimise your brand for AI-powered search.',
-    outcome: '400+ waitlist in 3 months for Crestview Members Club.',
+      'A bespoke website that builds trust on first impression and converts visitors into enquiries through considered design and intuitive booking flows.',
+    outcome: '2–3x more enquiries within the first quarter.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
       </svg>
     ),
   },
