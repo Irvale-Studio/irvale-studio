@@ -1,36 +1,206 @@
 'use client';
 
+import { useRef, useCallback, useState } from 'react';
 import Link from 'next/link';
-import RevealText from '@/components/ui/RevealText';
-import Eyebrow from '@/components/ui/Eyebrow';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CTASection() {
+  const sectionRef = useRef(null);
+  const ruleRef = useRef(null);
+  const eyebrowRef = useRef(null);
+  const headlineRef = useRef(null);
+  const subtextRef = useRef(null);
+  const btnRef = useRef(null);
+  const noteRef = useRef(null);
+  const glowRef = useRef(null);
+
+  // Magnetic button state
+  const [btnTransform, setBtnTransform] = useState({ x: 0, y: 0 });
+
+  const handleBtnMouseMove = useCallback((e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setBtnTransform({ x: x * 0.15, y: y * 0.15 });
+  }, []);
+
+  const handleBtnMouseLeave = useCallback(() => {
+    setBtnTransform({ x: 0, y: 0 });
+  }, []);
+
+  useGSAP(
+    () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          once: true,
+        },
+      });
+
+      // Gold rule draws in from center
+      tl.fromTo(
+        ruleRef.current,
+        { scaleX: 0 },
+        { scaleX: 1, duration: 1, ease: 'power3.inOut' },
+        0
+      );
+
+      // Eyebrow fades in
+      tl.fromTo(
+        eyebrowRef.current,
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+        0.2
+      );
+
+      // Headline words stagger in
+      const words = headlineRef.current?.querySelectorAll('.cta-word');
+      if (words?.length) {
+        tl.fromTo(
+          words,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.7, stagger: 0.06, ease: 'power2.out' },
+          0.35
+        );
+      }
+
+      // Subtext fades in
+      tl.fromTo(
+        subtextRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+        0.7
+      );
+
+      // Button scales up with glow
+      tl.fromTo(
+        btnRef.current,
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' },
+        0.9
+      );
+
+      // Glow pulses in
+      tl.fromTo(
+        glowRef.current,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
+        0.9
+      );
+
+      // Note fades in last
+      tl.fromTo(
+        noteRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: 'power2.out' },
+        1.2
+      );
+    },
+    { scope: sectionRef }
+  );
+
+  // Split headline into words for stagger animation
+  const headline = 'Let\u2019s create something extraordinary together.';
+  const headlineWords = headline.split(' ');
+
   return (
-    <section className="bg-dark py-[var(--section-gap)]">
+    <section
+      ref={sectionRef}
+      className="relative bg-dark overflow-hidden"
+    >
+      {/* Ambient background glow */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/[0.02] blur-[120px]" />
+      </div>
+
       <div
-        className="mx-auto px-[var(--gutter)] text-center"
+        className="relative z-10 mx-auto px-[var(--gutter)] py-32 md:py-48 lg:py-56"
         style={{ maxWidth: 'var(--max-width)' }}
       >
-        <Eyebrow className="mb-6 block">Ready?</Eyebrow>
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Gold rule - draws in from center */}
+          <div
+            ref={ruleRef}
+            className="w-24 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent mx-auto mb-10 origin-center"
+          />
 
-        <RevealText
-          as="h2"
-          className="font-display italic font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mx-auto justify-center mb-6"
-        >
-          Your competitors are already investing in this. Are you?
-        </RevealText>
+          {/* Eyebrow */}
+          <p
+            ref={eyebrowRef}
+            className="font-body text-[10px] md:text-[11px] text-gold/70 uppercase tracking-[0.2em] mb-8"
+          >
+            Start a Project
+          </p>
 
-        <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-10 max-w-md mx-auto">
-          Tell us about your business and where you want to grow. We&rsquo;ll show you exactly how we&rsquo;d get you there.
-        </p>
+          {/* Large italic headline - word-by-word reveal */}
+          <h2
+            ref={headlineRef}
+            className="font-display italic font-normal text-text-light text-[clamp(32px,5vw,64px)] leading-[1.15] mb-8"
+          >
+            {headlineWords.map((word, i) => (
+              <span key={i} className="cta-word inline-block mr-[0.3em]">
+                {word}
+              </span>
+            ))}
+          </h2>
 
-        <Link href="/contact" className="btn-primary px-10">
-          <span>Get Your Growth Plan →</span>
-        </Link>
+          {/* Supporting text */}
+          <p
+            ref={subtextRef}
+            className="font-body text-base md:text-lg text-text-muted-light/60 font-light leading-relaxed mb-12 max-w-lg mx-auto"
+          >
+            We partner with premium brands ready for their digital moment.
+            Tell us where you want to grow.
+          </p>
 
-        <p className="font-body text-xs text-text-muted-light mt-6">
-          Free consultation. No obligations. We respond within 24 hours.
-        </p>
+          {/* Magnetic button with glow */}
+          <div className="relative inline-block">
+            {/* Gold glow behind button */}
+            <div
+              ref={glowRef}
+              className="absolute inset-0 -inset-x-8 -inset-y-4 bg-gold/[0.06] blur-2xl rounded-full pointer-events-none transition-opacity duration-500"
+              aria-hidden="true"
+            />
+
+            <Link
+              href="/contact"
+              ref={btnRef}
+              className="relative inline-flex items-center gap-3 bg-gold hover:bg-gold-light text-dark font-body text-sm font-medium tracking-[0.08em] uppercase px-10 py-4 transition-all duration-500 hover:tracking-[0.12em] group"
+              style={{
+                transform: `translate(${btnTransform.x}px, ${btnTransform.y}px)`,
+                transition: 'transform 0.3s cubic-bezier(0.33, 1, 0.68, 1), background-color 0.5s, letter-spacing 0.5s',
+              }}
+              onMouseMove={handleBtnMouseMove}
+              onMouseLeave={handleBtnMouseLeave}
+            >
+              <span>Begin Your Project</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* Response note */}
+          <p
+            ref={noteRef}
+            className="font-body text-[11px] text-text-muted-light/30 tracking-wide mt-8"
+          >
+            Free consultation &middot; No obligations &middot; We respond within 24 hours
+          </p>
+        </div>
       </div>
     </section>
   );
