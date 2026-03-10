@@ -1,4 +1,5 @@
 import ContactForm from '@/components/ContactForm';
+import { LocalBusinessSchema } from '@/components/SchemaMarkup';
 
 export const metadata = {
   title: 'Contact — Irvale Studio',
@@ -8,6 +9,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <main>
+      <LocalBusinessSchema />
       <ContactForm />
     </main>
   );

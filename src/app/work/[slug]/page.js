@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { projects } from '@/lib/data/projects';
 import CaseStudyContent from '@/components/work/CaseStudyContent';
+import { CreativeWorkSchema } from '@/components/SchemaMarkup';
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -23,5 +24,15 @@ export default function CaseStudyPage({ params }) {
   const currentIndex = projects.findIndex((p) => p.slug === params.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
-  return <CaseStudyContent project={project} nextProject={nextProject} />;
+  return (
+    <>
+      <CreativeWorkSchema
+        name={project.name}
+        description={project.description}
+        image={`https://irvale.studio${project.image}`}
+        datePublished={project.year}
+      />
+      <CaseStudyContent project={project} nextProject={nextProject} />
+    </>
+  );
 }

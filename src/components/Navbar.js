@@ -120,7 +120,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="md:hidden flex flex-col gap-1.5 p-2 min-w-[44px] min-h-[44px] items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
@@ -143,7 +143,7 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       <div
         ref={mobileMenuRef}
-        className="fixed inset-0 z-[99] bg-dark flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none md:hidden"
+        className="fixed inset-0 z-[99] bg-dark flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none md:hidden pb-[env(safe-area-inset-bottom)]"
       >
         {navLinks.map((link, i) => (
           <Link

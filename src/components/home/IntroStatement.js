@@ -41,7 +41,7 @@ export default function IntroStatement() {
         </SectionReveal>
 
         {/* Stats */}
-        <SectionReveal className="grid grid-cols-3 gap-8 pt-8 border-t border-[var(--border-dark)]">
+        <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-[var(--border-dark)]">
           {stats.map((stat, i) => (
             <div key={i} className="relative pl-6 border-l border-gold/30">
               <div className="font-display text-[clamp(36px,5vw,64px)] text-text-light leading-none mb-2">

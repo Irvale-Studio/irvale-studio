@@ -23,8 +23,19 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://irvale.studio'),
   title: "Irvale Studio",
   description: "Where luxury brands meet their digital moment.",
+  openGraph: {
+    title: "Irvale Studio",
+    description: "Where luxury brands meet their digital moment.",
+    siteName: "Irvale Studio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({ children }) {

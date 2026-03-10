@@ -6,6 +6,7 @@ import Marquee from '@/components/ui/Marquee';
 import ServiceCards from '@/components/services/ServiceCards';
 import AddOnsGrid from '@/components/services/AddOnsGrid';
 import FAQAccordion from '@/components/services/FAQAccordion';
+import { ServiceSchema, FAQPageSchema } from '@/components/SchemaMarkup';
 
 export const metadata = {
   title: 'Services — Irvale Studio',
@@ -15,6 +16,8 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <main>
+      <ServiceSchema />
+      <FAQPageSchema />
       {/* Hero */}
       <section className="bg-dark pt-32 pb-[var(--section-gap)]">
         <div

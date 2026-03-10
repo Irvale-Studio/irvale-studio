@@ -368,50 +368,50 @@ Hardcoded in `src/lib/data/projects.js`:
 - [x] Design tokens in globals.css
 - [x] Font setup (Cormorant Garamond + DM Sans)
 - [x] cn() utility
-- [ ] SmoothScroll component (Lenis + GSAP sync)
-- [ ] CustomCursor component
-- [ ] Navbar (desktop + mobile)
-- [ ] Preloader
-- [ ] TransitionLayout (page transitions)
-- [ ] Reusable animation components (RevealText, SectionReveal, ImageReveal, Marquee, Counter, Eyebrow, MagneticButton)
-- [ ] Footer
+- [x] SmoothScroll component (Lenis + GSAP sync)
+- [x] CustomCursor component
+- [x] Navbar (desktop + mobile)
+- [x] Preloader
+- [x] TransitionLayout (page transitions)
+- [x] Reusable animation components (RevealText, SectionReveal, ImageReveal, Marquee, Counter, Eyebrow, MagneticButton)
+- [x] Footer
 
 ### Phase 2: Homepage
-- [ ] Hero section (bg image, overlay, headline, CTAs, counter)
-- [ ] Marquee ticker
-- [ ] Trust logos bar
-- [ ] Intro statement + stats
-- [ ] Horizontal scroll featured work
-- [ ] Services overview (3 columns)
-- [ ] Process steps
-- [ ] Testimonial
-- [ ] CTA section
+- [x] Hero section (bg image, overlay, headline, CTAs, counter)
+- [x] Marquee ticker
+- [x] Trust logos bar
+- [x] Intro statement + stats
+- [x] Horizontal scroll featured work
+- [x] Services overview (3 columns)
+- [x] Process steps
+- [x] Testimonial
+- [x] CTA section
 
 ### Phase 3: Core Pages
-- [ ] Portfolio index (`/work`) — grid + filter
-- [ ] Case study template (`/work/[slug]`) — build once with data-driven content
-- [ ] Portfolio data file (`src/lib/data/projects.js`)
-- [ ] Services page — all 5 parts (hero, tiers, marquee, add-ons, FAQ)
-- [ ] AI Visibility page (navy theme)
+- [x] Portfolio index (`/work`) — grid + filter
+- [x] Case study template (`/work/[slug]`) — build once with data-driven content
+- [x] Portfolio data file (`src/lib/data/projects.js`)
+- [x] Services page — all 5 parts (hero, tiers, marquee, add-ons, FAQ)
+- [x] AI Visibility page (navy theme)
 
 ### Phase 4: Supporting Pages
-- [ ] About page
-- [ ] Contact page + form
-- [ ] Contact API route (Resend integration)
-- [ ] 404 page
+- [x] About page
+- [x] Contact page + form
+- [x] Contact API route (Resend integration)
+- [x] 404 page
 
 ### Phase 5: Polish & Launch Prep
-- [ ] All scroll-triggered animations wired up
-- [ ] Magnetic buttons on all CTAs
-- [ ] Portfolio hover effects
-- [ ] Full mobile responsiveness pass
+- [x] All scroll-triggered animations wired up
+- [x] Magnetic buttons on all CTAs
+- [x] Portfolio hover effects
+- [x] Full mobile responsiveness pass
 - [ ] Performance audit (Lighthouse 90+ mobile)
-- [ ] Schema markup (LocalBusiness, Service, FAQPage, CreativeWork)
-- [ ] Meta titles + descriptions per page
-- [ ] Open Graph tags + OG image
-- [ ] Favicon (gold M monogram)
-- [ ] sitemap.xml + robots.txt
-- [ ] prefers-reduced-motion respected everywhere
+- [x] Schema markup (LocalBusiness, Service, FAQPage, CreativeWork)
+- [x] Meta titles + descriptions per page
+- [x] Open Graph tags + OG image
+- [ ] Favicon (gold I monogram)
+- [x] sitemap.xml + robots.txt
+- [x] prefers-reduced-motion respected everywhere
 - [ ] No console errors
 - [ ] Plausible analytics integration
 

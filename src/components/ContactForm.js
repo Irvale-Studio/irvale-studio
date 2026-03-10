@@ -259,7 +259,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full md:w-auto font-body text-sm font-medium bg-gold text-dark px-10 py-4 hover:bg-gold-light transition-colors disabled:opacity-60"
+                className="w-full font-body text-sm font-medium bg-gold text-dark px-10 py-4 hover:bg-gold-light transition-colors disabled:opacity-60"
               >
                 {status === 'submitting' ? 'Sending...' : 'Send Enquiry →'}
               </button>
@@ -287,7 +287,7 @@ function FloatingField({ name, label, type = 'text', value, onChange, error }) {
         onChange={onChange}
         placeholder=" "
         className={cn(
-          'peer w-full bg-transparent border-b py-2 pt-5 font-body text-sm text-text-dark outline-none transition-colors',
+          'peer w-full bg-transparent border-b py-2 pt-5 font-body text-[16px] md:text-sm text-text-dark outline-none transition-colors',
           error ? 'border-red-500' : 'border-[var(--border-light)] focus:border-gold'
         )}
       />
