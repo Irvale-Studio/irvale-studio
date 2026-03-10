@@ -17,7 +17,6 @@ const services = [
     subtitle: 'AI Visibility',
     description:
       'When someone asks ChatGPT for the best spa or top golf clubs near them, your name comes up. We optimise your brand for AI-powered search.',
-    outcome: '400+ waitlist in 3 months for Crestview Members Club.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -32,10 +31,10 @@ const services = [
     subtitle: 'SEO & Search Strategy',
     description:
       'Technical SEO and content strategy that puts you ahead of competitors in Google for the searches your ideal customers are making.',
-    outcome: '#1 local ranking within 6 months.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -45,17 +44,15 @@ const services = [
     subtitle: 'Design & Development',
     description:
       'A bespoke website that builds trust on first impression and converts visitors into enquiries through considered design and intuitive booking flows.',
-    outcome: '2–3x more enquiries within the first quarter.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-        <circle cx="11" cy="11" r="8" />
-        <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
 ];
 
-function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef, outcomeRef }) {
+function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef }) {
   const tiltRef = useRef(null);
   const glowRef = useRef(null);
 
@@ -173,19 +170,9 @@ function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef, o
         />
 
         {/* Description */}
-        <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-dark font-light mb-6">
+        <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-dark font-light">
           {service.description}
         </p>
-
-        {/* Outcome */}
-        <div
-          ref={outcomeRef}
-          className="border-t border-[var(--border-light)] pt-5"
-        >
-          <p className="font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] text-gold-muted font-medium italic">
-            {service.outcome}
-          </p>
-        </div>
       </div>
     </div>
   );
@@ -198,7 +185,6 @@ export default function ServicesOverview() {
   const numbersRef = useRef([]);
   const accentsRef = useRef([]);
   const iconsRef = useRef([]);
-  const outcomesRef = useRef([]);
 
   useGSAP(
     () => {
@@ -295,20 +281,6 @@ export default function ServicesOverview() {
               );
             }
 
-            // Outcome text fades in last
-            if (outcomesRef.current[i]) {
-              gsap.set(outcomesRef.current[i], { y: 20, opacity: 0 });
-              tl.to(
-                outcomesRef.current[i],
-                {
-                  y: 0,
-                  opacity: 1,
-                  duration: 0.6,
-                  ease: 'power2.out',
-                },
-                '-=0.3'
-              );
-            }
           });
         });
 
@@ -370,7 +342,6 @@ export default function ServicesOverview() {
               numberRef={(el) => (numbersRef.current[i] = el)}
               iconRef={(el) => (iconsRef.current[i] = el)}
               accentRef={(el) => (accentsRef.current[i] = el)}
-              outcomeRef={(el) => (outcomesRef.current[i] = el)}
             />
           ))}
         </div>
