@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/work', label: 'Work' },
   { href: '/services', label: 'Services' },
   { href: '/ai-visibility', label: 'AI Visibility', highlight: true },
+  { href: '/marketing', label: 'Marketing' },
   { href: '/about', label: 'About' },
 ];
 

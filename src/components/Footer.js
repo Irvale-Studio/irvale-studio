@@ -5,6 +5,7 @@ const footerLinks = [
   { href: '/work', label: 'Work' },
   { href: '/services', label: 'Services' },
   { href: '/ai-visibility', label: 'AI Visibility' },
+  { href: '/marketing', label: 'Marketing' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];

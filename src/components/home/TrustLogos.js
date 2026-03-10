@@ -1,37 +1,41 @@
 'use client';
 
-import SectionReveal from '@/components/ui/SectionReveal';
 import Eyebrow from '@/components/ui/Eyebrow';
 
-const logos = [
-  'Heathland GC',
-  'Aura Wellness',
-  'Blackwood',
-  'The Halcyon',
-  'Elara Dining',
-  'Crestview',
+const clients = [
+  'BOXX',
+  'Hang Dong Golf Club',
+  'Chiang Mai Go Tours',
+  'BOXX',
+  'Hang Dong Golf Club',
+  'Chiang Mai Go Tours',
 ];
 
 export default function TrustLogos() {
   return (
-    <section className="bg-cream py-[var(--section-gap)]">
+    <section className="bg-cream py-16 overflow-hidden">
       <div
-        className="mx-auto px-[var(--gutter)]"
+        className="mx-auto px-[var(--gutter)] mb-8"
         style={{ maxWidth: 'var(--max-width)' }}
       >
-        <SectionReveal className="text-center">
-          <Eyebrow className="mb-12 block">Brands That Grew With Us</Eyebrow>
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
-            {logos.map((logo) => (
-              <div
-                key={logo}
-                className="font-display text-lg text-text-dark/40 hover:text-text-dark/60 transition-opacity tracking-[0.1em] uppercase"
-              >
-                {logo}
-              </div>
-            ))}
-          </div>
-        </SectionReveal>
+        <Eyebrow className="block text-center">Brands That Grew With Us</Eyebrow>
+      </div>
+
+      {/* Scrolling logo carousel */}
+      <div className="relative overflow-hidden">
+        <div
+          className="flex animate-marquee items-center gap-16 md:gap-24 whitespace-nowrap"
+          style={{ '--marquee-speed': '20s' }}
+        >
+          {[...clients, ...clients].map((name, i) => (
+            <span
+              key={i}
+              className="font-display text-xl md:text-2xl text-text-dark/30 tracking-[0.15em] uppercase shrink-0"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

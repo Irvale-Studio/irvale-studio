@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Preloader from "@/components/Preloader";
 import TransitionLayout from "@/components/TransitionLayout";
 import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
           </TransitionLayout>
           <Footer />
         </SmoothScroll>
+        <FloatingCTA />
       </body>
     </html>
   );
