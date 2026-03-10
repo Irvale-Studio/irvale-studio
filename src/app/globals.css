@@ -88,7 +88,9 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translateX(-50%); }
 }
 
-.animate-marquee {
+.marquee-track {
+  display: flex;
+  width: max-content;
   animation: marquee var(--marquee-speed, 30s) linear infinite;
 }
 
@@ -193,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
   }
 
-  .animate-marquee {
+  .marquee-track {
     animation-play-state: paused !important;
   }
 }

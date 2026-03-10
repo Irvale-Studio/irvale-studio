@@ -6,9 +6,6 @@ const clients = [
   'BOXX',
   'Hang Dong Golf Club',
   'Chiang Mai Go Tours',
-  'BOXX',
-  'Hang Dong Golf Club',
-  'Chiang Mai Go Tours',
 ];
 
 export default function TrustLogos() {
@@ -24,17 +21,31 @@ export default function TrustLogos() {
       {/* Scrolling logo carousel */}
       <div className="relative overflow-hidden">
         <div
-          className="flex animate-marquee items-center gap-16 md:gap-24 whitespace-nowrap"
+          className="marquee-track"
           style={{ '--marquee-speed': '20s' }}
         >
-          {[...clients, ...clients].map((name, i) => (
-            <span
-              key={i}
-              className="font-display text-xl md:text-2xl text-text-dark/30 tracking-[0.15em] uppercase shrink-0"
-            >
-              {name}
-            </span>
-          ))}
+          {/* First set */}
+          <div className="flex items-center gap-16 md:gap-24 shrink-0">
+            {clients.map((name, i) => (
+              <span
+                key={i}
+                className="font-display text-xl md:text-2xl text-text-dark/30 tracking-[0.15em] uppercase shrink-0 px-4"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+          {/* Duplicate set for seamless loop */}
+          <div className="flex items-center gap-16 md:gap-24 shrink-0">
+            {clients.map((name, i) => (
+              <span
+                key={`dup-${i}`}
+                className="font-display text-xl md:text-2xl text-text-dark/30 tracking-[0.15em] uppercase shrink-0 px-4"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

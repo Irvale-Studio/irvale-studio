@@ -6,7 +6,7 @@ export default function Marquee({ items, separator = '·', className = '', speed
   return (
     <div className={cn('overflow-hidden whitespace-nowrap', className)}>
       <div
-        className="inline-flex animate-marquee"
+        className="marquee-track"
         style={{ '--marquee-speed': `${speed}s` }}
       >
         <span className="inline-block pr-4">{content}</span>

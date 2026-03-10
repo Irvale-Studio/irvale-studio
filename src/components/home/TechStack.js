@@ -33,19 +33,35 @@ export default function TechStack() {
       {/* Scrolling tech logos */}
       <div className="relative overflow-hidden">
         <div
-          className="flex animate-marquee items-center gap-12 md:gap-16 whitespace-nowrap"
+          className="marquee-track"
           style={{ '--marquee-speed': '25s' }}
         >
-          {[...tools, ...tools].map((tool, i) => (
-            <Image
-              key={i}
-              src={tool.logo}
-              alt={tool.name}
-              width={120}
-              height={40}
-              className="h-8 md:h-10 w-auto shrink-0 opacity-25 grayscale"
-            />
-          ))}
+          {/* First set */}
+          <div className="flex items-center gap-12 md:gap-16 shrink-0">
+            {tools.map((tool, i) => (
+              <Image
+                key={i}
+                src={tool.logo}
+                alt={tool.name}
+                width={120}
+                height={40}
+                className="h-8 md:h-10 w-auto shrink-0 opacity-25 grayscale px-2"
+              />
+            ))}
+          </div>
+          {/* Duplicate set for seamless loop */}
+          <div className="flex items-center gap-12 md:gap-16 shrink-0">
+            {tools.map((tool, i) => (
+              <Image
+                key={`dup-${i}`}
+                src={tool.logo}
+                alt={tool.name}
+                width={120}
+                height={40}
+                className="h-8 md:h-10 w-auto shrink-0 opacity-25 grayscale px-2"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
