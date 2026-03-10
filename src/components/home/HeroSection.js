@@ -76,11 +76,17 @@ export default function HeroSection() {
       <div
         ref={overlayRef}
         className="absolute inset-0 bg-dark"
-        style={{ opacity: 0.55 }}
+        style={{ opacity: 0.6 }}
       />
 
-      {/* Radial vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(17,17,17,0.4)_60%,rgba(17,17,17,0.8)_100%)]" />
+      {/* Radial vignette — center spotlight */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(17,17,17,0.5)_50%,rgba(17,17,17,0.85)_100%)]" />
+
+      {/* Top edge vignette */}
+      <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-dark/70 to-transparent" />
+
+      {/* Bottom edge vignette */}
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark/80 to-transparent" />
 
       {/* Content — centered like Boxx */}
       <div
