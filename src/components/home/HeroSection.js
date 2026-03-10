@@ -19,10 +19,35 @@ export default function HeroSection() {
   useGSAP(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // Parallax on the background image
-    gsap.to(imageRef.current, {
+    const imageWrapper = imageRef.current;
+
+    // Cinematic clip-path reveal: thin strip → full image
+    gsap.set(imageWrapper, {
+      clipPath: 'inset(40% 0% 40% 0%)',
+      scale: 1.15,
+    });
+
+    const heroTl = gsap.timeline({ delay: 0.2 });
+
+    heroTl.to(imageWrapper, {
+      clipPath: 'inset(0% 0% 0% 0%)',
+      scale: 1.0,
+      duration: 1.8,
+      ease: 'power3.inOut',
+    });
+
+    // Content fades in after image reveals
+    heroTl.from(contentRef.current.children, {
+      opacity: 0,
+      y: 30,
+      stagger: 0.15,
+      duration: 1,
+      ease: 'power3.out',
+    }, '-=0.6');
+
+    // Parallax on scroll (after initial reveal)
+    gsap.to(imageWrapper, {
       yPercent: 20,
-      scale: 1.05,
       ease: 'none',
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -42,16 +67,6 @@ export default function HeroSection() {
         end: 'bottom top',
         scrub: true,
       },
-    });
-
-    // Content fade in on load
-    gsap.from(contentRef.current.children, {
-      opacity: 0,
-      y: 30,
-      stagger: 0.15,
-      duration: 1,
-      ease: 'power3.out',
-      delay: 0.3,
     });
   }, { scope: sectionRef });
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -52,7 +52,10 @@ const services = [
   },
 ];
 
-function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef }) {
+const AUTO_CYCLE_DURATION = 5000;
+
+/* ─── Desktop card (unchanged from before) ─── */
+function ServiceCard({ service, cardRef, numberRef, iconRef, accentRef }) {
   const tiltRef = useRef(null);
   const glowRef = useRef(null);
 
@@ -67,8 +70,6 @@ function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef })
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-
-    // Keep rotation very subtle — max 3deg
     const rotateX = ((y - centerY) / centerY) * -3;
     const rotateY = ((x - centerX) / centerX) * 3;
 
@@ -80,7 +81,6 @@ function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef })
       transformPerspective: 800,
     });
 
-    // Move glow to follow cursor
     if (glowRef.current) {
       gsap.to(glowRef.current, {
         x: x - rect.width / 2,
@@ -95,86 +95,104 @@ function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef })
   const handleMouseLeave = useCallback(() => {
     const card = tiltRef.current;
     if (!card) return;
-
-    gsap.to(card, {
-      rotateX: 0,
-      rotateY: 0,
-      duration: 0.6,
-      ease: 'power3.out',
-    });
-
-    if (glowRef.current) {
-      gsap.to(glowRef.current, {
-        opacity: 0,
-        duration: 0.4,
-      });
-    }
+    gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.6, ease: 'power3.out' });
+    if (glowRef.current) gsap.to(glowRef.current, { opacity: 0, duration: 0.4 });
   }, []);
 
   return (
     <div
-      ref={(el) => {
-        tiltRef.current = el;
-        cardRef(el);
-      }}
+      ref={(el) => { tiltRef.current = el; cardRef(el); }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="service-card group relative border border-[var(--border-light)] bg-cream p-8 md:p-10 overflow-hidden will-change-transform transition-[border-color,box-shadow] duration-500 ease-out hover:border-gold/25 hover:shadow-[0_6px_30px_rgba(201,169,110,0.1)] active:scale-[0.98]"
       style={{ transformStyle: 'preserve-3d' }}
     >
-      {/* Subtle radial glow that follows cursor */}
       <div
         ref={glowRef}
         className="absolute w-80 h-80 rounded-full pointer-events-none opacity-0"
         style={{
           background: 'radial-gradient(circle, rgba(201,169,110,0.25) 0%, rgba(201,169,110,0.08) 40%, transparent 70%)',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+          top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
         }}
       />
-
-      {/* Card content — slightly "lifted" in 3D */}
       <div style={{ transform: 'translateZ(20px)' }}>
-        {/* Top row: number + icon */}
         <div className="flex items-start justify-between mb-6">
           <div className="overflow-hidden">
-            <span
-              ref={numberRef}
-              className="font-display text-[clamp(48px,5vw,72px)] text-gold/15 leading-none block"
-            >
+            <span ref={numberRef} className="font-display text-[clamp(48px,5vw,72px)] text-gold/15 leading-none block">
               {service.number}
             </span>
           </div>
-          <div
-            ref={iconRef}
-            className="text-gold/40 transition-colors duration-500 group-hover:text-gold"
-          >
+          <div ref={iconRef} className="text-gold/40 transition-colors duration-500 group-hover:text-gold">
             {service.icon}
           </div>
         </div>
-
-        {/* Title */}
         <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark mb-1 transition-colors duration-500 group-hover:text-gold-muted">
           {service.title}
         </h3>
-
-        {/* Subtitle */}
         <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-gold-muted uppercase tracking-[var(--type-label-ls)] mb-5">
           {service.subtitle}
         </p>
-
-        {/* Gold accent line */}
-        <div
-          ref={accentRef}
-          className="h-px bg-gradient-to-r from-gold/50 to-gold/0 w-2/3 mb-5"
-        />
-
-        {/* Description */}
+        <div ref={accentRef} className="h-px bg-gradient-to-r from-gold/50 to-gold/0 w-2/3 mb-5" />
         <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-dark font-light">
           {service.description}
         </p>
       </div>
+    </div>
+  );
+}
+
+/* ─── Mobile accordion item ─── */
+function AccordionItem({ service, isOpen, onClick, progress }) {
+  const contentRef = useRef(null);
+
+  return (
+    <div
+      className={`border-b border-[var(--border-light)] transition-colors duration-300 ${isOpen ? 'bg-cream-2/50' : ''}`}
+    >
+      <button
+        onClick={onClick}
+        className="w-full flex items-center justify-between py-5 px-4 min-h-[56px] text-left cursor-pointer"
+      >
+        <div className="flex items-center gap-4">
+          <span className="font-display text-gold/40 text-[length:var(--type-body-sm)]">
+            {service.number}
+          </span>
+          <h3 className={`font-display text-[length:var(--type-body-lg)] leading-tight transition-colors duration-300 ${isOpen ? 'text-gold-muted' : 'text-text-dark'}`}>
+            {service.title}
+          </h3>
+        </div>
+        <div className={`text-gold/50 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M8 3v10M3 8h10" strokeLinecap="round" />
+          </svg>
+        </div>
+      </button>
+
+      {/* Expandable content */}
+      <div
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-500 ease-out"
+        style={{ maxHeight: isOpen ? '200px' : '0px', opacity: isOpen ? 1 : 0 }}
+      >
+        <div className="px-4 pb-5">
+          <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-gold-muted uppercase tracking-[var(--type-label-ls)] mb-3">
+            {service.subtitle}
+          </p>
+          <p className="font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] text-text-muted-dark font-light">
+            {service.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Progress bar for active item */}
+      {isOpen && (
+        <div className="h-[2px] bg-gold/10">
+          <div
+            className="h-full bg-gold/50 transition-none"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -187,16 +205,61 @@ export default function ServicesOverview() {
   const accentsRef = useRef([]);
   const iconsRef = useRef([]);
 
+  // Mobile accordion state
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const timerRef = useRef(null);
+  const startTimeRef = useRef(Date.now());
+
+  // Detect mobile
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mql.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
+  // Auto-cycle accordion on mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    startTimeRef.current = Date.now();
+    setProgress(0);
+
+    const progressInterval = setInterval(() => {
+      const elapsed = Date.now() - startTimeRef.current;
+      const pct = Math.min((elapsed / AUTO_CYCLE_DURATION) * 100, 100);
+      setProgress(pct);
+    }, 50);
+
+    timerRef.current = setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % services.length);
+    }, AUTO_CYCLE_DURATION);
+
+    return () => {
+      clearInterval(progressInterval);
+      clearTimeout(timerRef.current);
+    };
+  }, [activeIndex, isMobile]);
+
+  const handleAccordionClick = useCallback((i) => {
+    clearTimeout(timerRef.current);
+    setActiveIndex(i);
+    startTimeRef.current = Date.now();
+    setProgress(0);
+  }, []);
+
+  // Desktop GSAP animations
   useGSAP(
     () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      // Small delay to ensure child refs are fully populated
       const initTimer = requestAnimationFrame(() => {
         const mm = gsap.matchMedia();
 
         mm.add('(min-width: 768px)', () => {
-          // Animate the connecting line across top of cards
           if (lineRef.current) {
             gsap.fromTo(lineRef.current,
               { scaleX: 0 },
@@ -214,11 +277,8 @@ export default function ServicesOverview() {
             );
           }
 
-          // Staggered card reveal with GSAP timelines
           cardsRef.current.forEach((card, i) => {
             if (!card) return;
-
-            // Set initial state explicitly
             gsap.set(card, { y: 60, opacity: 0 });
 
             const tl = gsap.timeline({
@@ -229,79 +289,24 @@ export default function ServicesOverview() {
               },
             });
 
-            // Card slides up and fades in
             tl.to(card, {
-              y: 0,
-              opacity: 1,
-              duration: 0.9,
-              ease: 'power3.out',
-              delay: i * 0.2,
+              y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: i * 0.2,
             });
 
-            // Number slides up from below
             if (numbersRef.current[i]) {
               gsap.set(numbersRef.current[i], { yPercent: 100, opacity: 0 });
-              tl.to(
-                numbersRef.current[i],
-                {
-                  yPercent: 0,
-                  opacity: 1,
-                  duration: 0.7,
-                  ease: 'power3.out',
-                },
-                '-=0.6'
-              );
+              tl.to(numbersRef.current[i], { yPercent: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.6');
             }
 
-            // Icon fades and scales in
             if (iconsRef.current[i]) {
               gsap.set(iconsRef.current[i], { scale: 0, opacity: 0 });
-              tl.to(
-                iconsRef.current[i],
-                {
-                  scale: 1,
-                  opacity: 1,
-                  duration: 0.5,
-                  ease: 'back.out(1.7)',
-                },
-                '-=0.5'
-              );
+              tl.to(iconsRef.current[i], { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.5');
             }
 
-            // Gold accent line draws across
             if (accentsRef.current[i]) {
               gsap.set(accentsRef.current[i], { scaleX: 0, transformOrigin: 'left center' });
-              tl.to(
-                accentsRef.current[i],
-                {
-                  scaleX: 1,
-                  duration: 0.8,
-                  ease: 'power2.inOut',
-                },
-                '-=0.4'
-              );
+              tl.to(accentsRef.current[i], { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.4');
             }
-
-          });
-        });
-
-        // Mobile: simpler staggered fade-in
-        mm.add('(max-width: 767px)', () => {
-          cardsRef.current.forEach((card, i) => {
-            if (!card) return;
-            gsap.set(card, { y: 40, opacity: 0 });
-            gsap.to(card, {
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              ease: 'power2.out',
-              delay: i * 0.1,
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                once: true,
-              },
-            });
           });
         });
       });
@@ -325,7 +330,7 @@ export default function ServicesOverview() {
           Design, search, and AI — working together to grow your business.
         </RevealText>
 
-        {/* Connecting line — desktop only */}
+        {/* Desktop: connecting line + card grid */}
         <div className="hidden md:block mb-12">
           <div
             ref={lineRef}
@@ -333,12 +338,11 @@ export default function ServicesOverview() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[var(--grid-gap)]">
+        <div className="hidden md:grid md:grid-cols-3 gap-[var(--grid-gap)]">
           {services.map((service, i) => (
             <ServiceCard
               key={service.number}
               service={service}
-              index={i}
               cardRef={(el) => (cardsRef.current[i] = el)}
               numberRef={(el) => (numbersRef.current[i] = el)}
               iconRef={(el) => (iconsRef.current[i] = el)}
@@ -347,11 +351,21 @@ export default function ServicesOverview() {
           ))}
         </div>
 
+        {/* Mobile: auto-cycling accordion */}
+        <div className="md:hidden border-t border-[var(--border-light)]">
+          {services.map((service, i) => (
+            <AccordionItem
+              key={service.number}
+              service={service}
+              isOpen={activeIndex === i}
+              onClick={() => handleAccordionClick(i)}
+              progress={activeIndex === i ? progress : 0}
+            />
+          ))}
+        </div>
+
         <div className="mt-14 text-center">
-          <Link
-            href="/services"
-            className="btn-outline inline-block"
-          >
+          <Link href="/services" className="btn-outline inline-block">
             <span>Explore Services</span>
           </Link>
         </div>
