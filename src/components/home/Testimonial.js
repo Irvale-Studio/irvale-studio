@@ -154,10 +154,10 @@ export default function Testimonial() {
 
           {/* Author */}
           <div ref={authorRef}>
-            <p className="font-body text-sm font-medium text-text-dark">
+            <p className="font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] font-medium text-text-dark">
               {current.author}
             </p>
-            <p className="font-body text-xs text-text-muted-dark mt-1">
+            <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-dark mt-1">
               {current.role}
             </p>
           </div>

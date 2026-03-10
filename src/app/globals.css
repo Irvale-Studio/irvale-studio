@@ -45,17 +45,29 @@
   --type-h3: clamp(24px, 2.5vw, 36px);
   --type-h3-lh: 1.2;
 
-  /* Body large */
+  /* Body large — intro paragraphs, lead text */
   --type-body-lg: clamp(18px, 1.5vw, 22px);
   --type-body-lg-lh: 1.65;
 
-  /* Body */
+  /* Body — standard paragraphs, descriptions */
   --type-body: clamp(16px, 1.2vw, 18px);
   --type-body-lh: 1.7;
+
+  /* Body small — secondary info, metadata, nav links */
+  --type-body-sm: clamp(13px, 1vw, 15px);
+  --type-body-sm-lh: 1.6;
+
+  /* Caption — fine print, timestamps, footnotes */
+  --type-caption: clamp(11px, 0.8vw, 12px);
+  --type-caption-lh: 1.5;
 
   /* Label / eyebrow */
   --type-label: 12px;
   --type-label-ls: 0.18em;
+
+  /* Button */
+  --type-button: 14px;
+  --type-button-ls: 0.05em;
 
   /* Spacing */
   --max-width: 1320px;
@@ -99,7 +111,8 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--type-button);
+  letter-spacing: var(--type-button-ls);
   font-weight: 500;
   padding: 14px 32px;
   background: var(--color-gold);
@@ -137,7 +150,8 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--type-button);
+  letter-spacing: var(--type-button-ls);
   font-weight: 500;
   padding: 14px 32px;
   border: 1px solid rgba(201, 169, 110, 0.4);

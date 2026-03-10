@@ -162,7 +162,7 @@ function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef, o
         </h3>
 
         {/* Subtitle */}
-        <p className="font-body text-xs text-gold-muted uppercase tracking-[0.15em] mb-5">
+        <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-gold-muted uppercase tracking-[var(--type-label-ls)] mb-5">
           {service.subtitle}
         </p>
 
@@ -182,7 +182,7 @@ function ServiceCard({ service, index, cardRef, numberRef, iconRef, accentRef, o
           ref={outcomeRef}
           className="border-t border-[var(--border-light)] pt-5"
         >
-          <p className="font-body text-sm text-gold-muted font-medium italic">
+          <p className="font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] text-gold-muted font-medium italic">
             {service.outcome}
           </p>
         </div>

@@ -120,7 +120,7 @@ export default function CTASection() {
           {/* Eyebrow */}
           <p
             ref={eyebrowRef}
-            className="font-body text-[10px] md:text-[11px] text-gold/70 uppercase tracking-[0.2em] mb-8"
+            className="font-body text-[length:var(--type-caption)] text-gold/70 uppercase tracking-[var(--type-label-ls)] mb-8"
           >
             Start a Project
           </p>
@@ -128,7 +128,7 @@ export default function CTASection() {
           {/* Large italic headline - word-by-word reveal */}
           <h2
             ref={headlineRef}
-            className="font-display italic font-normal text-text-light text-[clamp(32px,5vw,64px)] leading-[1.15] mb-8"
+            className="font-display italic font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] mb-8"
           >
             {headlineWords.map((word, i) => (
               <span key={i} className="cta-word inline-block mr-[0.3em]">
@@ -140,7 +140,7 @@ export default function CTASection() {
           {/* Supporting text */}
           <p
             ref={subtextRef}
-            className="font-body text-base md:text-lg text-text-muted-light/60 font-light leading-relaxed mb-12 max-w-lg mx-auto"
+            className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-light/60 font-light mb-12 max-w-lg mx-auto"
           >
             We partner with premium brands ready for their digital moment.
             Tell us where you want to grow.
@@ -158,7 +158,7 @@ export default function CTASection() {
             <Link
               href="/contact"
               ref={btnRef}
-              className="relative inline-flex items-center gap-3 bg-gold hover:bg-gold-light text-dark font-body text-sm font-medium tracking-[0.08em] uppercase px-10 py-4 transition-all duration-500 hover:tracking-[0.12em] group"
+              className="relative inline-flex items-center gap-3 bg-gold hover:bg-gold-light text-dark font-body text-[length:var(--type-button)] font-medium tracking-[var(--type-button-ls)] uppercase px-10 py-4 transition-all duration-500 hover:tracking-[0.12em] group"
             >
               <span>Begin Your Project</span>
               <svg
@@ -176,7 +176,7 @@ export default function CTASection() {
           {/* Response note */}
           <p
             ref={noteRef}
-            className="font-body text-[11px] text-text-muted-light/30 tracking-wide mt-8"
+            className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/30 tracking-wide mt-8"
           >
             Free consultation &middot; No obligations &middot; We respond within 24 hours
           </p>

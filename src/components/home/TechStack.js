@@ -33,7 +33,7 @@ function LogoItem({ tool }) {
         height={40}
         className="h-8 md:h-10 w-8 md:w-10 object-contain opacity-20"
       />
-      <span className="font-body text-[10px] md:text-xs text-text-dark/20 tracking-[0.15em] uppercase">
+      <span className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-dark/20 tracking-[var(--type-label-ls)] uppercase">
         {tool.name}
       </span>
     </div>

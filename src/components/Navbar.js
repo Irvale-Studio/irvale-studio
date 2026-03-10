@@ -79,7 +79,7 @@ export default function Navbar() {
           style={{ maxWidth: 'var(--max-width)' }}
         >
           {/* Logo */}
-          <Link href="/" className="font-display text-text-light tracking-[0.25em] text-sm uppercase">
+          <Link href="/" className="font-display text-text-light tracking-[0.25em] text-[length:var(--type-body-sm)] uppercase">
             Irvale Studio
           </Link>
 
@@ -91,7 +91,7 @@ export default function Navbar() {
                 href={link.href}
                
                 className={cn(
-                  'relative font-body text-sm font-medium text-text-light/80 hover:text-text-light transition-colors group',
+                  'relative font-body text-[length:var(--type-body-sm)] font-medium text-text-light/80 hover:text-text-light transition-colors group',
                   pathname === link.href && 'text-text-light',
                   link.highlight && 'font-semibold'
                 )}

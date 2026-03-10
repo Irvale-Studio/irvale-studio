@@ -29,7 +29,7 @@ export default function TrustLogos() {
           {items.map((name, i) => (
             <span
               key={i}
-              className="font-display text-xl md:text-2xl text-text-dark/30 tracking-[0.15em] uppercase shrink-0"
+              className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark/30 tracking-[0.15em] uppercase shrink-0"
             >
               {name}
             </span>

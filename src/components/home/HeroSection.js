@@ -95,7 +95,7 @@ export default function HeroSection() {
         style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}
       >
         {/* Brand wordmark */}
-        <p className="font-display text-gold tracking-[0.35em] text-sm uppercase mb-8">
+        <p className="font-display text-gold tracking-[0.35em] text-[length:var(--type-body-sm)] uppercase mb-8">
           Irvale Studio
         </p>
 
@@ -121,7 +121,7 @@ export default function HeroSection() {
 
         {/* Scroll indicator */}
         <div className="mt-16 flex flex-col items-center gap-2">
-          <span className="font-body text-[10px] text-text-light/50 uppercase tracking-[0.2em]">Scroll</span>
+          <span className="font-body text-[length:var(--type-caption)] text-text-light/50 uppercase tracking-[var(--type-label-ls)]">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-gold/60 to-transparent" />
         </div>
       </div>

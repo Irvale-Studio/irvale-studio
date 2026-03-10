@@ -83,15 +83,15 @@ export default function Footer() {
             className="md:col-span-5"
           >
             <Link href="/" className="inline-block group">
-              <span className="font-display text-text-light tracking-[0.3em] text-lg uppercase transition-all duration-500 group-hover:tracking-[0.4em] group-hover:text-gold">
+              <span className="font-display text-text-light tracking-[0.3em] text-[length:var(--type-body)] uppercase transition-all duration-500 group-hover:tracking-[0.4em] group-hover:text-gold">
                 Irvale
               </span>
-              <span className="font-display text-text-muted-light tracking-[0.3em] text-lg uppercase ml-2 transition-all duration-500 group-hover:text-text-light">
+              <span className="font-display text-text-muted-light tracking-[0.3em] text-[length:var(--type-body)] uppercase ml-2 transition-all duration-500 group-hover:text-text-light">
                 Studio
               </span>
             </Link>
-            <p className="mt-6 font-body text-sm text-text-muted-light/70 leading-relaxed max-w-sm">
-              We build websites that turn premium brands into growth engines — through design, SEO, and AI visibility.
+            <p className="mt-6 font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] text-text-muted-light/70 max-w-sm">
+              Bespoke websites, search dominance, and AI visibility for premium brands.
             </p>
             <div className="mt-8 w-12 h-px bg-gradient-to-r from-gold/40 to-transparent" />
           </div>
@@ -101,7 +101,7 @@ export default function Footer() {
             ref={(el) => (columnsRef.current[1] = el)}
             className="md:col-span-3"
           >
-            <p className="font-body text-[10px] text-gold/60 uppercase tracking-[0.2em] mb-6">
+            <p className="font-body text-[length:var(--type-caption)] text-gold/60 uppercase tracking-[var(--type-label-ls)] mb-6">
               Navigation
             </p>
             <nav className="flex flex-col gap-4">
@@ -109,7 +109,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="footer-link font-body text-sm text-text-muted-light/60 hover:text-text-light transition-all duration-300 hover:tracking-wider w-fit"
+                  className="footer-link font-body text-[length:var(--type-body-sm)] text-text-muted-light/60 hover:text-text-light transition-all duration-300 hover:tracking-wider w-fit"
                 >
                   {link.label}
                 </Link>
@@ -122,16 +122,16 @@ export default function Footer() {
             ref={(el) => (columnsRef.current[2] = el)}
             className="md:col-span-4"
           >
-            <p className="font-body text-[10px] text-gold/60 uppercase tracking-[0.2em] mb-6">
+            <p className="font-body text-[length:var(--type-caption)] text-gold/60 uppercase tracking-[var(--type-label-ls)] mb-6">
               Start a Project
             </p>
             <a
               href="mailto:hello@irvale.studio"
-              className="font-display text-xl md:text-2xl text-text-light/80 hover:text-gold transition-colors duration-500 block"
+              className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light/80 hover:text-gold transition-colors duration-500 block"
             >
               hello@irvale.studio
             </a>
-            <p className="mt-4 font-body text-xs text-text-muted-light/50 leading-relaxed">
+            <p className="mt-4 font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/50">
               We respond within 24 hours.<br />
               London, United Kingdom.
             </p>
@@ -153,7 +153,7 @@ export default function Footer() {
                   <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-              <span className="font-body text-[10px] text-text-muted-light/40 uppercase tracking-[0.2em] transition-colors duration-500 group-hover:text-text-muted-light">
+              <span className="font-body text-[length:var(--type-caption)] text-text-muted-light/40 uppercase tracking-[var(--type-label-ls)] transition-colors duration-500 group-hover:text-text-muted-light">
                 Back to top
               </span>
             </button>
@@ -168,10 +168,10 @@ export default function Footer() {
         style={{ maxWidth: 'var(--max-width)' }}
       >
         <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-[11px] text-text-muted-light/30 tracking-wide">
+          <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/30 tracking-wide">
             &copy; {new Date().getFullYear()} Irvale Studio. All rights reserved.
           </p>
-          <p className="font-body text-[11px] text-text-muted-light/30 tracking-wide">
+          <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/30 tracking-wide">
             Designed & built by Irvale
           </p>
         </div>

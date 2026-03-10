@@ -31,7 +31,7 @@ export default function IntroStatement() {
           <p className="font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
             We design and build bespoke websites for hospitality, wellness, and private membership brands — paired with SEO and AI visibility that turns your digital presence into a growth channel.
           </p>
-          <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-light font-light">
+          <p className="font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
             No templates. No generic agencies. Every project is built around your brand, your audience, and the metrics that actually matter to your business.
           </p>
         </SectionReveal>
@@ -43,7 +43,7 @@ export default function IntroStatement() {
               <div className="font-display text-[clamp(36px,5vw,64px)] text-gold leading-none mb-2">
                 +<Counter target={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="font-body text-xs text-text-muted-light uppercase tracking-[0.15em]">
+              <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light uppercase tracking-[var(--type-label-ls)]">
                 {stat.label}
               </p>
             </div>

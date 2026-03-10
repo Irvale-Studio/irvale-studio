@@ -101,7 +101,7 @@ function CredentialCard({ credential }) {
       </span>
 
       {/* Title — always visible, prominent */}
-      <h3 className="font-display text-lg md:text-xl text-text-light/90 leading-snug mb-0 transition-colors duration-500 group-hover:text-text-light">
+      <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light/90 mb-0 transition-colors duration-500 group-hover:text-text-light">
         {credential.title}
       </h3>
 
@@ -110,7 +110,7 @@ function CredentialCard({ credential }) {
 
       {/* Description — slides up and fades in on hover */}
       <div className="overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-out group-hover:max-h-32 group-hover:opacity-100">
-        <p className="font-body text-sm text-text-muted-light font-light leading-relaxed translate-y-3 transition-transform duration-500 ease-out group-hover:translate-y-0">
+        <p className="font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] text-text-muted-light font-light translate-y-3 transition-transform duration-500 ease-out group-hover:translate-y-0">
           {credential.body}
         </p>
       </div>
