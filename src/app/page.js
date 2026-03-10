@@ -11,8 +11,9 @@ import Testimonial from '@/components/home/Testimonial';
 import CTASection from '@/components/home/CTASection';
 
 const marqueeItems = [
-  'Bespoke', 'Considered', 'Refined', 'Strategic',
-  'Intentional', 'Elevated', 'Precision', 'Crafted',
+  'Bespoke Design', 'Strategic SEO', 'AI Visibility',
+  'Digital Marketing', 'Refined Experiences', 'Measurable Growth',
+  'Premium Brands', 'Considered Code',
 ];
 
 export default function Home() {

@@ -101,7 +101,7 @@ export default function HeroSection() {
 
         <RevealText
           as="h1"
-          className="font-display italic font-normal text-text-light text-[length:var(--type-display)] leading-[var(--type-display-lh)] max-w-[900px] mx-auto justify-center"
+          className="font-display italic font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mx-auto justify-center"
         >
           Premium software solutions.
         </RevealText>
