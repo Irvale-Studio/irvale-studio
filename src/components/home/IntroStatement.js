@@ -66,7 +66,22 @@ export default function IntroStatement() {
 
         {/* Client result stats — expanding cards */}
         <SectionReveal className="pt-8 border-t border-[var(--border-dark)]">
-          <div className="flex flex-col md:flex-row gap-3 md:gap-4 min-h-[140px] md:min-h-[160px]">
+          {/* Mobile: static grid, no animation, no layout shift */}
+          <div className="grid grid-cols-3 gap-3 md:hidden">
+            {stats.map((stat, i) => (
+              <div key={i} className="border border-white/[0.06] bg-dark-2/60 p-5">
+                <div className="font-display text-[clamp(28px,8vw,40px)] text-gold leading-none mb-2">
+                  +<Counter target={stat.value} suffix={stat.suffix} />
+                </div>
+                <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light uppercase tracking-[var(--type-label-ls)]">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: expanding cards with auto-cycle */}
+          <div className="hidden md:flex gap-4 min-h-[160px]">
             {stats.map((stat, i) => {
               const isActive = activeIndex === i;
               return (
@@ -80,14 +95,12 @@ export default function IntroStatement() {
                     background: isActive ? 'rgba(26,26,26,0.8)' : 'rgba(26,26,26,0.3)',
                   }}
                 >
-                  {/* Gold accent line at top of active card */}
                   <div
                     className="absolute top-0 left-0 h-[2px] bg-gold/50 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                     style={{ width: isActive ? '100%' : '0%' }}
                   />
 
-                  <div className="p-5 md:p-6 h-full flex flex-col justify-center">
-                    {/* Number — always visible */}
+                  <div className="p-6 h-full flex flex-col justify-center">
                     <div
                       className="font-display leading-none mb-1 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                       style={{
@@ -98,7 +111,6 @@ export default function IntroStatement() {
                       +<Counter target={stat.value} suffix={stat.suffix} />
                     </div>
 
-                    {/* Label — fades in/out and expands */}
                     <div
                       className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                       style={{
