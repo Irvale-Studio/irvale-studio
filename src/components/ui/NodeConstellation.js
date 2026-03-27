@@ -82,27 +82,22 @@ export default function NodeConstellation({
         }
       }
 
-      // Nodes
+      // Nodes — smooth radial gradient glow
       for (const node of nodes) {
         const pulseAlpha = (0.15 + Math.sin(node.pulse) * 0.1) * glowMultiplier;
         const pulseRadius = node.radius + Math.sin(node.pulse) * 0.5;
+        const glowSize = pulseRadius * 4;
+        const r = goldRgb.r, g = goldRgb.g, b = goldRgb.b;
 
-        // Outer glow
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius * 4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${goldRgb.r}, ${goldRgb.g}, ${goldRgb.b}, ${pulseAlpha * 0.1})`;
-        ctx.fill();
+        const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glowSize);
+        grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${pulseAlpha + 0.25})`);
+        grad.addColorStop(0.2, `rgba(${r}, ${g}, ${b}, ${pulseAlpha * 0.4})`);
+        grad.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, ${pulseAlpha * 0.1})`);
+        grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
 
-        // Inner glow
         ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${goldRgb.r}, ${goldRgb.g}, ${goldRgb.b}, ${pulseAlpha * 0.2})`;
-        ctx.fill();
-
-        // Core
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${goldRgb.r}, ${goldRgb.g}, ${goldRgb.b}, ${pulseAlpha + 0.25})`;
+        ctx.arc(node.x, node.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
         ctx.fill();
       }
 

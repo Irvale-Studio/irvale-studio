@@ -17,8 +17,8 @@ export default function ServicesHero() {
         />
       </div>
 
-      {/* Radial gradient overlay to focus attention on text */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(17,17,17,0.3),rgba(17,17,17,0.85)_70%)]" />
+      {/* Radial gradient overlay — smooth multi-stop */}
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(17,17,17,0.2) 0%, rgba(17,17,17,0.4) 30%, rgba(17,17,17,0.65) 55%, rgba(17,17,17,0.85) 80%)' }} />
 
       <div
         className="relative mx-auto px-[var(--gutter)]"

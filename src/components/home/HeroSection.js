@@ -158,25 +158,19 @@ function HeroConstellation() {
 
         const pulseAlpha = 0.2 + Math.sin(node.pulse) * 0.12;
         const pulseRadius = node.radius + Math.sin(node.pulse) * (node.radius * 0.3);
+        const glowSize = node.radius > 1 ? pulseRadius * 6 : pulseRadius * 3;
+        const cr = c.r|0, cg = c.g|0, cb = c.b|0;
 
-        // Outer glow — larger nodes get bigger glows
-        if (node.radius > 1) {
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, pulseRadius * 6, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${c.r|0}, ${c.g|0}, ${c.b|0}, ${pulseAlpha * 0.04})`;
-          ctx.fill();
-        }
+        // Smooth radial gradient glow — no banding
+        const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glowSize);
+        grad.addColorStop(0, `rgba(${cr}, ${cg}, ${cb}, ${pulseAlpha + 0.3})`);
+        grad.addColorStop(0.15, `rgba(${cr}, ${cg}, ${cb}, ${pulseAlpha * 0.5})`);
+        grad.addColorStop(0.4, `rgba(${cr}, ${cg}, ${cb}, ${pulseAlpha * 0.12})`);
+        grad.addColorStop(1, `rgba(${cr}, ${cg}, ${cb}, 0)`);
 
-        // Mid glow
         ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${c.r|0}, ${c.g|0}, ${c.b|0}, ${pulseAlpha * 0.1})`;
-        ctx.fill();
-
-        // Core
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${c.r|0}, ${c.g|0}, ${c.b|0}, ${pulseAlpha + 0.3})`;
+        ctx.arc(node.x, node.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
         ctx.fill();
       }
 
@@ -248,8 +242,10 @@ export default function HeroSection() {
       ref={sectionRef}
       className="relative h-screen flex items-center justify-center overflow-hidden bg-dark"
     >
-      {/* Deep gradient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(15,31,61,0.4),transparent_50%),radial-gradient(ellipse_at_80%_70%,rgba(20,18,15,0.6),transparent_50%),radial-gradient(ellipse_at_50%_50%,rgba(17,17,17,1),rgba(17,17,17,1))]" />
+      {/* Deep gradient background — extra stops to prevent banding */}
+      <div className="absolute inset-0 bg-dark" />
+      <div className="absolute inset-0 opacity-40" style={{ background: 'radial-gradient(ellipse at 20% 30%, rgba(15,31,61,0.6) 0%, rgba(15,31,61,0.3) 25%, rgba(15,31,61,0.1) 40%, transparent 60%)' }} />
+      <div className="absolute inset-0 opacity-50" style={{ background: 'radial-gradient(ellipse at 80% 70%, rgba(20,18,15,0.8) 0%, rgba(20,18,15,0.4) 25%, rgba(20,18,15,0.1) 45%, transparent 65%)' }} />
 
       {/* Constellation */}
       <div className="absolute inset-0">
@@ -263,10 +259,10 @@ export default function HeroSection() {
         style={{ opacity: 0 }}
       />
 
-      {/* Vignette — keeps text area readable */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(17,17,17,0.3)_50%,rgba(17,17,17,0.7)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-dark/50 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-dark/60 to-transparent" />
+      {/* Vignette — keeps text area readable, smooth multi-stop */}
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 0%, rgba(17,17,17,0.05) 20%, rgba(17,17,17,0.15) 35%, rgba(17,17,17,0.35) 55%, rgba(17,17,17,0.7) 80%, rgba(17,17,17,0.85) 100%)' }} />
+      <div className="absolute inset-x-0 top-0 h-1/4" style={{ background: 'linear-gradient(to bottom, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0.2) 50%, transparent 100%)' }} />
+      <div className="absolute inset-x-0 bottom-0 h-1/4" style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.6) 0%, rgba(17,17,17,0.2) 50%, transparent 100%)' }} />
 
       {/* Content */}
       <div
