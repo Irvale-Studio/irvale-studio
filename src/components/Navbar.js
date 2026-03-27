@@ -10,10 +10,8 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: '/work', label: 'Work' },
   { href: '/services', label: 'Services' },
-  { href: '/zatrovo', label: 'Zatrovo', highlight: true },
+  { href: '/zatrovo', label: 'Booking', highlight: true },
   { href: '/ai-visibility', label: 'AI Visibility', highlight: true },
-  { href: '/marketing', label: 'Marketing' },
-  { href: '/about', label: 'About' },
 ];
 
 export default function Navbar() {

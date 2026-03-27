@@ -27,7 +27,7 @@ export default function Home() {
         <Marquee
           items={marqueeItems}
           separator="·"
-          className="font-display italic text-[length:var(--type-body)] text-text-light/20 tracking-[0.12em]"
+          className="font-display text-[length:var(--type-body)] text-text-light/20 tracking-[0.12em]"
           speed={90}
         />
       </div>

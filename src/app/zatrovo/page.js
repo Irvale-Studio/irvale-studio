@@ -86,7 +86,7 @@ export default function ZatrovoPage() {
           <Eyebrow className="mb-6 block">Zatrovo Booking Software</Eyebrow>
           <RevealText
             as="h1"
-            className="font-display italic font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
+            className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
           >
             The booking platform built for professional services
           </RevealText>
@@ -199,7 +199,7 @@ export default function ZatrovoPage() {
         >
           <RevealText
             as="h2"
-            className="font-display italic font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mx-auto justify-center mb-4"
+            className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mx-auto justify-center mb-4"
           >
             Ready to take bookings online?
           </RevealText>

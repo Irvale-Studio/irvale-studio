@@ -113,14 +113,14 @@ export default function HeroSection() {
 
         <RevealText
           as="h1"
-          className="font-display italic font-normal text-white text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mx-auto justify-center"
+          className="font-display font-normal text-white text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mx-auto justify-center"
           style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3)' }}
         >
           Premium software solutions.
         </RevealText>
 
         <p
-          className="mt-6 font-display italic text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-light/80 font-light max-w-xl mx-auto"
+          className="mt-6 font-display text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-light/80 font-light max-w-xl mx-auto"
           style={{ textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}
         >
           Bespoke websites, custom booking systems, member experiences, and AI automations. Specialised for hospitality, wellness, and membership brands.

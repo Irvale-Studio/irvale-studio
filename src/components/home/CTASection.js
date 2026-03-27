@@ -128,7 +128,7 @@ export default function CTASection() {
           {/* Large italic headline - word-by-word reveal */}
           <h2
             ref={headlineRef}
-            className="font-display italic font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] mb-8"
+            className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] mb-8"
           >
             {headlineWords.map((word, i) => (
               <span key={i} className="cta-word inline-block mr-[0.3em]">

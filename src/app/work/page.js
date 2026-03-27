@@ -26,7 +26,7 @@ export default function WorkPage() {
           <Eyebrow className="mb-6 block">Portfolio</Eyebrow>
           <RevealText
             as="h1"
-            className="font-display italic font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mb-4"
+            className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mb-4"
           >
             Work that speaks for itself
           </RevealText>

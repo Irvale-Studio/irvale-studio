@@ -38,7 +38,7 @@ export default function CaseStudyContent({ project, nextProject }) {
           style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}
         >
           <Eyebrow className="mb-4 block">{project.niche}</Eyebrow>
-          <h1 className="font-display italic text-[length:var(--type-display)] leading-[var(--type-display-lh)] text-text-light max-w-[800px]">
+          <h1 className="font-display text-[length:var(--type-display)] leading-[var(--type-display-lh)] text-text-light max-w-[800px]">
             {project.name}
           </h1>
         </div>
@@ -182,7 +182,7 @@ export default function CaseStudyContent({ project, nextProject }) {
           >
             <div>
               <Eyebrow className="block mb-2">Next Project</Eyebrow>
-              <h3 className="font-display italic text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light group-hover:text-gold transition-colors">
+              <h3 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light group-hover:text-gold transition-colors">
                 {nextProject.name}
               </h3>
             </div>

@@ -91,7 +91,7 @@ export default function ContactForm() {
       <div className="min-h-screen flex items-center justify-center bg-dark px-[var(--gutter)]">
         <div className="text-center max-w-md">
           <div className="w-12 h-px bg-gold mx-auto mb-8" />
-          <h2 className="font-display italic text-[length:var(--type-h2)] text-text-light mb-4">
+          <h2 className="font-display text-[length:var(--type-h2)] text-text-light mb-4">
             Thank you
           </h2>
           <p className="font-body text-text-muted-light font-light">
@@ -107,7 +107,7 @@ export default function ContactForm() {
       {/* Left — Info */}
       <div className="bg-dark flex flex-col justify-center px-[var(--gutter)] py-16 md:py-0 relative">
         <div className="max-w-md">
-          <h1 className="font-display italic text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] text-text-light mb-6">
+          <h1 className="font-display text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] text-text-light mb-6">
             Let&rsquo;s talk
           </h1>
           <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-8">

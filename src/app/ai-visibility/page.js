@@ -66,7 +66,7 @@ export default function AIVisibilityPage() {
           <Eyebrow className="mb-6 block">The Next Era of Search</Eyebrow>
           <RevealText
             as="h1"
-            className="font-display italic font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
+            className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
           >
             Be the brand AI recommends
           </RevealText>
@@ -137,7 +137,7 @@ export default function AIVisibilityPage() {
           <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <Eyebrow className="mb-4 block">Case Study</Eyebrow>
-              <h3 className="font-display italic text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light mb-4">
+              <h3 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light mb-4">
                 Crestview Members Club
               </h3>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-4">
@@ -195,7 +195,7 @@ export default function AIVisibilityPage() {
         >
           <RevealText
             as="h2"
-            className="font-display italic font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mx-auto justify-center mb-6"
+            className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mx-auto justify-center mb-6"
           >
             The future of search is here. Is your brand ready?
           </RevealText>

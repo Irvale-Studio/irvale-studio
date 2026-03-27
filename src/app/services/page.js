@@ -28,7 +28,7 @@ export default function ServicesPage() {
           <Eyebrow className="mb-6 block">Services & Pricing</Eyebrow>
           <RevealText
             as="h1"
-            className="font-display italic font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
+            className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
           >
             Transparent pricing. No surprises.
           </RevealText>

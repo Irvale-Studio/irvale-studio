@@ -7,7 +7,7 @@ export default function NotFound() {
         <span className="font-display text-[clamp(80px,15vw,200px)] text-gold/20 leading-none block">
           404
         </span>
-        <h1 className="font-display italic text-[length:var(--type-h2)] text-text-light mt-4 mb-4">
+        <h1 className="font-display text-[length:var(--type-h2)] text-text-light mt-4 mb-4">
           Page not found
         </h1>
         <p className="font-body text-sm text-text-muted-light font-light mb-8">
