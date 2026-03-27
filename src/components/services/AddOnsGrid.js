@@ -1,39 +1,85 @@
-import SectionReveal from '@/components/ui/SectionReveal';
-import Eyebrow from '@/components/ui/Eyebrow';
+'use client';
 
-const addOns = [
-  { name: 'SEO Growth Retainer', price: 'From £1,200/mo' },
-  { name: 'AI Search Optimisation', price: 'From £800/mo' },
-  { name: 'Analytics Dashboard', price: 'From £1,800' },
-  { name: 'Custom Admin Panel', price: 'From £4,000' },
-  { name: 'Performance Audit', price: '£950 fixed' },
-  { name: 'Digital Ads Management', price: 'From £800/mo' },
-  { name: 'Email Marketing Setup', price: 'From £1,200' },
-  { name: 'CRO Package', price: 'From £1,500' },
-  { name: 'Photography Direction', price: 'From £750' },
-  { name: 'Maintenance Retainer', price: 'From £350/mo' },
-];
+import Eyebrow from '@/components/ui/Eyebrow';
+import RevealText from '@/components/ui/RevealText';
+import SectionReveal from '@/components/ui/SectionReveal';
+import { addOnServices } from '@/lib/data/services';
+import { cn } from '@/lib/utils';
 
 export default function AddOnsGrid() {
   return (
-    <section className="bg-cream py-[var(--section-gap)]">
+    <section className="bg-dark py-[var(--section-gap)]">
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}
       >
-        <Eyebrow className="mb-8 block">Add-Ons</Eyebrow>
-        <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-[var(--grid-gap)]">
-          {addOns.map((addon) => (
+        {/* Section header */}
+        <div className="mb-12 md:mb-16">
+          <Eyebrow className="mb-6 block">Add-On Services</Eyebrow>
+          <RevealText
+            as="h2"
+            className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mb-4"
+          >
+            Enhance your package.
+          </RevealText>
+          <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-lg">
+            These standalone services can be added to any plan at any time.
+            Priced as monthly retainers unless stated otherwise.
+          </p>
+        </div>
+
+        {/* Add-on cards — 2x2 grid */}
+        <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[var(--grid-gap)]">
+          {addOnServices.map((addon) => (
             <div
               key={addon.name}
-              className="bg-white border border-[var(--border-light)] p-6 flex items-center justify-between"
+              className="relative bg-dark-2 border border-[var(--border-dark)] p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 group"
             >
-              <h4 className="font-body text-sm font-medium text-text-dark">
-                {addon.name}
-              </h4>
-              <span className="font-body text-sm text-text-muted-dark whitespace-nowrap ml-4">
-                {addon.price}
+              {/* Gold left accent */}
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gold/40 group-hover:bg-gold transition-colors duration-300" />
+
+              {/* Category eyebrow */}
+              <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold mb-4">
+                {addon.category}
               </span>
+
+              {/* Name + price row */}
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-4">
+                <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light">
+                  {addon.name}
+                </h3>
+                <div className="shrink-0">
+                  <span className="font-display text-[clamp(20px,2vw,28px)] text-gold leading-none">
+                    {addon.price}
+                  </span>
+                  <span className="font-body text-xs text-text-muted-light ml-2">
+                    {addon.priceNote}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="font-body text-sm text-text-muted-light font-light leading-relaxed mb-6">
+                {addon.description}
+              </p>
+
+              {/* Divider */}
+              <div className="h-px bg-[var(--border-dark)] mb-6" />
+
+              {/* Features checklist */}
+              <ul className="space-y-2.5">
+                {addon.features.map((feature, i) => (
+                  <li
+                    key={i}
+                    className="font-body text-sm text-text-light font-light flex gap-2.5"
+                  >
+                    <span className="text-gold shrink-0 text-xs mt-[3px]">
+                      ✓
+                    </span>
+                    <span className="flex-1">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </SectionReveal>

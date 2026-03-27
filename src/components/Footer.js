@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const navLinks = [
   { href: '/work', label: 'Work' },
   { href: '/services', label: 'Services' },
+  { href: '/zatrovo', label: 'Zatrovo' },
   { href: '/ai-visibility', label: 'AI Visibility' },
   { href: '/marketing', label: 'Marketing' },
   { href: '/about', label: 'About' },

@@ -36,6 +36,12 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/zatrovo`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/ai-visibility`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
