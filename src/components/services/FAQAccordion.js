@@ -11,7 +11,7 @@ export default function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="bg-dark py-[var(--section-gap)] relative overflow-hidden">
+    <section className="bg-dark py-[var(--section-gap)] relative overflow-hidden noise-overlay">
       <div
         className="relative mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}

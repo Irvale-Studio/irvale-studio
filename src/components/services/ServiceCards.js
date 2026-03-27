@@ -36,7 +36,7 @@ export default function ServiceCards({
   const featureText = isLight ? 'text-text-dark/80' : 'text-text-light/80';
 
   return (
-    <section className={cn(sectionBg, 'py-[var(--section-gap)]')}>
+    <section className={cn(sectionBg, 'py-[var(--section-gap)] relative', !isLight && 'noise-overlay')}>
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}

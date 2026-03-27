@@ -6,7 +6,7 @@ import NodeConstellation from '@/components/ui/NodeConstellation';
 
 export default function ServicesHero() {
   return (
-    <section className="relative bg-dark pt-32 pb-[var(--section-gap)] overflow-hidden">
+    <section className="relative bg-dark pt-32 pb-[var(--section-gap)] overflow-hidden noise-overlay">
       {/* Constellation — hero version: more nodes, bigger connections, brighter */}
       <div className="absolute inset-0">
         <NodeConstellation

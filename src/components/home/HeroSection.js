@@ -240,7 +240,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-dark"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-dark noise-overlay"
     >
       {/* Deep gradient background — extra stops to prevent banding */}
       <div className="absolute inset-0 bg-dark" />

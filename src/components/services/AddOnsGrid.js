@@ -10,7 +10,7 @@ export default function AddOnsGrid() {
   const row2 = addOnServices.slice(2, 4);
 
   return (
-    <section className="bg-dark-2 py-[var(--section-gap)]">
+    <section className="bg-dark-2 py-[var(--section-gap)] relative noise-overlay">
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}
