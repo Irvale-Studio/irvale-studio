@@ -54,11 +54,10 @@ export default function ServicesPage() {
         title="Hosting & Maintenance"
         subtitle="A monthly retainer that keeps your website fast, secure, and up to date. Your site is a professional asset — it deserves professional upkeep."
         tiers={hostingTiers}
-        dark
       />
 
       {/* Marquee */}
-      <div className="bg-cream py-4 border-y border-[var(--border-light)]">
+      <div className="bg-dark-2 py-4 border-y border-[var(--border-dark)]">
         <Marquee
           items={['ESSENTIAL', 'PROFESSIONAL', 'PREMIUM', 'MANAGED', 'GROWTH']}
           className="font-display text-lg text-gold-muted/60 tracking-[0.2em]"

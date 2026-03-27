@@ -6,26 +6,16 @@ import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
 import { cn } from '@/lib/utils';
 
+const tierLabels = ['TIER ONE', 'TIER TWO', 'TIER THREE'];
+
 export default function ServiceCards({
   eyebrow,
   title,
   subtitle,
   tiers,
-  dark = false,
 }) {
-  const bg = dark ? 'bg-dark' : 'bg-cream';
-  const cardBg = dark ? 'bg-dark-2' : 'bg-white';
-  const textPrimary = dark ? 'text-text-light' : 'text-text-dark';
-  const textMuted = dark ? 'text-text-muted-light' : 'text-text-muted-dark';
-  const borderDefault = dark
-    ? 'border-[var(--border-dark)]'
-    : 'border-[var(--border-light)]';
-  const dividerColor = dark
-    ? 'bg-[var(--border-dark)]'
-    : 'bg-[var(--border-light)]';
-
   return (
-    <section className={cn(bg, 'py-[var(--section-gap)]')}>
+    <section className="bg-dark py-[var(--section-gap)]">
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}
@@ -39,21 +29,13 @@ export default function ServiceCards({
             {title && (
               <RevealText
                 as="h2"
-                className={cn(
-                  'font-display font-normal text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-4',
-                  textPrimary
-                )}
+                className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-4"
               >
                 {title}
               </RevealText>
             )}
             {subtitle && (
-              <p
-                className={cn(
-                  'font-body text-[length:var(--type-body)] font-light max-w-xl',
-                  textMuted
-                )}
-              >
+              <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-xl">
                 {subtitle}
               </p>
             )}
@@ -62,91 +44,78 @@ export default function ServiceCards({
 
         {/* Tier cards */}
         <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[var(--grid-gap)]">
-          {tiers.map((tier) => (
+          {tiers.map((tier, index) => (
             <div
               key={tier.name}
               className={cn(
-                'relative flex flex-col p-8 md:p-10 border transition-transform duration-300 hover:-translate-y-1',
-                cardBg,
-                tier.highlighted
-                  ? 'border-gold md:-mt-3 md:pb-[calc(2.5rem+12px)]'
-                  : borderDefault
+                'relative flex flex-col',
+                tier.highlighted && 'md:-mt-3'
               )}
             >
-              {/* Badge */}
+              {/* Badge — sits above card */}
               {tier.badge && (
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 font-body text-[10px] font-medium uppercase tracking-[0.2em] bg-gold text-dark px-4 py-1 whitespace-nowrap">
-                  {tier.badge}
-                </span>
+                <div className="flex justify-center mb-0">
+                  <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] bg-gold text-dark px-5 py-1.5 whitespace-nowrap">
+                    ✶ {tier.badge} ✶
+                  </span>
+                </div>
               )}
 
-              {/* Tier name */}
-              <h3
+              {/* Card */}
+              <div
                 className={cn(
-                  'font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] mb-1',
-                  textPrimary
+                  'relative flex flex-col flex-1 p-8 md:p-10',
+                  tier.highlighted
+                    ? 'border border-gold/40 bg-[rgba(201,169,110,0.03)]'
+                    : 'border border-[var(--border-dark)] bg-dark-2'
                 )}
               >
-                {tier.name}
-              </h3>
+                {/* Gold top accent on highlighted */}
+                {tier.highlighted && (
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gold" />
+                )}
 
-              {/* Pricing */}
-              <div className="mb-6 mt-3">
-                <span
-                  className={cn(
-                    'font-display text-[clamp(32px,3.5vw,48px)] leading-none',
-                    tier.highlighted ? 'text-gold' : textPrimary
-                  )}
-                >
-                  {tier.price}
+                {/* Tier label */}
+                <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold/60 mb-3">
+                  {tierLabels[index] || `TIER ${index + 1}`}
                 </span>
-                <p className={cn('font-body text-xs mt-1.5', textMuted)}>
-                  {tier.priceNote}
-                </p>
+
+                {/* Tier name */}
+                <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light mb-4">
+                  {tier.name}
+                </h3>
+
+                {/* Price — always gold */}
+                <div className="mb-6">
+                  <span className="font-display text-[clamp(32px,3.5vw,48px)] text-gold leading-none">
+                    {tier.price}
+                  </span>
+                  <p className="font-body text-xs text-text-muted-light mt-1.5">
+                    {tier.priceNote}
+                  </p>
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-3 flex-1">
+                  {tier.features.map((feature, i) => (
+                    <li
+                      key={i}
+                      className="font-body text-sm text-text-light/80 font-light flex gap-2.5"
+                    >
+                      <span className="text-gold shrink-0 text-xs mt-[3px]">
+                        ✓
+                      </span>
+                      <span className="flex-1">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Divider */}
-              <div className={cn('h-px mb-6', dividerColor)} />
-
-              {/* Features */}
-              <ul className="space-y-3 mb-8 flex-1">
-                {tier.features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className={cn(
-                      'font-body text-sm font-light flex gap-2.5',
-                      textPrimary
-                    )}
-                  >
-                    <span className="text-gold shrink-0 text-xs mt-[3px]">
-                      ✓
-                    </span>
-                    <span className="flex-1">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA */}
-              <Link
-                href={tier.ctaHref}
-                className={cn(
-                  'block text-center py-3',
-                  tier.highlighted ? 'btn-primary' : 'btn-outline'
-                )}
-              >
-                <span>{tier.cta} →</span>
-              </Link>
             </div>
           ))}
         </SectionReveal>
 
         {/* Disclaimer */}
-        <p
-          className={cn(
-            'font-body text-xs text-center mt-10 max-w-md mx-auto',
-            textMuted
-          )}
-        >
+        <p className="font-body text-xs text-text-muted-light text-center mt-10 max-w-md mx-auto">
           All prices in Thai Baht (THB) and exclude VAT where applicable. Website
           builds invoiced 50% upfront, 50% on launch.{' '}
           <Link
