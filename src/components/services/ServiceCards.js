@@ -14,8 +14,27 @@ export default function ServiceCards({
   subtitle,
   tiers,
   disclaimer,
-  sectionBg = 'bg-dark',
+  variant = 'dark', // 'dark' or 'light'
 }) {
+  const isLight = variant === 'light';
+
+  // Section-level colors
+  const sectionBg = isLight ? 'bg-cream' : 'bg-dark';
+  const textHeading = isLight ? 'text-text-dark' : 'text-text-light';
+  const textMuted = isLight ? 'text-text-muted-dark' : 'text-text-muted-light';
+  const disclaimerMuted = isLight ? 'text-text-muted-dark' : 'text-text-muted-light';
+
+  // Card-level colors
+  const cardDefault = isLight
+    ? 'border border-[var(--border-light)] bg-white'
+    : 'border border-[var(--border-dark)] bg-dark-2';
+  const cardHighlighted = isLight
+    ? 'border border-gold/40 border-t-0 bg-white'
+    : 'border border-gold/40 border-t-0 bg-[rgba(201,169,110,0.03)]';
+  const cardText = isLight ? 'text-text-dark' : 'text-text-light';
+  const cardTextMuted = isLight ? 'text-text-muted-dark' : 'text-text-muted-light';
+  const featureText = isLight ? 'text-text-dark/80' : 'text-text-light/80';
+
   return (
     <section className={cn(sectionBg, 'py-[var(--section-gap)]')}>
       <div
@@ -31,27 +50,30 @@ export default function ServiceCards({
             {title && (
               <RevealText
                 as="h2"
-                className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-4"
+                className={cn(
+                  'font-display font-normal text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-4',
+                  textHeading
+                )}
               >
                 {title}
               </RevealText>
             )}
             {subtitle && (
-              <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-xl">
+              <p className={cn('font-body text-[length:var(--type-body)] font-light max-w-xl', textMuted)}>
                 {subtitle}
               </p>
             )}
           </div>
         )}
 
-        {/* Tier cards — items-stretch ensures equal height */}
+        {/* Tier cards */}
         <SectionReveal className="grid grid-cols-1 md:grid-cols-3 items-stretch gap-6 md:gap-[var(--grid-gap)]">
           {tiers.map((tier, index) => (
             <div
               key={tier.name}
               className="relative flex flex-col"
             >
-              {/* Badge — sits above card, connected */}
+              {/* Badge */}
               {tier.badge && (
                 <div className="flex justify-center">
                   <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] bg-gold text-dark px-5 py-1.5 whitespace-nowrap">
@@ -60,19 +82,17 @@ export default function ServiceCards({
                 </div>
               )}
 
-              {/* Spacer for non-badge cards to align tops */}
+              {/* Spacer for non-badge cards */}
               {!tier.badge && <div className="hidden md:block h-[29px]" />}
 
               {/* Card */}
               <div
                 className={cn(
                   'relative flex flex-col flex-1 p-8 md:p-10',
-                  tier.highlighted
-                    ? 'border border-gold/40 border-t-0 bg-[rgba(201,169,110,0.03)]'
-                    : 'border border-[var(--border-dark)] bg-dark-2'
+                  tier.highlighted ? cardHighlighted : cardDefault
                 )}
               >
-                {/* Gold top accent on highlighted (connects to badge) */}
+                {/* Gold top accent on highlighted */}
                 {tier.highlighted && (
                   <div className="absolute top-0 left-[-1px] right-[-1px] h-[2px] bg-gold" />
                 )}
@@ -83,16 +103,22 @@ export default function ServiceCards({
                 </span>
 
                 {/* Tier name */}
-                <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light mb-4">
+                <h3 className={cn(
+                  'font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] mb-4',
+                  cardText
+                )}>
                   {tier.name}
                 </h3>
 
-                {/* Price — always gold */}
+                {/* Price */}
                 <div className="mb-6">
-                  <span className="font-display text-[clamp(32px,3.5vw,48px)] text-gold leading-none">
+                  <span className={cn(
+                    'font-display text-[clamp(32px,3.5vw,48px)] leading-none',
+                    isLight ? 'text-gold-muted' : 'text-gold'
+                  )}>
                     {tier.price}
                   </span>
-                  <p className="font-body text-xs text-text-muted-light mt-1.5">
+                  <p className={cn('font-body text-xs mt-1.5', cardTextMuted)}>
                     {tier.priceNote}
                   </p>
                 </div>
@@ -102,11 +128,9 @@ export default function ServiceCards({
                   {tier.features.map((feature, i) => (
                     <li
                       key={i}
-                      className="font-body text-sm text-text-light/80 font-light flex gap-2.5"
+                      className={cn('font-body text-sm font-light flex gap-2.5', featureText)}
                     >
-                      <span className="text-gold shrink-0 text-xs mt-[3px]">
-                        ✓
-                      </span>
+                      <span className="text-gold shrink-0 text-xs mt-[3px]">✓</span>
                       <span className="flex-1">{feature}</span>
                     </li>
                   ))}
@@ -116,9 +140,9 @@ export default function ServiceCards({
           ))}
         </SectionReveal>
 
-        {/* Disclaimer — per-section */}
+        {/* Disclaimer */}
         {disclaimer && (
-          <p className="font-body text-xs text-text-muted-light text-center mt-10 max-w-md mx-auto">
+          <p className={cn('font-body text-xs text-center mt-10 max-w-md mx-auto', disclaimerMuted)}>
             {disclaimer}{' '}
             <Link
               href="/contact"

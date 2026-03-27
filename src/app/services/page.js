@@ -4,6 +4,7 @@ import Marquee from '@/components/ui/Marquee';
 import ServiceCards from '@/components/services/ServiceCards';
 import AddOnsGrid from '@/components/services/AddOnsGrid';
 import FAQAccordion from '@/components/services/FAQAccordion';
+import ServicesHero from '@/components/services/ServicesHero';
 import { ServiceSchema, FAQPageSchema } from '@/components/SchemaMarkup';
 import { websiteBuildTiers, hostingTiers } from '@/lib/data/services';
 
@@ -32,48 +33,30 @@ export default function ServicesPage() {
       <ServiceSchema />
       <FAQPageSchema />
 
-      {/* Hero — dark */}
-      <section className="bg-dark pt-32 pb-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-6 block">Services & Pricing</Eyebrow>
-          <RevealText
-            as="h1"
-            className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
-          >
-            Transparent pricing. No surprises.
-          </RevealText>
-          <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-lg">
-            See the full picture before you commit. From a clean brochure site
-            to a fully custom platform with admin tools, SEO, and AI search
-            optimisation.
-          </p>
-        </div>
-      </section>
+      {/* Hero — dark with animated constellation */}
+      <ServicesHero />
 
-      {/* Website Build Tiers — dark-2 to separate from hero */}
+      {/* Website Build Tiers — cream for contrast */}
       <ServiceCards
         eyebrow="SERVICE ONE"
         title="Website Build"
         subtitle="A one-time project fee to design, build, and launch your new site. All tiers include responsive design, speed optimisation, security certificates, and domain hosting."
         tiers={websiteBuildTiers}
         disclaimer="All prices in Thai Baht (THB) and exclude VAT where applicable. Website builds invoiced 50% upfront, 50% on launch."
-        sectionBg="bg-dark-2"
+        variant="light"
       />
 
-      {/* Marquee — benefits, not tier names */}
-      <div className="bg-dark-2 py-4 border-y border-[var(--border-dark)]">
+      {/* Marquee */}
+      <div className="bg-dark py-4 border-y border-[var(--border-dark)]">
         <Marquee
           items={marqueeItems}
           separator="·"
           className="font-display text-lg text-gold/40 tracking-[0.12em]"
-          speed={30}
+          speed={90}
         />
       </div>
 
-      {/* Hosting & Maintenance Tiers */}
+      {/* Hosting & Maintenance Tiers — dark */}
       <ServiceCards
         eyebrow="SERVICE TWO"
         title="Hosting & Maintenance"
