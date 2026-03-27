@@ -4,11 +4,10 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
 import { addOnServices } from '@/lib/data/services';
-import { cn } from '@/lib/utils';
 
 export default function AddOnsGrid() {
   return (
-    <section className="bg-dark py-[var(--section-gap)]">
+    <section className="bg-cream py-[var(--section-gap)]">
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}
@@ -18,11 +17,11 @@ export default function AddOnsGrid() {
           <Eyebrow className="mb-6 block">Add-On Services</Eyebrow>
           <RevealText
             as="h2"
-            className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mb-4"
+            className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mb-4"
           >
             Enhance your package.
           </RevealText>
-          <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-lg">
+          <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light max-w-lg">
             These standalone services can be added to any plan at any time.
             Priced as monthly retainers unless stated otherwise.
           </p>
@@ -33,7 +32,7 @@ export default function AddOnsGrid() {
           {addOnServices.map((addon) => (
             <div
               key={addon.name}
-              className="relative bg-dark-2 border border-[var(--border-dark)] p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 group"
+              className="relative bg-dark border border-[var(--border-dark)] p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 group"
             >
               {/* Gold left accent */}
               <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gold/40 group-hover:bg-gold transition-colors duration-300" />
