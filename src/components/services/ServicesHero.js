@@ -13,7 +13,7 @@ export default function ServicesHero() {
           nodeCount={35}
           connectionDistance={180}
           speed={0.25}
-          glowMultiplier={1.6}
+          brightness={1.5}
         />
       </div>
 

@@ -6,7 +6,7 @@ export default function NodeConstellation({
   nodeCount = 18,
   connectionDistance = 140,
   speed = 0.3,
-  glowMultiplier = 1,
+  brightness = 1,
   className = '',
 }) {
   const canvasRef = useRef(null);
@@ -21,7 +21,7 @@ export default function NodeConstellation({
     const ctx = canvas.getContext('2d');
     let w, h;
     const nodes = [];
-    const goldRgb = { r: 201, g: 169, b: 110 };
+    const gold = { r: 201, g: 169, b: 110 };
 
     function resize() {
       const rect = canvas.parentElement.getBoundingClientRect();
@@ -43,7 +43,7 @@ export default function NodeConstellation({
           y: Math.random() * h,
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
-          radius: Math.random() * 1.5 + 0.5,
+          radius: Math.random() * 1.2 + 0.5,
           pulse: Math.random() * Math.PI * 2,
         });
       }
@@ -71,8 +71,8 @@ export default function NodeConstellation({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const alpha = (1 - dist / connectionDistance) * 0.15 * glowMultiplier;
-            ctx.strokeStyle = `rgba(${goldRgb.r}, ${goldRgb.g}, ${goldRgb.b}, ${alpha})`;
+            const t = 1 - dist / connectionDistance;
+            ctx.strokeStyle = `rgba(${gold.r}, ${gold.g}, ${gold.b}, ${t * 0.15 * brightness})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -82,22 +82,21 @@ export default function NodeConstellation({
         }
       }
 
-      // Nodes — smooth radial gradient glow
+      // Nodes — sharp dots, tight glow
       for (const node of nodes) {
-        const pulseAlpha = (0.15 + Math.sin(node.pulse) * 0.1) * glowMultiplier;
-        const pulseRadius = node.radius + Math.sin(node.pulse) * 0.5;
-        const glowSize = pulseRadius * 4;
-        const r = goldRgb.r, g = goldRgb.g, b = goldRgb.b;
+        const alpha = (0.25 + Math.sin(node.pulse) * 0.1) * brightness;
+        const r = node.radius + Math.sin(node.pulse) * 0.3;
 
-        const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glowSize);
-        grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${pulseAlpha + 0.25})`);
-        grad.addColorStop(0.2, `rgba(${r}, ${g}, ${b}, ${pulseAlpha * 0.4})`);
-        grad.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, ${pulseAlpha * 0.1})`);
-        grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-
+        // Small glow
         ctx.beginPath();
-        ctx.arc(node.x, node.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
+        ctx.arc(node.x, node.y, r * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${gold.r}, ${gold.g}, ${gold.b}, ${alpha * 0.08})`;
+        ctx.fill();
+
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${gold.r}, ${gold.g}, ${gold.b}, ${alpha + 0.3})`;
         ctx.fill();
       }
 
@@ -115,7 +114,7 @@ export default function NodeConstellation({
       if (animRef.current) cancelAnimationFrame(animRef.current);
       window.removeEventListener('resize', onResize);
     };
-  }, [nodeCount, connectionDistance, speed, glowMultiplier]);
+  }, [nodeCount, connectionDistance, speed, brightness]);
 
   return (
     <canvas
