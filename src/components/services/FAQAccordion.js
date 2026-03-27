@@ -64,9 +64,15 @@ export default function FAQAccordion() {
               <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold/40 mb-3">
                 Still have questions?
               </span>
-              <p className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light/20">
+              <p className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light/20 mb-6">
                 We&rsquo;re here to help.
               </p>
+              <a
+                href="/contact"
+                className="btn-outline py-2.5 px-6 relative z-10"
+              >
+                <span>Get in Touch →</span>
+              </a>
             </div>
           </div>
         </div>
