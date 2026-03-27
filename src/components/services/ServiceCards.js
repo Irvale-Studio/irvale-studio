@@ -13,6 +13,7 @@ export default function ServiceCards({
   title,
   subtitle,
   tiers,
+  disclaimer,
 }) {
   return (
     <section className="bg-dark py-[var(--section-gap)]">
@@ -42,37 +43,37 @@ export default function ServiceCards({
           </div>
         )}
 
-        {/* Tier cards */}
-        <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[var(--grid-gap)]">
+        {/* Tier cards — items-stretch ensures equal height */}
+        <SectionReveal className="grid grid-cols-1 md:grid-cols-3 items-stretch gap-6 md:gap-[var(--grid-gap)]">
           {tiers.map((tier, index) => (
             <div
               key={tier.name}
-              className={cn(
-                'relative flex flex-col',
-                tier.highlighted && 'md:-mt-3'
-              )}
+              className="relative flex flex-col"
             >
-              {/* Badge — sits above card */}
+              {/* Badge — sits above card, connected */}
               {tier.badge && (
-                <div className="flex justify-center mb-0">
+                <div className="flex justify-center">
                   <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] bg-gold text-dark px-5 py-1.5 whitespace-nowrap">
                     ✶ {tier.badge} ✶
                   </span>
                 </div>
               )}
 
+              {/* Spacer for non-badge cards to align tops */}
+              {!tier.badge && <div className="hidden md:block h-[29px]" />}
+
               {/* Card */}
               <div
                 className={cn(
                   'relative flex flex-col flex-1 p-8 md:p-10',
                   tier.highlighted
-                    ? 'border border-gold/40 bg-[rgba(201,169,110,0.03)]'
+                    ? 'border border-gold/40 border-t-0 bg-[rgba(201,169,110,0.03)]'
                     : 'border border-[var(--border-dark)] bg-dark-2'
                 )}
               >
-                {/* Gold top accent on highlighted */}
+                {/* Gold top accent on highlighted (connects to badge) */}
                 {tier.highlighted && (
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gold" />
+                  <div className="absolute top-0 left-[-1px] right-[-1px] h-[2px] bg-gold" />
                 )}
 
                 {/* Tier label */}
@@ -114,17 +115,18 @@ export default function ServiceCards({
           ))}
         </SectionReveal>
 
-        {/* Disclaimer */}
-        <p className="font-body text-xs text-text-muted-light text-center mt-10 max-w-md mx-auto">
-          All prices in Thai Baht (THB) and exclude VAT where applicable. Website
-          builds invoiced 50% upfront, 50% on launch.{' '}
-          <Link
-            href="/contact"
-            className="text-gold-muted hover:text-gold transition-colors"
-          >
-            Need something bespoke?
-          </Link>
-        </p>
+        {/* Disclaimer — per-section */}
+        {disclaimer && (
+          <p className="font-body text-xs text-text-muted-light text-center mt-10 max-w-md mx-auto">
+            {disclaimer}{' '}
+            <Link
+              href="/contact"
+              className="text-gold-muted hover:text-gold transition-colors"
+            >
+              Need something bespoke?
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );
