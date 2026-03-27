@@ -32,8 +32,8 @@ export default function ServicesPage() {
       <ServiceSchema />
       <FAQPageSchema />
 
-      {/* Hero — cream bg to separate from dark tier cards */}
-      <section className="bg-cream pt-32 pb-[var(--section-gap)]">
+      {/* Hero — dark */}
+      <section className="bg-dark pt-32 pb-[var(--section-gap)]">
         <div
           className="mx-auto px-[var(--gutter)]"
           style={{ maxWidth: 'var(--max-width)' }}
@@ -41,11 +41,11 @@ export default function ServicesPage() {
           <Eyebrow className="mb-6 block">Services & Pricing</Eyebrow>
           <RevealText
             as="h1"
-            className="font-display font-normal text-text-dark text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
+            className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[800px] mb-6"
           >
             Transparent pricing. No surprises.
           </RevealText>
-          <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-dark font-light max-w-lg">
+          <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-lg">
             See the full picture before you commit. From a clean brochure site
             to a fully custom platform with admin tools, SEO, and AI search
             optimisation.
@@ -53,13 +53,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Website Build Tiers */}
+      {/* Website Build Tiers — dark-2 to separate from hero */}
       <ServiceCards
         eyebrow="SERVICE ONE"
         title="Website Build"
         subtitle="A one-time project fee to design, build, and launch your new site. All tiers include responsive design, speed optimisation, security certificates, and domain hosting."
         tiers={websiteBuildTiers}
         disclaimer="All prices in Thai Baht (THB) and exclude VAT where applicable. Website builds invoiced 50% upfront, 50% on launch."
+        sectionBg="bg-dark-2"
       />
 
       {/* Marquee — benefits, not tier names */}

@@ -14,9 +14,10 @@ export default function ServiceCards({
   subtitle,
   tiers,
   disclaimer,
+  sectionBg = 'bg-dark',
 }) {
   return (
-    <section className="bg-dark py-[var(--section-gap)]">
+    <section className={cn(sectionBg, 'py-[var(--section-gap)]')}>
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}

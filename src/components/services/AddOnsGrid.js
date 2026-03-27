@@ -6,12 +6,11 @@ import SectionReveal from '@/components/ui/SectionReveal';
 import { addOnServices } from '@/lib/data/services';
 
 export default function AddOnsGrid() {
-  // Split into rows of 2 so each row gets its own scroll trigger
   const row1 = addOnServices.slice(0, 2);
   const row2 = addOnServices.slice(2, 4);
 
   return (
-    <section className="bg-cream py-[var(--section-gap)]">
+    <section className="bg-dark-2 py-[var(--section-gap)]">
       <div
         className="mx-auto px-[var(--gutter)]"
         style={{ maxWidth: 'var(--max-width)' }}
@@ -21,11 +20,11 @@ export default function AddOnsGrid() {
           <Eyebrow className="mb-6 block">Add-On Services</Eyebrow>
           <RevealText
             as="h2"
-            className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mb-4"
+            className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px] mb-4"
           >
             Enhance your package.
           </RevealText>
-          <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light max-w-lg">
+          <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-lg">
             These standalone services can be added to any plan at any time.
             Priced as monthly retainers unless stated otherwise.
           </p>
@@ -38,7 +37,7 @@ export default function AddOnsGrid() {
           ))}
         </SectionReveal>
 
-        {/* Row 2 — separate SectionReveal so it triggers when scrolled into view */}
+        {/* Row 2 */}
         <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[var(--grid-gap)]">
           {row2.map((addon) => (
             <AddOnCard key={addon.name} addon={addon} />
@@ -51,9 +50,9 @@ export default function AddOnsGrid() {
 
 function AddOnCard({ addon }) {
   return (
-    <div className="relative bg-dark border border-white/10 p-8 md:p-10 flex flex-col group">
+    <div className="relative bg-cream/[0.04] border border-white/[0.08] p-8 md:p-10 flex flex-col group hover:border-gold/20 transition-colors duration-300">
       {/* Gold left accent */}
-      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gold/40 group-hover:bg-gold transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gold/30 group-hover:bg-gold transition-colors duration-300" />
 
       {/* Category eyebrow */}
       <span className="font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold mb-4">
@@ -81,14 +80,14 @@ function AddOnCard({ addon }) {
       </p>
 
       {/* Divider */}
-      <div className="h-px bg-white/10 mb-6" />
+      <div className="h-px bg-white/[0.06] mb-6" />
 
       {/* Features checklist */}
       <ul className="space-y-2.5">
         {addon.features.map((feature, i) => (
           <li
             key={i}
-            className="font-body text-sm text-text-light/90 font-light flex gap-2.5"
+            className="font-body text-sm text-text-light/80 font-light flex gap-2.5"
           >
             <span className="text-gold shrink-0 text-xs mt-[3px]">✓</span>
             <span className="flex-1">{feature}</span>
