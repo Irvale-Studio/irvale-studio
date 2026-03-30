@@ -21,6 +21,7 @@ export default function Navbar() {
   const mobileMenuRef = useRef(null);
   const linksRef = useRef([]);
   const pathname = usePathname();
+  const alwaysSolid = pathname === '/contact';
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -69,7 +70,7 @@ export default function Navbar() {
         ref={navRef}
         className={cn(
           'fixed top-0 left-0 right-0 z-[100] transition-colors duration-300',
-          scrolled
+          scrolled || alwaysSolid
             ? 'bg-dark border-b border-gold/20'
             : 'bg-transparent'
         )}
@@ -145,7 +146,7 @@ export default function Navbar() {
             href={link.href}
             ref={(el) => { linksRef.current[i] = el; }}
             onClick={() => setMobileOpen(false)}
-            className="font-display text-[clamp(32px,6vw,48px)] text-text-light italic"
+            className="font-display text-[clamp(32px,6vw,48px)] text-text-light"
           >
             {link.label}
             {link.highlight && (

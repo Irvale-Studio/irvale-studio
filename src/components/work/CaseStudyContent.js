@@ -1,46 +1,38 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
 import Counter from '@/components/ui/Counter';
 
 export default function CaseStudyContent({ project, nextProject }) {
-  // Extract leading number from metric for counter
   const metricMatch = project.metric.match(/(\d+)/);
   const metricNumber = metricMatch ? parseInt(metricMatch[1]) : null;
 
   return (
     <main>
-      {/* Intro bar */}
-      <div className="bg-cream border-b border-[var(--border-light)]">
+      {/* Hero — dark text section, no image overlay */}
+      <section className="bg-dark pt-32 md:pt-40 pb-16">
         <div
-          className="mx-auto px-[var(--gutter)] py-4 flex items-center justify-between"
+          className="mx-auto px-[var(--gutter)]"
           style={{ maxWidth: 'var(--max-width)' }}
         >
           <Link
             href="/work"
-            className="font-body text-sm text-text-muted-dark hover:text-text-dark transition-colors"
+            className="font-body text-sm text-text-muted-light hover:text-gold transition-colors mb-8 inline-block"
           >
             ← Back to Work
           </Link>
-          <span className="font-body text-sm text-text-dark">{project.name}</span>
-          <span className="font-body text-sm text-text-muted-dark">{project.year}</span>
-        </div>
-      </div>
 
-      {/* Hero */}
-      <section className="relative h-[70vh] md:h-screen bg-dark overflow-hidden flex items-end">
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-2 to-dark" />
-        <div
-          className="relative z-10 px-[var(--gutter)] pb-12 md:pb-20 w-full"
-          style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}
-        >
           <Eyebrow className="mb-4 block">{project.niche}</Eyebrow>
-          <h1 className="font-display text-[length:var(--type-display)] leading-[var(--type-display-lh)] text-text-light max-w-[800px]">
+          <h1 className="font-display text-[length:var(--type-display)] leading-[var(--type-display-lh)] text-text-light max-w-[800px] mb-6">
             {project.name}
           </h1>
+          <p className="font-display italic text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light max-w-xl">
+            {project.headline}
+          </p>
         </div>
       </section>
 
@@ -65,6 +57,35 @@ export default function CaseStudyContent({ project, nextProject }) {
           <div>
             <Eyebrow className="block mb-2">Key Result</Eyebrow>
             <p className="font-body text-sm text-gold font-medium">{project.metric}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero screenshot — browser mockup, not full-bleed */}
+      <section className="bg-dark py-[var(--section-gap)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div className="rounded-lg overflow-hidden border border-white/10 bg-dark-2 shadow-2xl shadow-black/40">
+            <div className="flex items-center gap-1.5 px-4 py-2.5 bg-dark-2 border-b border-white/5">
+              <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+              <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+              <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+              <span className="ml-3 flex-1 text-center font-body text-[10px] text-text-muted-light/40 truncate">
+                {project.url?.replace('https://', '')}
+              </span>
+            </div>
+            <div className="relative aspect-video">
+              <Image
+                src={project.image}
+                alt={project.name}
+                fill
+                className="object-cover object-top"
+                sizes="(min-width: 768px) 80vw, 100vw"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -109,18 +130,41 @@ export default function CaseStudyContent({ project, nextProject }) {
         </div>
       </section>
 
-      {/* Design Gallery — placeholder */}
+      {/* Design Gallery */}
       <section className="bg-dark-2 py-[var(--section-gap)]">
         <div
           className="mx-auto px-[var(--gutter)]"
           style={{ maxWidth: 'var(--max-width)' }}
         >
           <Eyebrow className="mb-8 block">Design Gallery</Eyebrow>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[var(--grid-gap)]">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="aspect-[4/3] bg-dark rounded" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--grid-gap)]">
+            {project.gallery.map((src, i) => (
+              <div
+                key={i}
+                className={`relative aspect-video bg-dark overflow-hidden rounded-lg border border-white/5 ${i === 0 ? 'md:col-span-2' : ''}`}
+              >
+                <Image
+                  src={src}
+                  alt={`${project.name} — screenshot ${i + 1}`}
+                  fill
+                  className="object-cover object-top"
+                  sizes={i === 0 ? '100vw' : '(min-width: 768px) 50vw, 100vw'}
+                />
+              </div>
             ))}
           </div>
+          {project.url && (
+            <div className="mt-8">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm text-gold hover:text-gold-light transition-colors"
+              >
+                Visit Live Site →
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -132,14 +176,12 @@ export default function CaseStudyContent({ project, nextProject }) {
         >
           <Eyebrow className="mb-8 block">The Outcome</Eyebrow>
           <SectionReveal>
-            {/* Large stat */}
             <div className="mb-12">
               <p className="font-display text-[clamp(48px,8vw,96px)] text-gold leading-none">
                 {project.metric}
               </p>
             </div>
 
-            {/* Results */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {project.results.map((result, i) => (
                 <div key={i} className="border-l border-gold/30 pl-6">
@@ -150,7 +192,6 @@ export default function CaseStudyContent({ project, nextProject }) {
               ))}
             </div>
 
-            {/* Testimonial */}
             {project.testimonial && (
               <div className="max-w-2xl">
                 <div className="w-12 h-px bg-gold mb-8" />
@@ -177,7 +218,6 @@ export default function CaseStudyContent({ project, nextProject }) {
         >
           <Link
             href={`/work/${nextProject.slug}`}
-           
             className="group flex items-center justify-between"
           >
             <div>

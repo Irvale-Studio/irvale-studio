@@ -13,37 +13,36 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     number: '01',
-    title: 'Get Recommended',
-    subtitle: 'AI Visibility',
+    title: 'Website Build',
+    subtitle: 'Design & Development',
     description:
-      'When someone asks ChatGPT for the best spa or top golf clubs near them, your name comes up. We optimise your brand for AI-powered search.',
+      'Bespoke websites built from scratch — no templates. From clean 5-page sites to full e-commerce platforms with payments, multi-language support, and admin portals.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
       </svg>
     ),
   },
   {
     number: '02',
-    title: 'Get Found',
-    subtitle: 'SEO & Search Strategy',
+    title: 'Zatrovo Booking',
+    subtitle: 'Scheduling & Payments',
     description:
-      'Technical SEO and content strategy that puts you ahead of competitors in Google for the searches your ideal customers are making.',
+      'Our proprietary booking platform — class scheduling, appointment booking, member management, credit packs, and integrated payments. Your clients book and pay online, you focus on your business.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
-        <circle cx="11" cy="11" r="8" />
-        <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+        <rect x="3" y="4" width="18" height="18" rx="2" />
+        <path d="M16 2v4M8 2v4M3 10h18" />
       </svg>
     ),
   },
   {
     number: '03',
-    title: 'Get Chosen',
-    subtitle: 'Design & Development',
+    title: 'Growth & Visibility',
+    subtitle: 'AI Search, SEO & Email',
     description:
-      'A bespoke website that builds trust on first impression and converts visitors into enquiries through considered design and intuitive booking flows.',
+      'Get recommended by ChatGPT and Gemini, rank higher on Google, and bring customers back with automated email campaigns. Ongoing retainers that compound your results month over month.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" strokeLinecap="round" strokeLinejoin="round" />
@@ -103,7 +102,7 @@ function ServiceCard({ service, cardRef, numberRef, iconRef, accentRef }) {
       ref={(el) => { tiltRef.current = el; cardRef(el); }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="service-card group relative border border-[var(--border-light)] bg-cream p-8 md:p-10 overflow-hidden will-change-transform transition-[border-color,box-shadow] duration-500 ease-out hover:border-gold/25 hover:shadow-[0_6px_30px_rgba(201,169,110,0.1)] active:scale-[0.98]"
+      className="service-card group relative border border-text-dark/10 bg-white p-8 md:p-10 overflow-hidden will-change-transform transition-[border-color,box-shadow] duration-500 ease-out hover:border-gold/30 hover:shadow-[0_6px_30px_rgba(201,169,110,0.12)] active:scale-[0.98] rounded"
       style={{ transformStyle: 'preserve-3d' }}
     >
       <div
@@ -276,7 +275,7 @@ export default function ServicesOverview() {
           as="h2"
           className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-16"
         >
-          Design, search, and AI — working together to grow your business.
+          Build, book, and grow — everything your business needs online.
         </RevealText>
 
         {/* Desktop: connecting line + card grid */}

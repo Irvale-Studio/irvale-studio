@@ -10,12 +10,6 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import { projects } from '@/lib/data/projects';
 
-const projectImages = {
-  'heathland-golf-club': '/images/work-heathland.svg',
-  'aura-wellness-retreat': '/images/work-aura.svg',
-  'blackwood-performance': '/images/work-blackwood.svg',
-};
-
 gsap.registerPlugin(ScrollTrigger);
 
 const featured = projects.slice(0, 3);
@@ -30,7 +24,6 @@ export default function FeaturedWork() {
 
     const mm = gsap.matchMedia();
 
-    // Desktop: horizontal pinned scroll
     mm.add('(min-width: 768px)', () => {
       const track = trackRef.current;
       const scrollWidth = track.scrollWidth - window.innerWidth;
@@ -49,7 +42,6 @@ export default function FeaturedWork() {
       });
     });
 
-    // Mobile: scroll-stacking cards
     mm.add('(max-width: 767px)', () => {
       const cards = mobileCardsRef.current.filter(Boolean);
 
@@ -79,39 +71,46 @@ export default function FeaturedWork() {
   }, { scope: sectionRef });
 
   const CardContent = ({ project }) => (
-    <>
-      {projectImages[project.slug] && (
-        <Image
-          src={projectImages[project.slug]}
-          alt={project.name}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-          sizes="(min-width: 768px) 45vw, 100vw"
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-2/40 to-dark/60" />
-
-      <div className="absolute top-6 left-6 z-10">
-        <span className="font-display text-[clamp(20px,2.5vw,32px)] text-gold leading-none">
-          {project.metric}
-        </span>
+    <div className="flex flex-col h-full">
+      {/* Browser frame with screenshot */}
+      <div className="rounded-t-lg overflow-hidden border border-white/10 border-b-0 bg-dark-2">
+        <div className="flex items-center gap-1.5 px-3 py-2 bg-dark-2 border-b border-white/5">
+          <span className="w-2 h-2 rounded-full bg-white/10" />
+          <span className="w-2 h-2 rounded-full bg-white/10" />
+          <span className="w-2 h-2 rounded-full bg-white/10" />
+          <span className="ml-2 flex-1 text-center font-body text-[9px] text-text-muted-light/40 truncate">
+            {project.url?.replace('https://', '')}
+          </span>
+        </div>
+        <div className="relative aspect-video">
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            sizes="(min-width: 768px) 45vw, 100vw"
+          />
+        </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent md:bg-dark/70 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
-        <span className="font-body text-[length:var(--type-caption)] text-gold uppercase tracking-[var(--type-label-ls)] mb-2">
+      {/* Info below image */}
+      <div className="border border-white/10 border-t-0 rounded-b-lg px-5 py-4 bg-dark-2/50">
+        <span className="font-body text-[length:var(--type-caption)] text-gold uppercase tracking-[var(--type-label-ls)] mb-1 block">
           {project.niche}
         </span>
-        <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light">
+        <h3 className="font-display text-[length:var(--type-h4)] leading-[var(--type-h4-lh)] text-text-light mb-2">
           {project.name}
         </h3>
-        <p className="hidden md:block font-body text-[length:var(--type-body-sm)] leading-[var(--type-body-sm-lh)] text-text-muted-light mt-2 max-w-sm">
-          {project.headline}
-        </p>
-        <span className="font-body text-[length:var(--type-body-sm)] text-gold mt-3">
-          View Project →
-        </span>
+        <div className="flex items-center justify-between">
+          <span className="font-body text-xs text-text-muted-light/70">
+            {project.metric}
+          </span>
+          <span className="font-body text-xs text-gold">
+            View →
+          </span>
+        </div>
       </div>
-    </>
+    </div>
   );
 
   return (
@@ -139,7 +138,7 @@ export default function FeaturedWork() {
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
-              className="group relative flex-shrink-0 w-[45vw] aspect-[4/3] bg-dark-2 overflow-hidden"
+              className="group relative flex-shrink-0 w-[42vw]"
             >
               <CardContent project={project} />
             </Link>
@@ -147,17 +146,13 @@ export default function FeaturedWork() {
         </div>
 
         {/* Mobile: scroll-stacking cards */}
-        <div className="md:hidden flex flex-col gap-4 px-[var(--gutter)]">
+        <div className="md:hidden flex flex-col gap-6 px-[var(--gutter)]">
           {featured.map((project, i) => (
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
               ref={(el) => (mobileCardsRef.current[i] = el)}
-              className="group sticky top-[20vh] relative w-full aspect-[4/3] bg-dark-2 overflow-hidden"
-              style={{
-                zIndex: i + 1,
-                boxShadow: '0 -8px 30px rgba(0,0,0,0.3)',
-              }}
+              className="group relative w-full"
             >
               <CardContent project={project} />
             </Link>

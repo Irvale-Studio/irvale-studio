@@ -10,22 +10,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    quote: 'We went from losing 70% of bookings to OTAs to taking the majority direct. The ROI was immediate.',
-    author: 'Catherine Ashworth',
-    role: 'General Manager, The Halcyon Hotel',
-    result: '+180% direct bookings',
+    quote: 'Before Irvale, everything was done through DMs and spreadsheets. Now clients book, pay, and manage everything themselves. It\'s completely changed how I run the business.',
+    author: 'Bert',
+    role: 'Founder, BOXX Thailand',
+    result: '85% of bookings now online',
   },
   {
-    quote: 'We went from having nothing online to being fully booked within two months. Irvale made it effortless.',
-    author: 'Marcus Cole',
-    role: 'Founder, Blackwood Performance',
-    result: '+210% class bookings',
+    quote: 'We needed a site that could close deals before we even got on a call. Irvale built exactly that — it\'s our best salesperson.',
+    author: 'Managing Director',
+    role: 'Realspace Marketing',
+    result: '4x client conversion rate',
   },
   {
-    quote: 'Our enquiry rate tripled within six weeks of launch. We had to hire two extra staff to keep up with demand.',
-    author: 'James Thornton',
-    role: 'Director, Heathland Golf Club',
-    result: '+340% enquiries',
+    quote: 'We used to spend hours every day on WhatsApp confirming bookings. Now customers book and pay instantly — and we can focus on delivering incredible experiences.',
+    author: 'Operations Manager',
+    role: 'Chiang Mai Go Tours',
+    result: '35+ tours bookable online',
   },
 ];
 

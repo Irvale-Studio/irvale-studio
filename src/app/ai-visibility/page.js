@@ -141,13 +141,13 @@ export default function AIVisibilityPage() {
                 Crestview Members Club
               </h3>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-4">
-                The first private members club optimised for AI discovery. 400+ waitlist sign-ups in 3 months, recommended by ChatGPT for &ldquo;best members clubs London.&rdquo;
+                See how we help businesses become discoverable by AI assistants — driving leads and bookings from a channel most competitors don&rsquo;t even know exists.
               </p>
               <Link
-                href="/work/crestview-members-club"
+                href="/work"
                 className="font-body text-sm text-gold hover:text-gold-light transition-colors"
               >
-                Read Case Study →
+                See Our Work →
               </Link>
             </div>
             <div className="aspect-[4/3] bg-dark/30 rounded" />

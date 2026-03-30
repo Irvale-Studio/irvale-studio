@@ -3,8 +3,8 @@
 import Eyebrow from '@/components/ui/Eyebrow';
 
 const clients = [
-  'Boxx Fitness Studio',
-  'Hang Dong Golf Club',
+  'BOXX Thailand',
+  'Realspace Marketing',
   'Chiang Mai Go Tours',
 ];
 

@@ -7,9 +7,9 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Counter from '@/components/ui/Counter';
 
 const stats = [
-  { value: 340, suffix: '%', label: 'Increase in enquiries' },
-  { value: 180, suffix: '%', label: 'More direct bookings' },
-  { value: 72, suffix: 'hrs', label: 'Sell-out after launch' },
+  { value: 85, suffix: '%', label: 'Bookings moved online' },
+  { value: 35, suffix: '+', label: 'Tours bookable instantly' },
+  { value: 4, suffix: 'x', label: 'Client conversion rate' },
 ];
 
 const CYCLE_DURATION = 4000;
@@ -52,15 +52,15 @@ export default function IntroStatement() {
           as="h2"
           className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[800px] mb-12"
         >
-          Your digital presence should be as refined as the experience you offer.
+          We handle the technology so you can focus on what you do best.
         </RevealText>
 
         <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <p className="font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
-            We design and build bespoke websites for hospitality, wellness, and private membership brands — paired with SEO, AI visibility, and digital marketing that turns your digital presence into a growth channel.
+            From bespoke websites and booking systems to AI visibility and email marketing — we build, automate, and manage the digital infrastructure that drives your revenue.
           </p>
           <p className="hidden md:block font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
-            No templates. No generic agencies. Every project is built around your brand, your audience, and the metrics that actually matter to your business.
+            No templates. No outsourced freelancers. Every project is built in-house, around your business, with pricing in Thai Baht and support you can actually reach.
           </p>
         </SectionReveal>
 

@@ -47,6 +47,15 @@ function HeroConstellation() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
+    // Center exclusion zone — no nodes spawn or drift here
+    function isInExclusionZone(x, y) {
+      const zoneW = w * 0.45;
+      const zoneH = h * 0.35;
+      const cx = w / 2;
+      const cy = h / 2 - h * 0.02;
+      return Math.abs(x - cx) < zoneW / 2 && Math.abs(y - cy) < zoneH / 2;
+    }
+
     function initNodes() {
       nodes.length = 0;
       for (let i = 0; i < nodeCount; i++) {
@@ -56,9 +65,16 @@ function HeroConstellation() {
                       : sizeTier > 0.7  ? 1.5
                       : 0.8;
 
+        // Keep generating positions until outside the exclusion zone
+        let x, y;
+        do {
+          x = Math.random() * w;
+          y = Math.random() * h;
+        } while (isInExclusionZone(x, y));
+
         nodes.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
+          x,
+          y,
           baseVx: (Math.random() - 0.5) * 0.2,
           baseVy: (Math.random() - 0.5) * 0.2,
           wanderAngle: Math.random() * Math.PI * 2,
@@ -104,6 +120,17 @@ function HeroConstellation() {
           const force = (1 - mDist / 150) * 0.8;
           node.x += (mdx / mDist) * force;
           node.y += (mdy / mDist) * force;
+        }
+
+        // Push nodes away from exclusion zone
+        if (isInExclusionZone(node.x, node.y)) {
+          const cx = w / 2;
+          const cy = h / 2 - h * 0.02;
+          const dx = node.x - cx;
+          const dy = node.y - cy;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          node.x += (dx / dist) * 2;
+          node.y += (dy / dist) * 2;
         }
 
         // Wrap edges
@@ -222,7 +249,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-dark noise-overlay"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-dark"
     >
       {/* Constellation */}
       <div className="absolute inset-0">
@@ -254,14 +281,14 @@ export default function HeroSection() {
           className="font-display font-normal text-white text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mx-auto justify-center"
           style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3)' }}
         >
-          Premium software solutions.
+          Software Solutions.
         </RevealText>
 
         <p
           className="mt-6 font-display text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-light/80 font-light max-w-xl mx-auto"
           style={{ textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}
         >
-          Bespoke websites, custom booking systems, member experiences, and AI automations. Specialised for hospitality, wellness, and membership brands.
+          We build, automate, and manage your digital operations. Saving you time and increasing your revenue.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))' }}>
@@ -271,6 +298,17 @@ export default function HeroSection() {
           <Link href="/work" className="btn-outline border-white/30 text-text-light hover:text-dark w-full sm:w-auto text-center">
             <span>See Client Results</span>
           </Link>
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          {['Bespoke Websites', 'Booking Systems', 'AI Automations', 'E-commerce', 'Managed Hosting', 'Email Marketing'].map((service) => (
+            <span
+              key={service}
+              className="font-body text-xs text-text-light/50 border border-gold/15 bg-gold/5 px-3 py-1.5 rounded-full"
+            >
+              {service}
+            </span>
+          ))}
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-2">

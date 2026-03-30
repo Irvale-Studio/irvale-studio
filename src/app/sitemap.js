@@ -2,12 +2,9 @@ export default function sitemap() {
   const baseUrl = 'https://irvale.studio';
 
   const caseStudies = [
-    'heathland-golf-club',
-    'aura-wellness-retreat',
-    'blackwood-performance',
-    'the-halcyon-hotel',
-    'elara-private-dining',
-    'crestview-members-club',
+    'boxx-thailand',
+    'realspace-marketing',
+    'chiang-mai-go-tours',
   ];
 
   return [

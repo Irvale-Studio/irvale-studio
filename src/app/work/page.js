@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
@@ -31,7 +32,7 @@ export default function WorkPage() {
             Work that speaks for itself
           </RevealText>
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-lg">
-            Six projects. Six brands that refused to settle. Every one built from scratch.
+            Real businesses, real results. Bespoke builds that drive growth, bookings, and revenue.
           </p>
           <div className="mt-4 inline-block font-body text-xs text-gold border border-gold/30 px-3 py-1">
             {projects.length} Projects
@@ -62,45 +63,85 @@ export default function WorkPage() {
         </div>
       </div>
 
-      {/* Project Grid — Asymmetric Masonry */}
+      {/* Project List */}
       <section className="bg-dark py-[var(--section-gap)]">
         <div
           className="mx-auto px-[var(--gutter)]"
           style={{ maxWidth: 'var(--max-width)' }}
         >
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-12 gap-[var(--grid-gap)]">
+          <SectionReveal className="flex flex-col gap-24">
             {filtered.map((project, i) => {
-              // Alternating column rhythm: 8/4, 4/8, 6/6
-              const patterns = [
-                ['md:col-span-8', 'md:col-span-4'],
-                ['md:col-span-4', 'md:col-span-8'],
-                ['md:col-span-6', 'md:col-span-6'],
-              ];
-              const patternIndex = Math.floor(i / 2) % 3;
-              const colClass = patterns[patternIndex][i % 2];
+              const reversed = i % 2 === 1;
 
               return (
                 <Link
                   key={project.slug}
                   href={`/work/${project.slug}`}
-                 
-                  className={cn(
-                    'group relative col-span-1 aspect-[4/3] bg-dark-2 overflow-hidden',
-                    colClass
-                  )}
+                  className="group grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
                 >
-                  {/* Placeholder */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-dark-2 to-dark" />
+                  {/* Screenshot in browser frame */}
+                  <div className={cn(
+                    'col-span-1 md:col-span-7',
+                    reversed && 'md:order-2'
+                  )}>
+                    <div className="rounded-lg overflow-hidden border border-white/10 bg-dark-2 shadow-2xl shadow-black/40 transition-transform duration-500 group-hover:scale-[1.02]">
+                      {/* Browser chrome */}
+                      <div className="flex items-center gap-1.5 px-4 py-2.5 bg-dark-2 border-b border-white/5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                        <span className="ml-3 flex-1 text-center font-body text-[10px] text-text-muted-light/40 truncate">
+                          {project.url?.replace('https://', '')}
+                        </span>
+                      </div>
+                      {/* Screenshot */}
+                      <div className="relative aspect-video">
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          fill
+                          className="object-cover object-top"
+                          sizes="(min-width: 768px) 58vw, 100vw"
+                        />
+                      </div>
+                    </div>
+                  </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-dark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
-                    <span className="font-body text-xs text-gold uppercase tracking-[0.15em] mb-2">
+                  {/* Project info */}
+                  <div className={cn(
+                    'col-span-1 md:col-span-5',
+                    reversed && 'md:order-1'
+                  )}>
+                    <span className="font-body text-[length:var(--type-caption)] text-gold uppercase tracking-[var(--type-label-ls)] mb-4 block">
                       {project.niche}
                     </span>
-                    <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light">
+                    <h2 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light mb-4 group-hover:text-gold transition-colors">
                       {project.name}
-                    </h3>
-                    <span className="font-body text-sm text-text-muted-light mt-2">
+                    </h2>
+                    <p className="font-body text-[length:var(--type-body)] leading-[var(--type-body-lh)] text-text-muted-light font-light mb-6">
+                      {project.headline}
+                    </p>
+
+                    {/* Metric pill */}
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="font-body text-sm text-gold border border-gold/30 px-3 py-1.5">
+                        {project.metric}
+                      </span>
+                      <span className="font-body text-sm text-text-muted-light border border-white/10 px-3 py-1.5">
+                        {project.timeline}
+                      </span>
+                    </div>
+
+                    {/* Services tags */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.services.map((s) => (
+                        <span key={s} className="font-body text-xs text-text-muted-light/60 bg-white/5 px-2.5 py-1 rounded-sm">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="font-body text-sm text-gold group-hover:text-gold-light transition-colors">
                       View Case Study →
                     </span>
                   </div>
