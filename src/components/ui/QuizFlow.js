@@ -338,7 +338,7 @@ export default function QuizFlow({ isOpen, onClose, config, apiEndpoint = '/api/
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[200] backdrop-blur-xl flex flex-col"
+          className="fixed inset-0 z-[200] backdrop-blur-sm md:backdrop-blur-xl flex flex-col"
           style={{ backgroundColor: `${theme.bg}FA` }}
           onKeyDown={handleKeyDown}
         >

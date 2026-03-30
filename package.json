@@ -20,7 +20,6 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.9.4",
-    "splitting": "^1.1.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1"
   },

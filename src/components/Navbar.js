@@ -38,28 +38,31 @@ export default function Navbar() {
   // Mobile menu animation
   useGSAP(() => {
     if (!mobileMenuRef.current) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
       gsap.to(mobileMenuRef.current, {
         opacity: 1,
         pointerEvents: 'auto',
-        duration: 0.3,
+        duration: reducedMotion ? 0 : 0.3,
       });
-      gsap.from(linksRef.current.filter(Boolean), {
-        y: 40,
-        opacity: 0,
-        stagger: 0.08,
-        duration: 0.5,
-        ease: 'power3.out',
-        delay: 0.15,
-      });
+      if (!reducedMotion) {
+        gsap.from(linksRef.current.filter(Boolean), {
+          y: 40,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.5,
+          ease: 'power3.out',
+          delay: 0.15,
+        });
+      }
     } else {
       document.body.style.overflow = '';
       gsap.to(mobileMenuRef.current, {
         opacity: 0,
         pointerEvents: 'none',
-        duration: 0.3,
+        duration: reducedMotion ? 0 : 0.3,
       });
     }
   }, { dependencies: [mobileOpen] });

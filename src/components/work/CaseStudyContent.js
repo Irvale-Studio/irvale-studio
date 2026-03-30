@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';

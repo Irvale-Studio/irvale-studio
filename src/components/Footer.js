@@ -31,11 +31,10 @@ export default function Footer() {
       const cols = columnsRef.current.filter(Boolean);
 
       cols.forEach((col, i) => {
-        gsap.set(col, { opacity: 0, y: -8, filter: 'blur(4px)' });
+        gsap.set(col, { opacity: 0, y: -8 });
         gsap.to(col, {
           opacity: 1,
           y: 0,
-          filter: 'blur(0px)',
           duration: 0.8,
           ease: 'power2.out',
           delay: i * 0.12,

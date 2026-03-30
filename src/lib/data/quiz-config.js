@@ -69,8 +69,8 @@ export const QUIZ_CONFIG = {
       subtitle: 'This helps us recommend the right package',
       type: 'single',
       options: [
-        { value: 'small', label: 'Getting Started', sublabel: 'Around ฿20,000 – ฿25,000' },
-        { value: 'medium', label: 'Growing Business', sublabel: 'Around ฿30,000 – ฿45,000' },
+        { value: 'small', label: 'Getting Started', sublabel: '฿3,000 – ฿20,000' },
+        { value: 'medium', label: 'Growing Business', sublabel: '฿20,000 – ฿50,000' },
         { value: 'large', label: 'Full Platform', sublabel: '฿50,000+' },
         { value: 'unsure', label: 'Not Sure Yet', sublabel: "Help me figure it out" },
       ],

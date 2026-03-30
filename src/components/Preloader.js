@@ -18,6 +18,12 @@ export default function Preloader() {
   useEffect(() => {
     if (!show) return;
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      sessionStorage.setItem('irvale_visited', 'true');
+      setShow(false);
+      return;
+    }
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {

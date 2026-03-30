@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const NOTIFY_EMAIL = 'jacobmhorgan@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@irvale.studio';
@@ -209,34 +209,33 @@ export async function POST(request) {
 
     const plan = generatePlan(answers);
 
-    // Send emails in parallel (don't block the response if they fail)
-    const emailPromises = [];
+    // Send emails if Resend is configured
+    if (resend) {
+      const emailPromises = [];
 
-    // 1. Notify Irvale team
-    emailPromises.push(
-      resend.emails.send({
-        from: `Irvale Studio <${FROM_EMAIL}>`,
-        to: NOTIFY_EMAIL,
-        subject: `New Lead: ${answers.businessName || 'Unknown'} — ${plan.packageName}`,
-        html: buildLeadNotificationHtml(answers, plan),
-      }).catch(err => console.error('Failed to send lead notification:', err))
-    );
-
-    // 2. Send plan to the client
-    if (answers.email) {
       emailPromises.push(
         resend.emails.send({
           from: `Irvale Studio <${FROM_EMAIL}>`,
-          to: answers.email,
-          subject: `Your Technical Plan — ${plan.packageName}`,
-          html: buildClientPlanHtml(answers, plan),
-          replyTo: NOTIFY_EMAIL,
-        }).catch(err => console.error('Failed to send client plan:', err))
+          to: NOTIFY_EMAIL,
+          subject: `New Lead: ${answers.businessName || 'Unknown'} — ${plan.packageName}`,
+          html: buildLeadNotificationHtml(answers, plan),
+        }).catch(err => console.error('Failed to send lead notification:', err))
       );
-    }
 
-    // Fire emails but don't wait for them to complete
-    Promise.all(emailPromises);
+      if (answers.email) {
+        emailPromises.push(
+          resend.emails.send({
+            from: `Irvale Studio <${FROM_EMAIL}>`,
+            to: answers.email,
+            subject: `Your Technical Plan — ${plan.packageName}`,
+            html: buildClientPlanHtml(answers, plan),
+            replyTo: NOTIFY_EMAIL,
+          }).catch(err => console.error('Failed to send client plan:', err))
+        );
+      }
+
+      Promise.all(emailPromises);
+    }
 
     return NextResponse.json(plan);
   } catch (error) {

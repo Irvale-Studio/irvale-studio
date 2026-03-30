@@ -95,7 +95,7 @@ export default function Testimonial() {
 
   // Auto-cycle
   useEffect(() => {
-    if (!isInView) {
+    if (!isInView || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       clearInterval(intervalRef.current);
       return;
     }

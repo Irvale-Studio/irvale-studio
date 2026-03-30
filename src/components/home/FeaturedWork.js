@@ -48,22 +48,17 @@ export default function FeaturedWork() {
       cards.forEach((card, i) => {
         if (i === 0) return;
 
-        gsap.fromTo(
-          card,
-          { yPercent: 60, scale: 0.95, opacity: 0.5 },
-          {
-            yPercent: 0,
-            scale: 1,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 95%',
-              end: 'top 55%',
-              scrub: true,
-            },
-          }
-        );
+        gsap.from(card, {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            once: true,
+          },
+        });
       });
     });
 
@@ -132,7 +127,7 @@ export default function FeaturedWork() {
         {/* Desktop: horizontal scroll track */}
         <div
           ref={trackRef}
-          className="hidden md:flex flex-nowrap gap-[var(--grid-gap)] px-[var(--gutter)]"
+          className="hidden md:flex flex-nowrap gap-[var(--grid-gap)] px-[var(--gutter)] will-change-transform"
         >
           {featured.map((project) => (
             <Link

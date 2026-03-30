@@ -1,5 +1,3 @@
-'use client';
-
 import Eyebrow from '@/components/ui/Eyebrow';
 
 const clients = [

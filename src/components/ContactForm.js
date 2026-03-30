@@ -1,11 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import QuizFlow from '@/components/ui/QuizFlow';
-import { QUIZ_CONFIG } from '@/lib/data/quiz-config';
+import { useState, useCallback } from 'react';
 
 export default function ContactForm() {
   const [quizOpen, setQuizOpen] = useState(false);
+  const [QuizModule, setQuizModule] = useState(null);
+
+  const handleQuizOpen = useCallback(async () => {
+    if (!QuizModule) {
+      const [{ default: QuizFlow }, { QUIZ_CONFIG }] = await Promise.all([
+        import('@/components/ui/QuizFlow'),
+        import('@/lib/data/quiz-config'),
+      ]);
+      setQuizModule({ QuizFlow, QUIZ_CONFIG });
+    }
+    setQuizOpen(true);
+  }, [QuizModule]);
 
   return (
     <>
@@ -37,7 +47,7 @@ export default function ContactForm() {
             {/* Get your free technical plan — first */}
             <button
               type="button"
-              onClick={() => setQuizOpen(true)}
+              onClick={handleQuizOpen}
               className="bg-white border border-text-dark/10 shadow-sm hover:shadow-md hover:border-gold/50 transition-all px-6 py-6 rounded text-left group flex flex-col"
             >
               <span className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark group-hover:text-gold transition-colors block mb-2">
@@ -72,12 +82,14 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <QuizFlow
-        isOpen={quizOpen}
-        onClose={() => setQuizOpen(false)}
-        config={QUIZ_CONFIG}
-        apiEndpoint="/api/quiz"
-      />
+      {QuizModule && (
+        <QuizModule.QuizFlow
+          isOpen={quizOpen}
+          onClose={() => setQuizOpen(false)}
+          config={QuizModule.QUIZ_CONFIG}
+          apiEndpoint="/api/quiz"
+        />
+      )}
     </>
   );
 }

@@ -23,8 +23,10 @@ function HeroConstellation() {
     const ctx = canvas.getContext('2d');
     let w, h;
     const nodes = [];
-    const nodeCount = 60;
-    const connectionDistance = 160;
+    const isMobile = window.innerWidth < 768;
+    const nodeCount = isMobile ? 30 : 60;
+    const connectionDistance = isMobile ? 120 : 160;
+    const connDistSq = connectionDistance * connectionDistance;
 
     const colors = [
       { r: 201, g: 169, b: 110 },
@@ -112,14 +114,17 @@ function HeroConstellation() {
         node.x += node.baseVx + Math.cos(node.wanderAngle) * node.wanderRadius;
         node.y += node.baseVy + Math.sin(node.wanderAngle * 0.7) * node.wanderRadius;
 
-        // Mouse repulsion
-        const mdx = node.x - mx;
-        const mdy = node.y - my;
-        const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mDist < 150 && mDist > 0) {
-          const force = (1 - mDist / 150) * 0.8;
-          node.x += (mdx / mDist) * force;
-          node.y += (mdy / mDist) * force;
+        // Mouse repulsion (skip on touch devices)
+        if (!isMobile) {
+          const mdx = node.x - mx;
+          const mdy = node.y - my;
+          const mDistSq = mdx * mdx + mdy * mdy;
+          if (mDistSq < 22500 && mDistSq > 0) {
+            const mDist = Math.sqrt(mDistSq);
+            const force = (1 - mDist / 150) * 0.8;
+            node.x += (mdx / mDist) * force;
+            node.y += (mdy / mDist) * force;
+          }
         }
 
         // Push nodes away from exclusion zone
@@ -128,7 +133,8 @@ function HeroConstellation() {
           const cy = h / 2 - h * 0.02;
           const dx = node.x - cx;
           const dy = node.y - cy;
-          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const distSq = dx * dx + dy * dy;
+          const dist = distSq > 0 ? Math.sqrt(distSq) : 1;
           node.x += (dx / dist) * 2;
           node.y += (dy / dist) * 2;
         }
@@ -140,14 +146,15 @@ function HeroConstellation() {
         if (node.y > h + 20) node.y = -20;
       }
 
-      // Connections
+      // Connections (squared distance check first, sqrt only when drawing)
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < connectionDistance) {
+          if (distSq < connDistSq) {
+            const dist = Math.sqrt(distSq);
             const t = 1 - dist / connectionDistance;
             const c = lerpColor(nodes[i].color, nodes[j].color, 0.5);
             ctx.strokeStyle = `rgba(${c.r|0}, ${c.g|0}, ${c.b|0}, ${t * 0.12})`;
@@ -197,8 +204,10 @@ function HeroConstellation() {
     const onMouseLeave = () => { mouseRef.current = { x: -1000, y: -1000 }; };
 
     window.addEventListener('resize', onResize);
-    canvas.addEventListener('mousemove', onMouse);
-    canvas.addEventListener('mouseleave', onMouseLeave);
+    if (!('ontouchstart' in window)) {
+      canvas.addEventListener('mousemove', onMouse);
+      canvas.addEventListener('mouseleave', onMouseLeave);
+    }
 
     return () => {
       if (animRef.current) cancelAnimationFrame(animRef.current);
@@ -249,7 +258,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-dark"
+      className="relative h-dvh flex items-center justify-center overflow-hidden bg-dark"
     >
       {/* Constellation */}
       <div className="absolute inset-0">
@@ -260,7 +269,7 @@ export default function HeroSection() {
       <div
         ref={overlayRef}
         className="absolute inset-0 bg-dark"
-        style={{ opacity: 0 }}
+        style={{ opacity: 0, willChange: 'opacity' }}
       />
 
       {/* Content */}
