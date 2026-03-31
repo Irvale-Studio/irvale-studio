@@ -1,13 +1,10 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import RevealText from '@/components/ui/RevealText';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function HeroConstellation() {
   const canvasRef = useRef(null);
@@ -24,7 +21,7 @@ function HeroConstellation() {
     let w, h;
     const nodes = [];
     const isMobile = window.innerWidth < 768;
-    const nodeCount = isMobile ? 30 : 60;
+    const nodeCount = isMobile ? 20 : 60;
     const connectionDistance = isMobile ? 120 : 160;
     const connDistSq = connectionDistance * connectionDistance;
 
@@ -199,7 +196,11 @@ function HeroConstellation() {
     initNodes();
     draw();
 
-    const onResize = () => { resize(); initNodes(); };
+    let resizeTimer;
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { resize(); initNodes(); }, 250);
+    };
     const onMouse = (e) => { mouseRef.current = { x: e.clientX, y: e.clientY }; };
     const onMouseLeave = () => { mouseRef.current = { x: -1000, y: -1000 }; };
 
@@ -210,6 +211,7 @@ function HeroConstellation() {
     }
 
     return () => {
+      clearTimeout(resizeTimer);
       if (animRef.current) cancelAnimationFrame(animRef.current);
       window.removeEventListener('resize', onResize);
       canvas.removeEventListener('mousemove', onMouse);

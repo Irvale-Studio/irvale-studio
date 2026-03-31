@@ -1,12 +1,9 @@
 'use client';
 
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Eyebrow from '@/components/ui/Eyebrow';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {

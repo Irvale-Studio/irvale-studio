@@ -1,11 +1,8 @@
 'use client';
 
 import { useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function SectionReveal({ children, className = '', stagger = 0.12, delay = 0 }) {
   const ref = useRef(null);

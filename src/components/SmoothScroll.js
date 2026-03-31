@@ -2,10 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 export default function SmoothScroll({ children }) {
   const lenisRef = useRef(null);
@@ -16,7 +13,7 @@ export default function SmoothScroll({ children }) {
     if (prefersReducedMotion) return;
 
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // exponential decay
       touchMultiplier: 2,
       infinite: false,

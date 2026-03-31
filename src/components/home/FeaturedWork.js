@@ -1,16 +1,13 @@
 'use client';
 
 import { useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import { projects } from '@/lib/data/projects';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const featured = projects.slice(0, 3);
 

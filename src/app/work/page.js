@@ -102,6 +102,7 @@ export default function WorkPage() {
                           fill
                           className="object-cover object-top"
                           sizes="(min-width: 768px) 58vw, 100vw"
+                          priority={i === 0}
                         />
                       </div>
                     </div>

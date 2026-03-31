@@ -1,14 +1,16 @@
+import dynamic from 'next/dynamic';
 import Marquee from '@/components/ui/Marquee';
 import HeroSection from '@/components/home/HeroSection';
-import TrustLogos from '@/components/home/TrustLogos';
-import IntroStatement from '@/components/home/IntroStatement';
-import FeaturedWork from '@/components/home/FeaturedWork';
-import ServicesOverview from '@/components/home/ServicesOverview';
-import Accredited from '@/components/home/Accredited';
-import TechStack from '@/components/home/TechStack';
-import Process from '@/components/home/Process';
-import Testimonial from '@/components/home/Testimonial';
-import CTASection from '@/components/home/CTASection';
+
+const IntroStatement = dynamic(() => import('@/components/home/IntroStatement'));
+const TrustLogos = dynamic(() => import('@/components/home/TrustLogos'));
+const FeaturedWork = dynamic(() => import('@/components/home/FeaturedWork'));
+const ServicesOverview = dynamic(() => import('@/components/home/ServicesOverview'));
+const Accredited = dynamic(() => import('@/components/home/Accredited'));
+const TechStack = dynamic(() => import('@/components/home/TechStack'));
+const Process = dynamic(() => import('@/components/home/Process'));
+const Testimonial = dynamic(() => import('@/components/home/Testimonial'));
+const CTASection = dynamic(() => import('@/components/home/CTASection'));
 
 const marqueeItems = [
   'Bespoke Design', 'Strategic SEO', 'AI Visibility',

@@ -1,12 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import { cn } from '@/lib/utils';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function RevealText({ children, as: Tag = 'p', className = '', delay = 0, style }) {
   const containerRef = useRef(null);

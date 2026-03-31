@@ -1,13 +1,10 @@
 'use client';
 
 import { useRef, useState, useCallback } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const credentials = [
   {
