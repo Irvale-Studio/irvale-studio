@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
@@ -147,22 +148,118 @@ export default function ZatrovoPage() {
               Everything your business needs to manage bookings.
             </RevealText>
           </div>
-          <SectionReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {features.map((feature, i) => (
               <div
                 key={feature.name}
-                className="relative bg-dark-2 border border-[var(--border-dark)] p-6 md:p-8 group transition-all duration-300 hover:-translate-y-1"
+                className="group relative bg-dark-2/80 border border-white/[0.06] p-6 md:p-7 overflow-hidden transition-all duration-500 hover:border-gold/25 hover:bg-dark-2"
               >
-                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gold/30 group-hover:bg-gold transition-colors duration-300" />
-                <h4 className="font-body text-sm font-medium text-text-light mb-2">
+                {/* Top accent line */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/0 to-transparent group-hover:via-gold/40 transition-all duration-500" />
+
+                {/* Number */}
+                <span className="font-display text-[clamp(36px,4vw,48px)] text-white/[0.04] leading-none block mb-3 group-hover:text-gold/10 transition-colors duration-500">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+
+                {/* Title */}
+                <h4 className="font-display text-[clamp(20px,2vw,26px)] leading-tight font-normal text-text-light mb-3 group-hover:text-gold transition-colors duration-300">
                   {feature.name}
                 </h4>
-                <p className="font-body text-xs text-text-muted-light font-light leading-relaxed">
+
+                {/* Description */}
+                <p className="font-body text-sm text-text-muted-light/70 font-light leading-relaxed">
                   {feature.description}
                 </p>
               </div>
             ))}
-          </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Zatrovo in action — BOXX screenshots */}
+      <section className="bg-cream py-[var(--section-gap)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <Eyebrow className="mb-6 block">Zatrovo in Action</Eyebrow>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <h2 className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px]">
+              See how BOXX Thailand runs their entire studio on Zatrovo.
+            </h2>
+            <Link
+              href="/work/boxx-thailand"
+              className="font-body text-sm text-gold hover:text-gold-light transition-colors shrink-0"
+            >
+              Read the case study →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Admin — Products */}
+            <div className="border border-[var(--border-light)] overflow-hidden bg-white">
+              <div className="flex items-center gap-1.5 px-4 py-2.5 bg-cream border-b border-[var(--border-light)]">
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="ml-3 flex-1 text-center font-body text-[10px] text-text-muted-dark/50 truncate">
+                  Admin — Class Packs & Memberships
+                </span>
+              </div>
+              <div className="relative aspect-video">
+                <Image
+                  src="/images/projects/boxx-zatrovo-admin.webp"
+                  alt="Zatrovo admin panel showing BOXX class pack products"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+              </div>
+            </div>
+
+            {/* Client Booking */}
+            <div className="border border-[var(--border-light)] overflow-hidden bg-white">
+              <div className="flex items-center gap-1.5 px-4 py-2.5 bg-cream border-b border-[var(--border-light)]">
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="ml-3 flex-1 text-center font-body text-[10px] text-text-muted-dark/50 truncate">
+                  Client — Class Schedule & Booking
+                </span>
+              </div>
+              <div className="relative aspect-video">
+                <Image
+                  src="/images/projects/boxx-zatrovo-booking.webp"
+                  alt="Zatrovo booking interface showing BOXX class schedule"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+              </div>
+            </div>
+
+            {/* Services */}
+            <div className="md:col-span-2 border border-[var(--border-light)] overflow-hidden bg-white">
+              <div className="flex items-center gap-1.5 px-4 py-2.5 bg-cream border-b border-[var(--border-light)]">
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="w-2.5 h-2.5 rounded-full bg-text-dark/10" />
+                <span className="ml-3 flex-1 text-center font-body text-[10px] text-text-muted-dark/50 truncate">
+                  Client — Service Selection & Time Slots
+                </span>
+              </div>
+              <div className="relative aspect-[21/9]">
+                <Image
+                  src="/images/projects/boxx-zatrovo-services.webp"
+                  alt="Zatrovo service booking with coach selection and time slots"
+                  fill
+                  className="object-cover object-top"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
