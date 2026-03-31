@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { gsap } from '@/lib/gsap';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Eyebrow from '@/components/ui/Eyebrow';
 
