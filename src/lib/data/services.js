@@ -1,13 +1,13 @@
 // ─────────────────────────────────────────────
 // Services Data — Single source of truth
-// All pricing in Thai Baht (THB)
+// All pricing in USD
 // ─────────────────────────────────────────────
 
 // ── SERVICE ONE: Website Build ──────────────
 export const websiteBuildTiers = [
   {
     name: 'Essential',
-    price: '฿22,000',
+    price: '$599',
     priceNote: 'one-time · up to 5 pages',
     badge: null,
     highlighted: false,
@@ -25,7 +25,7 @@ export const websiteBuildTiers = [
   },
   {
     name: 'Professional',
-    price: '฿35,000',
+    price: '$999',
     priceNote: 'one-time · up to 12 pages',
     badge: 'MOST POPULAR',
     highlighted: true,
@@ -43,7 +43,7 @@ export const websiteBuildTiers = [
   },
   {
     name: 'Premium',
-    price: '฿58,000+',
+    price: '$1,599+',
     priceNote: 'one-time · unlimited scope',
     badge: null,
     highlighted: false,
@@ -57,7 +57,7 @@ export const websiteBuildTiers = [
       'Advanced forms, CTAs & booking integration',
       'Full SEO suite — on-page, Schema & local SEO',
       'AI search optimisation (ChatGPT, Gemini, Perplexity)',
-      'Multi-language support (e.g. English & Thai)',
+      'Multi-language support',
       'Secure staff admin portal',
       'Multi-employee logins & role permissions',
       'E-commerce & online payment flows',
@@ -73,7 +73,7 @@ export const websiteBuildTiers = [
 export const zatrovoTiers = [
   {
     name: 'Starter',
-    price: '฿1,800',
+    price: '$49',
     priceNote: 'per month',
     badge: null,
     highlighted: false,
@@ -96,7 +96,7 @@ export const zatrovoTiers = [
   },
   {
     name: 'Growth',
-    price: '฿2,800',
+    price: '$79',
     priceNote: 'per month',
     badge: 'MOST POPULAR',
     highlighted: true,
@@ -110,8 +110,8 @@ export const zatrovoTiers = [
       'Online booking with service & class selection',
       'Calendar sync (Google / Outlook)',
       'Custom client intake forms',
-      'Email, WhatsApp, phone & LINE reminders',
-      'Cash, card & PromptPay',
+      'Email, WhatsApp, phone, LINE & SMS reminders',
+      'Cash, card & Apple Pay',
       'Credit & session pack system',
       'Basic analytics dashboard',
       'AI assistant (growth budget)',
@@ -122,7 +122,7 @@ export const zatrovoTiers = [
   },
   {
     name: 'Studio',
-    price: '฿4,500+',
+    price: '$129+',
     priceNote: 'per month',
     badge: null,
     highlighted: false,
@@ -136,7 +136,7 @@ export const zatrovoTiers = [
       'Full booking & class management suite',
       'Calendar sync (all platforms)',
       'Advanced intake forms & client profiles',
-      'Email, WhatsApp, phone & LINE reminders',
+      'Email, WhatsApp, phone, LINE & SMS reminders',
       'All payment methods incl. instalments',
       'Credit, session pack & membership system',
       'Full analytics dashboard + custom reports',
@@ -153,7 +153,7 @@ export const zatrovoTiers = [
 export const hostingTiers = [
   {
     name: 'Managed',
-    price: '฿1,000',
+    price: '$29',
     priceNote: 'per month',
     badge: null,
     highlighted: false,
@@ -171,7 +171,7 @@ export const hostingTiers = [
   },
   {
     name: 'Growth',
-    price: '฿2,000',
+    price: '$59',
     priceNote: 'per month',
     badge: 'MOST POPULAR',
     highlighted: true,
@@ -191,7 +191,7 @@ export const hostingTiers = [
   },
   {
     name: 'Premium',
-    price: '฿3,500+',
+    price: '$99+',
     priceNote: 'per month',
     badge: null,
     highlighted: false,
@@ -219,7 +219,7 @@ export const addOnServices = [
   {
     category: 'STRATEGY',
     name: 'Technical Consultancy',
-    price: '฿4,500+',
+    price: '$129+',
     priceNote: 'per month · retainer',
     description:
       'We analyse your business operations and produce a concrete strategy for improving efficiency through technology, software, and automation.',
@@ -235,7 +235,7 @@ export const addOnServices = [
   {
     category: 'GROWTH',
     name: 'Email Marketing',
-    price: '฿3,500+',
+    price: '$99+',
     priceNote: 'per month · retainer',
     description:
       'We build and manage email systems designed to win new customers and bring existing ones back — from list setup to full campaign management.',
@@ -251,7 +251,7 @@ export const addOnServices = [
   {
     category: 'VISIBILITY',
     name: 'AI Search Visibility',
-    price: '฿2,500+',
+    price: '$69+',
     priceNote: 'per month · retainer',
     description:
       'We monitor ChatGPT, Gemini, Perplexity, and Google AI Overviews and continuously optimise your content so your business gets recommended.',
@@ -267,7 +267,7 @@ export const addOnServices = [
   {
     category: 'INTELLIGENCE',
     name: 'Analytics & Reporting',
-    price: '฿1,500+',
+    price: '$39+',
     priceNote: 'per month · retainer',
     description:
       'Turn your website and booking data into decisions. Custom dashboards and a monthly report showing what\u2019s working and what to do next.',
@@ -296,7 +296,7 @@ export const servicesFaqs = [
   {
     question: 'What is Zatrovo?',
     answer:
-      'Zatrovo is our proprietary booking and scheduling platform built specifically for professional service businesses in Southeast Asia. We handle the full setup, embed it into your website, and support you throughout. Every tier includes a dedicated admin panel.',
+      'Zatrovo is our proprietary booking and scheduling platform built specifically for professional service businesses. We handle the full setup, embed it into your website, and support you throughout. Every tier includes a dedicated admin panel.',
   },
   {
     question: 'Can I upgrade my plan later?',
@@ -316,6 +316,6 @@ export const servicesFaqs = [
   {
     question: 'What are the payment terms?',
     answer:
-      'Website builds are invoiced 50% upfront and 50% on launch day. Monthly subscriptions (hosting and Zatrovo) can be cancelled at any time and continue until the end of the billing month. All prices are in Thai Baht (THB) and exclude VAT where applicable.',
+      'Website builds are invoiced 50% upfront and 50% on launch day. Monthly subscriptions (hosting and Zatrovo) can be cancelled at any time and continue until the end of the billing month. All prices are in USD and exclude VAT where applicable.',
   },
 ];

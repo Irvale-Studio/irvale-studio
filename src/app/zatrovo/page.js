@@ -9,15 +9,15 @@ import { zatrovoTiers } from '@/lib/data/services';
 export const metadata = {
   title: 'Zatrovo Booking Software — Irvale Studio',
   description:
-    'A proprietary booking and scheduling platform built for professional service businesses in Southeast Asia. Online bookings, CRM, payments, and AI assistant — fully managed.',
+    'A proprietary booking and scheduling platform built for professional service businesses. Online bookings, CRM, payments, and AI assistant — fully managed.',
 };
 
 const valueProps = [
   {
     number: '01',
-    title: 'Built for Southeast Asia',
+    title: 'Built for Service Businesses',
     description:
-      'LINE, WhatsApp, PromptPay, and multi-language support as standard — not afterthoughts. Zatrovo speaks the way your clients do.',
+      'LINE, WhatsApp, Stripe, and multi-language support as standard — not afterthoughts. Zatrovo speaks the way your clients do.',
   },
   {
     number: '02',
@@ -37,8 +37,8 @@ const features = [
   { name: 'Online Booking', description: 'Clients book 24/7 from your website or a branded booking page' },
   { name: 'Calendar Sync', description: 'Google, Outlook, and multi-platform sync for every staff member' },
   { name: 'Client CRM', description: 'Member lists, intake forms, booking history, and client profiles' },
-  { name: 'Payment Processing', description: 'Cash, card, PromptPay, credit packs, and instalment plans' },
-  { name: 'Automated Reminders', description: 'Email, WhatsApp, phone, and LINE — reduce no-shows by up to 80%' },
+  { name: 'Payment Processing', description: 'Card, Apple Pay, credit packs, and instalment plans' },
+  { name: 'Automated Reminders', description: 'Email, WhatsApp, LINE, phone, and SMS — reduce no-shows by up to 80%' },
   { name: 'AI Assistant', description: 'Built-in AI that helps manage enquiries and streamline admin tasks' },
   { name: 'Analytics Dashboard', description: 'Track bookings, revenue, and client engagement in real time' },
   { name: 'Multi-Location', description: 'Manage multiple venues, teams, and calendars from one dashboard' },
@@ -58,7 +58,7 @@ const faqs = [
   {
     question: 'What payment methods does Zatrovo support?',
     answer:
-      'Cash, card, PromptPay (Thailand), credit packs, session packs, and instalment plans. Payment methods vary by tier — the Growth and Studio tiers unlock the full range.',
+      'Card, Apple Pay, credit packs, session packs, and instalment plans. Payment methods vary by tier — the Growth and Studio tiers unlock the full range.',
   },
   {
     question: 'How long does setup take?',
@@ -93,8 +93,7 @@ export default function ZatrovoPage() {
           </RevealText>
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-lg mb-8">
             A monthly subscription to our proprietary appointment and booking
-            system — built for professional service businesses in Southeast
-            Asia. We set it up, embed it into your site, and support you
+            system — built for professional service businesses. We set it up, embed it into your site, and support you
             throughout.
           </p>
           <div className="flex flex-wrap gap-4">

@@ -8,8 +8,8 @@ export function LocalBusinessSchema() {
     url: 'https://irvale.studio',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Chiang Mai',
-      addressCountry: 'Thailand',
+      addressLocality: 'London',
+      addressCountry: 'United Kingdom',
     },
   };
 
@@ -36,12 +36,12 @@ export function ServiceSchema() {
       },
       offers: {
         '@type': 'Offer',
-        price: '22000',
-        priceCurrency: 'THB',
+        price: '599',
+        priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '22000',
-          priceCurrency: 'THB',
+          price: '599',
+          priceCurrency: 'USD',
           description: 'One-time project fee',
         },
       },
@@ -59,12 +59,12 @@ export function ServiceSchema() {
       },
       offers: {
         '@type': 'Offer',
-        price: '35000',
-        priceCurrency: 'THB',
+        price: '999',
+        priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '35000',
-          priceCurrency: 'THB',
+          price: '999',
+          priceCurrency: 'USD',
           description: 'One-time project fee',
         },
       },
@@ -82,12 +82,12 @@ export function ServiceSchema() {
       },
       offers: {
         '@type': 'Offer',
-        price: '58000',
-        priceCurrency: 'THB',
+        price: '1599',
+        priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '58000',
-          priceCurrency: 'THB',
+          price: '1599',
+          priceCurrency: 'USD',
           description: 'Starting from',
         },
       },
@@ -105,12 +105,12 @@ export function ServiceSchema() {
       },
       offers: {
         '@type': 'Offer',
-        price: '1000',
-        priceCurrency: 'THB',
+        price: '29',
+        priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '1000',
-          priceCurrency: 'THB',
+          price: '29',
+          priceCurrency: 'USD',
           unitText: 'MONTH',
           description: 'Monthly retainer',
         },
@@ -129,12 +129,12 @@ export function ServiceSchema() {
       },
       offers: {
         '@type': 'Offer',
-        price: '2000',
-        priceCurrency: 'THB',
+        price: '59',
+        priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '2000',
-          priceCurrency: 'THB',
+          price: '59',
+          priceCurrency: 'USD',
           unitText: 'MONTH',
           description: 'Monthly retainer',
         },
@@ -153,12 +153,12 @@ export function ServiceSchema() {
       },
       offers: {
         '@type': 'Offer',
-        price: '3500',
-        priceCurrency: 'THB',
+        price: '99',
+        priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '3500',
-          priceCurrency: 'THB',
+          price: '99',
+          priceCurrency: 'USD',
           unitText: 'MONTH',
           description: 'Starting from',
         },
@@ -205,7 +205,7 @@ export function FAQPageSchema() {
         name: 'What is Zatrovo?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Zatrovo is our proprietary booking and scheduling platform built specifically for professional service businesses in Southeast Asia. We handle the full setup, embed it into your website, and support you throughout. Every tier includes a dedicated admin panel.',
+          text: 'Zatrovo is our proprietary booking and scheduling platform built specifically for professional service businesses. We handle the full setup, embed it into your website, and support you throughout. Every tier includes a dedicated admin panel.',
         },
       },
       {
@@ -237,7 +237,7 @@ export function FAQPageSchema() {
         name: 'What are the payment terms?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Website builds are invoiced 50% upfront and 50% on launch day. Monthly subscriptions (hosting and Zatrovo) can be cancelled at any time and continue until the end of the billing month. All prices are in Thai Baht (THB) and exclude VAT where applicable.',
+          text: 'Website builds are invoiced 50% upfront and 50% on launch day. Monthly subscriptions (hosting and Zatrovo) can be cancelled at any time and continue until the end of the billing month. All prices are in USD and exclude VAT where applicable.',
         },
       },
     ],

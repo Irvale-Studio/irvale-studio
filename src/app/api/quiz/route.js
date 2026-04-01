@@ -19,7 +19,7 @@ const BUSINESS_LABELS = {
 const WEBSITE_TIERS = {
   small: {
     packageName: 'Essential Website',
-    price: '฿22,000',
+    price: '$599',
     priceNote: 'one-time',
     baseServices: [
       'Up to 5 custom-designed pages',
@@ -32,7 +32,7 @@ const WEBSITE_TIERS = {
   },
   medium: {
     packageName: 'Professional Website',
-    price: '฿35,000',
+    price: '$999',
     priceNote: 'one-time',
     baseServices: [
       'Up to 12 custom-designed pages',
@@ -45,7 +45,7 @@ const WEBSITE_TIERS = {
   },
   large: {
     packageName: 'Premium Website',
-    price: '฿58,000+',
+    price: '$1,599+',
     priceNote: 'one-time',
     baseServices: [
       'Unlimited pages — full scope build',
@@ -53,7 +53,7 @@ const WEBSITE_TIERS = {
       'Advanced forms, CTAs & booking integration',
       'Full SEO suite — on-page, Schema & local SEO',
       'AI search optimisation (ChatGPT, Gemini, Perplexity)',
-      'Multi-language support (e.g. English & Thai)',
+      'Multi-language support',
       'E-commerce & online payment flows',
       'CRM & third-party API integrations',
       'Unlimited revisions during build',
@@ -64,29 +64,29 @@ const WEBSITE_TIERS = {
 const ADDONS = {
   booking: {
     name: 'Zatrovo Booking System',
-    description: 'Online booking, class scheduling, member management, and payments — from ฿1,800/mo',
+    description: 'Online booking, class scheduling, member management, and payments — from $49/mo',
   },
   ecommerce: {
     name: 'E-commerce & Payments',
-    description: 'Stripe & Omise integration, multi-currency support, product management',
+    description: 'Stripe integration, multi-currency support, product management',
   },
   ai: {
     name: 'AI Search Visibility',
-    description: 'Get recommended by ChatGPT, Gemini & Perplexity — from ฿2,500/mo',
+    description: 'Get recommended by ChatGPT, Gemini & Perplexity — from $69/mo',
   },
   hosting: {
     name: 'Managed Hosting & Maintenance',
-    description: 'Cloud hosting, backups, security monitoring, content updates — from ฿1,000/mo',
+    description: 'Cloud hosting, backups, security monitoring, content updates — from $29/mo',
   },
   email: {
     name: 'Email Marketing',
-    description: 'Campaign design, automation sequences, list management — from ฿3,500/mo',
+    description: 'Campaign design, automation sequences, list management — from $99/mo',
   },
 };
 
 const INSIGHTS = {
-  fitness: 'Fitness studios that move to online booking typically see 80%+ of bookings shift online within the first month — freeing up hours of daily admin. BOXX Thailand saw exactly this with their Zatrovo integration.',
-  tourism: 'Tour operators with online booking and multi-currency payments capture significantly more international customers. Chiang Mai Go Tours went from WhatsApp-only to 35+ tours bookable online.',
+  fitness: 'Fitness studios that move to online booking typically see 80%+ of bookings shift online within the first month — freeing up hours of daily admin. One of our clients saw exactly this with their Zatrovo integration.',
+  tourism: 'Tour operators with online booking and multi-currency payments capture significantly more international customers. One of our clients went from WhatsApp-only to 35+ tours bookable online.',
   restaurant: 'Restaurants with online ordering and Google Maps optimisation typically see 2-3x more foot traffic within 90 days.',
   wellness: 'Wellness businesses with streamlined online booking and active AI visibility capture significantly more walk-in and tourist bookings.',
   services: 'Service providers with optimised websites and AI search visibility generate 3-5x more qualified leads than those relying on word of mouth alone.',
