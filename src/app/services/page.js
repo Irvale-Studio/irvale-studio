@@ -12,8 +12,8 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '12', label: 'Capability Pillars' },
-  { value: '100+', label: 'Concrete Deliverables' },
+  { value: '14', label: 'Capability Pillars' },
+  { value: '120+', label: 'Concrete Deliverables' },
   { value: '8', label: 'Live Client Builds' },
   { value: '13K+', label: 'End-Users Served' },
 ];
@@ -252,6 +252,18 @@ function CapabilityBlock({ capability, index }) {
                   See {capability.caseStudy.name} →
                 </Link>
               )}
+
+              <div className={`mt-8 pt-6 border-t ${isLight ? 'border-[var(--border-light)]' : 'border-white/10'}`}>
+                <p className={`font-body text-[11px] uppercase tracking-[0.18em] ${tagColor} mb-2`}>
+                  Bundled into the flagship
+                </p>
+                <Link
+                  href="/revenue-engineering"
+                  className="font-body text-sm text-gold hover:text-gold-light transition-colors"
+                >
+                  Available inside Revenue Engineering →
+                </Link>
+              </div>
             </div>
           </div>
 

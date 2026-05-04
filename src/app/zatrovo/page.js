@@ -205,6 +205,14 @@ export default function ZatrovoPage() {
             </span>
           </div>
 
+          <Link
+            href="/revenue-engineering"
+            className="inline-flex items-center gap-2 font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold border border-gold/30 px-3 py-1.5 mb-8 hover:bg-gold/10 transition-colors"
+          >
+            <span>★</span>
+            <span>Included free in Revenue Engineering →</span>
+          </Link>
+
           <RevealText
             as="h1"
             className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[900px] mx-auto justify-center mb-6"

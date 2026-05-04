@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: '/work', label: 'Our Work' },
   { href: '/services', label: 'Services' },
+  { href: '/revenue-engineering', label: 'Revenue Engineering', highlight: true, flagship: true },
   { href: '/zatrovo', label: 'Zatrovo Booking', highlight: true },
   { href: '/ai-visibility', label: 'AI Visibility', highlight: true },
 ];
@@ -96,11 +97,15 @@ export default function Navbar() {
                 className={cn(
                   'relative font-body text-[length:var(--type-body-sm)] font-medium text-text-light/80 hover:text-text-light transition-colors group',
                   pathname === link.href && 'text-text-light',
-                  link.highlight && 'font-semibold'
+                  link.highlight && 'font-semibold',
+                  link.flagship && 'text-gold hover:text-gold-light'
                 )}
               >
                 {link.label}
-                {link.highlight && (
+                {link.flagship && (
+                  <span className="inline-block text-gold ml-1 -translate-y-2 text-[10px]">★</span>
+                )}
+                {link.highlight && !link.flagship && (
                   <span className="inline-block w-1 h-1 rounded-full bg-gold ml-0.5 -translate-y-2" />
                 )}
                 {/* Gold underline on hover */}
@@ -149,10 +154,16 @@ export default function Navbar() {
             href={link.href}
             ref={(el) => { linksRef.current[i] = el; }}
             onClick={() => setMobileOpen(false)}
-            className="font-display text-[clamp(32px,6vw,48px)] text-text-light"
+            className={cn(
+              'font-display text-[clamp(32px,6vw,48px)]',
+              link.flagship ? 'text-gold' : 'text-text-light'
+            )}
           >
             {link.label}
-            {link.highlight && (
+            {link.flagship && (
+              <span className="inline-block text-gold ml-2 -translate-y-5 text-base">★</span>
+            )}
+            {link.highlight && !link.flagship && (
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-gold ml-1 -translate-y-4" />
             )}
           </Link>

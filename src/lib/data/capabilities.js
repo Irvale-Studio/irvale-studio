@@ -252,6 +252,46 @@ export const capabilities = [
       'Founder-to-founder calls',
     ],
   },
+  {
+    slug: 'reviews-reputation',
+    number: '13',
+    name: 'Reviews & Reputation Systems',
+    tagline: 'Engineer the social proof your buyers actually check.',
+    summary:
+      'Automated review request flows, multi-platform monitoring, and AI-assisted response drafting. Reviews are the highest-converting content most businesses never operationalise.',
+    deliverables: [
+      'Automated review request flows (post-booking, post-purchase, post-visit)',
+      'Multi-platform monitoring — Google, Facebook, TripAdvisor, Trustpilot',
+      'APAC platform monitoring — Naver, Xiaohongshu, Dianping',
+      'AI-assisted response drafting in your tone of voice',
+      'Review velocity strategy & cadence design',
+      'Negative review escalation & resolution workflows',
+      'Review schema markup for rich results',
+      'Internal alerts via Slack, email or LINE',
+      'Sentiment tracking & monthly reputation reports',
+      'Recovery playbooks after critical incidents',
+    ],
+  },
+  {
+    slug: 'apac-expansion',
+    number: '14',
+    name: 'APAC & Asian Market Expansion',
+    tagline: 'The channels Western agencies miss.',
+    summary:
+      'For brands targeting Chinese and Korean customers — typically hospitality, wellness and tourism. Built on real Chiang Mai operating experience, not theory. We know the platforms, the cadence, and the cultural nuance Google-only strategies skip.',
+    deliverables: [
+      'Korean market — Naver Place, Naver Blog, Naver SEO',
+      'Chinese market — Xiaohongshu (RED), WeChat Official Account, Dianping',
+      'Multilingual SEO — simplified Chinese, traditional Chinese, Korean, Thai',
+      'Culturally-localised content (not machine-translated)',
+      'KakaoTalk channel setup for Korean customer messaging',
+      'WeChat mini-programme & QR booking integration',
+      'Influencer & KOL strategy for RED and Naver',
+      'Region-specific schema, hreflang and crawler policy',
+      'LINE channel integration for Thai and Japanese customers',
+      'On-the-ground content production from Chiang Mai',
+    ],
+  },
 ];
 
 // Tech & integration ecosystem — for the marquee strip

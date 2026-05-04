@@ -29,6 +29,12 @@ export default function sitemap() {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/revenue-engineering`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/zatrovo`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

@@ -3,13 +3,89 @@ export function LocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Irvale Studio',
-    description: 'Premium software solutions for hospitality, wellness & professional services.',
+    description: 'Premium software solutions for hospitality, wellness & professional services. Operating from London and Chiang Mai.',
     email: 'jake@irvale.com',
     url: 'https://irvale.studio',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'London',
-      addressCountry: 'United Kingdom',
+    address: [
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'London',
+        addressCountry: 'United Kingdom',
+      },
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Chiang Mai',
+        addressCountry: 'Thailand',
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function RevenueEngineeringSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Revenue Engineering',
+    serviceType: 'Full-funnel digital operations',
+    description:
+      'A single accountable team for your entire digital funnel. Website, booking software, SEO, AI search, multilingual expansion, reviews, paid media and reporting — engineered end-to-end. Bespoke website rebuild and Zatrovo booking platform included at every tier.',
+    provider: {
+      '@type': 'Organization',
+      name: 'Irvale Studio',
+      url: 'https://irvale.studio',
+    },
+    areaServed: ['United Kingdom', 'Thailand', 'Worldwide'],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Revenue Engineering Tiers',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          name: 'Foundation',
+          price: '1450',
+          priceCurrency: 'USD',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            price: '1450',
+            priceCurrency: 'USD',
+            unitText: 'MONTH',
+            description: 'Starting from, 6-month minimum',
+          },
+        },
+        {
+          '@type': 'Offer',
+          name: 'Growth',
+          price: '3450',
+          priceCurrency: 'USD',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            price: '3450',
+            priceCurrency: 'USD',
+            unitText: 'MONTH',
+            description: 'Starting from, 6-month minimum',
+          },
+        },
+        {
+          '@type': 'Offer',
+          name: 'Bespoke',
+          price: '5500',
+          priceCurrency: 'USD',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            price: '5500',
+            priceCurrency: 'USD',
+            unitText: 'MONTH',
+            description: 'Starting from, 12-month minimum',
+          },
+        },
+      ],
     },
   };
 

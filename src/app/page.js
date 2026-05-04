@@ -5,6 +5,7 @@ import HeroSection from '@/components/home/HeroSection';
 const IntroStatement = dynamic(() => import('@/components/home/IntroStatement'));
 const TrustLogos = dynamic(() => import('@/components/home/TrustLogos'));
 const FeaturedWork = dynamic(() => import('@/components/home/FeaturedWork'));
+const FlagshipSection = dynamic(() => import('@/components/home/FlagshipSection'));
 const ServicesOverview = dynamic(() => import('@/components/home/ServicesOverview'));
 const Accredited = dynamic(() => import('@/components/home/Accredited'));
 const TechStack = dynamic(() => import('@/components/home/TechStack'));
@@ -43,7 +44,10 @@ export default function Home() {
       {/* Client results — horizontal scroll */}
       <FeaturedWork />
 
-      {/* Services — Get Found / Get Chosen / Get Recommended */}
+      {/* Flagship — Revenue Engineering */}
+      <FlagshipSection />
+
+      {/* Services — also-offer below flagship */}
       <ServicesOverview />
 
       {/* Tech stack carousel */}

@@ -8,6 +8,7 @@ import { useGSAP } from '@gsap/react';
 const navLinks = [
   { href: '/work', label: 'Our Work' },
   { href: '/services', label: 'Services' },
+  { href: '/revenue-engineering', label: 'Revenue Engineering' },
   { href: '/zatrovo', label: 'Booking' },
   { href: '/ai-visibility', label: 'AI Visibility' },
   { href: '/contact', label: 'Contact' },
@@ -128,7 +129,7 @@ export default function Footer() {
             </a>
             <p className="mt-4 font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/50">
               We respond within 24 hours.<br />
-              London, United Kingdom.
+              London &middot; Chiang Mai.
             </p>
 
             {/* Back to top */}

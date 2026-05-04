@@ -161,17 +161,50 @@ const technicals = [
   },
 ];
 
+const faqs = [
+  {
+    question: 'How is this different from SEO?',
+    answer:
+      'SEO optimises for the ranked list of blue links. GEO optimises for the answer the model writes. Different ranking models, different inputs, different artefacts. There is overlap — both reward authoritative content and good schema — but the citation logic, surface coverage, and measurement systems are distinct. Most agencies branding "AI SEO" are doing the same on-page they always did and hoping it lands.',
+  },
+  {
+    question: 'How long until I see results?',
+    answer:
+      'The Visibility Index baseline ships in two weeks. Schema, entity reconciliation and crawler policy take effect within four to six weeks of deployment. Citation share against competitors typically begins shifting after 60–90 days of corroborated signals across 8–12 independent domains. Anyone promising rank inside 30 days is selling air.',
+  },
+  {
+    question: 'Do I need an existing PR or content team?',
+    answer:
+      'No. We can run the citation programme directly, brief your team if you have one, or hand the 90-day authority brief to your existing PR partner. Most clients start with us running it and transition to internal ownership over months six to twelve.',
+  },
+  {
+    question: 'What if the AI engine has wrong information about my brand?',
+    answer:
+      'Hallucinations are common — roughly one in eleven AI responses about a brand contains a fabricated fact. We engineer the substrate (entity reconciliation, schema, authoritative source corroboration) so the model has a stronger prior to draw from. Existing wrong descriptors fade as new corroborated descriptors compound. Typical drift correction window is 60–120 days.',
+  },
+  {
+    question: 'Is llms.txt worth implementing?',
+    answer:
+      'No major model provider has confirmed production ingestion in 2026. We implement it because it is cheap insurance, not because it moves the needle. Treat it as belt-and-braces, not strategy.',
+  },
+  {
+    question: 'Can this be bundled with broader marketing work?',
+    answer:
+      'Yes. The full GEO programme is included inside our flagship Revenue Engineering engagement at the Growth tier and above, alongside website, booking, SEO, reviews and reporting. Useful when you want one team accountable for the whole funnel rather than running AI visibility as an isolated project.',
+  },
+];
+
 const pricing = [
   {
     name: 'AI Visibility Audit',
-    price: '£950',
+    price: '$1,150',
     cadence: 'one-off',
     summary:
       'Full AI Visibility Index across 8 engines, prompt universe map, hallucination audit, competitor share-of-voice, prioritised remediation plan. Fixed scope, two-week turnaround.',
   },
   {
     name: 'AI Visibility Project',
-    price: 'from £2,500',
+    price: 'from $3,000',
     cadence: 'project',
     featured: true,
     summary:
@@ -179,7 +212,7 @@ const pricing = [
   },
   {
     name: 'AI Visibility Retainer',
-    price: 'from £800',
+    price: 'from $950',
     cadence: 'per month',
     summary:
       'Ongoing monitoring, monthly content cadence, citation outreach, perception-drift alerts and quarterly strategy reviews. Built for brands that intend to defend their category.',
@@ -529,6 +562,81 @@ export default function AIVisibilityPage() {
           <p className="font-body text-xs text-text-muted-light/60 font-light mt-10 max-w-3xl">
             Indicative pricing. Project and retainer scopes are sized to the brand, the category and the competitive set. Larger groups, multi-property estates and bespoke engagements are quoted individually.
           </p>
+          <p className="font-body text-sm text-gold/80 mt-4 max-w-3xl">
+            Or bundled into our flagship engagement —{' '}
+            <Link href="/revenue-engineering" className="text-gold hover:text-gold-light underline underline-offset-4 decoration-gold/30">
+              Revenue Engineering →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-[var(--section-gap)] border-t border-gold/10">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div className="mb-12 max-w-2xl">
+            <Eyebrow className="mb-4 block">Frequently Asked</Eyebrow>
+            <h2 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light">
+              The questions buyers ask first.
+            </h2>
+          </div>
+          <SectionReveal className="max-w-3xl">
+            {faqs.map((faq, i) => (
+              <div key={i} className="border-b border-gold/15">
+                <details className="group">
+                  <summary className="w-full py-6 flex items-center justify-between text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <span className="font-body text-[length:var(--type-body)] text-text-light font-light pr-8">
+                      {faq.question}
+                    </span>
+                    <span className="text-gold text-xl shrink-0 transition-transform duration-300 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <div className="pb-6">
+                    <p className="font-body text-sm text-text-muted-light font-light leading-relaxed max-w-2xl">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </details>
+              </div>
+            ))}
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* What Happens Next */}
+      <section className="py-[var(--section-gap)] border-t border-gold/10 bg-[rgba(0,0,0,0.18)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div className="mb-14 max-w-2xl">
+            <Eyebrow className="mb-4 block">What Happens Next</Eyebrow>
+            <h2 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light">
+              From first email to first report.
+            </h2>
+          </div>
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-4 gap-px bg-gold/15">
+            {[
+              { n: '01', name: 'You enquire', body: 'Brief form. Two minutes. Tell us your brand, your category and your competitive set.' },
+              { n: '02', name: 'We respond in 24 hours', body: 'Either a 30-minute discovery call slot, or a direct email if the scope is clear.' },
+              { n: '03', name: 'Audit kicks off', body: 'Two-week fixed-scope sprint. AI Visibility Index built. Prompt universe mapped. Hallucinations logged.' },
+              { n: '04', name: 'Named report delivered', body: 'You receive a scored, named report you can inspect, share with your team and act on — with or without us.' },
+            ].map((s) => (
+              <div key={s.n} className="bg-navy p-7 lg:p-8">
+                <span className="font-display text-gold/40 text-base block mb-4">{s.n}</span>
+                <h3 className="font-display text-lg leading-snug text-text-light mb-3">
+                  {s.name}
+                </h3>
+                <p className="font-body text-sm text-text-muted-light font-light leading-relaxed">
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </SectionReveal>
         </div>
       </section>
 
@@ -540,18 +648,41 @@ export default function AIVisibilityPage() {
         >
           <RevealText
             as="h2"
-            className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[720px] mx-auto justify-center mb-6"
+            className="font-display font-normal italic text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[720px] mx-auto justify-center mb-6"
           >
             The answer is being written. Make sure your brand is in it.
           </RevealText>
           <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-xl mx-auto mb-10">
             Start with a fixed-scope AI Visibility Audit. Two weeks. One named report. A clear-eyed view of where your brand stands across every engine that matters.
           </p>
-          <Link href="/contact" className="btn-primary px-10">
-            <span>Book your AI Visibility Audit →</span>
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center mb-8">
+            <Link href="/contact" className="btn-primary px-10">
+              <span>Book your AI Visibility Audit →</span>
+            </Link>
+            <Link href="/revenue-engineering" className="btn-outline px-10">
+              <span>Or bundle into Revenue Engineering →</span>
+            </Link>
+          </div>
+          <p className="font-body text-xs text-text-muted-light/50">
+            We respond within 24 hours.
+          </p>
         </div>
       </section>
+
+      {/* Closing rule */}
+      <div className="border-t border-gold/15">
+        <div
+          className="mx-auto px-[var(--gutter)] py-10 flex flex-col md:flex-row items-center justify-between gap-4"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <p className="font-body text-[length:var(--type-caption)] text-text-muted-light/50 uppercase tracking-[var(--type-label-ls)]">
+            Generative Engine Optimisation · GEO · AEO
+          </p>
+          <p className="font-body text-[length:var(--type-caption)] text-text-muted-light/50 uppercase tracking-[var(--type-label-ls)]">
+            ChatGPT · Perplexity · Gemini · Claude · AI Overviews · AI Mode · Copilot · Meta AI · Grok
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
