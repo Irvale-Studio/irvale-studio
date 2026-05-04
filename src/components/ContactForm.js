@@ -31,10 +31,10 @@ export default function ContactForm() {
             </p>
 
             <a
-              href="mailto:jacobmhorgan@gmail.com"
+              href="mailto:jake@irvale.com"
               className="font-body text-sm text-gold hover:text-gold-light transition-colors block"
             >
-              jacobmhorgan@gmail.com
+              jake@irvale.com
             </a>
           </div>
 

@@ -121,10 +121,10 @@ export default function Footer() {
               Start a Project
             </p>
             <a
-              href="mailto:jacobmhorgan@gmail.com"
+              href="mailto:jake@irvale.com"
               className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light/80 hover:text-gold transition-colors duration-500 block"
             >
-              jacobmhorgan@gmail.com
+              jake@irvale.com
             </a>
             <p className="mt-4 font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/50">
               We respond within 24 hours.<br />

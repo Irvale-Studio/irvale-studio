@@ -4,7 +4,7 @@ export function LocalBusinessSchema() {
     '@type': 'LocalBusiness',
     name: 'Irvale Studio',
     description: 'Premium software solutions for hospitality, wellness & professional services.',
-    email: 'jacobmhorgan@gmail.com',
+    email: 'jake@irvale.com',
     url: 'https://irvale.studio',
     address: {
       '@type': 'PostalAddress',

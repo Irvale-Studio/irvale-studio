@@ -88,40 +88,6 @@ export const projects = [
     ],
   },
   {
-    slug: 'crystal-aura',
-    name: 'Crystal Aura Massage',
-    niche: 'Wellness & Spa',
-    nicheSlug: 'wellness',
-    services: ['Zatrovo', 'Branded Booking Portal'],
-    tier: 'Signature',
-    metric: 'Full menu bookable 24/7',
-    year: '2025',
-    url: 'https://crystal-aura.zatrovo.com',
-    headline: 'A premium massage menu, online and bookable in seconds.',
-    description:
-      'Crystal Aura is a luxury massage studio offering Thai, aroma, foot, body scrub, and signature packages. We launched them on a fully branded Zatrovo portal — black-and-gold themed to match their in-room experience — with services, durations, prices, and instant booking.',
-    challenge:
-      'Crystal Aura had no online booking system. Every appointment came through walk-ins, phone calls, or messaging apps. The team spent hours each day confirming slots and answering price questions, and they were losing tourist bookings that needed instant confirmation in English.',
-    approach: [
-      'White-labelled Zatrovo portal styled to Crystal Aura brand — dark theme with gold accents',
-      'Full service catalogue with duration, price ranges, and category filters (Foot, Thai, Aroma, Signature Packages)',
-      'Multi-currency support and instant Stripe checkout for international visitors',
-      'Member sign-up flow capturing repeat clients into the CRM',
-    ],
-    results: [
-      'Entire treatment menu bookable online with real-time availability',
-      'Hours of phone admin recovered each week',
-      'Tourist bookings captured the moment they decide, not hours later',
-    ],
-    services_detail: 'Zatrovo Studio · Branded Booking Portal',
-    timeline: '2 weeks',
-    image: '/images/projects/crystal-aura-hero.webp',
-    gallery: [
-      '/images/projects/crystal-aura-full.webp',
-      '/images/projects/crystal-aura-dashboard.webp',
-    ],
-  },
-  {
     slug: 'reya-lashes',
     name: 'Reya Lashes Studio',
     niche: 'Beauty Studio',

@@ -6,7 +6,6 @@ const OUT = path.resolve('public/images/projects');
 const SCRAPE_OUT = path.resolve('scripts/scraped-zatrovo.txt');
 
 const targets = [
-  { slug: 'crystal-aura', url: 'https://crystal-aura.zatrovo.com', label: 'Crystal Aura' },
   { slug: 'reya-lashes', url: 'https://reya-lashes.zatrovo.com', label: 'Reya Lashes' },
   { slug: 'dynamic-golf-academy', url: 'https://dynamic-golf-academy.zatrovo.com', label: 'Dynamic Golf Academy' },
   { slug: 'commu', url: 'https://commu.zatrovo.com', label: 'Commu' },

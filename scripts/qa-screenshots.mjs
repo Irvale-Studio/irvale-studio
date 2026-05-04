@@ -12,7 +12,6 @@ const pages = [
   { slug: 'ai-visibility', path: '/ai-visibility' },
   { slug: 'contact', path: '/contact' },
   { slug: 'work-zatrovo', path: '/work/zatrovo' },
-  { slug: 'work-crystal-aura', path: '/work/crystal-aura' },
   { slug: 'work-reya-lashes', path: '/work/reya-lashes' },
   { slug: 'work-dynamic-golf', path: '/work/dynamic-golf-academy' },
   { slug: 'work-commu', path: '/work/commu' },

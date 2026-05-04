@@ -132,7 +132,6 @@ const testimonials = [
 
 const liveStudios = [
   { name: 'BOXX Thailand', niche: 'Boutique Boxing', url: 'https://www.boxxthailand.com', image: '/images/projects/boxx-hero.webp', slug: 'boxx-thailand' },
-  { name: 'Crystal Aura', niche: 'Massage & Spa', url: 'https://crystal-aura.zatrovo.com', image: '/images/projects/crystal-aura-hero.webp', slug: 'crystal-aura' },
   { name: 'Reya Lashes', niche: 'Beauty Studio', url: 'https://reya-lashes.zatrovo.com', image: '/images/projects/reya-lashes-hero.webp', slug: 'reya-lashes' },
   { name: 'Dynamic Golf Academy', niche: 'Golf Coaching', url: 'https://dynamic-golf-academy.zatrovo.com', image: '/images/projects/dynamic-golf-academy-hero.webp', slug: 'dynamic-golf-academy' },
   { name: 'Commu', niche: 'Community Studio', url: 'https://commu.zatrovo.com', image: '/images/projects/commu-hero.webp', slug: 'commu' },

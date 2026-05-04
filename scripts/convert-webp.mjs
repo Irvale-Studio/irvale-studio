@@ -8,7 +8,7 @@ const files = await readdir(DIR);
 const newPngs = files.filter(
   (f) =>
     f.endsWith('.png') &&
-    /^(crystal|reya|dynamic|commu|realspace-marketing-v2|zatrovo)/.test(f)
+    /^(reya|dynamic|commu|realspace-marketing-v2|zatrovo)/.test(f)
 );
 
 for (const f of newPngs) {

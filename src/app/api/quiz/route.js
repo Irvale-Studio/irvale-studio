@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
-const NOTIFY_EMAIL = 'jacobmhorgan@gmail.com';
+const NOTIFY_EMAIL = 'jake@irvale.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@irvale.studio';
 
 const BUSINESS_LABELS = {
@@ -194,7 +194,7 @@ function buildClientPlanHtml(answers, plan) {
         <p style="color: #9A9590; font-size: 12px; margin: 16px 0 0;">Or reply to this email — we respond within 24 hours.</p>
       </div>
       <hr style="border: none; border-top: 1px solid #2A2A2A; margin: 0 0 16px;" />
-      <p style="color: #555; font-size: 11px; text-align: center; margin: 0;">Irvale Studio · jacobmhorgan@gmail.com</p>
+      <p style="color: #555; font-size: 11px; text-align: center; margin: 0;">Irvale Studio · jake@irvale.com</p>
     </div>
   `;
 }
