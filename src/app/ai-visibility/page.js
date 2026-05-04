@@ -38,8 +38,8 @@ const stats = [
     source: 'Semrush, 2025',
   },
   {
-    value: '1 in 11',
-    label: 'AI responses about a brand contains a fabricated fact',
+    value: '9%',
+    label: 'of AI responses about a brand contain a fabricated fact',
     source: 'Four Dots Hallucination Index, 2025',
   },
 ];
@@ -430,7 +430,7 @@ export default function AIVisibilityPage() {
               <div>
                 <p className="font-body text-sm uppercase tracking-[0.16em] text-gold mb-2">Hallucinated facts</p>
                 <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                  Roughly one in eleven AI responses about a brand contains a fabricated fact — wrong pricing, wrong location, a service you don&rsquo;t offer. At a scale of 10,000 monthly mentions, that is 900 prospects misinformed.
+                  Roughly one in eleven AI responses about a brand contains a fabricated detail — wrong pricing, wrong location, a service you don&rsquo;t offer. At a scale of 10,000 monthly mentions, that is 900 prospects misinformed.
                 </p>
               </div>
               <div>
