@@ -1,11 +1,7 @@
+import { projects } from '@/lib/data/projects';
+
 export default function sitemap() {
   const baseUrl = 'https://irvale.studio';
-
-  const caseStudies = [
-    'boxx-thailand',
-    'realspace-marketing',
-    'chiang-mai-go-tours',
-  ];
 
   return [
     {
@@ -20,8 +16,8 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    ...caseStudies.map((slug) => ({
-      url: `${baseUrl}/work/${slug}`,
+    ...projects.map((p) => ({
+      url: `${baseUrl}/work/${p.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -30,7 +26,7 @@ export default function sitemap() {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/zatrovo`,

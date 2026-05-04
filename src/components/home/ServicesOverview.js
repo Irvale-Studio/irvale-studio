@@ -309,8 +309,8 @@ export default function ServicesOverview() {
         </div>
 
         <div className="mt-14 text-center">
-          <Link href="/services" className="btn-outline inline-block">
-            <span>Explore Services</span>
+          <Link href="/work" className="btn-outline inline-block">
+            <span>See Live Client Work →</span>
           </Link>
         </div>
       </div>

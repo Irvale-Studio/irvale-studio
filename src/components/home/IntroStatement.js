@@ -60,7 +60,7 @@ export default function IntroStatement() {
             From bespoke websites and booking systems to AI visibility and email marketing — we build, automate, and manage the digital infrastructure that drives your revenue.
           </p>
           <p className="hidden md:block font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
-            No templates. No outsourced freelancers. Every project is built in-house, around your business, with transparent pricing and support you can actually reach.
+            No templates. No outsourced freelancers. Every project is built in-house, around your business, with live client systems running today and support you can actually reach.
           </p>
         </SectionReveal>
 

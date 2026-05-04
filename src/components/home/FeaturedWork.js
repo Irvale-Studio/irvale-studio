@@ -73,6 +73,15 @@ export default function FeaturedWork() {
           <span className="ml-2 flex-1 text-center font-body text-[9px] text-text-muted-light/40 truncate">
             {project.url?.replace('https://', '')}
           </span>
+          {project.url && (
+            <span className="inline-flex items-center gap-1 font-body text-[8px] font-medium uppercase tracking-[0.2em] text-emerald-400 shrink-0">
+              <span className="relative flex w-1 h-1">
+                <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
+                <span className="relative w-1 h-1 rounded-full bg-emerald-400" />
+              </span>
+              Live
+            </span>
+          )}
         </div>
         <div className="relative aspect-video">
           <Image
@@ -112,12 +121,12 @@ export default function FeaturedWork() {
           className="mx-auto px-[var(--gutter)] mb-12"
           style={{ maxWidth: 'var(--max-width)' }}
         >
-          <Eyebrow className="mb-4 block">Trusted Clients</Eyebrow>
+          <Eyebrow className="mb-4 block">Selected Work · Live Clients</Eyebrow>
           <RevealText
             as="h2"
             className="font-display font-normal text-text-light text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] max-w-[600px]"
           >
-            Valuable results and growth.
+            Real software running real businesses.
           </RevealText>
         </div>
 

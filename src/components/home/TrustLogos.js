@@ -16,7 +16,7 @@ export default function TrustLogos() {
         className="mx-auto px-[var(--gutter)] mb-8"
         style={{ maxWidth: 'var(--max-width)' }}
       >
-        <Eyebrow className="block text-center">Brands That Grew With Us</Eyebrow>
+        <Eyebrow className="block text-center">Live Clients · Running Today</Eyebrow>
       </div>
 
       <div className="relative overflow-hidden">

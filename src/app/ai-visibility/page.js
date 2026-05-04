@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
-import Counter from '@/components/ui/Counter';
 
 export const metadata = {
   title: 'AI Visibility — Irvale Studio',
@@ -27,27 +27,6 @@ const pillars = [
   {
     title: 'Content Architecture for AI',
     description: 'We structure your content so AI systems can parse, comprehend, and confidently recommend your brand in natural language responses.',
-  },
-];
-
-const pricing = [
-  {
-    name: 'AI Audit',
-    price: '£950',
-    type: 'one-off',
-    description: 'Comprehensive analysis of your current AI visibility across major platforms.',
-  },
-  {
-    name: 'AI Visibility Project',
-    price: 'From £2,500',
-    type: 'project',
-    description: 'Full entity optimisation, citation strategy, and content restructuring.',
-  },
-  {
-    name: 'AI Visibility Retainer',
-    price: 'From £800/mo',
-    type: 'monthly',
-    description: 'Ongoing monitoring, optimisation, and monthly reporting on AI search performance.',
   },
 ];
 
@@ -128,7 +107,7 @@ export default function AIVisibilityPage() {
         </div>
       </section>
 
-      {/* Case Study Highlight */}
+      {/* Case Study Highlight — Zatrovo */}
       <section className="py-[var(--component-gap)] border-y border-gold/10">
         <div
           className="mx-auto px-[var(--gutter)]"
@@ -136,53 +115,32 @@ export default function AIVisibilityPage() {
         >
           <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <Eyebrow className="mb-4 block">Case Study</Eyebrow>
+              <Eyebrow className="mb-4 block">Live Case Study</Eyebrow>
               <h3 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light mb-4">
-                Crestview Members Club
+                Zatrovo
               </h3>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-4">
-                See how we help businesses become discoverable by AI assistants — driving leads and bookings from a channel most competitors don&rsquo;t even know exists.
+                Our flagship SaaS product reaches 13,000+ members across multiple studios. AI-discoverable architecture, structured data, and content built for the way modern search actually works.
               </p>
               <Link
-                href="/work"
+                href="/work/zatrovo"
                 className="font-body text-sm text-gold hover:text-gold-light transition-colors"
               >
-                See Our Work →
+                Read the Zatrovo case study →
               </Link>
             </div>
-            <div className="aspect-[4/3] bg-dark/30 rounded" />
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-12 block">Pricing</Eyebrow>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-[var(--grid-gap)]">
-            {pricing.map((plan) => (
-              <div
-                key={plan.name}
-                className="border border-gold/20 p-8 bg-[rgba(255,255,255,0.02)] flex flex-col"
-              >
-                <h4 className="font-display text-[length:var(--type-h3)] text-text-light mb-2">
-                  {plan.name}
-                </h4>
-                <p className="font-display text-[clamp(24px,3vw,36px)] text-gold leading-none mb-1">
-                  {plan.price}
-                </p>
-                <p className="font-body text-xs text-text-muted-light mb-4">{plan.type}</p>
-                <p className="font-body text-sm text-text-muted-light font-light leading-relaxed flex-1">
-                  {plan.description}
-                </p>
-                <Link href="/contact" className="btn-outline block text-center mt-6 py-3">
-                  <span>Enquire →</span>
-                </Link>
-              </div>
-            ))}
+            <Link
+              href="/work/zatrovo"
+              className="block relative aspect-[4/3] overflow-hidden rounded border border-gold/15 group"
+            >
+              <Image
+                src="/images/projects/zatrovo-hero.webp"
+                alt="Zatrovo — Built for studios"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </Link>
           </SectionReveal>
         </div>
       </section>

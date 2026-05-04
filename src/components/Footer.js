@@ -6,7 +6,7 @@ import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 
 const navLinks = [
-  { href: '/work', label: 'Work' },
+  { href: '/work', label: 'Our Work' },
   { href: '/services', label: 'Services' },
   { href: '/zatrovo', label: 'Booking' },
   { href: '/ai-visibility', label: 'AI Visibility' },
