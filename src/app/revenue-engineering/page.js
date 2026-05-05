@@ -20,44 +20,44 @@ const stats = [
 
 const takeover = [
   {
-    title: 'Website design, build & ongoing optimisation',
-    body: 'Bespoke build, not a template. Re-engineered every quarter against the metrics that actually move revenue.',
+    title: 'Website design, build and optimisation',
+    body: 'Bespoke build, no template. Rebuilt every quarter against metrics that move revenue.',
   },
   {
-    title: 'Booking & customer management',
-    body: 'Zatrovo, our own SaaS, is included at no additional cost. White-labelled to your brand. No third-party booking subscription to manage.',
+    title: 'Booking and customer management',
+    body: 'Zatrovo, our own SaaS, runs your bookings under your brand. Included free.',
   },
   {
-    title: 'Google Business Profile & local SEO',
-    body: 'GBP optimisation, local citation building, location pages, review velocity. The boring discipline that compounds.',
+    title: 'Google Business Profile and local SEO',
+    body: 'Profile optimisation, citations, location pages, review velocity. The boring discipline that compounds.',
   },
   {
-    title: 'Programmatic SEO & content production',
-    body: 'AI-augmented content production at a scale traditional agencies cannot match. Location pages, service pages, FAQ libraries, topical clusters.',
+    title: 'Programmatic SEO and content',
+    body: 'AI augmented production at a scale traditional agencies cannot match. Location pages, service pages, FAQ libraries, topical clusters.',
   },
   {
     title: 'AI search visibility (GEO/AEO)',
-    body: 'Engineered presence inside ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews. The full GEO programme bundled in.',
+    body: 'Engineered presence inside ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews. Full GEO programme bundled in.',
   },
   {
-    title: 'Multilingual & APAC expansion',
-    body: 'Chinese, Korean and Thai market expansion where it fits. Naver, Xiaohongshu, WeChat — the channels Western agencies miss.',
+    title: 'Multilingual and APAC expansion',
+    body: 'Chinese, Korean and Thai market expansion where it fits. Naver, Xiaohongshu and WeChat. The channels Western agencies miss.',
   },
   {
-    title: 'Reviews & reputation systems',
-    body: 'Automated request flows, multi-platform monitoring, AI-assisted response drafting. Reviews treated as a system, not a hope.',
+    title: 'Reviews and reputation systems',
+    body: 'Automated requests, multi platform monitoring, AI assisted responses. Reviews run as a system, not a hope.',
   },
   {
     title: 'Social media presence',
-    body: 'Consistency-focused, not virality-focused. Branded, on-cadence, the trust signal your buyers check before they book.',
+    body: 'Consistency, not virality. Branded, on cadence, a trust signal buyers check before they book.',
   },
   {
-    title: 'Paid advertising management',
-    body: 'Optional add-on. Google, Meta, TikTok and LinkedIn — managed end-to-end with conversion tracking that actually attributes revenue.',
+    title: 'Paid advertising',
+    body: 'Optional add on. Google, Meta, TikTok and LinkedIn. Managed end to end with conversion tracking that attributes revenue.',
   },
   {
-    title: 'Reporting & strategy',
-    body: 'Monthly performance reports tied to revenue. Quarterly strategy reviews. No vanity dashboards.',
+    title: 'Reporting and strategy',
+    body: 'Monthly reports tied to revenue. Quarterly strategy reviews. No vanity dashboards.',
   },
 ];
 
@@ -67,11 +67,11 @@ const phases = [
     name: 'Discovery',
     cadence: 'Week 1',
     summary:
-      'Full audit of your current digital presence. Baseline metrics captured. Gaps identified. Honest read on what is working and what is leaking revenue.',
+      'Audit of your current presence. Baseline captured. Gaps identified. Honest read on what works and what leaks.',
     deliverables: [
       'Digital presence audit across every channel',
-      'Conversion funnel mapping & leak analysis',
-      'Baseline metrics — bookings, traffic, citation share, review velocity',
+      'Conversion funnel mapping and leak analysis',
+      'Baseline metrics: bookings, traffic, citation share, review velocity',
       'Competitor benchmark across the same surfaces',
       'Prioritised remediation plan with effort and impact scoring',
     ],
@@ -79,15 +79,15 @@ const phases = [
   {
     n: '02',
     name: 'Foundation',
-    cadence: 'Weeks 2–6',
+    cadence: 'Weeks 2 to 6',
     summary:
-      'Website rebuilt. Booking system live. Profiles optimised. Content infrastructure established. Tracking architecture in place. The substrate that everything else compounds on.',
+      'Website rebuilt. Booking live. Profiles optimised. Tracking in place. The substrate everything else compounds on.',
     deliverables: [
-      'Bespoke website rebuild, launched live',
+      'Bespoke website rebuild launched live',
       'Zatrovo booking platform configured and embedded',
       'Google Business Profile and local SEO foundation',
       'Schema markup, JSON-LD architecture and AI crawler policy',
-      'GA4, server-side tracking and attribution architecture',
+      'GA4, server side tracking and attribution architecture',
       'Review request automation deployed',
     ],
   },
@@ -96,14 +96,14 @@ const phases = [
     name: 'Compounding',
     cadence: 'Month 3 onwards',
     summary:
-      'Content production at scale. Ongoing optimisation. Channel expansion. Monthly reporting and quarterly strategy reviews. The phase where the investment turns into ranking, citations, and direct bookings.',
+      'Content at scale. Ongoing optimisation. Channel expansion. Monthly reports, quarterly strategy. The phase where investment turns into rankings, citations and bookings.',
     deliverables: [
       'Programmatic SEO and content rollout against the topical map',
       'AI search visibility programme and citation outreach',
       'APAC channel expansion when it fits the buyer',
       'Monthly performance review tied to revenue',
       'Quarterly strategy reset and roadmap',
-      'Continuous CRO and on-page iteration',
+      'Continuous CRO and on page iteration',
     ],
   },
 ];
@@ -111,27 +111,27 @@ const phases = [
 const principles = [
   {
     label: 'Single accountability',
-    body: 'One team owns the entire funnel. No finger-pointing between the web designer, the SEO consultant and your nephew running Facebook. Something stops working — there is one number to call.',
+    body: 'One team owns the funnel. No blame games between vendors. When something breaks, you call one number.',
   },
   {
     label: 'Tech and strategy combined',
-    body: 'Most agencies are creative shops or technical implementers. We are both. We design the funnel and we ship the code that runs it.',
+    body: 'Most agencies are creative shops or technical implementers. We are both. We design the funnel and ship the code that runs it.',
   },
   {
     label: 'Owned infrastructure',
-    body: 'We built our own SaaS. Zatrovo handles bookings, payments, member management and customer messaging. Included free, not outsourced — which means it gets fixed when you need it fixed.',
+    body: 'We built our own SaaS. Zatrovo handles bookings, payments and messaging. Included free, not outsourced. Fixed when you need it fixed.',
   },
   {
-    label: 'AI-augmented production',
-    body: 'Modern workflows let us produce content and optimise at a volume traditional agencies cannot match. Lower hours per output, higher cadence per dollar of retainer.',
+    label: 'AI augmented production',
+    body: 'Modern workflows produce content and optimise at a volume traditional agencies cannot match. Lower hours per output, higher cadence per retainer dollar.',
   },
   {
     label: 'Skin in the game',
-    body: 'Monthly reporting on real metrics — bookings, revenue, direct enquiries, citation share. No vanity numbers. We measure what drives revenue because we are responsible for it.',
+    body: 'Monthly reporting on real metrics. Bookings, revenue, enquiries, citation share. No vanity numbers.',
   },
   {
     label: 'Small client list',
-    body: 'We work with a small number of clients at a time. Each one gets real attention from a senior team, not a junior on rotation.',
+    body: 'We work with a small number of clients at a time. Each one gets a senior team, not a junior on rotation.',
   },
 ];
 
@@ -139,14 +139,14 @@ const pricing = [
   {
     name: 'Foundation',
     price: 'from $1,450',
-    cadence: 'per month · 6-month minimum',
+    cadence: 'per month · six month minimum',
     summary:
-      'For owner-operators who need the funnel professionally run without the overhead of a marketing hire. Website rebuild and Zatrovo included free.',
+      'For owner operators who want the funnel professionally run without hiring a marketing team. Website rebuild and Zatrovo included free.',
     includes: [
-      'Bespoke website rebuild — launched live',
-      'Zatrovo booking platform, white-labelled, included free',
-      'Google Business Profile & local SEO',
-      'Reviews & reputation system',
+      'Bespoke website rebuild, launched live',
+      'Zatrovo booking under your brand, included free',
+      'Google Business Profile and local SEO',
+      'Reviews and reputation system',
       'Schema, AI crawler policy, baseline GEO',
       'Monthly performance report',
     ],
@@ -155,31 +155,31 @@ const pricing = [
     name: 'Growth',
     featured: true,
     price: 'from $3,450',
-    cadence: 'per month · 6-month minimum',
+    cadence: 'per month · six month minimum',
     summary:
-      'For businesses ready to compound. Full content engine, AI search visibility, email lifecycle. The tier most clients settle on after 6 months.',
+      'For businesses ready to compound. Full content engine, AI search visibility, email lifecycle. Where most clients settle after six months.',
     includes: [
       'Everything in Foundation',
-      'Programmatic SEO & topical map at scale',
+      'Programmatic SEO and topical map at scale',
       'Full AI search visibility programme (GEO/AEO)',
-      'Email & CRM lifecycle (Klaviyo, Mailchimp or Resend)',
-      'Content production retainer (4–8 pieces / month)',
+      'Email and CRM lifecycle (Klaviyo, Mailchimp or Resend)',
+      'Content retainer of four to eight pieces per month',
       'Quarterly strategy reviews with the founder',
     ],
   },
   {
     name: 'Bespoke',
     price: 'from $5,500',
-    cadence: 'per month · 12-month minimum',
+    cadence: 'per month · twelve month minimum',
     summary:
-      'For multi-location or multi-market businesses. Includes paid media management and APAC expansion. Scoped to the brand, the category and the competitive set.',
+      'For multi location or multi market businesses. Includes paid media and APAC expansion. Scoped to the brand, category and competitive set.',
     includes: [
       'Everything in Growth',
-      'Paid media — Google, Meta, TikTok, LinkedIn',
-      'APAC market expansion (Naver, Xiaohongshu, WeChat)',
+      'Paid media: Google, Meta, TikTok, LinkedIn',
+      'APAC expansion (Naver, Xiaohongshu, WeChat)',
       'Dedicated account manager',
-      'Multi-location coordination',
-      'Custom dashboards & server-side attribution',
+      'Multi location coordination',
+      'Custom dashboards and server side attribution',
     ],
   },
 ];
@@ -211,7 +211,7 @@ export default function RevenueEngineeringPage() {
             One accountable team for your entire digital funnel.
           </RevealText>
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-2xl mb-10">
-            Revenue Engineering is the discipline of taking complete ownership of a business&apos;s digital funnel — from first touchpoint to final conversion — and engineering every step for measurable outcomes. Website, booking software, search, AI visibility, reviews, paid media, reporting. One team. One number to call.
+            We own your digital funnel end to end and engineer every step for measurable revenue. Website, booking, search, AI visibility, reviews, paid media, reporting. One team. One number to call.
           </p>
           <div className="flex flex-wrap gap-4 mb-12">
             <Link href="/contact" className="btn-primary">

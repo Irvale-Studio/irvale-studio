@@ -6,9 +6,9 @@ import SectionReveal from '@/components/ui/SectionReveal';
 import Marquee from '@/components/ui/Marquee';
 
 export const metadata = {
-  title: 'Zatrovo — Business Management Software | Irvale Studio',
+  title: 'Zatrovo · Business Management Software | Irvale Studio',
   description:
-    'Built for studios that take real bookings. Zatrovo is a full business management platform — bookings, payments, member CRM, AI assistant, multi-location, white-label.',
+    'Built for studios that take real bookings. Bookings, payments, member CRM, AI assistant, multi-location, and white-label, in one platform.',
 };
 
 const trustedFor = [
@@ -39,58 +39,58 @@ const modules = [
 const features = [
   {
     name: 'Smart Scheduling',
-    description: 'Day, week, and month views. Filter by instructor, location, or class type. Members find what fits their week in one tap.',
+    description: 'Day, week, and month views. Filter by instructor, location, or class type.',
   },
   {
     name: 'Class Booking',
-    description: 'Members book classes with credits, packs, or cash. Waitlists and auto-promote built in. Zero overbooking, zero no-shows un-tracked.',
+    description: 'Book with credits, packs, or cash. Waitlists and auto-promote built in.',
   },
   {
     name: 'Services & Appointments',
-    description: '1:1 sessions, multi-staff calendars, deposits, add-ons at booking, and basket-style multi-service flows.',
+    description: '1:1 sessions, multi-staff calendars, deposits, and basket-style multi-service flows.',
   },
   {
     name: 'Payments & Packs',
-    description: 'Stripe connected the same afternoon you sign up. Card, Apple Pay, credit packs, session packs, memberships, instalments, payment links + QR.',
+    description: 'Stripe live the same afternoon. Card, Apple Pay, packs, memberships, and instalments.',
   },
   {
     name: 'AI Assistant',
-    description: 'Built-in AI handles waitlists, reminders, member questions, and the repetitive admin your front desk shouldn\'t be doing.',
+    description: 'Handles waitlists, reminders, and member questions. The admin your front desk hates.',
   },
   {
     name: 'Email & Messaging',
-    description: 'Branded transactional emails, auto reminders by email + WhatsApp + LINE + SMS, full template library, welcome auto-replies.',
+    description: 'Branded emails, auto reminders by email, WhatsApp, LINE, and SMS.',
   },
   {
     name: 'Shared Inbox',
-    description: 'Member messaging inbox with native LINE channel. Add Instagram DM and Messenger via Crisp. Reply without leaving Zatrovo.',
+    description: 'Member inbox with native LINE. Add Instagram DM and Messenger via Crisp.',
   },
   {
     name: 'White Label',
-    description: 'Your logo, your colours, your domain. Members never see the Zatrovo name. Custom branding all the way through.',
+    description: 'Your logo, your colours, your domain. Members never see the Zatrovo name.',
   },
   {
     name: 'Multi-Location',
-    description: 'Run up to 5 locations from one dashboard. Different teams, different calendars, one source of truth.',
+    description: 'Run up to 5 locations from one dashboard. One source of truth.',
   },
   {
     name: 'Analytics & Reports',
-    description: 'Revenue, bookings, member engagement, no-show tracking. Advanced analytics + Google Analytics + Meta / TikTok / Google Ads pixels.',
+    description: 'Revenue, bookings, no-shows. Plus Google, Meta, and TikTok pixels.',
   },
   {
     name: 'API & Zapier',
-    description: 'REST API and Zapier webhooks for the integrations we haven\'t pre-built. Connect Zatrovo to anything.',
+    description: 'REST API and Zapier for the integrations we haven\'t pre-built.',
   },
   {
     name: 'Migration Done For You',
-    description: 'Send us your export from Mindbody, Vagaro, Glofox, Zen Planner, WellnessLiving, or Acuity. We import and you\'re live in 48 hours.',
+    description: 'Export from Mindbody, Vagaro, Glofox, or Acuity. Live in 48 hours.',
   },
 ];
 
 const testimonials = [
   {
     quote:
-      'We were using three different tools before this — one for scheduling, one for payments, one just for email reminders. Zatrovo killed all three. Honestly wish we\'d switched sooner.',
+      'We had three tools before Zatrovo. Scheduling, payments, email reminders. Zatrovo killed all three. Wish we\'d switched sooner.',
     author: 'Sarah Mitchell',
     role: 'Yoga Studio Owner',
   },
@@ -101,30 +101,30 @@ const testimonials = [
   },
   {
     quote:
-      'The AI assistant surprised me more than anything else. I set it up half-expecting a gimmick, but it genuinely handles the repetitive stuff — reminders, waitlists, basic member questions. My front desk is way less stressed.',
+      'The AI assistant genuinely handles the repetitive stuff. Reminders, waitlists, member questions. My front desk is way less stressed.',
     author: 'Priya Sharma',
     role: 'Pilates Studio Manager',
   },
   {
     quote:
-      'Our members have no idea they\'re using Zatrovo. It\'s got our logo, our colours, our name. That matters to us.',
+      'Our members have no idea they\'re using Zatrovo. It has our logo, our colours, our name. That matters to us.',
     author: 'Marcus Johnson',
     role: 'Gym Owner',
   },
   {
-    quote: 'Cut our software bill by like $130/month after leaving Mindbody. Not even using paid features yet.',
+    quote: 'Cut our software bill by $130/month after leaving Mindbody. Not even using paid features yet.',
     author: 'Elena Rodriguez',
     role: 'Dance School Director',
   },
   {
     quote:
-      'Running two locations was genuinely chaotic before. Different systems, different logins, no easy way to see the big picture. Now it\'s just one dashboard.',
+      'Running two locations used to be chaos. Different systems, different logins, no big picture. Now it\'s one dashboard.',
     author: 'Olivia Chen',
     role: 'Multi-Studio Owner',
   },
   {
     quote:
-      'Stripe was connected and taking payments the same afternoon I signed up. No developer, no docs rabbit hole. It just worked.',
+      'Stripe was taking payments the same afternoon I signed up. No developer, no docs. It just worked.',
     author: 'Aisha Patel',
     role: 'Wellness Centre Owner',
   },
@@ -137,6 +137,56 @@ const liveStudios = [
   { name: 'Commu', niche: 'Community Studio', url: 'https://commu.zatrovo.com', image: '/images/projects/commu-hero.webp', slug: 'commu' },
 ];
 
+const pricingTiers = [
+  {
+    name: 'Starter',
+    tagline: 'Solo practitioners running 1:1 sessions.',
+    price: 29,
+    cta: 'Start Free',
+    features: [
+      '1 location · 1 employee',
+      '1:1 appointments + add-ons',
+      'Stripe payments + payment links',
+      'Branded booking page',
+      'Subscriptions & deposits',
+      'Automated emails',
+      '150 AI assistant queries / month',
+    ],
+  },
+  {
+    name: 'Studio',
+    tagline: 'Growing studios with classes, packs, and waitlists.',
+    price: 119,
+    popular: true,
+    cta: 'Start Free',
+    features: [
+      '1 location · up to 10 employees',
+      'Everything in Starter',
+      'Group classes, packs & waitlists',
+      'Member messaging inbox + native LINE',
+      'Studio gallery',
+      'Full marketing pixel tracking',
+      'Priority support',
+      '600 AI assistant queries / month',
+    ],
+  },
+  {
+    name: 'Business',
+    tagline: 'Multi-location studios that need scale.',
+    price: 299,
+    cta: 'Start Free',
+    features: [
+      'Up to 5 locations · 25 employees',
+      'Everything in Studio',
+      'Instagram DM + Messenger via Crisp',
+      'Advanced analytics',
+      'REST API access',
+      'Zapier integration',
+      '1,500 AI assistant queries / month',
+    ],
+  },
+];
+
 const migrationFrom = ['Mindbody', 'Vagaro', 'Glofox', 'Zen Planner', 'WellnessLiving', 'Acuity'];
 
 const builtOn = ['Stripe', 'Supabase', 'Vercel', 'Cloudflare'];
@@ -146,42 +196,42 @@ const faqs = [
   {
     question: 'Who is Zatrovo built for?',
     answer:
-      'Studios and service businesses that take real bookings — yoga, pilates, fitness, massage, lash & beauty, golf coaching, personal training, wellness, dance, martial arts. If you sell time and need members to book it, Zatrovo fits.',
+      'Studios and service businesses that take real bookings. Yoga, pilates, fitness, massage, beauty, golf, personal training, wellness, dance, martial arts. If you sell time, Zatrovo fits.',
   },
   {
     question: 'How long until I\'m live and accepting bookings?',
     answer:
-      'Most studios are live the same day. Stripe connects in minutes, your branded portal is ready immediately, and our migration team imports your members and packs within 48 hours.',
+      'Same day for most studios. Stripe connects in minutes, your branded portal is ready immediately, and our team imports your members and packs within 48 hours.',
   },
   {
     question: 'Can I migrate from Mindbody, Vagaro, Glofox, or Zen Planner?',
     answer:
-      'Yes. Send us your export — CSV, ZIP, or even screenshots — and we\'ll import members, classes, packs, and memberships for free. You review, then go live within 48 hours.',
+      'Yes. Send us your export as CSV, ZIP, or even screenshots. We import members, classes, packs, and memberships for free. You review, then go live within 48 hours.',
   },
   {
     question: 'Will my members ever see the Zatrovo name?',
     answer:
-      'No. Zatrovo is fully white-labelled. Your logo, your colours, your domain. Members see your brand from booking to receipt to email reminder.',
+      'No. Zatrovo is fully white-labelled. Your logo, your colours, your domain. Members see your brand from booking to receipt.',
   },
   {
     question: 'How do payments work? Does Zatrovo take a cut?',
     answer:
-      'Payments run through your own Stripe account — money goes directly to you, never through us. Stripe\'s standard processing fee applies. Zatrovo charges a flat monthly subscription, not a per-booking commission.',
+      'Payments run through your own Stripe account. Money goes directly to you, never through us. Stripe\'s standard processing fee applies. Zatrovo charges a flat monthly subscription, not a per-booking commission.',
   },
   {
     question: 'What does the AI assistant actually do?',
     answer:
-      'It handles waitlists, reminders, basic member questions, and the repetitive admin your front desk shouldn\'t be doing. Each tier comes with a budget — solo practitioners get a smaller allocation, studios get more, multi-location businesses get the largest.',
+      'It handles waitlists, reminders, member questions, and repetitive admin. Each tier includes a query budget. Solo gets 150, Studio gets 600, Business gets 1,500.',
   },
   {
     question: 'Can I sell class packs, memberships, and single drop-ins?',
     answer:
-      'Yes — packs, sessions, memberships, single classes, and 1:1 appointments. Members can mix and match. Credit-based bookings, deposits, and instalment plans all supported.',
+      'Yes. Packs, sessions, memberships, single classes, and 1:1 appointments. Members mix and match. Credit-based bookings, deposits, and instalment plans all supported.',
   },
   {
     question: 'Does Zatrovo connect to my ad platforms?',
     answer:
-      'Meta, TikTok, and Google Ads pixels are first-class. Plus Zapier and a REST API for everything else. Track booking conversions back to ad spend without a developer.',
+      'Meta, TikTok, and Google Ads pixels are first-class. Plus Zapier and a REST API for everything else. Track conversions back to ad spend without a developer.',
   },
 ];
 
@@ -196,22 +246,18 @@ export default function ZatrovoPage() {
           className="relative mx-auto px-[var(--gutter)] text-center"
           style={{ maxWidth: 'var(--max-width)' }}
         >
-          <div className="inline-flex items-center gap-3 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
             <span className="font-body text-[10px] font-medium uppercase tracking-[0.25em] bg-gold text-dark px-3 py-1.5">
               14 Days Free
             </span>
-            <span className="font-body text-[length:var(--type-caption)] text-text-muted-light/70 uppercase tracking-[var(--type-label-ls)]">
-              Business Management Software
-            </span>
+            <Link
+              href="/revenue-engineering"
+              className="inline-flex items-center gap-2 font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold border border-gold/30 px-3 py-1.5 hover:bg-gold/10 transition-colors"
+            >
+              <span>★</span>
+              <span>Free in Revenue Engineering →</span>
+            </Link>
           </div>
-
-          <Link
-            href="/revenue-engineering"
-            className="inline-flex items-center gap-2 font-body text-[10px] font-medium uppercase tracking-[0.2em] text-gold border border-gold/30 px-3 py-1.5 mb-8 hover:bg-gold/10 transition-colors"
-          >
-            <span>★</span>
-            <span>Included free in Revenue Engineering →</span>
-          </Link>
 
           <RevealText
             as="h1"
@@ -221,7 +267,7 @@ export default function ZatrovoPage() {
           </RevealText>
 
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-xl mx-auto mb-8">
-            Bookings, payments, member CRM, AI assistant, multi-location, and full white-label. The platform behind every studio and service business we ship.
+            Bookings, payments, member CRM, AI assistant, multi&#8209;location, white&#8209;label. The platform behind every studio we ship.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mb-10">
@@ -268,7 +314,7 @@ export default function ZatrovoPage() {
         />
       </div>
 
-      {/* Live Studios — proof carousel */}
+      {/* Live Studios proof carousel */}
       <section className="bg-dark py-[var(--section-gap)]">
         <div
           className="mx-auto px-[var(--gutter)]"
@@ -315,7 +361,7 @@ export default function ZatrovoPage() {
                   <div className="relative aspect-video">
                     <Image
                       src={s.image}
-                      alt={`${s.name} — ${s.niche}`}
+                      alt={`${s.name} · ${s.niche}`}
                       fill
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
@@ -403,7 +449,82 @@ export default function ZatrovoPage() {
         </div>
       </section>
 
-      {/* Zatrovo in action — BOXX screenshots */}
+      {/* Pricing */}
+      <section className="bg-dark-2 py-[var(--section-gap)] relative noise-overlay">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div className="text-center mb-12 md:mb-16">
+            <Eyebrow className="mb-6 block">Simple, Studio-Sized Pricing</Eyebrow>
+            <RevealText
+              as="h2"
+              className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mx-auto justify-center"
+            >
+              One subscription. No per-booking commission.
+            </RevealText>
+            <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-xl mx-auto mt-6">
+              Stripe processing fees only. 14 days free. Cancel any time.
+            </p>
+          </div>
+
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-[var(--grid-gap)]">
+            {pricingTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={`relative bg-dark border ${
+                  tier.popular
+                    ? 'border-gold/60 shadow-[0_8px_40px_rgba(201,169,110,0.12)]'
+                    : 'border-white/10'
+                } p-8 flex flex-col`}
+              >
+                {tier.popular && (
+                  <span className="absolute -top-3 left-8 font-body text-[10px] font-medium uppercase tracking-[0.25em] bg-gold text-dark px-3 py-1.5">
+                    Most Popular
+                  </span>
+                )}
+                <h3 className="font-display text-[length:var(--type-h3)] text-text-light mb-2">
+                  {tier.name}
+                </h3>
+                <p className="font-body text-sm text-text-muted-light/80 font-light mb-6 min-h-[3em]">
+                  {tier.tagline}
+                </p>
+                <div className="flex items-baseline gap-2 mb-8 pb-6 border-b border-white/10">
+                  <span className="font-display text-5xl text-gold">${tier.price}</span>
+                  <span className="font-body text-sm text-text-muted-light">/month</span>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {tier.features.map((f) => (
+                    <li key={f} className="flex gap-3 font-body text-sm text-text-light/80 font-light">
+                      <span className="text-gold shrink-0">✓</span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className={
+                    tier.popular
+                      ? 'btn-primary w-full text-center'
+                      : 'btn-outline w-full text-center'
+                  }
+                >
+                  <span>{tier.cta} →</span>
+                </Link>
+              </div>
+            ))}
+          </SectionReveal>
+
+          <p className="text-center mt-12 font-body text-sm text-text-muted-light">
+            Multi-location or 25+ employees?{' '}
+            <Link href="/contact" className="text-gold hover:text-gold-light transition-colors">
+              Talk to us about Enterprise →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Zatrovo in action: BOXX screenshots */}
       <section className="bg-dark py-[var(--section-gap)]">
         <div
           className="mx-auto px-[var(--gutter)]"
@@ -426,18 +547,18 @@ export default function ZatrovoPage() {
             <BrowserShot
               src="/images/projects/boxx-zatrovo-admin.webp"
               alt="Zatrovo admin panel showing BOXX class pack products"
-              caption="Admin — Class Packs & Memberships"
+              caption="Admin · Class Packs & Memberships"
             />
             <BrowserShot
               src="/images/projects/boxx-zatrovo-booking.webp"
               alt="Zatrovo booking interface showing BOXX class schedule"
-              caption="Client — Class Schedule & Booking"
+              caption="Client · Class Schedule & Booking"
             />
             <div className="md:col-span-2">
               <BrowserShot
                 src="/images/projects/boxx-zatrovo-services.webp"
                 alt="Zatrovo service booking with coach selection and time slots"
-                caption="Client — Service Selection & Time Slots"
+                caption="Client · Service Selection & Time Slots"
                 aspect="aspect-[21/9]"
               />
             </div>
@@ -488,11 +609,11 @@ export default function ZatrovoPage() {
                 Switching? We do the heavy lifting.
               </RevealText>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-8 max-w-md">
-                Send us your export from Mindbody, Vagaro, Glofox, Zen Planner, or any other platform. We migrate your members, classes, packs, and memberships.
+                Send us your export from Mindbody, Vagaro, Glofox, Zen Planner, or any other platform. We import members, classes, packs, and memberships for free.
               </p>
               <ol className="space-y-4">
                 {[
-                  'Send us your data — CSV, ZIP, or screenshots',
+                  'Send us your data as CSV, ZIP, or screenshots',
                   'We import members, packs, and memberships',
                   'You review and go live within 48 hours',
                 ].map((step, i) => (
@@ -594,13 +715,13 @@ export default function ZatrovoPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div className="md:col-span-2 space-y-5 font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
                 <p>
-                  Hi, I&apos;m Jake. Every activity I take part in, from my friend&apos;s boxing gym to booking a massage, seems to run on clunky booking systems and far too much manual admin.
+                  Hi, I&apos;m Jake. Every activity I do, from my friend&apos;s boxing gym to booking a massage, runs on clunky software and too much manual admin.
                 </p>
                 <p>
-                  So I used my product and engineering background to build the tool I wished existed: something that helps studios run their business, and helps people like me book the classes and sessions that make life better.
+                  So I built the tool I wished existed. One that helps studios run their business, and helps people like me book the sessions that make life better.
                 </p>
                 <p>
-                  Zatrovo is a founder-led project, and it&apos;s growing fast. I&apos;m always looking for feedback to improve it, so please don&apos;t hesitate to reach out.
+                  Zatrovo is a founder-led project and it&apos;s growing fast. I always want feedback, so please reach out.
                 </p>
               </div>
               <div className="border-l border-gold/30 pl-6">
