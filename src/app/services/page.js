@@ -6,7 +6,7 @@ import Marquee from '@/components/ui/Marquee';
 import { capabilities, techStack, servicesFaqs } from '@/lib/data/capabilities';
 
 export const metadata = {
-  title: 'Services & Capabilities — Irvale Studio',
+  title: 'Services & Capabilities · Irvale Studio',
   description:
     'Websites, booking software, SEO, AI search, automations, paid media, mobile apps, email marketing, analytics, brand, and infrastructure. The full capability stack for modern businesses.',
 };
@@ -34,10 +34,10 @@ export default function ServicesPage() {
             as="h1"
             className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[900px] mb-6"
           >
-            Software, automation, and growth — under one roof.
+            Software, automation and growth, under one roof.
           </RevealText>
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-2xl mb-10">
-            Twelve capability pillars. One studio. We build, ship, and maintain the digital infrastructure modern businesses run on — from bespoke websites and booking software to AI search, paid media, mobile apps, and the automations that hold it all together.
+            Fourteen capability pillars. One studio. We build, ship and maintain the digital infrastructure modern businesses run on. Bespoke websites, booking software, AI search, paid media, mobile apps and the automations that hold it all together.
           </p>
           <div className="flex flex-wrap gap-4 mb-12">
             <Link href="/contact" className="btn-primary">
@@ -140,9 +140,9 @@ export default function ServicesPage() {
           <SectionReveal className="grid grid-cols-1 md:grid-cols-4 gap-[var(--grid-gap)]">
             {[
               { num: '01', name: 'Discovery', body: 'A 30-minute call. We dig into what you\'re building, what\'s blocking it, and what success looks like. Written proposal within 48 hours.' },
-              { num: '02', name: 'Design', body: 'Brand, structure, and UX before a single line of code. You see real designs — not mockups dressed in placeholder text — before build starts.' },
+              { num: '02', name: 'Design', body: 'Brand, structure and UX before a single line of code. You see real designs, not mockups dressed in placeholder text, before build starts.' },
               { num: '03', name: 'Build', body: 'Engineering in tight, weekly cycles. Live previews from day one. You\'re never waiting until the end to see progress.' },
-              { num: '04', name: 'Grow', body: 'Launch is the start, not the finish. Hosting, monitoring, SEO, AI search, paid media, and ongoing iteration — all under one retainer.' },
+              { num: '04', name: 'Grow', body: 'Launch is the start, not the finish. Hosting, monitoring, SEO, AI search, paid media and ongoing iteration, all under one retainer.' },
             ].map((step) => (
               <div key={step.num} className="bg-white border border-[var(--border-light)] p-7">
                 <span className="font-display text-gold text-2xl mb-4 block">{step.num}</span>

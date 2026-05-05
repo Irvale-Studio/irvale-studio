@@ -69,8 +69,8 @@ export const QUIZ_CONFIG = {
       subtitle: 'This helps us recommend the right package',
       type: 'single',
       options: [
-        { value: 'small', label: 'Getting Started', sublabel: '$100 – $600' },
-        { value: 'medium', label: 'Growing Business', sublabel: '$600 – $1,500' },
+        { value: 'small', label: 'Getting Started', sublabel: '$100 to $600' },
+        { value: 'medium', label: 'Growing Business', sublabel: '$600 to $1,500' },
         { value: 'large', label: 'Full Platform', sublabel: '$1,500+' },
         { value: 'unsure', label: 'Not Sure Yet', sublabel: "Help me figure it out" },
       ],

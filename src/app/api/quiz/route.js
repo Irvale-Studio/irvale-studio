@@ -23,7 +23,7 @@ const WEBSITE_TIERS = {
     priceNote: 'one-time',
     baseServices: [
       'Up to 5 custom-designed pages',
-      'Responsive design — mobile, tablet, desktop',
+      'Responsive design across mobile, tablet and desktop',
       'Speed optimisation & SSL security',
       'Contact form integration',
       'On-page SEO foundations',
@@ -36,7 +36,7 @@ const WEBSITE_TIERS = {
     priceNote: 'one-time',
     baseServices: [
       'Up to 12 custom-designed pages',
-      'Responsive design — mobile, tablet, desktop',
+      'Responsive design across mobile, tablet and desktop',
       'Speed optimisation & SSL security',
       'Contact forms & CTA integration',
       'Full on-page SEO + Schema markup',
@@ -48,10 +48,10 @@ const WEBSITE_TIERS = {
     price: '$1,599+',
     priceNote: 'one-time',
     baseServices: [
-      'Unlimited pages — full scope build',
+      'Unlimited pages, full scope build',
       'Responsive design & Core Web Vitals tuned',
       'Advanced forms, CTAs & booking integration',
-      'Full SEO suite — on-page, Schema & local SEO',
+      'Full SEO suite covering on page, Schema and local SEO',
       'AI search optimisation (ChatGPT, Gemini, Perplexity)',
       'Multi-language support',
       'E-commerce & online payment flows',
@@ -64,7 +64,7 @@ const WEBSITE_TIERS = {
 const ADDONS = {
   booking: {
     name: 'Zatrovo Booking System',
-    description: 'Online booking, class scheduling, member management, and payments — from $49/mo',
+    description: 'Online booking, class scheduling, member management and payments. From $49 per month.',
   },
   ecommerce: {
     name: 'E-commerce & Payments',
@@ -72,20 +72,20 @@ const ADDONS = {
   },
   ai: {
     name: 'AI Search Visibility',
-    description: 'Get recommended by ChatGPT, Gemini & Perplexity — from $69/mo',
+    description: 'Get recommended by ChatGPT, Gemini and Perplexity. From $69 per month.',
   },
   hosting: {
     name: 'Managed Hosting & Maintenance',
-    description: 'Cloud hosting, backups, security monitoring, content updates — from $29/mo',
+    description: 'Cloud hosting, backups, security monitoring and content updates. From $29 per month.',
   },
   email: {
     name: 'Email Marketing',
-    description: 'Campaign design, automation sequences, list management — from $99/mo',
+    description: 'Campaign design, automation sequences and list management. From $99 per month.',
   },
 };
 
 const INSIGHTS = {
-  fitness: 'Fitness studios that move to online booking typically see 80%+ of bookings shift online within the first month — freeing up hours of daily admin. One of our clients saw exactly this with their Zatrovo integration.',
+  fitness: 'Fitness studios that move to online booking typically see 80%+ of bookings shift online within the first month, freeing up hours of daily admin. One of our clients saw exactly this with their Zatrovo integration.',
   tourism: 'Tour operators with online booking and multi-currency payments capture significantly more international customers. One of our clients went from WhatsApp-only to 35+ tours bookable online.',
   restaurant: 'Restaurants with online ordering and Google Maps optimisation typically see 2-3x more foot traffic within 90 days.',
   wellness: 'Wellness businesses with streamlined online booking and active AI visibility capture significantly more walk-in and tourist bookings.',
@@ -112,7 +112,7 @@ function generatePlan(answers) {
     services.push('');
     services.push('--- RECOMMENDED ADD-ONS ---');
     addons.forEach(addon => {
-      services.push(`${addon.name} — ${addon.description}`);
+      services.push(`${addon.name}: ${addon.description}`);
     });
   }
 
@@ -191,7 +191,7 @@ function buildClientPlanHtml(answers, plan) {
       </div>
       <div style="text-align: center; padding: 16px 0 32px;">
         <a href="https://irvale-studio.zatrovo.com/book" style="display: inline-block; background: #C9A96E; color: #111; text-decoration: none; padding: 14px 32px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px;">Book a Free Consultation</a>
-        <p style="color: #9A9590; font-size: 12px; margin: 16px 0 0;">Or reply to this email — we respond within 24 hours.</p>
+        <p style="color: #9A9590; font-size: 12px; margin: 16px 0 0;">Or reply to this email. We respond within 24 hours.</p>
       </div>
       <hr style="border: none; border-top: 1px solid #2A2A2A; margin: 0 0 16px;" />
       <p style="color: #555; font-size: 11px; text-align: center; margin: 0;">Irvale Studio · jake@irvale.com</p>
@@ -217,7 +217,7 @@ export async function POST(request) {
         resend.emails.send({
           from: `Irvale Studio <${FROM_EMAIL}>`,
           to: NOTIFY_EMAIL,
-          subject: `New Lead: ${answers.businessName || 'Unknown'} — ${plan.packageName}`,
+          subject: `New Lead: ${answers.businessName || 'Unknown'} · ${plan.packageName}`,
           html: buildLeadNotificationHtml(answers, plan),
         }).catch(err => console.error('Failed to send lead notification:', err))
       );
@@ -227,7 +227,7 @@ export async function POST(request) {
           resend.emails.send({
             from: `Irvale Studio <${FROM_EMAIL}>`,
             to: answers.email,
-            subject: `Your Technical Plan — ${plan.packageName}`,
+            subject: `Your Technical Plan · ${plan.packageName}`,
             html: buildClientPlanHtml(answers, plan),
             replyTo: NOTIFY_EMAIL,
           }).catch(err => console.error('Failed to send client plan:', err))

@@ -35,7 +35,7 @@ export function RevenueEngineeringSchema() {
     name: 'Revenue Engineering',
     serviceType: 'Full-funnel digital operations',
     description:
-      'A single accountable team for your entire digital funnel. Website, booking software, SEO, AI search, multilingual expansion, reviews, paid media and reporting — engineered end-to-end. Bespoke website rebuild and Zatrovo booking platform included at every tier.',
+      'One accountable team for your entire digital funnel. Website, booking software, SEO, AI search, multilingual expansion, reviews, paid media and reporting, engineered end to end. Bespoke website rebuild and Zatrovo booking platform included at every tier.',
     provider: {
       '@type': 'Organization',
       name: 'Irvale Studio',

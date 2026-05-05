@@ -19,7 +19,7 @@ const credentials = [
   },
   {
     title: 'AI Visibility Pioneer',
-    body: 'Your brand recommended by ChatGPT, Gemini, and Perplexity. Not future-proofing — present-proofing.',
+    body: 'Your brand recommended by ChatGPT, Gemini and Perplexity. Not future proofing. Present proofing.',
     number: '03',
   },
   {
@@ -34,7 +34,7 @@ const credentials = [
   },
   {
     title: 'Growth Strategy',
-    body: 'Brand, content, and performance marketing working as one system — not isolated tactics.',
+    body: 'Brand, content and performance marketing working as one system, not isolated tactics.',
     number: '06',
   },
 ];

@@ -37,7 +37,7 @@ export default function FlagshipSection() {
               Revenue Engineering.
             </RevealText>
             <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light leading-relaxed mb-8">
-              One accountable team for your entire digital funnel. Website, booking, search, AI visibility, reviews, paid media — owned end-to-end. Bespoke website rebuild and Zatrovo booking included free.
+              One accountable team for your entire digital funnel. Website, booking, search, AI visibility, reviews, paid media. Owned end to end. Bespoke website rebuild and Zatrovo booking included free.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/revenue-engineering" className="btn-primary">
@@ -67,7 +67,7 @@ export default function FlagshipSection() {
               ))}
             </div>
             <p className="font-body text-xs text-text-muted-light/60 font-light mt-5">
-              From $1,450/month. 6-month minimum. Website rebuild and Zatrovo included at every tier.
+              From $1,450 per month. Six month minimum. Website rebuild and Zatrovo included at every tier.
             </p>
           </div>
         </SectionReveal>

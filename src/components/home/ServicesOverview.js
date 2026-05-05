@@ -13,7 +13,7 @@ const services = [
     title: 'Website Build',
     subtitle: 'Design & Development',
     description:
-      'Bespoke websites built from scratch — no templates. From clean 5-page sites to full e-commerce platforms with payments, multi-language support, and admin portals.',
+      'Bespoke websites built from scratch, no templates. From clean 5 page sites to full e-commerce platforms with payments, multi language support and admin portals.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -26,7 +26,7 @@ const services = [
     title: 'Zatrovo Booking',
     subtitle: 'Scheduling & Payments',
     description:
-      'Our proprietary booking platform — class scheduling, appointment booking, member management, credit packs, and integrated payments. Your clients book and pay online, you focus on your business.',
+      'Our proprietary booking platform. Class scheduling, appointment booking, member management, credit packs and integrated payments. Your clients book and pay online. You focus on your business.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-8 h-8">
         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -272,7 +272,7 @@ export default function ServicesOverview() {
           as="h2"
           className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-16"
         >
-          Build, book, and grow — everything your business needs online.
+          Build, book and grow. Everything your business needs online.
         </RevealText>
 
         {/* Desktop: connecting line + card grid */}

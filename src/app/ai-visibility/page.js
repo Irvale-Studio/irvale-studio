@@ -5,7 +5,7 @@ import RevealText from '@/components/ui/RevealText';
 import SectionReveal from '@/components/ui/SectionReveal';
 
 export const metadata = {
-  title: 'AI Visibility — GEO, AEO & Answer Engine Optimisation | Irvale Studio',
+  title: 'AI Visibility · GEO, AEO & Answer Engine Optimisation | Irvale Studio',
   description:
     'Generative Engine Optimisation for luxury brands. Entity engineering, citation strategy, schema architecture, and share-of-voice monitoring across ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews, Copilot and Meta AI.',
 };
@@ -29,7 +29,7 @@ const stats = [
   },
   {
     value: '8%',
-    label: 'click-through rate on results with an AI summary — half the traditional rate',
+    label: 'click through rate on results with an AI summary, half the traditional rate',
     source: 'Pew Research, 2025',
   },
   {
@@ -49,7 +49,7 @@ const phases = [
     n: '01',
     name: 'Diagnose',
     summary:
-      'We baseline your presence across every surface that matters. The output is a named, scored visibility report — not a generic audit.',
+      'We baseline your presence across every surface that matters. The output is a named, scored visibility report, not a generic audit.',
     deliverables: [
       'AI Visibility Index across 8 engines',
       'Prompt universe mapping (discovery, comparison, intent prompts)',
@@ -65,7 +65,7 @@ const phases = [
     deliverables: [
       'Entity reconciliation: Wikidata, Knowledge Graph, sameAs linking',
       'JSON-LD schema architecture (Organization, Service, Review, FAQPage, Speakable, sector schemas)',
-      'Passage-level content design (80–100 word answer blocks, inverted pyramid)',
+      'Passage level content design (80 to 100 word answer blocks, inverted pyramid)',
       'SSR & crawler policy: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot',
     ],
   },
@@ -73,7 +73,7 @@ const phases = [
     n: '03',
     name: 'Earn',
     summary:
-      'LLMs cite the sources they trust. We engineer placement on the domains they over-index on — Tier-1 press, Wikipedia, YouTube, the trade titles your buyers already read.',
+      'LLMs cite the sources they trust. We engineer placement on the domains they over index on: Tier 1 press, Wikipedia, YouTube and the trade titles your buyers already read.',
     deliverables: [
       'Tier-1 PR placement (Condé Nast Traveler, Robb Report, FT, Bloomberg, trade-vertical press)',
       'YouTube transcript & podcast strategy',
@@ -104,7 +104,7 @@ const modules = [
   {
     title: 'Prompt Universe Research',
     description:
-      'We surface the actual queries your guests type — "quiet boutique hotel in Mallorca with adults-only pool", "best private golf experience in Surrey" — and engineer your presence inside them.',
+      'We surface the actual queries your guests type, like "quiet boutique hotel in Mallorca with adults only pool" or "best private golf experience in Surrey", and engineer your presence inside them.',
   },
   {
     title: 'Entity & Knowledge Graph',
@@ -114,12 +114,12 @@ const modules = [
   {
     title: 'Citation & Source Strategy',
     description:
-      'Tier-1 PR, vertical trade press, YouTube, podcasts and review platforms — placed on the exact domains LLMs over-index on. Unlinked brand mentions now correlate ~3× more strongly with AI visibility than backlinks.',
+      'Tier 1 PR, vertical trade press, YouTube, podcasts and review platforms placed on the exact domains LLMs over index on. Unlinked brand mentions now correlate ~3× more strongly with AI visibility than backlinks.',
   },
   {
     title: 'Content & Schema Architecture',
     description:
-      'Passage-level content engineered for retrieval. JSON-LD schema layered for sector — LodgingBusiness, Resort, SpaBusiness, GolfCourse, Restaurant — with full nested amenityFeature, starRating and Review nodes.',
+      'Passage level content engineered for retrieval. JSON-LD schema layered for sector (LodgingBusiness, Resort, SpaBusiness, GolfCourse, Restaurant) with full nested amenityFeature, starRating and Review nodes.',
   },
   {
     title: 'AI Share-of-Voice Monitoring',
@@ -132,17 +132,17 @@ const technicals = [
   {
     label: 'Crawler policy',
     body:
-      'GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, ChatGPT-User — each governed separately in robots.txt. Block training crawlers, allow retrieval crawlers, never the other way around.',
+      'GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended and ChatGPT-User are each governed separately in robots.txt. Block training crawlers, allow retrieval crawlers, never the other way around.',
   },
   {
     label: 'Render guarantees',
     body:
-      'GPTBot, ClaudeBot and PerplexityBot do not execute JavaScript. Critical content must ship in the initial HTML response — server-rendered, not hydrated client-side.',
+      'GPTBot, ClaudeBot and PerplexityBot do not execute JavaScript. Critical content must ship in the initial HTML response. Server rendered, not hydrated client side.',
   },
   {
     label: 'Schema layering',
     body:
-      'JSON-LD remains the only structured-data format every major engine ingests reliably. We layer Organization, Service, FAQPage, Speakable, Review and sector-specific types — and validate them against each engine\'s extraction model.',
+      'JSON-LD remains the only structured data format every major engine ingests reliably. We layer Organization, Service, FAQPage, Speakable, Review and sector specific types, and validate them against each engine\'s extraction model.',
   },
   {
     label: 'Wikidata first',
@@ -152,12 +152,12 @@ const technicals = [
   {
     label: 'llms.txt',
     body:
-      'No major model provider has confirmed production ingestion in 2026. We implement it because it is cheap insurance — not because it moves the needle.',
+      'No major model provider has confirmed production ingestion in 2026. We implement it because it is cheap insurance, not because it moves the needle.',
   },
   {
     label: 'Narrative anchors',
     body:
-      'Three to five descriptor phrases reinforced consistently across press, transcripts, founder bios, schema, and reviews. After ~90 days of corroboration across 8–12 independent domains, the model\'s prior shifts.',
+      'Three to five descriptor phrases reinforced consistently across press, transcripts, founder bios, schema and reviews. After ~90 days of corroboration across 8 to 12 independent domains, the model\'s prior shifts.',
   },
 ];
 
@@ -165,32 +165,32 @@ const faqs = [
   {
     question: 'How is this different from SEO?',
     answer:
-      'SEO optimises for the ranked list of blue links. GEO optimises for the answer the model writes. Different ranking models, different inputs, different artefacts. There is overlap — both reward authoritative content and good schema — but the citation logic, surface coverage, and measurement systems are distinct. Most agencies branding "AI SEO" are doing the same on-page they always did and hoping it lands.',
+      'SEO optimises for the ranked list of blue links. GEO optimises for the answer the model writes. Different ranking models, different inputs, different artefacts. There is overlap. Both reward authoritative content and good schema. But citation logic, surface coverage and measurement systems are distinct. Most agencies branding "AI SEO" are doing the same on page work they always did and hoping it lands.',
   },
   {
     question: 'How long until I see results?',
     answer:
-      'The Visibility Index baseline ships in two weeks. Schema, entity reconciliation and crawler policy take effect within four to six weeks of deployment. Citation share against competitors typically begins shifting after 60–90 days of corroborated signals across 8–12 independent domains. Anyone promising rank inside 30 days is selling air.',
+      'The Visibility Index baseline ships in two weeks. Schema, entity reconciliation and crawler policy take effect four to six weeks after deployment. Citation share typically begins shifting after 60 to 90 days of corroborated signals across 8 to 12 independent domains. Anyone promising rank inside 30 days is selling air.',
   },
   {
     question: 'Do I need an existing PR or content team?',
     answer:
-      'No. We can run the citation programme directly, brief your team if you have one, or hand the 90-day authority brief to your existing PR partner. Most clients start with us running it and transition to internal ownership over months six to twelve.',
+      'No. We can run the citation programme, brief your team if you have one, or hand the 90 day authority brief to your PR partner. Most clients start with us running it and shift to internal ownership over months six to twelve.',
   },
   {
     question: 'What if the AI engine has wrong information about my brand?',
     answer:
-      'Hallucinations are common — roughly one in eleven AI responses about a brand contains a fabricated fact. We engineer the substrate (entity reconciliation, schema, authoritative source corroboration) so the model has a stronger prior to draw from. Existing wrong descriptors fade as new corroborated descriptors compound. Typical drift correction window is 60–120 days.',
+      'Hallucinations are common. Roughly one in eleven AI responses about a brand contains a fabricated fact. We engineer the substrate (entity reconciliation, schema, authoritative source corroboration) so the model has a stronger prior to draw from. Wrong descriptors fade as new corroborated ones compound. Typical drift correction window is 60 to 120 days.',
   },
   {
     question: 'Is llms.txt worth implementing?',
     answer:
-      'No major model provider has confirmed production ingestion in 2026. We implement it because it is cheap insurance, not because it moves the needle. Treat it as belt-and-braces, not strategy.',
+      'No major model provider has confirmed production ingestion in 2026. We implement it because it is cheap insurance, not because it moves the needle. Belt and braces, not strategy.',
   },
   {
     question: 'Can this be bundled with broader marketing work?',
     answer:
-      'Yes. The full GEO programme is included inside our flagship Revenue Engineering engagement at the Growth tier and above, alongside website, booking, SEO, reviews and reporting. Useful when you want one team accountable for the whole funnel rather than running AI visibility as an isolated project.',
+      'Yes. The full GEO programme is included inside our flagship Revenue Engineering engagement at the Growth tier and above, alongside website, booking, SEO, reviews and reporting. Useful when you want one team accountable for the whole funnel.',
   },
 ];
 
@@ -208,7 +208,7 @@ const pricing = [
     cadence: 'project',
     featured: true,
     summary:
-      'The full Diagnose → Engineer build. Entity & schema architecture, content engineering, citation source plan, technical infrastructure, and a 90-day authority brief handed to your PR team — or ours.',
+      'The full Diagnose → Engineer build. Entity and schema architecture, content engineering, citation source plan, technical infrastructure, and a 90 day authority brief handed to your PR team, or ours.',
   },
   {
     name: 'AI Visibility Retainer',
@@ -297,10 +297,10 @@ export default function AIVisibilityPage() {
             </div>
             <div className="md:col-span-7 space-y-5">
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                For twenty years, the question was &ldquo;rank on page one.&rdquo; The page is now the answer itself. AI Overviews trigger on roughly half of all Google searches. Perplexity, ChatGPT and Claude have collectively eaten the discovery layer for high-intent buyers — affluent, time-poor, mobile-native.
+                For twenty years the question was &ldquo;rank on page one.&rdquo; The page is now the answer itself. AI Overviews trigger on roughly half of all Google searches. Perplexity, ChatGPT and Claude have eaten the discovery layer for high intent buyers: affluent, time poor, mobile native.
               </p>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                Generative Engine Optimisation — GEO — is the discipline that decides whether your brand is named, fairly described, and recommended inside those answers. It is not SEO with a new acronym. It is information retrieval, entity engineering, schema architecture and citation strategy, working in concert.
+                Generative Engine Optimisation (GEO) decides whether your brand is named, fairly described and recommended inside those answers. It is not SEO with a new acronym. It is information retrieval, entity engineering, schema architecture and citation strategy working in concert.
               </p>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
                 Done well, it is the highest-leverage marketing investment a luxury brand can make right now. Done late, your competitors own the answer.
@@ -322,7 +322,7 @@ export default function AIVisibilityPage() {
               Eight engines. Eight ranking models.
             </h2>
             <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light">
-              Citation overlap between ChatGPT and Perplexity is roughly 11%. AI Overviews and AI Mode share citations 13.7% of the time. A single-channel strategy fails by design — every engine needs its own playbook.
+              Citation overlap between ChatGPT and Perplexity is roughly 11%. AI Overviews and AI Mode share citations 13.7% of the time. A single channel strategy fails by design. Every engine needs its own playbook.
             </p>
           </div>
           <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gold/15">
@@ -340,7 +340,7 @@ export default function AIVisibilityPage() {
         </div>
       </section>
 
-      {/* The Method — 4 Phases */}
+      {/* The Method · 4 Phases */}
       <section className="py-[var(--section-gap)] border-t border-gold/10">
         <div
           className="mx-auto px-[var(--gutter)]"
@@ -383,7 +383,7 @@ export default function AIVisibilityPage() {
         </div>
       </section>
 
-      {/* What We Engineer — 6 Modules */}
+      {/* What We Engineer · 6 Modules */}
       <section className="py-[var(--section-gap)] border-t border-gold/10">
         <div
           className="mx-auto px-[var(--gutter)]"
@@ -463,13 +463,13 @@ export default function AIVisibilityPage() {
               <div>
                 <p className="font-body text-sm uppercase tracking-[0.16em] text-gold mb-2">Hallucinated facts</p>
                 <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                  Roughly one in eleven AI responses about a brand contains a fabricated detail — wrong pricing, wrong location, a service you don&rsquo;t offer. At a scale of 10,000 monthly mentions, that is 900 prospects misinformed.
+                  Roughly one in eleven AI responses about a brand contains a fabricated detail. Wrong pricing, wrong location, a service you don&rsquo;t offer. At 10,000 monthly mentions, that is 900 prospects misinformed.
                 </p>
               </div>
               <div>
                 <p className="font-body text-sm uppercase tracking-[0.16em] text-gold mb-2">Competitor capture</p>
                 <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                  When users ask about your category — or worse, your name — and the AI cites a competitor, the answer is the booking. The retraction window is the next training cycle.
+                  When users ask about your category, or worse your name, and the AI cites a competitor, the answer is the booking. The retraction window is the next training cycle.
                 </p>
               </div>
               <div>
@@ -483,7 +483,7 @@ export default function AIVisibilityPage() {
         </div>
       </section>
 
-      {/* Case Study — Zatrovo */}
+      {/* Case Study · Zatrovo */}
       <section className="py-[var(--component-gap)] border-y border-gold/10">
         <div
           className="mx-auto px-[var(--gutter)]"
@@ -496,7 +496,7 @@ export default function AIVisibilityPage() {
                 Zatrovo
               </h3>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light mb-4">
-                Our flagship SaaS reaches 13,000+ members across multiple studios. Structured data, passage-level content and a citation programme built for the way modern search actually works — surfaced when buyers ask AI for &ldquo;the best booking platform for boutique studios.&rdquo;
+                Our flagship SaaS reaches 13,000+ members across multiple studios. Structured data, passage level content and a citation programme built for the way modern search actually works. Surfaced when buyers ask AI for &ldquo;the best booking platform for boutique studios.&rdquo;
               </p>
               <Link
                 href="/work/zatrovo"
@@ -511,7 +511,7 @@ export default function AIVisibilityPage() {
             >
               <Image
                 src="/images/projects/zatrovo-hero.webp"
-                alt="Zatrovo — Built for studios"
+                alt="Zatrovo · Built for studios"
                 fill
                 className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -563,7 +563,7 @@ export default function AIVisibilityPage() {
             Indicative pricing. Project and retainer scopes are sized to the brand, the category and the competitive set. Larger groups, multi-property estates and bespoke engagements are quoted individually.
           </p>
           <p className="font-body text-sm text-gold/80 mt-4 max-w-3xl">
-            Or bundled into our flagship engagement —{' '}
+            Or bundled into our flagship engagement,{' '}
             <Link href="/revenue-engineering" className="text-gold hover:text-gold-light underline underline-offset-4 decoration-gold/30">
               Revenue Engineering →
             </Link>
@@ -621,10 +621,10 @@ export default function AIVisibilityPage() {
           </div>
           <SectionReveal className="grid grid-cols-1 md:grid-cols-4 gap-px bg-gold/15">
             {[
-              { n: '01', name: 'You enquire', body: 'Brief form. Two minutes. Tell us your brand, your category and your competitive set.' },
-              { n: '02', name: 'We respond in 24 hours', body: 'Either a 30-minute discovery call slot, or a direct email if the scope is clear.' },
-              { n: '03', name: 'Audit kicks off', body: 'Two-week fixed-scope sprint. AI Visibility Index built. Prompt universe mapped. Hallucinations logged.' },
-              { n: '04', name: 'Named report delivered', body: 'You receive a scored, named report you can inspect, share with your team and act on — with or without us.' },
+              { n: '01', name: 'You enquire', body: 'Brief form. Two minutes. Tell us your brand, category and competitive set.' },
+              { n: '02', name: 'We respond in 24 hours', body: 'A 30 minute discovery call slot, or a direct email if scope is clear.' },
+              { n: '03', name: 'Audit kicks off', body: 'Two week fixed scope sprint. Visibility Index built. Prompt universe mapped. Hallucinations logged.' },
+              { n: '04', name: 'Named report delivered', body: 'You receive a scored, named report you can inspect, share with your team and act on, with or without us.' },
             ].map((s) => (
               <div key={s.n} className="bg-navy p-7 lg:p-8">
                 <span className="font-display text-gold/40 text-base block mb-4">{s.n}</span>
@@ -653,7 +653,7 @@ export default function AIVisibilityPage() {
             The answer is being written. Make sure your brand is in it.
           </RevealText>
           <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-xl mx-auto mb-10">
-            Start with a fixed-scope AI Visibility Audit. Two weeks. One named report. A clear-eyed view of where your brand stands across every engine that matters.
+            Start with a fixed scope AI Visibility Audit. Two weeks. One named report. A clear view of where your brand stands across every engine that matters.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-8">
             <Link href="/contact" className="btn-primary px-10">

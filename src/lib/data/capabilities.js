@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-// Capabilities — full service catalogue for /services
+// Capabilities · full service catalogue for /services
 // No pricing. Pure deliverables + outcomes.
 // ─────────────────────────────────────────────
 
@@ -16,7 +16,7 @@ export const capabilities = [
       'Custom web applications & portals',
       'E-commerce platforms with Stripe & multi-currency',
       'Membership sites & gated content',
-      'Properly internationalised builds (hreflang, localised content, region-specific SEO)',
+      'Properly internationalised builds (hreflang, localised content, region specific SEO)',
       'Headless CMS integration (Sanity, Contentful)',
       'Core Web Vitals & speed engineering',
       'Accessibility (WCAG 2.2)',
@@ -39,7 +39,7 @@ export const capabilities = [
       'Credit packs, session packs & memberships',
       'Stripe payments + Apple Pay + payment links',
       'Deposits, instalments & basket booking',
-      'White-label tenant — your brand, your domain',
+      'White label tenant under your brand and your domain',
       'Waitlists & auto-promote',
       'Email + WhatsApp + LINE + SMS reminders',
       'Migration from Mindbody, Vagaro, Glofox, Zen Planner',
@@ -52,14 +52,14 @@ export const capabilities = [
     name: 'SEO & Organic Search',
     tagline: 'Compound traffic that doesn\'t reset every month.',
     summary:
-      'Technical SEO, on-page strategy, content architecture, and link-building that earn traffic for years — not days.',
+      'Technical SEO, on page strategy, content architecture and link building that earns traffic for years, not days.',
     deliverables: [
       'Technical SEO audits',
       'On-page SEO & meta architecture',
       'Local SEO & Google Business Profile',
       'International SEO (hreflang, geo-targeting)',
-      'Programmatic SEO at scale (location, service & FAQ matrices)',
-      'AI-augmented content production pipelines',
+      'Programmatic SEO at scale across location, service and FAQ matrices',
+      'AI augmented content production pipelines',
       'Content strategy & topic clusters',
       'Editorial briefs & content commissioning',
       'Internal linking & site architecture',
@@ -75,7 +75,7 @@ export const capabilities = [
     name: 'AI Search & AI Visibility',
     tagline: 'Be the brand AI recommends.',
     summary:
-      'When customers ask ChatGPT, Gemini, or Perplexity for the best in your category — make sure your name comes up first.',
+      'When customers ask ChatGPT, Gemini or Perplexity for the best in your category, make sure your name comes up first.',
     deliverables: [
       'AI search visibility audits',
       'ChatGPT / Gemini / Perplexity citation tracking',
@@ -96,7 +96,7 @@ export const capabilities = [
     name: 'Automations & Integrations',
     tagline: 'Stop doing what software should do for you.',
     summary:
-      'Custom workflows that move data between every tool you use. Zapier-grade and beyond — including bespoke backend integrations no off-the-shelf tool can handle.',
+      'Custom workflows that move data between every tool you use. Zapier grade and beyond, including bespoke backend integrations no off the shelf tool can handle.',
     deliverables: [
       'Zapier & Make workflow design',
       'Custom backend automation engineering',
@@ -117,10 +117,10 @@ export const capabilities = [
     name: 'Paid Media & Performance',
     tagline: 'Spend less. Acquire more.',
     summary:
-      'Google, Meta, TikTok, LinkedIn — managed end-to-end with conversion tracking that actually attributes revenue.',
+      'Google, Meta, TikTok and LinkedIn, managed end to end with conversion tracking that actually attributes revenue.',
     deliverables: [
-      'Google Ads — Search, Performance Max, Display, YouTube',
-      'Meta Ads — Facebook & Instagram',
+      'Google Ads: Search, Performance Max, Display, YouTube',
+      'Meta Ads across Facebook and Instagram',
       'TikTok Ads',
       'LinkedIn Ads (B2B)',
       'Conversion tracking & attribution architecture',
@@ -258,17 +258,17 @@ export const capabilities = [
     name: 'Reviews & Reputation Systems',
     tagline: 'Engineer the social proof your buyers actually check.',
     summary:
-      'Automated review request flows, multi-platform monitoring, and AI-assisted response drafting. Reviews are the highest-converting content most businesses never operationalise.',
+      'Automated review requests, multi platform monitoring and AI assisted response drafting. Reviews are the highest converting content most businesses never operationalise.',
     deliverables: [
-      'Automated review request flows (post-booking, post-purchase, post-visit)',
-      'Multi-platform monitoring — Google, Facebook, TripAdvisor, Trustpilot',
-      'APAC platform monitoring — Naver, Xiaohongshu, Dianping',
-      'AI-assisted response drafting in your tone of voice',
-      'Review velocity strategy & cadence design',
-      'Negative review escalation & resolution workflows',
+      'Automated review request flows after booking, purchase or visit',
+      'Multi platform monitoring across Google, Facebook, TripAdvisor and Trustpilot',
+      'APAC platform monitoring across Naver, Xiaohongshu and Dianping',
+      'AI assisted response drafting in your tone of voice',
+      'Review velocity strategy and cadence design',
+      'Negative review escalation and resolution workflows',
       'Review schema markup for rich results',
       'Internal alerts via Slack, email or LINE',
-      'Sentiment tracking & monthly reputation reports',
+      'Sentiment tracking and monthly reputation reports',
       'Recovery playbooks after critical incidents',
     ],
   },
@@ -278,23 +278,23 @@ export const capabilities = [
     name: 'APAC & Asian Market Expansion',
     tagline: 'The channels Western agencies miss.',
     summary:
-      'For brands targeting Chinese and Korean customers — typically hospitality, wellness and tourism. Built on real Chiang Mai operating experience, not theory. We know the platforms, the cadence, and the cultural nuance Google-only strategies skip.',
+      'For brands targeting Chinese and Korean customers, typically hospitality, wellness and tourism. Built on real Chiang Mai operating experience, not theory. We know the platforms, cadence and cultural nuance Google only strategies skip.',
     deliverables: [
-      'Korean market — Naver Place, Naver Blog, Naver SEO',
-      'Chinese market — Xiaohongshu (RED), WeChat Official Account, Dianping',
-      'Multilingual SEO — simplified Chinese, traditional Chinese, Korean, Thai',
-      'Culturally-localised content (not machine-translated)',
+      'Korean market: Naver Place, Naver Blog, Naver SEO',
+      'Chinese market: Xiaohongshu (RED), WeChat Official Account, Dianping',
+      'Multilingual SEO across simplified Chinese, traditional Chinese, Korean and Thai',
+      'Culturally localised content, not machine translated',
       'KakaoTalk channel setup for Korean customer messaging',
-      'WeChat mini-programme & QR booking integration',
-      'Influencer & KOL strategy for RED and Naver',
-      'Region-specific schema, hreflang and crawler policy',
+      'WeChat mini programme and QR booking integration',
+      'Influencer and KOL strategy for RED and Naver',
+      'Region specific schema, hreflang and crawler policy',
       'LINE channel integration for Thai and Japanese customers',
-      'On-the-ground content production from Chiang Mai',
+      'Content production from Chiang Mai on the ground',
     ],
   },
 ];
 
-// Tech & integration ecosystem — for the marquee strip
+// Tech & integration ecosystem · for the marquee strip
 export const techStack = [
   'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'GSAP', 'Stripe',
   'Supabase', 'Postgres', 'Vercel', 'Cloudflare', 'OpenAI', 'Anthropic',
@@ -309,17 +309,17 @@ export const servicesFaqs = [
   {
     question: 'Do you work on retainer or project-by-project?',
     answer:
-      'Both. Most clients start with a defined project — a website, a booking platform, an SEO sprint — and roll into an ongoing retainer once we\'re working well together. We don\'t lock anyone into long contracts.',
+      'Both. Most clients start with a defined project (a website, a booking platform, an SEO sprint) and roll into an ongoing retainer once we\'re working well together. We don\'t lock anyone into long contracts.',
   },
   {
     question: 'What size of business do you work with?',
     answer:
-      'From founders shipping their first product to multi-location businesses with established teams. We\'re selective — we work best with clients who care about craft and want a real partner, not a vendor.',
+      'From founders shipping their first product to multi location businesses with established teams. We\'re selective. We work best with clients who care about craft and want a real partner, not a vendor.',
   },
   {
     question: 'Can you take over from another agency or developer?',
     answer:
-      'Yes. We regularly inherit codebases, ad accounts, and CRM setups from previous teams. We start with a full audit, document what we find, and either improve or rebuild — whichever serves you best.',
+      'Yes. We regularly inherit codebases, ad accounts and CRM setups from previous teams. We start with a full audit, document what we find, and either improve or rebuild, whichever serves you best.',
   },
   {
     question: 'How do projects start?',
@@ -329,7 +329,7 @@ export const servicesFaqs = [
   {
     question: 'How fast can you ship?',
     answer:
-      'Booking platforms typically go live in 5–7 business days. Marketing sites take 2–8 weeks depending on scope. Custom web apps and mobile apps run longer, scoped per project. We don\'t pad timelines.',
+      'Booking platforms typically go live in 5 to 7 business days. Marketing sites take 2 to 8 weeks depending on scope. Custom web apps and mobile apps run longer, scoped per project. We don\'t pad timelines.',
   },
   {
     question: 'Do you offer ongoing support after launch?',
@@ -344,6 +344,6 @@ export const servicesFaqs = [
   {
     question: 'Can you work with my existing team?',
     answer:
-      'Yes. We embed with internal product, marketing, or engineering teams regularly. Sometimes we lead, sometimes we support — depends on what you need.',
+      'Yes. We embed with internal product, marketing or engineering teams regularly. Sometimes we lead, sometimes we support. Depends on what you need.',
   },
 ];

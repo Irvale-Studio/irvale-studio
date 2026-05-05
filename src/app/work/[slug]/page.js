@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
   return {
-    title: `${project.name} — Irvale Studio`,
+    title: `${project.name} · Irvale Studio`,
     description: project.headline,
   };
 }

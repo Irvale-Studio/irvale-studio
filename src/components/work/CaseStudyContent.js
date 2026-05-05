@@ -143,7 +143,7 @@ export default function CaseStudyContent({ project, nextProject }) {
               >
                 <Image
                   src={src}
-                  alt={`${project.name} — screenshot ${i + 1}`}
+                  alt={`${project.name} screenshot ${i + 1}`}
                   fill
                   className="object-cover object-top"
                   sizes={i === 0 ? '100vw' : '(min-width: 768px) 50vw, 100vw'}

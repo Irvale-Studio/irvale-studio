@@ -6,9 +6,9 @@ import Marquee from '@/components/ui/Marquee';
 import { RevenueEngineeringSchema } from '@/components/SchemaMarkup';
 
 export const metadata = {
-  title: 'Revenue Engineering — The Flagship Engagement | Irvale Studio',
+  title: 'Revenue Engineering · The Flagship Engagement | Irvale Studio',
   description:
-    'A single accountable team for your entire digital funnel. Website, booking software, SEO, AI search, multilingual expansion, reviews, paid media — engineered end-to-end. Website rebuild and Zatrovo booking included at no extra cost.',
+    'One accountable team for your entire digital funnel. Website, booking, SEO, AI search, multilingual expansion, reviews, paid media. Engineered end to end. Website rebuild and Zatrovo booking included free.',
 };
 
 const stats = [
@@ -185,10 +185,10 @@ const pricing = [
 ];
 
 const wedontdo = [
-  'We are not a traditional creative agency churning out viral campaigns. Different discipline. Different deliverables.',
-  'We do not pretend to have decades of experience. We are a small, technically-strong team using modern AI workflows. That is the advantage, not the apology.',
-  'We will not promise rank #1 in 30 days or 10× your bookings overnight. SEO and AI visibility compound on a 90-day floor.',
-  'We work with a small number of clients at a time. If we are at capacity, we will say so and recommend someone honest.',
+  'We are not a traditional creative agency chasing viral campaigns. Different discipline, different deliverables.',
+  'We do not pretend to have decades of experience. We are a small, technically strong team using modern AI workflows. That is the advantage, not the apology.',
+  'We will not promise rank one in 30 days or 10× bookings overnight. SEO and AI visibility compound over 90 days minimum.',
+  'We work with a small number of clients at a time. If we are at capacity we say so and recommend someone honest.',
 ];
 
 export default function RevenueEngineeringPage() {
@@ -273,13 +273,13 @@ export default function RevenueEngineeringPage() {
             </div>
             <div className="md:col-span-7 space-y-5">
               <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
-                A web designer built the site three years ago. Someone&apos;s nephew runs the Facebook page. The owner half-manages Google. There is a booking system, or there are three. There is no schema, no AI search strategy, and no one knows whether the contact form is actually delivering email.
+                A web designer built the site three years ago. The owner&apos;s nephew runs Facebook. There is one booking system, or three. No schema, no AI search strategy. Nobody is sure the contact form even delivers email.
               </p>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
-                When something stops working, no one is responsible for the whole funnel. The web designer blames the SEO consultant. The SEO consultant blames the platform. The owner is left translating between vendors who do not speak to each other and have no shared incentive to fix the leak.
+                When something breaks, nobody owns the whole funnel. The web designer blames the SEO consultant. The SEO consultant blames the platform. The owner translates between vendors who do not talk to each other.
               </p>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
-                Revenue Engineering replaces all of that with a single accountable team. We become the one number to call.
+                Revenue Engineering replaces that with one accountable team.
               </p>
             </div>
           </SectionReveal>
@@ -298,10 +298,10 @@ export default function RevenueEngineeringPage() {
               as="h2"
               className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] mb-4"
             >
-              Ten components, owned end-to-end.
+              Ten components, owned end to end.
             </RevealText>
             <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light">
-              Every layer of the funnel, run by one team. Website and Zatrovo booking are included free at every tier — the value-stack you would otherwise pay for separately.
+              Every layer of the funnel run by one team. Website and Zatrovo booking are included free at every tier. The value stack you would otherwise pay for separately.
             </p>
           </div>
           <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-dark)]">
@@ -383,13 +383,13 @@ export default function RevenueEngineeringPage() {
             </div>
             <div className="md:col-span-7 space-y-5">
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                Small-to-medium businesses doing roughly $6k to $60k monthly revenue. Service-based, hospitality, wellness, fitness, professional services. Multi-location welcome. Founders who want one accountable partner instead of managing a vendor stack of five.
+                Small and medium businesses doing roughly $6k to $60k in monthly revenue. Service businesses, hospitality, wellness, fitness, professional services. Multi location welcome. Founders who want one accountable partner instead of five.
               </p>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                Particularly suited to businesses in Thailand and Southeast Asia targeting a mix of local, expat, and international (Chinese, Korean, Western) markets. We operate from Chiang Mai and London — meaning we know both buyer cultures, and which channels each one actually uses.
+                Especially suited to businesses in Thailand and Southeast Asia targeting local, expat and international (Chinese, Korean, Western) buyers. We operate from London and Chiang Mai. We know both cultures and the channels each one actually uses.
               </p>
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                If your funnel is stitched together with three platforms and four contractors, this is the engagement that consolidates it.
+                If your funnel is stitched together from three platforms and four contractors, this is the engagement that consolidates it.
               </p>
             </div>
           </SectionReveal>
@@ -483,7 +483,7 @@ export default function RevenueEngineeringPage() {
           </SectionReveal>
 
           <p className="font-body text-xs text-text-muted-light/60 font-light mt-10 max-w-3xl">
-            Indicative starting prices. Scopes are sized to the brand, the category and the competitive set. Multi-location estates and enterprise engagements quoted individually. Pricing is in USD and excludes VAT where applicable.
+            Indicative starting prices. Scopes are sized to the brand, category and competitive set. Multi location estates and enterprise engagements quoted individually. Pricing is in USD and excludes VAT where applicable.
           </p>
         </div>
       </section>
@@ -507,7 +507,7 @@ export default function RevenueEngineeringPage() {
             {wedontdo.map((line, i) => (
               <p
                 key={i}
-                className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed pl-6 relative before:content-['—'] before:absolute before:left-0 before:top-0 before:text-gold-muted"
+                className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed pl-6 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-gold-muted"
               >
                 {line}
               </p>
@@ -529,7 +529,7 @@ export default function RevenueEngineeringPage() {
             One team. One funnel. One number to call.
           </RevealText>
           <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light max-w-xl mx-auto mb-10">
-            Book a 30-minute discovery call. We will walk through your current presence, baseline the gaps, and tell you honestly whether Revenue Engineering is the right shape of engagement for you.
+            Book a 30 minute discovery call. We walk through your presence, baseline the gaps, and tell you honestly whether Revenue Engineering fits.
           </p>
           <Link href="/contact" className="btn-primary px-10">
             <span>Book a Discovery Call →</span>

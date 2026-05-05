@@ -72,7 +72,7 @@ export default function ContactForm() {
                 Book a Call
               </span>
               <span className="font-body text-sm text-text-muted-dark block flex-1">
-                Free 30 minute consultation — no obligations
+                Free 30 minute consultation, no obligations
               </span>
               <span className="font-body text-sm text-gold group-hover:text-gold-light transition-colors mt-4">
                 Choose a time →

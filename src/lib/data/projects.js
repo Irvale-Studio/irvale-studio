@@ -11,11 +11,11 @@ export const projects = [
     url: 'https://zatrovo.com',
     headline: 'A booking platform built for the studios software forgot.',
     description:
-      'Zatrovo is our flagship product — a full business management platform for fitness, wellness, and service studios. Bookings, payments, member CRM, AI assistant, multi-location, white-label. Built end-to-end by Irvale.',
+      'Zatrovo is our flagship product. A full business management platform for fitness, wellness and service studios. Bookings, payments, member CRM, AI assistant, multi location, white label. Built end to end by Irvale.',
     challenge:
-      'Studio owners were stitching together three or four expensive tools to run their business — one for scheduling, one for payments, another for reminders, plus a website. The market leaders (Mindbody, Vagaro, Glofox) felt clunky, expensive, and built for an older era. We saw a gap for something modern, fast, and white-labelled to the studio brand.',
+      'Studio owners were stitching together three or four expensive tools to run their business. One for scheduling, one for payments, another for reminders, plus a website. The market leaders (Mindbody, Vagaro, Glofox) felt clunky, expensive and built for an older era. We saw a gap for something modern, fast and white labelled to the studio brand.',
     approach: [
-      'Designed and engineered the entire platform from a blank page — admin, member portal, public booking site, and white-label tenant model',
+      'Designed and engineered the entire platform from a blank page (admin, member portal, public booking site and white label tenant model)',
       'Built native integrations with Stripe, Supabase, LINE, WhatsApp, Crisp, Meta + TikTok pixels, Google Ads, and Zapier',
       'Shipped an in-house AI assistant for waitlists, reminders, and member messaging',
       'Built a free migration pipeline from Mindbody, Vagaro, Glofox, Zen Planner, WellnessLiving, and Acuity',
@@ -55,19 +55,19 @@ export const projects = [
     url: 'https://www.boxxthailand.com',
     headline: 'Trained in Britain. Built for the digital age.',
     description:
-      'BOXX is a premium boutique boxing and personal training studio. We built their entire digital presence from scratch and integrated Zatrovo as their booking and membership platform — turning a word-of-mouth gym into a fully online-bookable business.',
+      'BOXX is a premium boutique boxing and personal training studio. We built their entire digital presence from scratch and integrated Zatrovo as their booking and membership platform. A word of mouth gym turned into a fully online bookable business.',
     challenge:
-      'BOXX had built a loyal following through Instagram and word-of-mouth, but had no website and no way for clients to book or buy class packs online. The founder, Bert — a UK-qualified coach — needed a digital presence that matched the premium, intimate experience of training at the studio. Without online booking, potential clients were lost between "interested" and "showing up."',
+      'BOXX had built a loyal following through Instagram and word of mouth, but had no website and no way for clients to book or buy class packs online. The founder, Bert (a UK qualified coach), needed a digital presence that matched the premium, intimate experience of training at the studio. Without online booking, potential clients were lost between "interested" and "showing up."',
     approach: [
-      'Immersive brand-first website capturing BOXX\'s premium-but-welcoming identity',
-      'Full Zatrovo integration — class booking, pack purchases, member dashboard, and login',
+      'Immersive brand first website capturing BOXX\'s premium but welcoming identity',
+      'Full Zatrovo integration covering class booking, pack purchases, member dashboard and login',
       'Clear onboarding flow: Get in Touch → Choose Your Class → Book & Show Up → Train & Grow',
-      'Mobile-optimised for on-the-go booking via WhatsApp, LINE, SMS, and Instagram',
+      'Mobile optimised for on the go booking via WhatsApp, LINE, SMS and Instagram',
     ],
     results: [
       '85% of all bookings now come through the website',
       'Class packs and memberships sold 24/7 via Zatrovo',
-      'Zero admin overhead — fully automated booking and payments',
+      'Zero admin overhead. Fully automated booking and payments.',
     ],
     testimonial: {
       quote:
@@ -97,11 +97,11 @@ export const projects = [
     metric: 'Refill-tier pricing automated',
     year: '2025',
     url: 'https://reya-lashes.zatrovo.com',
-    headline: 'Lashes, nails, and tattoos — one booking flow, every service.',
+    headline: 'Lashes, nails and tattoos. One booking flow, every service.',
     description:
       'Reya Lashes runs a multi-service beauty studio covering lashes, nails, manicures, tattoos, and removals. Pricing is tiered by refill week and quality level. We launched them on a Zatrovo portal that handles every service, every tier, with an instant booking experience that matches their pastel brand.',
     challenge:
-      'Reya offers dozens of treatments with complex tiered pricing — lash refills priced by week and style, gel work priced by quality level, removals priced by where the original work was done. Their previous flow was a printed price chart and DMs, which didn\'t scale.',
+      'Reya offers dozens of treatments with complex tiered pricing. Lash refills priced by week and style, gel work priced by quality level, removals priced by where the original work was done. Their previous flow was a printed price chart and DMs, which didn\'t scale.',
     approach: [
       'White-labelled Zatrovo portal in Reya\'s warm pastel brand palette',
       'Full service catalogue with category filters (Lashes, Refills, Tattoos, Nail Art, Manicure, Removal)',
@@ -131,11 +131,11 @@ export const projects = [
     metric: 'Multi-location coaching online',
     year: '2025',
     url: 'https://dynamic-golf-academy.zatrovo.com',
-    headline: 'Private lessons, FlightScope analyses, on-course coaching — all bookable.',
+    headline: 'Private lessons, FlightScope analyses, on course coaching. All bookable.',
     description:
-      'Dynamic Golf Academy offers private lessons, FlightScope club and swing analysis, and on-course 9-hole and 18-hole coaching across multiple locations. We launched them on Zatrovo with multi-location selection, credit-based packs, and instant booking for every coaching format.',
+      'Dynamic Golf Academy offers private lessons, FlightScope club and swing analysis, and on course 9 and 18 hole coaching across multiple locations. We launched them on Zatrovo with multi location selection, credit based packs and instant booking for every coaching format.',
     challenge:
-      'Coaching businesses live and die by calendar. Dynamic juggled 1:1 lessons, 9-hole and 18-hole on-course rounds, and FlightScope sessions across multiple venues. Their prior process was email-and-WhatsApp — which meant every booking competed with every other admin task.',
+      'Coaching businesses live and die by calendar. Dynamic juggled 1:1 lessons, 9 hole and 18 hole on course rounds, and FlightScope sessions across multiple venues. Their prior process was email and WhatsApp, which meant every booking competed with every other admin task.',
     approach: [
       'White-labelled Zatrovo portal in Dynamic\'s brand colours',
       'Multi-location selector so clients book the right venue first',
@@ -143,7 +143,7 @@ export const projects = [
       'Pricing in local currency with clear duration and format on every service card',
     ],
     results: [
-      'Every coaching format bookable online — lessons, FlightScope, 9 and 18-hole rounds',
+      'Every coaching format bookable online: lessons, FlightScope, 9 and 18 hole rounds',
       'Class packs reducing per-lesson admin to zero',
       'Multi-location calendar in a single dashboard',
     ],
@@ -169,12 +169,12 @@ export const projects = [
     description:
       'Commu runs community wellness classes with rotating instructors and varied schedules. We set them up on Zatrovo with a clean class calendar (day / week / month views), a class-pack system, and a fast booking flow.',
     challenge:
-      'Class businesses with rotating schedules need members to see what\'s on at a glance — and book without thinking. Spreadsheets and group chats don\'t cut it once you grow past a single instructor.',
+      'Class businesses with rotating schedules need members to see what\'s on at a glance and book without thinking. Spreadsheets and group chats don\'t cut it once you grow past a single instructor.',
     approach: [
       'White-labelled Zatrovo portal in Commu\'s warm earth-tone palette',
       'Class calendar with day, week, and month toggles plus filter chips',
       'Class-pack purchasing for regulars to commit ahead of time',
-      'Mobile-first design — most class bookings happen from a phone',
+      'Mobile first design, since most class bookings happen from a phone',
     ],
     results: [
       'Full class schedule live and bookable in real time',
@@ -201,12 +201,12 @@ export const projects = [
     url: 'https://www.realspacemarketing.com',
     headline: 'A revenue-first agency deserved a revenue-first website.',
     description:
-      'Realspace Marketing is a full-service digital marketing agency that transforms ad spend into predictable, scalable revenue. We built their website to match their bold positioning — direct, confident, and conversion-focused from the first scroll.',
+      'Realspace Marketing is a full service digital marketing agency that transforms ad spend into predictable, scalable revenue. We built their website to match their bold positioning. Direct, confident and conversion focused from the first scroll.',
     challenge:
-      'Realspace had the strategy and results to back up their claims, but no website to prove it. As a new agency competing against established names, they needed a digital presence that would instantly communicate credibility, showcase their methodology, and convert visitors into strategy call bookings — without looking like another template agency site.',
+      'Realspace had the strategy and results to back up their claims, but no website to prove it. As a new agency competing against established names, they needed a digital presence that would instantly communicate credibility, showcase their methodology and convert visitors into strategy call bookings, without looking like another template agency site.',
     approach: [
-      'Bold, dark-themed design system reflecting their confident brand positioning',
-      'Revenue-focused messaging architecture — leading with outcomes, not services',
+      'Bold, dark themed design system reflecting their confident brand positioning',
+      'Revenue focused messaging architecture leading with outcomes, not services',
       'Streamlined conversion flow driving visitors toward strategy call bookings',
       'Cross-referral integration with Irvale Studio as their web development partner',
     ],
@@ -241,16 +241,16 @@ export const projects = [
     metric: '35+ tours bookable online',
     year: '2025',
     url: 'https://chiangmaigotours.com',
-    headline: 'From temple tours to elephant sanctuaries — all bookable in minutes.',
+    headline: 'From temple tours to elephant sanctuaries. All bookable in minutes.',
     description:
-      'Chiang Mai Go Tours is a leading tour operator offering 35+ experiences from ethical elephant encounters to multi-day wellness retreats. We built a full e-commerce platform with integrated booking, payments, and multi-currency support — turning a local operator into a globally bookable business.',
+      'Chiang Mai Go Tours is a leading tour operator offering 35+ experiences from ethical elephant encounters to multi day wellness retreats. We built a full e-commerce platform with integrated booking, payments and multi currency support. A local operator turned into a globally bookable business.',
     challenge:
-      'CMGT had a growing catalogue of tours but their booking process was fragmented — a mix of WhatsApp messages, email threads, and manual confirmations. They were losing international customers who expected instant online booking. With 35+ products across seven categories, they needed a system that could handle complex tour options, date-based availability, group sizes, and payments in multiple currencies.',
+      'CMGT had a growing catalogue of tours but their booking process was fragmented. A mix of WhatsApp messages, email threads and manual confirmations. They were losing international customers who expected instant online booking. With 35+ products across seven categories, they needed a system that could handle complex tour options, date based availability, group sizes and payments in multiple currencies.',
     approach: [
-      'Full e-commerce build with date-based booking, guest selection, and tour customisation',
-      'Multi-gateway payment integration — Stripe and local payment providers',
-      'Multi-currency support for international and local customers',
-      'Category-driven tour architecture: elephants, adventure, temples, food, wellness, and private tours',
+      'Full e-commerce build with date based booking, guest selection and tour customisation',
+      'Multi gateway payment integration covering Stripe and local payment providers',
+      'Multi currency support for international and local customers',
+      'Category driven tour architecture: elephants, adventure, temples, food, wellness and private tours',
     ],
     results: [
       '35+ tours bookable online with real-time availability',

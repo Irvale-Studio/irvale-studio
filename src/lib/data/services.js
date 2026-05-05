@@ -55,7 +55,7 @@ export const websiteBuildTiers = [
       'Speed optimisation & Core Web Vitals tuned',
       'SSL security certificate & domain hosting',
       'Advanced forms, CTAs & booking integration',
-      'Full SEO suite — on-page, Schema & local SEO',
+      'Full SEO suite covering on page, Schema and local SEO',
       'AI search optimisation (ChatGPT, Gemini, Perplexity)',
       'Multi-language support',
       'Secure staff admin portal',
@@ -91,7 +91,7 @@ export const zatrovoTiers = [
       'AI assistant (standard budget)',
       'Up to 100 bookings / month',
       '1 staff calendar',
-      'Email support — standard response',
+      'Email support, standard response',
     ],
   },
   {
@@ -141,10 +141,10 @@ export const zatrovoTiers = [
       'Credit, session pack & membership system',
       'Full analytics dashboard + custom reports',
       'Multi-location management',
-      'AI assistant (studio budget — largest allocation)',
+      'AI assistant (studio budget, largest allocation)',
       'Unlimited bookings / month',
       'Unlimited staff calendars',
-      'Dedicated account manager — same-day support',
+      'Dedicated account manager, same day support',
     ],
   },
 ];
@@ -166,7 +166,7 @@ export const hostingTiers = [
       'Security monitoring',
       'Monthly software & plugin updates',
       'Up to 2 hrs content changes / month',
-      'Email support — 48hr response',
+      'Email support, 48hr response',
     ],
   },
   {
@@ -184,7 +184,7 @@ export const hostingTiers = [
       'Security monitoring + malware scanning',
       'Bi-weekly software & plugin updates',
       'Up to 5 hrs content changes / month',
-      'Email & LINE support — 24hr response',
+      'Email and LINE support, 24hr response',
       'Performance monitoring & alerts',
       'Dedicated account manager',
     ],
@@ -204,7 +204,7 @@ export const hostingTiers = [
       'Advanced security + web application firewall',
       'Weekly software & plugin updates',
       'Unlimited content changes',
-      'Priority phone & LINE — same-day response',
+      'Priority phone and LINE, same day response',
       'Real-time performance monitoring',
       'Monthly SEO & analytics report',
       'API & automation support',
@@ -238,7 +238,7 @@ export const addOnServices = [
     price: '$99+',
     priceNote: 'per month · retainer',
     description:
-      'We build and manage email systems designed to win new customers and bring existing ones back — from list setup to full campaign management.',
+      'We build and manage email systems designed to win new customers and bring existing ones back. From list setup to full campaign management.',
     features: [
       'Email platform setup & list management',
       'Audience segmentation strategy',
@@ -286,7 +286,7 @@ export const servicesFaqs = [
   {
     question: 'How long does a website build take?',
     answer:
-      'Essential sites are typically delivered within 2–3 weeks. Professional builds take around 4–6 weeks. Premium projects vary based on scope — we provide a detailed timeline after our initial consultation.',
+      'Essential sites typically deliver within 2 to 3 weeks. Professional builds take around 4 to 6 weeks. Premium projects vary based on scope. We provide a detailed timeline after our initial consultation.',
   },
   {
     question: 'What does the monthly hosting subscription cover?',
@@ -301,12 +301,12 @@ export const servicesFaqs = [
   {
     question: 'Can I upgrade my plan later?',
     answer:
-      'Absolutely. We build every site with scalability in mind. Many clients start with Essential and move to Professional as their business grows. The same applies to hosting and Zatrovo tiers — upgrading is seamless.',
+      'Absolutely. We build every site with scalability in mind. Many clients start with Essential and move to Professional as their business grows. The same applies to hosting and Zatrovo tiers. Upgrading is seamless.',
   },
   {
     question: 'What if I need changes to my website?',
     answer:
-      'Content edits are included in every hosting plan — from 2 hours per month on Managed up to unlimited changes on Premium. For larger structural changes or new features, we provide a clear quote before any work begins.',
+      'Content edits are included in every hosting plan, from 2 hours per month on Managed up to unlimited changes on Premium. For larger structural changes or new features, we provide a clear quote before any work begins.',
   },
   {
     question: 'Do I own my website?',
