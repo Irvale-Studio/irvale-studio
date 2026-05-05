@@ -591,8 +591,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .accordion__body li::before {
   content: '';
   position: absolute;
-  left: 0; top: 12px;
-  width: 12px; height: 1px;
+  left: 4px; top: 11px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
   background: var(--color-gold);
 }
 .context-block {
@@ -617,6 +618,27 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--color-text-muted-dark);
   font-family: var(--font-display);
   line-height: 1.6;
+}
+.partner-divider {
+  margin: 48px 0 24px;
+  padding: 24px 0 0;
+  border-top: 1px dashed rgba(0,0,0,0.15);
+}
+.partner-divider__label {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.partner-divider__note {
+  font-size: var(--type-body-sm);
+  color: var(--color-text-muted-dark);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0;
 }
 
 /* ─── Process timeline ─── */
@@ -684,10 +706,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .process-phase li::before {
   content: '';
   position: absolute;
-  left: 0; top: 13px;
-  width: 12px; height: 1px;
+  left: 4px; top: 11px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
   background: var(--color-gold);
-  opacity: 0.6;
+  opacity: 0.7;
 }
 .process-phase__dot {
   display: none;
@@ -1102,9 +1125,6 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="section-head">
       <span class="eyebrow reveal">01 · Understanding the brief</span>
       <h2 class="h2 reveal" data-delay="1">Here's what we heard, and how we'll address each one.</h2>
-      <p class="lead reveal muted-dark" data-delay="2">
-        You've already laid solid foundations. The opportunity now is to compound them — and unlock channels your competitors are ignoring.
-      </p>
     </div>
 
     <div class="brief-grid">
@@ -1125,8 +1145,8 @@ ul { margin: 0; padding: 0; list-style: none; }
         <ul class="brief-list">
           <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>We'll build a direct booking channel that reduces commission leakage from third-party platforms.</span></li>
           <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>Native-language content and discovery built specifically for how Chinese and Korean travellers research.</span></li>
-          <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>Verified profiles, ongoing posting, and KOC partnerships managed end-to-end on Xiaohongshu and Naver.</span></li>
-          <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>Programmatic SEO with native-language editorial review, not machine translation.</span></li>
+          <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>Verified Xiaohongshu and Naver profiles, with automated posting flows feeding Naver Blog and a partner studio handling KOC and active channel work in Growth tier.</span></li>
+          <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>Programmatic SEO with AI-generated platform-native content, not machine translation.</span></li>
           <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>AEO/GEO foundations that make your studio quotable to ChatGPT, Perplexity, Claude, and Gemini.</span></li>
           <li class="brief-item brief-item--echo"><span class="brief-item__dot"></span><span>Recent and ongoing work referenced in section 07.</span></li>
         </ul>
@@ -1140,10 +1160,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">02 · The bigger picture</span>
-      <h2 class="h2 reveal" data-delay="1">One agency that owns the funnel beats five agencies that own a slice.</h2>
-      <p class="lead reveal" data-delay="2">
-        Most studios end up paying separate vendors for SEO, social, content, ads, and web. Each one optimises for their own metric. None of them are accountable for the booking on your calendar at the end of it.
-      </p>
+      <h2 class="h2 reveal" data-delay="1">One team. One number to call.</h2>
     </div>
 
     <p class="reveal muted-light" style="max-width: 820px; font-size: var(--type-body); line-height: 1.75;">
@@ -1182,15 +1199,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">03 · What's included</span>
-      <h2 class="h2 reveal" data-delay="1">Seven components. One engagement.</h2>
+      <h2 class="h2 reveal" data-delay="1">One package. One monthly price.</h2>
       <p class="lead reveal muted-dark" data-delay="2">
-        Seven components in the Foundation tier. Tap any item to expand. Each piece carries its own market value — bought separately, the components total <strong>35,000 THB / month</strong>. Bundled and integrated, you pay <strong>25,000 THB / month</strong> for the full Foundation engagement.
-      </p>
-      <p class="reveal muted-dark" data-delay="2" style="max-width: 720px; margin-top: 20px; font-size: var(--type-body); line-height: 1.7;">
-        The components reinforce each other — programmatic SEO compounds when paired with the website rebuild; reviews accelerate when wired into the booking system; Naver and Xiaohongshu only pay back if multilingual content is in place to support them. We've priced the bundle to make the integrated engagement the obvious choice.
+        Everything Irvale delivers — bundled into a single engagement at <strong>25,000 THB / mo</strong>. Tap any item to expand. Partner-studio services available as an optional add-on (4.7, 4.8) when you're ready.
       </p>
       <div class="bundle-savings reveal" data-delay="3">
-        <span>À la carte total</span> <strong>35,000 THB</strong> <span>→</span> <span>Bundled</span> <strong>25,000 THB</strong> <span>→</span> <strong>Save 10,000 THB / mo</strong>
+        <span>Irvale package</span> <strong>25,000 THB / mo</strong> <span>·</span> <span>Optional partner add-on</span> <strong>15,000–40,000 THB / mo</strong>
       </div>
     </div>
 
@@ -1205,7 +1219,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">4.1 — Foundation</span>
             <span class="accordion__title">Website rebuild &amp; Zatrovo booking system</span>
-            <span class="accordion__value">8,000 THB / mo value</span>
+            <span class="accordion__value">Included in package</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
@@ -1218,7 +1232,6 @@ ul { margin: 0; padding: 0; list-style: none; }
                 <li>Online deposits, automated reminders, no-show protection, gift vouchers, and packages.</li>
                 <li>Customer database that flows into your review and email automations.</li>
               </ul>
-              <p class="honest-note">I built Zatrovo from the ground up — it's our own SaaS platform, not a third-party tool we resell. That means it bends to your workflow, not the other way around.</p>
               <div class="context-block">
                 <p class="context-block__label">Industry context</p>
                 <p>A typical website + booking system rebuild from a Bangkok agency runs <strong>80,000–250,000 THB</strong> (roughly <strong>$2,300–7,200</strong>). Included in this package — no separate setup fee.</p>
@@ -1237,7 +1250,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">4.2 — Discovery</span>
             <span class="accordion__title">Programmatic SEO &amp; content production</span>
-            <span class="accordion__value">7,000 THB / mo value</span>
+            <span class="accordion__value">Included in package</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
@@ -1250,10 +1263,9 @@ ul { margin: 0; padding: 0; list-style: none; }
                 <li>FAQ libraries written for Google, Naver, and AI search engines simultaneously.</li>
                 <li>Internal linking and topical authority built from day one.</li>
               </ul>
-              <p class="honest-note">I've built and tested these workflows on Zatrovo's own marketing site, where we run programmatic content at scale across hundreds of pages.</p>
               <div class="context-block">
                 <p class="context-block__label">Industry context</p>
-                <p>Traditional SEO agencies in Thailand publish <strong>4–8 articles per month at 3,000–8,000 THB ($85–230) per article</strong>. We produce significantly more using AI-augmented workflows with native-language editorial review.</p>
+                <p>Traditional SEO agencies in Thailand publish <strong>4–8 articles per month at 3,000–8,000 THB ($85–230) per article</strong>. We produce significantly more using AI workflows that generate platform-native content directly in Korean and Chinese — not English drafts run through translation.</p>
               </div>
             </div>
           </div>
@@ -1269,7 +1281,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">4.3 — Emerging</span>
             <span class="accordion__title">AI Search Optimisation (GEO &amp; AEO)</span>
-            <span class="accordion__value">4,000 THB / mo value</span>
+            <span class="accordion__value">Included in package</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
@@ -1283,7 +1295,6 @@ ul { margin: 0; padding: 0; list-style: none; }
                 <li>Reporting on visibility and share-of-voice inside AI answers.</li>
               </ul>
               <p class="honest-note">This is an emerging field. Most agencies don't yet offer it, and the playbook is still being written. What we can promise is that we're investing real engineering hours in it — and that visibility inside AI search is becoming material to consumer behaviour faster than most operators realise.</p>
-              <p class="honest-note">I've already implemented AEO foundations on Zatrovo's own site and on the Irvale website itself.</p>
               <div class="context-block">
                 <p class="context-block__label">Industry context</p>
                 <p>Recent surveys show a growing share of users now starting product and travel research inside AI assistants rather than Google. Studios that establish AI-search visibility now will compound an advantage that's hard to copy later.</p>
@@ -1302,7 +1313,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">4.4 — Korean market</span>
             <span class="accordion__title">Naver presence &amp; optimisation</span>
-            <span class="accordion__value">4,500 THB / mo value</span>
+            <span class="accordion__value">Included in package</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
@@ -1330,41 +1341,12 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div class="accordion__item">
         <button class="accordion__header" aria-expanded="false">
           <span class="accordion__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 21l1.7-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg>
-          </span>
-          <span class="accordion__title-wrap">
-            <span class="accordion__num">4.5 — Chinese market</span>
-            <span class="accordion__title">Xiaohongshu (RED) presence</span>
-            <span class="accordion__value">4,500 THB / mo value</span>
-          </span>
-          <span class="accordion__plus" aria-hidden="true">+</span>
-        </button>
-        <div class="accordion__panel">
-          <div class="accordion__panel-inner">
-            <div class="accordion__body">
-              <p>Chinese tourists in Thailand research overwhelmingly on Xiaohongshu before they fly. A single viral post from a small creator can drive measurable footfall for weeks. This is where we'll concentrate the Chinese-market investment.</p>
-              <ul>
-                <li>Xiaohongshu account setup, profile build, and initial content batch.</li>
-                <li>Ongoing automated content production tailored to how Chinese tourists actually research wellness in Thailand.</li>
-                <li>Ongoing channel management, posting cadence, and KOL/KOC partnerships available via our partner studio — see section 4.8.</li>
-              </ul>
-              <p class="honest-note">Constraint we're upfront about: foreign-registered Xiaohongshu accounts grow more slowly than verified Chinese brand accounts. Organic reach builds steadily over months rather than weeks, and the real acceleration comes from active channel management and KOC partnerships layered on top — which is why those sit with our partner studio in the Growth tier.</p>
-              <p class="honest-note">We've deliberately scoped WeChat out of this engagement. Foreign-registered WeChat accounts have severely limited visibility to mainland Chinese users, and the full ecosystem (WeChat Pay, Mini Programs, China-direct discovery) requires a Chinese business entity. The honest play for a Thai studio is Xiaohongshu-led discovery, not WeChat. Any agency telling you otherwise is overselling.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4.6 -->
-      <div class="accordion__item">
-        <button class="accordion__header" aria-expanded="false">
-          <span class="accordion__icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.6 — Local discovery</span>
+            <span class="accordion__num">4.5 — Local discovery</span>
             <span class="accordion__title">Google Business Profile &amp; local SEO</span>
-            <span class="accordion__value">3,500 THB / mo value</span>
+            <span class="accordion__value">Included in package</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
@@ -1390,9 +1372,9 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.7 — Reputation</span>
+            <span class="accordion__num">4.6 — Reputation</span>
             <span class="accordion__title">Review &amp; reputation systems</span>
-            <span class="accordion__value">3,500 THB / mo value</span>
+            <span class="accordion__value">Included in package</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
@@ -1411,30 +1393,64 @@ ul { margin: 0; padding: 0; list-style: none; }
         </div>
       </div>
 
-      <!-- 4.8 -->
+      <div class="partner-divider reveal">
+        <span class="partner-divider__label">Optional add-on · partner studio</span>
+        <p class="partner-divider__note">Below sits outside the Irvale package. Available when you want to layer in active social, video, KOC, and Meta ads — quoted separately based on scope. Typical range: 15,000–40,000 THB / mo.</p>
+      </div>
+
+      <!-- 4.7 — Partner studio (Xiaohongshu) -->
       <div class="accordion__item">
         <button class="accordion__header" aria-expanded="false">
           <span class="accordion__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 21l1.7-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.8 — Growth tier</span>
-            <span class="accordion__title">Social media management, video production &amp; Meta ads via partner studio</span>
-            <span class="accordion__value">Quoted within Growth tier</span>
+            <span class="accordion__num">4.7 — Partner studio · Chinese market</span>
+            <span class="accordion__title">Xiaohongshu (RED) presence &amp; KOC partnerships</span>
+            <span class="accordion__value">Optional add-on · partner studio</span>
           </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
           <div class="accordion__panel-inner">
             <div class="accordion__body">
-              <p>Day-to-day social channel management, video production, and Meta ad campaigns are run via a partner content studio I trust and have worked with directly. Available in the Growth tier — you still have a single point of contact for everything.</p>
+              <p>Run end-to-end via our partner content studio. Xiaohongshu account setup, content production, channel management, and KOL/KOC partnerships — quoted separately based on scope.</p>
+              <ul>
+                <li>Xiaohongshu account setup, profile build, and initial content batch.</li>
+                <li>Ongoing content production tailored to how Chinese tourists research wellness in Thailand.</li>
+                <li>Channel management, posting cadence, and KOL/KOC partnerships managed end-to-end.</li>
+              </ul>
+              <p class="honest-note">Foreign-registered Xiaohongshu accounts grow more slowly than verified Chinese brand accounts. Organic reach builds over months; real acceleration comes from active management and KOC partnerships layered on top.</p>
+              <p class="honest-note">WeChat scoped out. Foreign-registered WeChat accounts have severely limited visibility to mainland Chinese users, and the full ecosystem (WeChat Pay, Mini Programs, China-direct discovery) requires a Chinese business entity. The honest play for a Thai studio is Xiaohongshu-led discovery, not WeChat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.8 — Partner studio (social/video/ads) -->
+      <div class="accordion__item">
+        <button class="accordion__header" aria-expanded="false">
+          <span class="accordion__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </span>
+          <span class="accordion__title-wrap">
+            <span class="accordion__num">4.8 — Partner studio · Social &amp; video</span>
+            <span class="accordion__title">Social media management, video production &amp; Meta ads</span>
+            <span class="accordion__value">Optional add-on · partner studio</span>
+          </span>
+          <span class="accordion__plus" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__panel-inner">
+            <div class="accordion__body">
+              <p>Day-to-day social channel management, video production, and Meta ad campaigns run via a partner content studio. Single point of contact through Irvale; quoted separately based on scope.</p>
               <ul>
                 <li>Ongoing social media management across Instagram, Facebook, TikTok, Naver Blog, and Xiaohongshu — posting cadence, engagement, community management.</li>
                 <li>Short-form video production for Reels, TikTok, and Xiaohongshu.</li>
                 <li>Meta ad campaign setup, creative, and management (ad spend separate).</li>
                 <li>KOL/KOC partnerships on Xiaohongshu and other platforms — outreach, negotiation, and content briefs handled end-to-end.</li>
               </ul>
-              <p class="honest-note">I don't pretend to be a social-first or video agency. I partner with a studio I trust for this work and manage them on your behalf — the upside is specialised expertise without the agency-of-record overhead. You get a single point of contact (me) for the full engagement.</p>
+              <p class="honest-note">Day-to-day social management, video, and Meta ads run via a partner studio. Single point of contact, specialised expertise without agency-of-record overhead.</p>
               <div class="context-block">
                 <p class="context-block__label">Industry context</p>
                 <p>Standalone social media management in Thailand typically runs <strong>15,000–40,000 THB ($430–1,150) per month</strong>. Standalone video production runs <strong>15,000–60,000 THB ($430–1,720) per video</strong>. Standalone Meta ads management is typically <strong>15,000–30,000 THB ($430–860) per month</strong>. Bundled into Growth tier where relevant.</p>
@@ -1454,9 +1470,6 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="section-head">
       <span class="eyebrow reveal">04 · How it works</span>
       <h2 class="h2 reveal" data-delay="1">Three phases. One compounding engine.</h2>
-      <p class="lead reveal" data-delay="2">
-        Discovery, foundation, then compounding. Predictable cadence, weekly visibility, no surprises.
-      </p>
     </div>
 
     <div class="process-grid">
@@ -1471,9 +1484,9 @@ ul { margin: 0; padding: 0; list-style: none; }
           <h3 class="process-phase__title">Discovery</h3>
           <p class="process-phase__when">Week 1</p>
           <ul>
-            <li>Full audit of your current digital presence — website, booking flow, listings, reviews, search rankings.</li>
-            <li>Baseline metrics captured: GBP views, current bookings, review counts, branded search volume, third-party platform mix.</li>
-            <li>Strategic brief produced and shared with you for sign-off before any build begins.</li>
+            <li>Audit current digital presence: website, booking, listings, reviews, rankings.</li>
+            <li>Capture baseline metrics: GBP views, bookings, reviews, branded search, platform mix.</li>
+            <li>Strategic brief shared for sign-off before build starts.</li>
           </ul>
         </div>
 
@@ -1483,11 +1496,11 @@ ul { margin: 0; padding: 0; list-style: none; }
           <h3 class="process-phase__title">Foundation</h3>
           <p class="process-phase__when">Weeks 2–6</p>
           <ul>
-            <li>Website rebuilt with multilingual support — English, Chinese, Korean.</li>
-            <li>Zatrovo booking system live and integrated with your operations.</li>
-            <li>All profiles created and optimised: Naver, Xiaohongshu, GBP.</li>
-            <li>Tracking and reporting infrastructure in place — analytics, brand mention monitoring, review automation.</li>
-            <li>Initial content batch published across primary languages.</li>
+            <li>Multilingual website rebuilt: English, Chinese, Korean.</li>
+            <li>Zatrovo booking live and integrated.</li>
+            <li>Naver, Xiaohongshu, GBP profiles optimised.</li>
+            <li>Analytics, brand mention tracking, review automation in place.</li>
+            <li>Initial content batch live across all languages.</li>
           </ul>
         </div>
 
@@ -1497,10 +1510,9 @@ ul { margin: 0; padding: 0; list-style: none; }
           <h3 class="process-phase__title">Compounding</h3>
           <p class="process-phase__when">Month 3 onward</p>
           <ul>
-            <li>Ongoing content production across every channel, every week.</li>
-            <li>KOC partnerships activated and refreshed monthly.</li>
+            <li>Weekly content production across every channel.</li>
             <li>Monthly performance reports — real numbers, not vanity dashboards.</li>
-            <li>Quarterly strategy reviews to recalibrate channel mix and budget allocation.</li>
+            <li>Quarterly strategy review to recalibrate channel mix and budget.</li>
           </ul>
         </div>
       </div>
@@ -1513,33 +1525,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">05 · What you can expect</span>
-      <h2 class="h2 reveal" data-delay="1">Calibrated expectations, monthly reporting, no fairy tales.</h2>
-      <p class="lead reveal muted-dark" data-delay="2">
-        Digital growth compounds. The first months are foundation work; the gains start landing once the engine is running.
-      </p>
+      <h2 class="h2 reveal" data-delay="1">Calibrated expectations. Monthly reporting.</h2>
     </div>
 
     <div class="outcomes">
       <div class="outcome reveal">
         <div class="outcome__when">Months 1–2</div>
-        <p class="outcome__body">Foundation in place. Profile views and search impressions begin rising as new content and listings get indexed. Booking volume largely flat — this is groundwork, and we'll be transparent about that.</p>
+        <p class="outcome__body">Foundation live. Profile views and search impressions rising. Bookings flat — groundwork phase.</p>
       </div>
       <div class="outcome reveal">
         <div class="outcome__when">Months 3–4</div>
-        <p class="outcome__body">Compounding effects begin. Naver Place views, Xiaohongshu impressions, and GBP views climb. First incremental bookings attributable to new channels start to land. Review velocity picks up.</p>
+        <p class="outcome__body">Compounding starts. Naver, Xiaohongshu, GBP views climb. First bookings from new channels land. Review velocity picks up.</p>
       </div>
       <div class="outcome reveal">
         <div class="outcome__when">Months 5–6</div>
-        <p class="outcome__body">Measurable lift in direct bookings — bypassing third-party commissions and rebuilding margin. Established presence in Chinese and Korean discovery channels. Reduced reliance on GoWabi and Klook for new-customer acquisition.</p>
+        <p class="outcome__body">Direct bookings lift. Margin rebuilt by bypassing third-party commissions. Reduced reliance on GoWabi and Klook for new customers.</p>
       </div>
       <div class="outcome reveal">
         <div class="outcome__when">Months 6+</div>
-        <p class="outcome__body">Compounding continues. With foundations in place across every channel and content production running consistently, this is where the engagement starts paying back the upfront investment. Direct-booking volume, review velocity, and discovery channel performance reinforce each other. We commit to honest reporting on the actual numbers — not industry averages dressed up as forecasts.</p>
+        <p class="outcome__body">Engine pays back. Direct bookings, review velocity, and discovery channels reinforce each other. Honest reporting on real numbers.</p>
       </div>
-    </div>
-
-    <div class="outcomes-honesty reveal">
-      "We commit to honest monthly reporting on real metrics. If after three months the numbers aren't moving in the right direction, we revisit the strategy together — and you can walk away."
     </div>
   </div>
 </section>
@@ -1558,13 +1563,13 @@ ul { margin: 0; padding: 0; list-style: none; }
           I'm Jake — a UK national based in Chiang Mai, founder of Irvale Studio and Zatrovo. My background is product management; my craft is building things that move numbers.
         </p>
         <p>
-          I built Zatrovo, our SaaS booking platform, from scratch — and run programmatic content and AI search optimisation across both it and the Irvale website itself. Everything we propose for your studio, we already do for our own businesses.
+          I built Zatrovo, our SaaS booking platform, from scratch — and run programmatic content and AI search optimisation across both it and the Irvale website itself. Everything we propose for your studio, we already do for our own businesses — and for the clients we run it for today.
         </p>
         <p>
-          We work with a small number of clients at a time so each one gets real attention. You'll have a single point of contact — me — and a team behind that, including a partner content studio for video, social management, and Meta ads.
+          You'll have a single point of contact — me — and a team behind that, including a partner content studio for video, social management, and Meta ads.
         </p>
         <p style="font-style: italic; font-family: var(--font-display); color: var(--color-text-light); font-size: var(--type-body-lg); line-height: 1.5; max-width: 540px;">
-          Irvale is a young agency. Our edge is that we combine technical depth, modern AI-augmented workflows, and our own integrated infrastructure at pricing accessible to growing businesses. We're not pretending to be Ogilvy.
+          Irvale is a young agency. Our edge: technical depth, AI-augmented workflows, and our own integrated infrastructure at pricing accessible to growing businesses.
         </p>
         <p class="signature">— Jake</p>
       </div>
