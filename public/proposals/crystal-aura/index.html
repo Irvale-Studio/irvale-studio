@@ -489,25 +489,93 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ─── Bigger picture layout ─── */
 .bigger-layout {
   margin-top: 64px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 56px;
 }
-@media (min-width: 1100px) {
-  .bigger-layout {
-    grid-template-columns: minmax(220px, 1fr) minmax(440px, 560px) minmax(220px, 1fr);
-    gap: 48px;
+.bigger-layout__intro,
+.bigger-layout__outro {
+  font-size: var(--type-body);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 780px;
+  text-align: center;
+}
+.bigger-layout__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+}
+@media (min-width: 1000px) {
+  .bigger-layout__stage {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
   }
 }
-.bigger-layout__col--left,
-.bigger-layout__col--right {
-  align-self: center;
+
+/* ─── Phase 01 card (off-flywheel) ─── */
+.phase-card {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 280px;
+  padding: 28px 26px;
+  border: 1px solid rgba(201,169,110,0.3);
+  background: rgba(201,169,110,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-@media (max-width: 1099px) {
-  .bigger-layout__col--center { order: 0; }
-  .bigger-layout__col--left   { order: -1; }
-  .bigger-layout__col--right  { order: 1; }
+@media (min-width: 1000px) {
+  .phase-card { width: 280px; }
+}
+.phase-card__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+.phase-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.4vw, 30px);
+  color: var(--color-text-light);
+  line-height: 1.1;
+  margin: 0;
+}
+.phase-card__text {
+  font-size: var(--type-body-sm);
+  line-height: 1.7;
+  color: var(--color-text-muted-light);
+  margin: 0;
+}
+.phase-card__hint {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ─── Phase arrow (between Phase 01 and Phase 02) ─── */
+.phase-arrow {
+  flex: 0 0 auto;
+  width: 80px;
+  height: 30px;
+  transform: rotate(90deg);
+}
+.phase-arrow svg { width: 100%; height: 100%; display: block; }
+@media (min-width: 1000px) {
+  .phase-arrow {
+    width: 110px;
+    height: 40px;
+    transform: none;
+  }
 }
 
 /* ─── Flywheel ─── */
@@ -1370,17 +1438,33 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
 
     <div class="bigger-layout reveal" data-delay="1">
-      <div class="bigger-layout__col bigger-layout__col--left">
-        <p class="muted-light" style="font-size: var(--type-body); line-height: 1.75; margin: 0;">
-          Revenue Engineering is what Irvale specialises in: making your studio discoverable across every channel that matters, then making sure your funnel catches that traffic and turns it into paying, repeat customers. Discovery and conversion, owned end-to-end as one system.
-        </p>
-      </div>
+      <p class="bigger-layout__intro muted-light">
+        Revenue Engineering is what Irvale specialises in: making your studio discoverable across every channel that matters, then making sure your funnel catches that traffic and turns it into paying, repeat customers. Discovery and conversion, owned end-to-end as one system.
+      </p>
 
-      <div class="bigger-layout__col bigger-layout__col--center">
+      <div class="bigger-layout__stage">
+        <div class="phase-card">
+          <span class="phase-card__label">Phase 01</span>
+          <h3 class="phase-card__title">Foundation</h3>
+          <p class="phase-card__text">Website, Zatrovo booking, multilingual SEO, AI visibility, profiles, review automation. We build the system first.</p>
+          <span class="phase-card__hint">Once live →</span>
+        </div>
+
+        <div class="phase-arrow" aria-hidden="true">
+          <svg viewBox="0 0 120 60" preserveAspectRatio="none">
+            <defs>
+              <marker id="phaseArrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,10 L9,5 z" fill="rgba(201,169,110,0.7)"/>
+              </marker>
+            </defs>
+            <path d="M 4,30 L 110,30" fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1.4" stroke-dasharray="4 6" marker-end="url(#phaseArrow)"/>
+          </svg>
+        </div>
+
         <div class="flywheel">
           <div class="flywheel__phase">
-            <span class="flywheel__phase-label">Phase 01 · Foundation</span>
-            <p class="flywheel__phase-text">Website, Zatrovo, multilingual SEO, AI visibility, profiles, review automation — all built first. Once live, the wheel turns.</p>
+            <span class="flywheel__phase-label">Phase 02 · The flywheel</span>
+            <p class="flywheel__phase-text">The engine starts spinning. Each stage compounds the next.</p>
           </div>
 
           <div class="flywheel__wheel" role="tablist" aria-label="Revenue flywheel stages">
@@ -1447,14 +1531,11 @@ ul { margin: 0; padding: 0; list-style: none; }
         </div>
       </div>
 
-      <div class="bigger-layout__col bigger-layout__col--right">
-        <p class="muted-light" style="font-size: var(--type-body); line-height: 1.75; margin: 0;">
-          It's why we built Zatrovo — our own SaaS booking platform, engineered to catch traffic and maximise it into revenue and repeat bookings. Every channel feeds it; every booking compounds inside it. That's the engine we'll run for Crystal Aura.
-        </p>
-        <p class="muted-light" style="font-size: var(--type-body-sm); line-height: 1.7; margin: 18px 0 0;">
-          Read more at <a href="https://irvale.com/revenue-engineering" style="color: var(--color-gold); border-bottom: 1px solid rgba(201,169,110,0.4);">irvale.com/revenue-engineering →</a>
-        </p>
-      </div>
+      <p class="bigger-layout__outro muted-light">
+        It's why we built Zatrovo — our own SaaS booking platform, engineered to catch traffic and maximise it into revenue and repeat bookings. Every channel feeds it; every booking compounds inside it. That's the engine we'll run for Crystal Aura.
+        <br><br>
+        <span style="font-size: var(--type-body-sm);">Read more at <a href="https://irvale.com/revenue-engineering" style="color: var(--color-gold); border-bottom: 1px solid rgba(201,169,110,0.4);">irvale.com/revenue-engineering →</a></span>
+      </p>
     </div>
   </div>
 </section>
