@@ -491,31 +491,45 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin-top: 64px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 56px;
 }
 .bigger-layout__intro,
 .bigger-layout__outro {
+  margin: 0;
+  max-width: 820px;
+  width: 100%;
+  text-align: left;
+  align-self: flex-start;
+}
+.bigger-layout__intro {
   font-size: var(--type-body);
   line-height: 1.75;
-  margin: 0;
-  max-width: 780px;
-  text-align: center;
 }
 .bigger-layout__stage {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 24px;
   align-items: center;
-  gap: 28px;
-  width: 100%;
+  justify-items: center;
 }
-@media (min-width: 1000px) {
+.bigger-layout__stage > .phase-card     { grid-column: 1; grid-row: 1; justify-self: center; }
+.bigger-layout__stage > .phase-arrow    { grid-column: 1; grid-row: 2; justify-self: center; }
+.bigger-layout__stage > .flywheel__phase { grid-column: 1; grid-row: 3; justify-self: center; }
+.bigger-layout__stage > .flywheel__wheel { grid-column: 1; grid-row: 4; justify-self: center; }
+
+@media (min-width: 1100px) {
   .bigger-layout__stage {
-    flex-direction: row;
+    grid-template-columns: 280px 110px minmax(440px, 540px);
+    grid-template-rows: auto auto;
+    column-gap: 32px;
+    row-gap: 24px;
     justify-content: center;
-    align-items: center;
-    gap: 24px;
   }
+  .bigger-layout__stage > .phase-card      { grid-column: 1; grid-row: 2; align-self: center; justify-self: end; }
+  .bigger-layout__stage > .phase-arrow     { grid-column: 2; grid-row: 2; align-self: center; justify-self: center; }
+  .bigger-layout__stage > .flywheel__phase { grid-column: 3; grid-row: 1; align-self: end; justify-self: center; margin-bottom: 56px; }
+  .bigger-layout__stage > .flywheel__wheel { grid-column: 3; grid-row: 2; align-self: center; justify-self: center; }
 }
 
 /* ─── Phase 01 card (off-flywheel) ─── */
@@ -570,7 +584,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   transform: rotate(90deg);
 }
 .phase-arrow svg { width: 100%; height: 100%; display: block; }
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
   .phase-arrow {
     width: 110px;
     height: 40px;
@@ -609,7 +623,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: relative;
   width: min(440px, 92vw);
   aspect-ratio: 1 / 1;
-  margin: 0 auto;
+  margin: 56px auto;
 }
 .flywheel__svg {
   position: absolute;
@@ -708,8 +722,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .flywheel__detail {
   width: 100%;
-  max-width: 520px;
-  margin: 36px auto 0;
+  max-width: 620px;
+  margin: 0 auto;
   position: relative;
   min-height: 220px;
 }
@@ -1461,13 +1475,12 @@ ul { margin: 0; padding: 0; list-style: none; }
           </svg>
         </div>
 
-        <div class="flywheel">
-          <div class="flywheel__phase">
-            <span class="flywheel__phase-label">Phase 02 · The flywheel</span>
-            <p class="flywheel__phase-text">The engine starts spinning. Each stage compounds the next.</p>
-          </div>
+        <div class="flywheel__phase">
+          <span class="flywheel__phase-label">Phase 02 · The flywheel</span>
+          <p class="flywheel__phase-text">The engine starts spinning. Each stage compounds the next.</p>
+        </div>
 
-          <div class="flywheel__wheel" role="tablist" aria-label="Revenue flywheel stages">
+        <div class="flywheel__wheel" role="tablist" aria-label="Revenue flywheel stages">
             <svg class="flywheel__svg" viewBox="0 0 400 400" aria-hidden="true">
               <defs>
                 <marker id="fwArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto" markerUnits="strokeWidth">
@@ -1505,37 +1518,35 @@ ul { margin: 0; padding: 0; list-style: none; }
               <span class="flywheel__node-name">Amplify</span>
             </button>
           </div>
+      </div>
 
-          <div class="flywheel__detail">
-            <div class="flywheel__detail-panel is-active" data-stage="attract">
-              <span class="flywheel__detail-num">01 · Attract</span>
-              <h4 class="flywheel__detail-title">Get found across every channel that matters.</h4>
-              <p>Multilingual SEO, AEO/GEO for AI search, Google Business Profile, Naver, Xiaohongshu, programmatic content. Every channel where your customers research wellness in Thailand — your studio shows up first.</p>
-            </div>
-            <div class="flywheel__detail-panel" data-stage="convert">
-              <span class="flywheel__detail-num">02 · Convert</span>
-              <h4 class="flywheel__detail-title">Capture every visitor into a booking.</h4>
-              <p>A funnel built around Zatrovo: fast multilingual website, frictionless booking flow, deposits, automated reminders, no-show protection. Traffic that other studios leak to GoWabi or Klook lands directly in your calendar — commission-free.</p>
-            </div>
-            <div class="flywheel__detail-panel" data-stage="retain">
-              <span class="flywheel__detail-num">03 · Retain</span>
-              <h4 class="flywheel__detail-title">Turn one-off bookings into repeat revenue.</h4>
-              <p>Customer database, post-visit email and message automations, packages, gift vouchers, loyalty mechanics. Every booking feeds a profile that keeps customers coming back — no need to re-acquire them through a third-party platform.</p>
-            </div>
-            <div class="flywheel__detail-panel" data-stage="amplify">
-              <span class="flywheel__detail-num">04 · Amplify</span>
-              <h4 class="flywheel__detail-title">Reviews and referrals feed the next cycle.</h4>
-              <p>Automated review requests post-visit, multi-platform monitoring, AI-assisted responses. Happy customers leave reviews and bring friends — boosting rankings, social proof, and discovery. The wheel turns again, faster.</p>
-            </div>
-          </div>
+      <div class="flywheel__detail">
+        <div class="flywheel__detail-panel is-active" data-stage="attract">
+          <span class="flywheel__detail-num">01 · Attract</span>
+          <h4 class="flywheel__detail-title">Get found across every channel that matters.</h4>
+          <p>Multilingual SEO, AEO/GEO for AI search, Google Business Profile, Naver, Xiaohongshu, programmatic content. Every channel where your customers research wellness in Thailand — your studio shows up first.</p>
+        </div>
+        <div class="flywheel__detail-panel" data-stage="convert">
+          <span class="flywheel__detail-num">02 · Convert</span>
+          <h4 class="flywheel__detail-title">Capture every visitor into a booking.</h4>
+          <p>A funnel built around Zatrovo: fast multilingual website, frictionless booking flow, deposits, automated reminders, no-show protection. Traffic that other studios leak to GoWabi or Klook lands directly in your calendar — commission-free.</p>
+        </div>
+        <div class="flywheel__detail-panel" data-stage="retain">
+          <span class="flywheel__detail-num">03 · Retain</span>
+          <h4 class="flywheel__detail-title">Turn one-off bookings into repeat revenue.</h4>
+          <p>Customer database, post-visit email and message automations, packages, gift vouchers, loyalty mechanics. Every booking feeds a profile that keeps customers coming back — no need to re-acquire them through a third-party platform.</p>
+        </div>
+        <div class="flywheel__detail-panel" data-stage="amplify">
+          <span class="flywheel__detail-num">04 · Amplify</span>
+          <h4 class="flywheel__detail-title">Reviews and referrals feed the next cycle.</h4>
+          <p>Automated review requests post-visit, multi-platform monitoring, AI-assisted responses. Happy customers leave reviews and bring friends — boosting rankings, social proof, and discovery. The wheel turns again, faster.</p>
         </div>
       </div>
 
-      <p class="bigger-layout__outro muted-light">
-        It's why we built Zatrovo — our own SaaS booking platform, engineered to catch traffic and maximise it into revenue and repeat bookings. Every channel feeds it; every booking compounds inside it. That's the engine we'll run for Crystal Aura.
-        <br><br>
-        <span style="font-size: var(--type-body-sm);">Read more at <a href="https://irvale.com/revenue-engineering" style="color: var(--color-gold); border-bottom: 1px solid rgba(201,169,110,0.4);">irvale.com/revenue-engineering →</a></span>
-      </p>
+      <div class="bigger-layout__outro">
+        <p class="muted-light" style="font-size: var(--type-body); line-height: 1.75; margin: 0;">It's why we built Zatrovo — our own SaaS booking platform, engineered to catch traffic and maximise it into revenue and repeat bookings. Every channel feeds it; every booking compounds inside it. That's the engine we'll run for Crystal Aura.</p>
+        <p class="muted-light" style="font-size: var(--type-body-sm); line-height: 1.7; margin: 18px 0 0;">Read more at <a href="https://irvale.com/revenue-engineering" style="color: var(--color-gold); border-bottom: 1px solid rgba(201,169,110,0.4);">irvale.com/revenue-engineering →</a></p>
+      </div>
     </div>
   </div>
 </section>
