@@ -52,7 +52,11 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -63,6 +67,8 @@ body {
   background: var(--color-cream);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1802,14 +1808,7 @@ ul { margin: 0; padding: 0; list-style: none; }
         <div class="accordion__panel">
           <div class="accordion__panel-inner">
             <div class="accordion__body">
-              <p>You can't compound what you can't measure. Every channel we build feeds back into a single tracking layer so you see exactly what's driving bookings.</p>
-              <ul>
-                <li>GA4 setup and configuration on the new website, with conversion events wired to Zatrovo bookings.</li>
-                <li>Google Search Console, Naver Webmaster Tools, and Bing Webmaster Tools connected and monitored.</li>
-                <li>UTM-tagged campaign tracking across every channel: organic, GBP, Naver, paid.</li>
-                <li>Custom dashboard combining bookings, traffic sources, channel performance, review velocity, and AI-search visibility into one view.</li>
-                <li>Insights report flagging what's working, what isn't, and where to invest next.</li>
-              </ul>
+              <p>GA4 set up on the new website so we can see what's driving traffic and bookings. Used to inform decisions over time.</p>
             </div>
           </div>
         </div>
