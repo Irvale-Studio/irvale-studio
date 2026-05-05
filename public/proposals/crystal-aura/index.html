@@ -93,6 +93,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section { padding: var(--section-gap) 0; position: relative; }
 .section--dark { background: var(--color-dark); color: var(--color-text-light); }
 .section--cream { background: var(--color-cream); color: var(--color-text-dark); }
+.section--cream + .section--cream::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: clamp(80%, 90%, 1200px);
+  max-width: var(--max-width);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.35), transparent);
+}
 
 /* Noise overlay on dark */
 .section--dark::after {
@@ -1109,11 +1120,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--border-dark);
   background: var(--color-dark-2);
   padding: 24px 28px;
-  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
-}
-.work-card:hover {
-  border-color: rgba(201,169,110,0.3);
-  background: rgba(201,169,110,0.03);
 }
 .work-card__label {
   font-size: 10px;
@@ -2012,12 +2018,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 </section>
 
 <!-- ─── 6. Pricing ─── -->
-<section class="section section--dark" id="pricing">
+<section class="section section--cream" id="pricing">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">06 · Investment</span>
       <h2 class="h2 reveal" data-delay="1">Transparent monthly fees. Setup costs included.</h2>
-      <p class="lead reveal muted-light" data-delay="2">
+      <p class="lead reveal muted-dark" data-delay="2">
         Three-month minimum engagement, then month-to-month with thirty-day notice. All assets remain yours.
       </p>
     </div>
