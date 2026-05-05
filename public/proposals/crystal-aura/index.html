@@ -1088,7 +1088,47 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--color-text-light);
   margin-bottom: 6px;
 }
-.work-card__desc { font-size: var(--type-body-sm); color: var(--color-text-muted-light); line-height: 1.6; }
+.work-card__desc { font-size: var(--type-body-sm); color: var(--color-text-muted-light); line-height: 1.6; margin-bottom: 14px; }
+.work-card__services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+.work-card__services li {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 4px 9px;
+  border: 1px solid rgba(201,169,110,0.22);
+  background: rgba(201,169,110,0.04);
+  color: var(--color-text-muted-light);
+  border-radius: 999px;
+}
+.work-card__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.work-card__stat-num {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-gold);
+  line-height: 1;
+  display: block;
+}
+.work-card__stat-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted-light);
+  margin-top: 4px;
+  display: block;
+}
 
 /* ─── Pricing ─── */
 .pricing-grid {
@@ -1357,7 +1397,6 @@ ul { margin: 0; padding: 0; list-style: none; }
       <a href="#outcomes" class="nav__link">Outcomes</a>
       <a href="#about" class="nav__link">About</a>
       <a href="#pricing" class="nav__link">Pricing</a>
-      <a href="#next" class="nav__link">Next</a>
     </div>
     <button class="nav__toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1371,7 +1410,6 @@ ul { margin: 0; padding: 0; list-style: none; }
     <a href="#outcomes" class="nav__link">Outcomes</a>
     <a href="#about" class="nav__link">About</a>
     <a href="#pricing" class="nav__link">Pricing</a>
-    <a href="#next" class="nav__link">Next</a>
   </div>
 </nav>
 
@@ -1449,18 +1487,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">02 · The bigger picture</span>
-      <h2 class="h2 reveal" data-delay="1">We manage your digital funnel.</h2>
+      <h2 class="h2 reveal" data-delay="1">Discovery and conversion, owned as one system.</h2>
     </div>
 
     <div class="bigger-layout reveal" data-delay="1">
       <p class="bigger-layout__intro muted-light">
-        Revenue Engineering is what Irvale specialises in: making your studio discoverable across every channel that matters, then making sure your funnel catches that traffic and turns it into paying, repeat customers. Discovery and conversion, owned end-to-end as one system.
+        Revenue Engineering is what Irvale specialises in: making your studio discoverable across every channel that matters, then making sure your funnel catches that traffic and turns it into paying, repeat customers.
       </p>
 
       <div class="bigger-layout__stage">
         <div class="phase-card">
           <span class="phase-card__label">Phase 01</span>
-          <h3 class="phase-card__title">Foundation</h3>
+          <h3 class="phase-card__title">Setup</h3>
           <p class="phase-card__text">Setup and preparation.</p>
           <span class="phase-card__hint">Once live →</span>
         </div>
@@ -1498,19 +1536,19 @@ ul { margin: 0; padding: 0; list-style: none; }
             </div>
 
             <button class="flywheel__node flywheel__node--n" type="button" role="tab" aria-selected="true" data-stage="attract">
-              <span class="flywheel__node-num">01</span>
+              <span class="flywheel__node-num">02</span>
               <span class="flywheel__node-name">Attract</span>
             </button>
             <button class="flywheel__node flywheel__node--e" type="button" role="tab" aria-selected="false" data-stage="convert">
-              <span class="flywheel__node-num">02</span>
+              <span class="flywheel__node-num">03</span>
               <span class="flywheel__node-name">Convert</span>
             </button>
             <button class="flywheel__node flywheel__node--s" type="button" role="tab" aria-selected="false" data-stage="retain">
-              <span class="flywheel__node-num">03</span>
+              <span class="flywheel__node-num">04</span>
               <span class="flywheel__node-name">Retain</span>
             </button>
             <button class="flywheel__node flywheel__node--w" type="button" role="tab" aria-selected="false" data-stage="amplify">
-              <span class="flywheel__node-num">04</span>
+              <span class="flywheel__node-num">05</span>
               <span class="flywheel__node-name">Amplify</span>
             </button>
           </div>
@@ -1518,22 +1556,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 
       <div class="flywheel__detail">
         <div class="flywheel__detail-panel is-active" data-stage="attract">
-          <span class="flywheel__detail-num">01 · Attract</span>
+          <span class="flywheel__detail-num">02 · Attract</span>
           <h4 class="flywheel__detail-title">Get found across every channel that matters.</h4>
           <p>Multilingual SEO, AEO/GEO for AI search, Google Business Profile, Naver, Xiaohongshu, programmatic content. Every channel where your customers research wellness in Thailand. Your studio shows up first.</p>
         </div>
         <div class="flywheel__detail-panel" data-stage="convert">
-          <span class="flywheel__detail-num">02 · Convert</span>
+          <span class="flywheel__detail-num">03 · Convert</span>
           <h4 class="flywheel__detail-title">Capture every visitor into a booking.</h4>
           <p>A funnel built around Zatrovo: fast multilingual website, frictionless booking flow, deposits, automated reminders, no-show protection. Traffic that other studios leak to GoWabi or Klook lands directly in your calendar, commission-free.</p>
         </div>
         <div class="flywheel__detail-panel" data-stage="retain">
-          <span class="flywheel__detail-num">03 · Retain</span>
+          <span class="flywheel__detail-num">04 · Retain</span>
           <h4 class="flywheel__detail-title">Turn one-off bookings into repeat revenue.</h4>
           <p>Customer database, post-visit email and message automations, packages, gift vouchers, loyalty mechanics. Every booking feeds a profile that keeps customers coming back. No need to re-acquire them through a third-party platform.</p>
         </div>
         <div class="flywheel__detail-panel" data-stage="amplify">
-          <span class="flywheel__detail-num">04 · Amplify</span>
+          <span class="flywheel__detail-num">05 · Amplify</span>
           <h4 class="flywheel__detail-title">Reviews and referrals feed the next cycle.</h4>
           <p>Automated review requests post-visit, multi-platform monitoring, AI-assisted responses. Happy customers leave reviews and bring friends, boosting rankings, social proof, and discovery. The wheel turns again, faster.</p>
         </div>
@@ -1548,13 +1586,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">03 · What's included</span>
-      <h2 class="h2 reveal" data-delay="1">One package. One monthly price.</h2>
+      <h2 class="h2 reveal" data-delay="1">One package. Everything Irvale delivers.</h2>
       <p class="lead reveal muted-dark" data-delay="2">
-        Everything Irvale delivers, bundled into a single engagement at <strong>25,000 THB / mo</strong>. Tap any item to expand. Partner-studio services available as an optional add-on (4.7, 4.8) when you're ready.
+        Tap any item to expand. Partner-studio services available as an optional add-on (4.7, 4.8) when you're ready. Pricing in section 07.
       </p>
-      <div class="bundle-savings reveal" data-delay="3">
-        <span>Irvale package</span> <strong>25,000 THB / mo</strong> <span>·</span> <span>Optional partner add-on</span> <strong>15,000-40,000 THB / mo</strong>
-      </div>
     </div>
 
     <div class="accordion" id="accordion">
@@ -1928,19 +1963,74 @@ ul { margin: 0; padding: 0; list-style: none; }
         <p class="brief-col-title" style="border-color: var(--border-dark); color: var(--color-gold);">Recent &amp; ongoing work</p>
         <div class="work-cards">
           <div class="work-card">
-            <p class="work-card__label">Active partnership</p>
+            <p class="work-card__label">Active partnership · Chiang Mai</p>
             <h3 class="work-card__title">BOXX Muay Thai</h3>
-            <p class="work-card__desc">Chiang Mai. Full digital partnership including a custom mobile app booking experience, web rebuild, and ongoing growth.</p>
+            <p class="work-card__desc">Full Revenue Engineering partnership for a high-volume Muay Thai gym. Website rebuild, custom mobile app booking, programmatic SEO, GBP optimisation, and ongoing growth.</p>
+            <ul class="work-card__services">
+              <li>Website rebuild</li>
+              <li>Custom mobile app</li>
+              <li>Zatrovo booking</li>
+              <li>Programmatic SEO</li>
+              <li>GBP optimisation</li>
+              <li>Review automation</li>
+              <li>Multilingual content</li>
+            </ul>
+            <div class="work-card__stats">
+              <div>
+                <span class="work-card__stat-num">[STAT]</span>
+                <span class="work-card__stat-label">Direct bookings / mo</span>
+              </div>
+              <div>
+                <span class="work-card__stat-num">[STAT]</span>
+                <span class="work-card__stat-label">GBP views uplift</span>
+              </div>
+            </div>
           </div>
           <div class="work-card">
-            <p class="work-card__label">Case study</p>
+            <p class="work-card__label">Case study · Chiang Mai</p>
             <h3 class="work-card__title">Chiang Mai Go Tours</h3>
-            <p class="work-card__desc">Tours operator. Multilingual web presence, Google Business Profile, and direct-booking funnel built to compete with Klook and Viator commissions.</p>
+            <p class="work-card__desc">Tours operator competing directly with Klook and Viator. We built a multilingual web presence and direct-booking funnel that bypasses third-party commissions.</p>
+            <ul class="work-card__services">
+              <li>Multilingual website</li>
+              <li>Zatrovo booking</li>
+              <li>Programmatic SEO</li>
+              <li>GBP optimisation</li>
+              <li>AEO/GEO foundations</li>
+              <li>Review automation</li>
+            </ul>
+            <div class="work-card__stats">
+              <div>
+                <span class="work-card__stat-num">[STAT]</span>
+                <span class="work-card__stat-label">Direct vs OTA bookings</span>
+              </div>
+              <div>
+                <span class="work-card__stat-num">[STAT]</span>
+                <span class="work-card__stat-label">Commission saved / mo</span>
+              </div>
+            </div>
           </div>
           <div class="work-card">
-            <p class="work-card__label">Case study</p>
+            <p class="work-card__label">Case study · Beauty studio</p>
             <h3 class="work-card__title">Reya Lashes</h3>
-            <p class="work-card__desc">Beauty studio. Booking system, review automation, and local SEO. Comparable service-business profile to Crystal Aura.</p>
+            <p class="work-card__desc">Comparable service-business profile to Crystal Aura. Booking system, review automation, and local SEO running as one integrated system.</p>
+            <ul class="work-card__services">
+              <li>Website rebuild</li>
+              <li>Zatrovo booking</li>
+              <li>Local SEO</li>
+              <li>GBP optimisation</li>
+              <li>Review automation</li>
+              <li>Customer retention flows</li>
+            </ul>
+            <div class="work-card__stats">
+              <div>
+                <span class="work-card__stat-num">[STAT]</span>
+                <span class="work-card__stat-label">Reviews / mo</span>
+              </div>
+              <div>
+                <span class="work-card__stat-num">[STAT]</span>
+                <span class="work-card__stat-label">Repeat-booking rate</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1967,7 +2057,6 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="tier__label">Irvale package</span>
           <h3 class="tier__name">Everything Irvale delivers, in one engagement.</h3>
                     <div class="tier__price-row">
-            <span class="tier__price-prefix">From</span>
             <span class="tier__price">25,000</span>
             <span class="tier__price-unit">THB / month</span>
           </div>
@@ -1978,12 +2067,12 @@ ul { margin: 0; padding: 0; list-style: none; }
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Google Business Profile optimisation &amp; multilingual posts</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Programmatic SEO across English, Chinese, Korean</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>AEO/GEO foundations &amp; AI search visibility tracking</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Naver Place &amp; Xiaohongshu profile setup &amp; optimisation</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated posting flows (incl. Naver Blog)</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Naver presence setup and optimisation</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated content posting flows</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated review &amp; reputation system</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Monthly performance reporting</span></li>
           </ul>
-          <a href="#next" class="btn-outline tier__cta"><span>Start with Irvale</span></a>
+          <a href="mailto:jake@irvale.com?subject=Re%3A%20Crystal%20Aura%20Revenue%20Engineering%20proposal" class="btn-outline tier__cta"><span>Start with Irvale</span></a>
         </div>
       </div>
 
@@ -2021,28 +2110,6 @@ ul { margin: 0; padding: 0; list-style: none; }
       <p style="margin-top: 12px;"><strong>Hosting &amp; maintenance.</strong> If you'd like us to keep your site online and maintained after the engagement ends, that runs <strong>899 THB / month</strong>. Otherwise you're free to host it anywhere you choose.</p>
       <p style="margin-top: 12px;"><strong>Zatrovo booking system.</strong> Continues at standard <a href="https://zatrovo.com/pricing" style="color: var(--color-gold-muted); border-bottom: 1px solid rgba(168,137,90,0.4);">Zatrovo subscription pricing</a>. Your customer data, bookings, and history remain intact and exportable.</p>
       <p class="exit-terms">Six-month minimum, then month-to-month with thirty-day notice. All website assets, content, profiles, and customer data remain yours.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── 9. Next steps ─── -->
-<section class="section section--dark" id="next">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow reveal">08 · Next steps</span>
-      <h2 class="h2 reveal" data-delay="1">Four steps from here to first booking on the new system.</h2>
-    </div>
-
-    <ol class="next-list reveal">
-      <li class="next-item">Review this proposal at your own pace.</li>
-      <li class="next-item">Book a 30-minute call to walk through any questions.</li>
-      <li class="next-item">If we proceed, we'll send a detailed scope of work and contract.</li>
-      <li class="next-item">Discovery phase begins within 7 days of signing.</li>
-    </ol>
-
-    <div class="next-cta-row reveal" data-delay="1">
-      <a href="[CALENDAR_LINK]" class="btn-primary"><span>Book a 30-minute call →</span></a>
-      <a href="mailto:jake@irvale.com?subject=Re%3A%20Revenue%20Engineering%20proposal" class="btn-outline"><span>Reply with questions</span></a>
     </div>
   </div>
 </section>
