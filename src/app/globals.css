@@ -82,6 +82,10 @@
 }
 
 /* Base styles */
+html, body {
+  overflow-x: clip;
+  max-width: 100vw;
+}
 body {
   font-family: var(--font-body), 'Helvetica Neue', sans-serif;
   color: var(--color-text-dark);
@@ -118,6 +122,20 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   width: max-content;
   animation: marquee var(--marquee-speed, 30s) linear infinite;
+}
+
+/* Flywheel rotation */
+@keyframes flywheel-spin {
+  to { transform: rotate(360deg); }
+}
+
+.flywheel-spin {
+  transform-origin: 50% 50%;
+  animation: flywheel-spin 90s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flywheel-spin { animation: none; }
 }
 
 /* Button styles */
