@@ -625,6 +625,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   aspect-ratio: 1 / 1;
   margin: 72px auto;
 }
+@media (max-width: 1099px) {
+  .flywheel__wheel {
+    width: min(300px, 76vw);
+    margin: 56px auto 48px;
+  }
+}
 .flywheel__svg {
   position: absolute;
   inset: 0;
@@ -720,6 +726,23 @@ ul { margin: 0; padding: 0; list-style: none; }
 .flywheel__node--e { left: 100%; top: 50%;  transform: translate(-50%, -50%); }
 .flywheel__node--s { left: 50%;  top: 100%; transform: translate(-50%, -50%); }
 .flywheel__node--w { left: 0;    top: 50%;  transform: translate(-50%, -50%); }
+
+/* mobile: shrink nodes + remap so Attract sits at top (down-arrow target from Phase 01 above) */
+@media (max-width: 1099px) {
+  .flywheel__node {
+    width: 80px;
+    height: 80px;
+    gap: 2px;
+  }
+  .flywheel__node-num { font-size: 17px; }
+  .flywheel__node-name { font-size: 13px; }
+
+  /* Attract (data-stage="attract") is on .flywheel__node--w in markup; remap to N on mobile */
+  .flywheel__node--w { left: 50%;  top: 0;    transform: translate(-50%, -50%); }
+  .flywheel__node--n { left: 100%; top: 50%;  transform: translate(-50%, -50%); }
+  .flywheel__node--e { left: 50%;  top: 100%; transform: translate(-50%, -50%); }
+  .flywheel__node--s { left: 0;    top: 50%;  transform: translate(-50%, -50%); }
+}
 
 .flywheel__detail {
   width: 100%;
@@ -1589,7 +1612,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="eyebrow reveal">03 · What's included</span>
       <h2 class="h2 reveal" data-delay="1">One package. Everything Irvale delivers.</h2>
       <p class="lead reveal muted-dark" data-delay="2">
-        Tap any item to expand. Partner-studio services available as an optional add-on (3.7, 3.8) when you're ready. Pricing in section 07.
+        Tap any item to expand. Partner-studio services available as an optional add-on (3.8, 3.9) when you're ready. Pricing in section 07.
       </p>
     </div>
 
@@ -1604,8 +1627,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">3.1 · Foundation</span>
             <span class="accordion__title">Website rebuild &amp; Zatrovo booking system</span>
-            <span class="accordion__value">Included in package</span>
-          </span>
+                      </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
@@ -1631,8 +1653,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">3.2 · Discovery</span>
             <span class="accordion__title">Programmatic SEO &amp; content production</span>
-            <span class="accordion__value">Included in package</span>
-          </span>
+                      </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
@@ -1658,8 +1679,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">3.3 · Emerging</span>
             <span class="accordion__title">AI Search Optimisation (GEO &amp; AEO)</span>
-            <span class="accordion__value">Included in package</span>
-          </span>
+                      </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
@@ -1668,7 +1688,7 @@ ul { margin: 0; padding: 0; list-style: none; }
               <p>When a tourist asks ChatGPT "best Thai massage in [your city]", we want your name in the answer. Generative Engine Optimisation (GEO) and Answer Engine Optimisation (AEO) are how that happens.</p>
               <ul>
                 <li>Schema markup, structured content, and authoritative source placement so LLMs can quote you.</li>
-                <li>Monthly tracking of how your studio appears in AI search responses across ChatGPT, Perplexity, Claude, and Gemini, using a fixed prompt set tested manually each month, with results logged and trended over time.</li>
+                <li>Tracking of how your studio appears in AI search responses across ChatGPT, Perplexity, Claude, and Gemini, using a fixed prompt set with results logged and trended over time.</li>
                 <li>Reporting on visibility and share-of-voice inside AI answers.</li>
               </ul>
               <p class="honest-note">This is an emerging field. Most agencies don't yet offer it, and the playbook is still being written. What we can promise is that we're investing real engineering hours in it, and visibility inside AI search is becoming material to consumer behaviour faster than most operators realise.</p>
@@ -1690,8 +1710,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">3.4 · Korean market</span>
             <span class="accordion__title">Naver presence &amp; optimisation</span>
-            <span class="accordion__value">Included in package</span>
-          </span>
+                      </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
@@ -1723,8 +1742,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">3.5 · Local discovery</span>
             <span class="accordion__title">Google Business Profile &amp; local SEO</span>
-            <span class="accordion__value">Included in package</span>
-          </span>
+                      </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
@@ -1733,7 +1751,7 @@ ul { margin: 0; padding: 0; list-style: none; }
               <p>For service businesses, Google Business Profile is often the single highest-ROI digital channel. Most studios under-utilise it dramatically.</p>
               <ul>
                 <li>Full optimisation: photos, services, attributes, Q&amp;A, and posts.</li>
-                <li>Multilingual GBP posts (English, Chinese, Korean) 2-3 times per week.</li>
+                <li>Multilingual GBP posts in English, Chinese, and Korean.</li>
                 <li>Service and treatment listings synced with your booking system.</li>
                 <li>Performance tracking on impressions, calls, direction requests, and bookings.</li>
               </ul>
@@ -1751,8 +1769,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="accordion__title-wrap">
             <span class="accordion__num">3.6 · Reputation</span>
             <span class="accordion__title">Review &amp; reputation systems</span>
-            <span class="accordion__value">Included in package</span>
-          </span>
+                      </span>
           <span class="accordion__plus" aria-hidden="true">+</span>
         </button>
         <div class="accordion__panel">
@@ -1763,7 +1780,35 @@ ul { margin: 0; padding: 0; list-style: none; }
                 <li>Automated review request flows post-booking, built into Zatrovo.</li>
                 <li>Multi-platform monitoring across Google, Facebook, TripAdvisor, Naver, and Xiaohongshu.</li>
                 <li>AI-assisted response drafting in the appropriate language, with human approval before publish.</li>
-                <li>Monthly reporting on review velocity, sentiment trends, and platform balance.</li>
+                <li>Reporting on review velocity, sentiment trends, and platform balance.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.7 -->
+      <div class="accordion__item">
+        <button class="accordion__header" aria-expanded="false">
+          <span class="accordion__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 3 5-7"/></svg>
+          </span>
+          <span class="accordion__title-wrap">
+            <span class="accordion__num">3.7 · Measurement</span>
+            <span class="accordion__title">Analytics, GA4 &amp; insights</span>
+                      </span>
+          <span class="accordion__plus" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__panel-inner">
+            <div class="accordion__body">
+              <p>You can't compound what you can't measure. Every channel we build feeds back into a single tracking layer so you see exactly what's driving bookings.</p>
+              <ul>
+                <li>GA4 setup and configuration on the new website, with conversion events wired to Zatrovo bookings.</li>
+                <li>Google Search Console, Naver Webmaster Tools, and Bing Webmaster Tools connected and monitored.</li>
+                <li>UTM-tagged campaign tracking across every channel: organic, GBP, Naver, Xiaohongshu, paid.</li>
+                <li>Custom dashboard combining bookings, traffic sources, channel performance, review velocity, and AI-search visibility into one view.</li>
+                <li>Insights report flagging what's working, what isn't, and where to invest next.</li>
               </ul>
             </div>
           </div>
@@ -1772,7 +1817,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
       <div class="partner-divider reveal">
         <span class="partner-divider__label">Optional add-on · partner studio</span>
-        <p class="partner-divider__note">Below sits outside the Irvale package. Available when you want to layer in active social, video, KOC, and Meta ads, quoted separately based on scope. Typical range: 15,000-40,000 THB / mo.</p>
+        <p class="partner-divider__note">Below sits outside the Launch Package. Available when you want to layer in active social, video, KOC, and Meta ads. Scope-dependent, quoted separately.</p>
       </div>
 
       <!-- 4.7 — Partner studio (Xiaohongshu) -->
@@ -1782,7 +1827,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 21l1.7-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">3.7 · Partner studio · Chinese market</span>
+            <span class="accordion__num">3.8 · Partner studio · Chinese market</span>
             <span class="accordion__title">Xiaohongshu (RED) presence &amp; KOC partnerships</span>
             <span class="accordion__value">Optional add-on · partner studio</span>
           </span>
@@ -1811,7 +1856,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">3.8 · Partner studio · Social &amp; video</span>
+            <span class="accordion__num">3.9 · Partner studio · Social &amp; video</span>
             <span class="accordion__title">Social media management, video production &amp; Meta ads</span>
             <span class="accordion__value">Optional add-on · partner studio</span>
           </span>
@@ -1884,9 +1929,9 @@ ul { margin: 0; padding: 0; list-style: none; }
           <h3 class="process-phase__title">Compounding</h3>
           <p class="process-phase__when">Week 4 onwards</p>
           <ul>
-            <li>Weekly content production across every channel.</li>
-            <li>Monthly performance reports.</li>
-            <li>Quarterly strategy review to recalibrate channel mix and budget.</li>
+            <li>Ongoing content production across every channel.</li>
+            <li>Performance reports on real numbers.</li>
+            <li>Strategy reviews to recalibrate channel mix and budget.</li>
           </ul>
         </div>
       </div>
@@ -1899,7 +1944,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow reveal">05 · What you can expect</span>
-      <h2 class="h2 reveal" data-delay="1">Calibrated expectations. Monthly reporting.</h2>
+      <h2 class="h2 reveal" data-delay="1">Calibrated expectations. Honest reporting.</h2>
     </div>
 
     <div class="outcomes">
@@ -2014,13 +2059,14 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div class="tier tier--featured reveal">
         <span class="tier__badge">✶ Your package ✶</span>
         <div class="tier__card">
-          <span class="tier__label">Irvale package</span>
+          <span class="tier__label">Launch Package</span>
           <h3 class="tier__name">Everything Irvale delivers, in one engagement.</h3>
                     <div class="tier__price-row">
-            <span class="tier__price">25,000</span>
+            <span class="tier__price-prefix">From</span>
+            <span class="tier__price">6,000</span>
             <span class="tier__price-unit">THB / month</span>
           </div>
-          <p class="tier__usd">~ $720 USD / month</p>
+          <p class="tier__usd">scope-dependent · final quote provided after discovery</p>
           <div class="tier__rule"></div>
           <ul class="tier__features">
             <li class="tier__feature tier__feature--strong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Website rebuild &amp; Zatrovo booking system</span></li>
@@ -2030,9 +2076,10 @@ ul { margin: 0; padding: 0; list-style: none; }
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Naver presence setup and optimisation</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated content posting flows</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated review &amp; reputation system</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Monthly performance reporting</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>GA4, search consoles &amp; insights dashboard</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Performance reporting</span></li>
           </ul>
-          <a href="mailto:jake@irvale.com?subject=Re%3A%20Crystal%20Aura%20Revenue%20Engineering%20proposal" class="btn-outline tier__cta"><span>Start with Irvale</span></a>
+          <a href="mailto:jake@irvale.com?subject=Re%3A%20Crystal%20Aura%20Revenue%20Engineering%20proposal" class="btn-outline tier__cta"><span>Start with Launch Package</span></a>
         </div>
       </div>
 
@@ -2042,11 +2089,10 @@ ul { margin: 0; padding: 0; list-style: none; }
           <span class="tier__label">Optional add-on</span>
           <h3 class="tier__name">Partner studio services</h3>
                     <div class="tier__price-row">
-            <span class="tier__price-prefix">Range</span>
-            <span class="tier__price">15,000-40,000</span>
-            <span class="tier__price-unit">THB / month</span>
+            <span class="tier__price-prefix">Pricing</span>
+            <span class="tier__price" style="font-size: clamp(22px, 2.4vw, 30px); font-style: italic; font-family: var(--font-display);">Scope-dependent</span>
           </div>
-          <p class="tier__usd">scope-dependent · quoted separately</p>
+          <p class="tier__usd">Quoted separately based on channels, cadence, and ad spend.</p>
           <div class="tier__rule"></div>
           <ul class="tier__features">
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Ongoing social management: Instagram, Facebook, TikTok, Naver Blog, Xiaohongshu</span></li>
