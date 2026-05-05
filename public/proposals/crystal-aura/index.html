@@ -811,15 +811,17 @@ ul { margin: 0; padding: 0; list-style: none; }
   align-items: stretch;
 }
 @media (min-width: 900px) {
-  .pricing-grid { grid-template-columns: 0.85fr 1fr 1fr; gap: 32px; }
+  .pricing-grid { grid-template-columns: 1.4fr 0.9fr; gap: 40px; }
 }
-.tier--lean .tier__card {
-  padding: 32px clamp(24px, 2.5vw, 32px);
-  background: rgba(255,255,255,0.7);
+.tier--addon .tier__card {
+  background: rgba(255,255,255,0.55);
+  border-style: dashed;
+  border-color: rgba(0,0,0,0.18);
 }
-.tier--lean .tier__name { font-size: clamp(24px, 2.4vw, 32px); }
-.tier--lean .tier__price { font-size: clamp(30px, 3.2vw, 44px); }
-.tier--lean .tier__lean-note {
+.tier--addon .tier__name { font-size: clamp(22px, 2.2vw, 28px); color: var(--color-text-muted-dark); }
+.tier--addon .tier__price { font-size: clamp(26px, 2.6vw, 36px); color: var(--color-text-muted-dark); }
+.tier--addon .tier__label { color: var(--color-text-muted-dark); }
+.tier--addon .tier__lean-note {
   font-size: var(--type-body-sm);
   font-style: italic;
   color: var(--color-text-muted-dark);
@@ -1610,38 +1612,13 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
 
     <div class="pricing-grid">
-      <!-- Lean Foundation -->
-      <div class="tier tier--lean reveal">
+      <!-- Irvale package — primary -->
+      <div class="tier tier--featured reveal">
+        <span class="tier__badge">✶ Your package ✶</span>
         <div class="tier__card">
-          <span class="tier__label">Tier Zero</span>
-          <h3 class="tier__name">Lean Foundation</h3>
-          <p class="tier__tagline">For studios primarily serving local and English-speaking markets, with international expansion deferred.</p>
-          <div class="tier__price-row">
-            <span class="tier__price-prefix">From</span>
-            <span class="tier__price">18,000</span>
-            <span class="tier__price-unit">THB / month</span>
-          </div>
-          <p class="tier__usd">~ $520 USD / month</p>
-          <div class="tier__rule"></div>
-          <ul class="tier__features">
-            <li class="tier__feature tier__feature--strong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Website rebuild &amp; Zatrovo booking system</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Programmatic SEO (English only)</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>AEO/GEO foundations &amp; AI search visibility tracking</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Google Business Profile optimisation &amp; posts</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated review &amp; reputation system</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Monthly performance reporting</span></li>
-          </ul>
-          <p class="tier__lean-note">Drops Naver and Xiaohongshu — these can be added later as a tier upgrade once foundations compound.</p>
-          <a href="#next" class="btn-outline tier__cta"><span>Start with Lean</span></a>
-        </div>
-      </div>
-
-      <!-- Foundation -->
-      <div class="tier reveal" data-delay="1">
-        <div class="tier__card">
-          <span class="tier__label">Tier One</span>
-          <h3 class="tier__name">Foundation</h3>
-          <p class="tier__tagline">Everything needed to own your funnel and establish presence in new markets.</p>
+          <span class="tier__label">Irvale package</span>
+          <h3 class="tier__name">Everything Irvale delivers, in one engagement.</h3>
+          <p class="tier__tagline">Website, booking, multilingual SEO, AI search, profiles, reviews — bundled. One team, one monthly fee.</p>
           <div class="tier__price-row">
             <span class="tier__price-prefix">From</span>
             <span class="tier__price">25,000</span>
@@ -1654,40 +1631,35 @@ ul { margin: 0; padding: 0; list-style: none; }
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Google Business Profile optimisation &amp; multilingual posts</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Programmatic SEO across English, Chinese, Korean</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>AEO/GEO foundations &amp; AI search visibility tracking</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Naver Place &amp; Xiaohongshu profile setup</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Naver Place &amp; Xiaohongshu profile setup &amp; optimisation</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated posting flows (incl. Naver Blog)</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Automated review &amp; reputation system</span></li>
             <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Monthly performance reporting</span></li>
-            <li class="tier__feature muted-dark" style="font-style: italic;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-text-muted-dark);"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg><span>Paid ads available as an add-on (pass-through cost + 20% management fee)</span></li>
           </ul>
-          <a href="#next" class="btn-outline tier__cta"><span>Start with Foundation</span></a>
+          <a href="#next" class="btn-outline tier__cta"><span>Start with Irvale</span></a>
         </div>
       </div>
 
-      <!-- Growth -->
-      <div class="tier tier--featured reveal" data-delay="2">
-        <span class="tier__badge">✶ Recommended ✶</span>
+      <!-- Optional partner add-on -->
+      <div class="tier tier--addon reveal" data-delay="1">
         <div class="tier__card">
-          <span class="tier__label">Tier Two</span>
-          <h3 class="tier__name">Growth</h3>
-          <p class="tier__tagline">Foundation, plus active KOC, video production, and Meta ads via partner studio.</p>
+          <span class="tier__label">Optional add-on</span>
+          <h3 class="tier__name">Partner studio services</h3>
+          <p class="tier__tagline">Active social, video, KOC, and Meta ads run end-to-end by our partner content studio. Layer in when you're ready — quoted separately.</p>
           <div class="tier__price-row">
-            <span class="tier__price-prefix">From</span>
-            <span class="tier__price">40,000</span>
+            <span class="tier__price-prefix">Range</span>
+            <span class="tier__price">15,000–40,000</span>
             <span class="tier__price-unit">THB / month</span>
           </div>
-          <p class="tier__usd">~ $1,150 USD / month</p>
+          <p class="tier__usd">scope-dependent · quoted separately</p>
           <div class="tier__rule"></div>
           <ul class="tier__features">
-            <li class="tier__feature tier__feature--strong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Everything in Foundation</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Higher content volume across every channel</span></li>
-            <li class="tier__feature tier__feature--strong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Full social media management across Instagram, Facebook, TikTok, Naver Blog, and Xiaohongshu via partner studio</span></li>
-            <li class="tier__feature tier__feature--strong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Active KOC partnerships included — typically 2–4 per month, ad spend separate, all outreach and content briefs managed end-to-end</span></li>
-            <li class="tier__feature tier__feature--strong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>1–2 short-form video pieces / month via partner studio</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Meta ad campaigns managed via partner studio (ad spend separate)</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Bi-weekly check-ins instead of monthly</span></li>
-            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Priority response on operational requests</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Ongoing social management — Instagram, Facebook, TikTok, Naver Blog, Xiaohongshu</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Active KOC partnerships — outreach, briefs, content management</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Short-form video for Reels, TikTok, Xiaohongshu</span></li>
+            <li class="tier__feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Meta ad campaigns (ad spend separate)</span></li>
           </ul>
-          <a href="#next" class="btn-outline tier__cta"><span>Start with Growth</span></a>
+          <p class="tier__lean-note">Single point of contact through Irvale. Add later — not required to start.</p>
         </div>
       </div>
     </div>
