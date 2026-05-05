@@ -1045,16 +1045,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ─── About + work cards ─── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(40px, 5vw, 72px);
-  align-items: flex-start;
-}
-@media (min-width: 900px) {
-  .about-grid { grid-template-columns: 1.2fr 1fr; }
-}
-.about-bio p { font-size: var(--type-body); line-height: 1.75; color: var(--color-text-muted-light); margin-bottom: 20px; max-width: 560px; }
+.about-bio { max-width: 720px; }
+.about-bio p { font-size: var(--type-body); line-height: 1.75; color: var(--color-text-muted-light); margin-bottom: 20px; max-width: 640px; }
 .about-bio .lead { color: var(--color-text-light); opacity: 1; margin-bottom: 28px; }
 .about-bio .signature {
   font-family: var(--font-display);
@@ -1063,7 +1055,27 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--color-gold);
   margin-top: 8px;
 }
-.work-cards { display: grid; gap: 16px; }
+.recent-work {
+  margin-top: clamp(56px, 7vw, 88px);
+  padding-top: 40px;
+  border-top: 1px solid var(--border-dark);
+}
+.recent-work__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 500;
+  margin-bottom: 28px;
+  display: block;
+}
+.work-cards { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 760px) {
+  .work-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1080px) {
+  .work-cards { grid-template-columns: repeat(3, 1fr); }
+}
 .work-card {
   border: 1px solid var(--border-dark);
   background: var(--color-dark-2);
@@ -1088,46 +1100,35 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--color-text-light);
   margin-bottom: 6px;
 }
-.work-card__desc { font-size: var(--type-body-sm); color: var(--color-text-muted-light); line-height: 1.6; margin-bottom: 14px; }
+.work-card__desc { font-size: var(--type-body-sm); color: var(--color-text-muted-light); line-height: 1.65; margin-bottom: 18px; }
+.work-card__status {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid rgba(201,169,110,0.4);
+  padding: 3px 8px;
+  margin-bottom: 14px;
+  border-radius: 2px;
+}
+.work-card__status--wip { color: #d1a05c; border-color: rgba(209,160,92,0.5); }
 .work-card__services {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0 0 14px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .work-card__services li {
   font-size: 10px;
   letter-spacing: 0.06em;
-  padding: 4px 9px;
+  padding: 5px 10px;
   border: 1px solid rgba(201,169,110,0.22);
   background: rgba(201,169,110,0.04);
   color: var(--color-text-muted-light);
   border-radius: 999px;
-}
-.work-card__stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 14px 0 0;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.work-card__stat-num {
-  font-family: var(--font-display);
-  font-size: 20px;
-  color: var(--color-gold);
-  line-height: 1;
-  display: block;
-}
-.work-card__stat-label {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-muted-light);
-  margin-top: 4px;
-  display: block;
 }
 
 /* ─── Pricing ─── */
@@ -1492,7 +1493,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
     <div class="bigger-layout reveal" data-delay="1">
       <p class="bigger-layout__intro muted-light">
-        Revenue Engineering is what Irvale specialises in: making your studio discoverable across every channel that matters, then making sure your funnel catches that traffic and turns it into paying, repeat customers.
+        Revenue Engineering is what Irvale specialises in: making your studio discoverable across every channel that matters, then making sure your funnel catches that traffic and turns it into paying, repeat customers. Discovery and conversion, owned end-to-end as one system.
       </p>
 
       <div class="bigger-layout__stage">
@@ -1535,19 +1536,19 @@ ul { margin: 0; padding: 0; list-style: none; }
               <span class="flywheel__core-meta">Each turn fuels the next</span>
             </div>
 
-            <button class="flywheel__node flywheel__node--n" type="button" role="tab" aria-selected="true" data-stage="attract">
+            <button class="flywheel__node flywheel__node--w" type="button" role="tab" aria-selected="true" data-stage="attract">
               <span class="flywheel__node-num">02</span>
               <span class="flywheel__node-name">Attract</span>
             </button>
-            <button class="flywheel__node flywheel__node--e" type="button" role="tab" aria-selected="false" data-stage="convert">
+            <button class="flywheel__node flywheel__node--n" type="button" role="tab" aria-selected="false" data-stage="convert">
               <span class="flywheel__node-num">03</span>
               <span class="flywheel__node-name">Convert</span>
             </button>
-            <button class="flywheel__node flywheel__node--s" type="button" role="tab" aria-selected="false" data-stage="retain">
+            <button class="flywheel__node flywheel__node--e" type="button" role="tab" aria-selected="false" data-stage="retain">
               <span class="flywheel__node-num">04</span>
               <span class="flywheel__node-name">Retain</span>
             </button>
-            <button class="flywheel__node flywheel__node--w" type="button" role="tab" aria-selected="false" data-stage="amplify">
+            <button class="flywheel__node flywheel__node--s" type="button" role="tab" aria-selected="false" data-stage="amplify">
               <span class="flywheel__node-num">05</span>
               <span class="flywheel__node-name">Amplify</span>
             </button>
@@ -1588,7 +1589,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="eyebrow reveal">03 · What's included</span>
       <h2 class="h2 reveal" data-delay="1">One package. Everything Irvale delivers.</h2>
       <p class="lead reveal muted-dark" data-delay="2">
-        Tap any item to expand. Partner-studio services available as an optional add-on (4.7, 4.8) when you're ready. Pricing in section 07.
+        Tap any item to expand. Partner-studio services available as an optional add-on (3.7, 3.8) when you're ready. Pricing in section 07.
       </p>
     </div>
 
@@ -1601,7 +1602,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.1 · Foundation</span>
+            <span class="accordion__num">3.1 · Foundation</span>
             <span class="accordion__title">Website rebuild &amp; Zatrovo booking system</span>
             <span class="accordion__value">Included in package</span>
           </span>
@@ -1632,7 +1633,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 19h16M4 19V8M20 19V8M4 8l8-5 8 5M9 13h6M9 16h6"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.2 · Discovery</span>
+            <span class="accordion__num">3.2 · Discovery</span>
             <span class="accordion__title">Programmatic SEO &amp; content production</span>
             <span class="accordion__value">Included in package</span>
           </span>
@@ -1663,7 +1664,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.3 · Emerging</span>
+            <span class="accordion__num">3.3 · Emerging</span>
             <span class="accordion__title">AI Search Optimisation (GEO &amp; AEO)</span>
             <span class="accordion__value">Included in package</span>
           </span>
@@ -1695,7 +1696,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.4 · Korean market</span>
+            <span class="accordion__num">3.4 · Korean market</span>
             <span class="accordion__title">Naver presence &amp; optimisation</span>
             <span class="accordion__value">Included in package</span>
           </span>
@@ -1728,7 +1729,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.5 · Local discovery</span>
+            <span class="accordion__num">3.5 · Local discovery</span>
             <span class="accordion__title">Google Business Profile &amp; local SEO</span>
             <span class="accordion__value">Included in package</span>
           </span>
@@ -1756,7 +1757,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.6 · Reputation</span>
+            <span class="accordion__num">3.6 · Reputation</span>
             <span class="accordion__title">Review &amp; reputation systems</span>
             <span class="accordion__value">Included in package</span>
           </span>
@@ -1789,7 +1790,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 21l1.7-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.7 · Partner studio · Chinese market</span>
+            <span class="accordion__num">3.7 · Partner studio · Chinese market</span>
             <span class="accordion__title">Xiaohongshu (RED) presence &amp; KOC partnerships</span>
             <span class="accordion__value">Optional add-on · partner studio</span>
           </span>
@@ -1818,7 +1819,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
           </span>
           <span class="accordion__title-wrap">
-            <span class="accordion__num">4.8 · Partner studio · Social &amp; video</span>
+            <span class="accordion__num">3.8 · Partner studio · Social &amp; video</span>
             <span class="accordion__title">Social media management, video production &amp; Meta ads</span>
             <span class="accordion__value">Optional add-on · partner studio</span>
           </span>
@@ -1942,96 +1943,67 @@ ul { margin: 0; padding: 0; list-style: none; }
       <h2 class="h2 reveal" data-delay="1">A small studio, built for owner-operators who want a real partner.</h2>
     </div>
 
-    <div class="about-grid">
-      <div class="about-bio reveal">
-        <p class="lead">
-          I'm Jake, a UK national based in Chiang Mai, founder of Irvale Studio and Zatrovo. My background is product management; my craft is building things that move numbers.
-        </p>
-        <p>
-          I built Zatrovo, our SaaS booking platform, from scratch, and run programmatic content and AI search optimisation across both it and the Irvale website itself. Everything we propose for your studio, we already do for our own businesses, and for the clients we run it for today.
-        </p>
-        <p>
-          You'll have a single point of contact (me), and a team behind that, including a partner content studio for video, social management, and Meta ads.
-        </p>
-        <p style="font-style: italic; font-family: var(--font-display); color: var(--color-text-light); font-size: var(--type-body-lg); line-height: 1.5; max-width: 540px;">
-          Irvale is a young agency. Our edge: technical depth, AI-augmented workflows, and our own integrated infrastructure at pricing accessible to growing businesses.
-        </p>
-        <p class="signature">Jake</p>
-      </div>
+    <div class="about-bio reveal">
+      <p class="lead">
+        I'm Jake, a UK national based in Chiang Mai, founder of Irvale Studio and Zatrovo. My background is product management; my craft is building things that move numbers.
+      </p>
+      <p>
+        I built Zatrovo, our SaaS booking platform, from scratch, and run programmatic content and AI search optimisation across both it and the Irvale website itself. Everything we propose for your studio, we already do for our own businesses, and for the clients we run it for today.
+      </p>
+      <p>
+        You'll have a single point of contact (me), and a team behind that, including a partner content studio for video, social management, and Meta ads.
+      </p>
+      <p style="font-style: italic; font-family: var(--font-display); color: var(--color-text-light); font-size: var(--type-body-lg); line-height: 1.5; max-width: 540px;">
+        Irvale is a young agency. Our edge: technical depth, AI-augmented workflows, and our own integrated infrastructure at pricing accessible to growing businesses.
+      </p>
+      <p class="signature">Jake</p>
+    </div>
 
-      <div class="reveal" data-delay="1">
-        <p class="brief-col-title" style="border-color: var(--border-dark); color: var(--color-gold);">Recent &amp; ongoing work</p>
-        <div class="work-cards">
-          <div class="work-card">
-            <p class="work-card__label">Active partnership · Chiang Mai</p>
-            <h3 class="work-card__title">BOXX Muay Thai</h3>
-            <p class="work-card__desc">Full Revenue Engineering partnership for a high-volume Muay Thai gym. Website rebuild, custom mobile app booking, programmatic SEO, GBP optimisation, and ongoing growth.</p>
-            <ul class="work-card__services">
-              <li>Website rebuild</li>
-              <li>Custom mobile app</li>
-              <li>Zatrovo booking</li>
-              <li>Programmatic SEO</li>
-              <li>GBP optimisation</li>
-              <li>Review automation</li>
-              <li>Multilingual content</li>
-            </ul>
-            <div class="work-card__stats">
-              <div>
-                <span class="work-card__stat-num">[STAT]</span>
-                <span class="work-card__stat-label">Direct bookings / mo</span>
-              </div>
-              <div>
-                <span class="work-card__stat-num">[STAT]</span>
-                <span class="work-card__stat-label">GBP views uplift</span>
-              </div>
-            </div>
-          </div>
-          <div class="work-card">
-            <p class="work-card__label">Case study · Chiang Mai</p>
-            <h3 class="work-card__title">Chiang Mai Go Tours</h3>
-            <p class="work-card__desc">Tours operator competing directly with Klook and Viator. We built a multilingual web presence and direct-booking funnel that bypasses third-party commissions.</p>
-            <ul class="work-card__services">
-              <li>Multilingual website</li>
-              <li>Zatrovo booking</li>
-              <li>Programmatic SEO</li>
-              <li>GBP optimisation</li>
-              <li>AEO/GEO foundations</li>
-              <li>Review automation</li>
-            </ul>
-            <div class="work-card__stats">
-              <div>
-                <span class="work-card__stat-num">[STAT]</span>
-                <span class="work-card__stat-label">Direct vs OTA bookings</span>
-              </div>
-              <div>
-                <span class="work-card__stat-num">[STAT]</span>
-                <span class="work-card__stat-label">Commission saved / mo</span>
-              </div>
-            </div>
-          </div>
-          <div class="work-card">
-            <p class="work-card__label">Case study · Beauty studio</p>
-            <h3 class="work-card__title">Reya Lashes</h3>
-            <p class="work-card__desc">Comparable service-business profile to Crystal Aura. Booking system, review automation, and local SEO running as one integrated system.</p>
-            <ul class="work-card__services">
-              <li>Website rebuild</li>
-              <li>Zatrovo booking</li>
-              <li>Local SEO</li>
-              <li>GBP optimisation</li>
-              <li>Review automation</li>
-              <li>Customer retention flows</li>
-            </ul>
-            <div class="work-card__stats">
-              <div>
-                <span class="work-card__stat-num">[STAT]</span>
-                <span class="work-card__stat-label">Reviews / mo</span>
-              </div>
-              <div>
-                <span class="work-card__stat-num">[STAT]</span>
-                <span class="work-card__stat-label">Repeat-booking rate</span>
-              </div>
-            </div>
-          </div>
+    <div class="recent-work reveal" data-delay="1">
+      <span class="recent-work__label">Recent &amp; ongoing work</span>
+      <div class="work-cards">
+        <div class="work-card">
+          <p class="work-card__label">Our own SaaS · Live</p>
+          <h3 class="work-card__title">Zatrovo</h3>
+          <p class="work-card__desc">Our own booking SaaS. Built from scratch. The full Revenue Engineering playbook applied to ourselves: 300+ programmatic blog pages, multi-language, multi-service, optimised for AI search. Every approach we propose for Crystal Aura is already running here.</p>
+          <ul class="work-card__services">
+            <li>Website build</li>
+            <li>Programmatic SEO</li>
+            <li>300+ blog pages</li>
+            <li>Multi-language content</li>
+            <li>Multi-service architecture</li>
+            <li>AEO/GEO foundations</li>
+            <li>AI search optimisation</li>
+          </ul>
+        </div>
+        <div class="work-card">
+          <p class="work-card__label">Active partnership · Chiang Mai</p>
+          <h3 class="work-card__title">BOXX Muay Thai</h3>
+          <p class="work-card__desc">High-volume Muay Thai gym. Website rebuild, Zatrovo booking integration, and ongoing social media management with paid video ads driving customer acquisition.</p>
+          <ul class="work-card__services">
+            <li>Website rebuild</li>
+            <li>Zatrovo booking</li>
+            <li>Social media management</li>
+            <li>Video ad campaigns</li>
+            <li>Review automation</li>
+            <li>Multilingual content</li>
+          </ul>
+        </div>
+        <div class="work-card">
+          <p class="work-card__label">Case study · Beauty studio</p>
+          <h3 class="work-card__title">Reya Lashes</h3>
+          <span class="work-card__status work-card__status--wip">In progress</span>
+          <p class="work-card__desc">Just starting. Closest profile to Crystal Aura: same scope, same playbook. Same Revenue Engineering services Crystal Aura is considering, being deployed right now.</p>
+          <ul class="work-card__services">
+            <li>Website rebuild</li>
+            <li>Zatrovo booking</li>
+            <li>Programmatic SEO</li>
+            <li>Multilingual content</li>
+            <li>GBP optimisation</li>
+            <li>AEO/GEO foundations</li>
+            <li>Review automation</li>
+            <li>Naver presence</li>
+          </ul>
         </div>
       </div>
     </div>
