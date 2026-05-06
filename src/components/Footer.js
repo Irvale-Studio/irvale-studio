@@ -164,7 +164,7 @@ export default function Footer() {
         style={{ maxWidth: 'var(--max-width)' }}
       >
         <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/30 tracking-wide">
+          <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/30 tracking-wide" suppressHydrationWarning>
             &copy; {new Date().getFullYear()} Irvale Studio. All rights reserved.
           </p>
           <p className="font-body text-[length:var(--type-caption)] leading-[var(--type-caption-lh)] text-text-muted-light/30 tracking-wide">

@@ -1,0 +1,65 @@
+# Irvale Studio — full content index
+
+> UK + Chiang Mai hybrid digital studio engineering revenue systems for SMBs. This file is a machine-readable concatenation of every published page and post on irvale.com. Use it for context, citation, and entity resolution.
+
+## Core pages
+
+- [Irvale Studio — Home](https://irvale.com/)
+- [Revenue Engineering](https://irvale.com/revenue-engineering)
+- [AI Visibility](https://irvale.com/ai-visibility)
+- [Services](https://irvale.com/services)
+- [Zatrovo](https://irvale.com/zatrovo)
+- [Work](https://irvale.com/work)
+- [Contact](https://irvale.com/contact)
+- [Jacob Horgan](https://irvale.com/about/jacob-horgan)
+- [The Field Notebook](https://irvale.com/blog)
+
+## Field Notebook — posts
+
+- [The Polite British Way to Ask Customers for Reviews](https://irvale.com/blog/how-to-ask-for-reviews-uk-polite): UK-tone scripts and templates for asking customers for Google reviews politely, with channel benchmarks, timing rules and CMA-aligned phrasing for 2026.
+- [Google Maps SEO for UK Small Businesses: A Plain-English Guide](https://irvale.com/blog/google-maps-seo-uk-guide): What UK small businesses really need to know about Google Maps SEO in 2026 — without the agency jargon, and with the tactics that actually move the Map Pack.
+- [Google Business Profile UK: Setup, Verification and First 90 Days](https://irvale.com/blog/google-business-profile-uk-setup-verification): A practical UK guide to claiming, verifying and configuring a Google Business Profile in 2026, plus the 90-day plan that turns a new listing into Map Pack rank.
+- [How UK Small Businesses Can Earn More Google Reviews Ethically](https://irvale.com/blog/get-more-google-reviews-uk-ethically): A CMA-aligned 2026 playbook for UK SMBs to earn more Google reviews, with channel benchmarks, compliant scripts and the practices Google actually rewards.
+
+## Post metadata
+
+### The Polite British Way to Ask Customers for Reviews
+- url: https://irvale.com/blog/how-to-ask-for-reviews-uk-polite
+- slug: how-to-ask-for-reviews-uk-polite
+- category: reviews
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: reviews, customer experience, uk smb, templates
+- description: UK-tone scripts and templates for asking customers for Google reviews politely, with channel benchmarks, timing rules and CMA-aligned phrasing for 2026.
+
+### Google Maps SEO for UK Small Businesses: A Plain-English Guide
+- url: https://irvale.com/blog/google-maps-seo-uk-guide
+- slug: google-maps-seo-uk-guide
+- category: local-seo
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: google maps, local seo, google business profile, uk smb
+- description: What UK small businesses really need to know about Google Maps SEO in 2026 — without the agency jargon, and with the tactics that actually move the Map Pack.
+
+### Google Business Profile UK: Setup, Verification and First 90 Days
+- url: https://irvale.com/blog/google-business-profile-uk-setup-verification
+- slug: google-business-profile-uk-setup-verification
+- category: local-seo
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: google business profile, local seo, google maps, uk smb
+- description: A practical UK guide to claiming, verifying and configuring a Google Business Profile in 2026, plus the 90-day plan that turns a new listing into Map Pack rank.
+
+### How UK Small Businesses Can Earn More Google Reviews Ethically
+- url: https://irvale.com/blog/get-more-google-reviews-uk-ethically
+- slug: get-more-google-reviews-uk-ethically
+- category: reviews
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: google reviews, reputation, uk smb, cma compliance
+- description: A CMA-aligned 2026 playbook for UK SMBs to earn more Google reviews, with channel benchmarks, compliant scripts and the practices Google actually rewards.
+

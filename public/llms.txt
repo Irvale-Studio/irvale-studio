@@ -1,0 +1,31 @@
+# Irvale Studio
+
+> UK + Chiang Mai hybrid digital studio engineering revenue systems for SMBs — websites, AI visibility, conversion, reviews, paid media, and APAC market entry. Founded by Jacob Horgan. USD pricing globally.
+
+## Core pages
+
+- [Home](https://irvale.com/): Studio overview, capability map, current work.
+- [Revenue Engineering](https://irvale.com/revenue-engineering): Flagship full-takeover engagement at $1,450 / $3,450 / $5,500 per month — website + Zatrovo bundled.
+- [AI Visibility](https://irvale.com/ai-visibility): Getting cited by ChatGPT, Claude, Perplexity, Gemini, Copilot — schema, llms.txt, citation engineering.
+- [Services](https://irvale.com/services): Hub of the 14 capability pillars (web, CRO, brand, local SEO, reviews, AI visibility, email/CRM, paid, content, analytics, bookings, APAC, ongoing care).
+- [Zatrovo](https://irvale.com/zatrovo): Booking + member CRM platform for studios software forgot.
+- [Work](https://irvale.com/work): Case studies.
+- [Contact](https://irvale.com/contact): Hello, briefs, partnerships.
+
+## Field Notebook (blog)
+
+- [Blog index](https://irvale.com/blog): Tactical, sourced writing for UK SMBs on local SEO, AI search, and conversion engineering.
+- [Google Maps SEO for UK Small Businesses](https://irvale.com/blog/google-maps-seo-uk-guide): Plain-English guide to Map Pack ranking in 2026.
+- [Google Business Profile UK: Setup, Verification and First 90 Days](https://irvale.com/blog/google-business-profile-uk-setup-verification): Practical claim/verify/configure guide plus 90-day plan.
+- [How UK Small Businesses Can Earn More Google Reviews Ethically](https://irvale.com/blog/get-more-google-reviews-uk-ethically): CMA-aligned review acquisition for UK SMBs.
+- [How to Ask UK Customers for Reviews Politely](https://irvale.com/blog/how-to-ask-for-reviews-uk-polite): Channel-by-channel scripts and reply rates.
+
+## Authors
+
+- [Jacob Horgan](https://irvale.com/about/jacob-horgan): Founder of Irvale Studio. Writes on revenue engineering, programmatic SEO, AI search visibility, CRO, and APAC market entry.
+
+## Optional
+
+- [llms-full.txt](https://irvale.com/llms-full.txt): Full machine-readable index of every published post and page.
+- [Sitemap](https://irvale.com/sitemap.xml): XML sitemap of the entire site.
+- [Robots](https://irvale.com/robots.txt): Crawler policy. Irvale opts in to AI training and retrieval crawls — citation is the goal.
