@@ -1,0 +1,24 @@
+{
+  "slug": "jacob-horgan",
+  "name": "Jacob Horgan",
+  "givenName": "Jacob",
+  "familyName": "Horgan",
+  "role": "Founder, Irvale Studio",
+  "bio": "Jacob founded Irvale Studio after a decade engineering revenue systems for hospitality, beauty, and trades businesses across the UK and APAC. He writes about AI-search visibility, conversion engineering, and the practical end of running a small studio. Based between London and Chiang Mai.",
+  "avatar": "/people/jacob-horgan.webp",
+  "sameAs": [
+    "https://www.linkedin.com/in/jacobhorgan",
+    "https://github.com/jakesjacob"
+  ],
+  "knowsAbout": [
+    "Revenue engineering",
+    "Programmatic SEO",
+    "AI search visibility",
+    "Generative engine optimisation",
+    "Conversion rate optimisation",
+    "UK SMB marketing",
+    "APAC market entry"
+  ],
+  "alumniOf": null,
+  "credentials": []
+}

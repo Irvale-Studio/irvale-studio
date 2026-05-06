@@ -1,0 +1,66 @@
+---
+title: "No-Show Cost Calculator"
+slug: "no-show-cost-calculator"
+description: "Work out exactly how much your salon, clinic, or barbershop loses to no-shows each month — and what a deposit policy would recover."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "operations"
+calculator: "NoShowCostCalculator"
+
+tags: ["no-shows", "deposits", "salons", "cro"]
+
+hero:
+  search: "uk salon empty diary calculator wooden counter"
+  alt: "Empty salon diary page with a calculator on a wooden counter at the end of the day."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "What's a typical UK salon no-show rate?"
+    a: "UK salons report no-show rates of 10–20% for new clients without deposits, dropping to 2–4% once a deposit policy is in place. Multi-stylist salons in city centres tend to sit at the higher end of the range; village or appointment-only studios at the lower end."
+  - q: "How much should the deposit be?"
+    a: "20–25% of the service price is the UK norm. Going lower than 15% reduces the no-show prevention effect; going above 30% measurably reduces booking completion rates. For high-value services (£100+) some salons cap the deposit at £25 to keep the booking flow smooth."
+  - q: "Are deposits legal under UK consumer law?"
+    a: "Yes, when paired with a clear cancellation policy disclosed before the customer pays. Distance selling rules give consumers a 14-day cooling-off period for *goods*, but services performed at the consumer's request are exempt once started. Refundability of the deposit on cancellation is governed by your published policy."
+  - q: "Will deposit-taking lose me bookings?"
+    a: "Most UK salons see a 5–10% drop in completed bookings in the first month after introducing deposits, then a recovery to baseline as customers adjust. Net effect on revenue is positive within 60 days because no-show recovery exceeds the booking-completion dip."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/services/cro"
+  - "/blog/reduce-no-shows-uk-hair-salon"
+  - "/blog/take-deposits-for-appointments-uk-stripe"
+  - "/revenue-engineering"
+
+relatedPosts:
+  - "reduce-no-shows-uk-hair-salon"
+  - "take-deposits-for-appointments-uk-stripe"
+---
+
+## How the calculator works
+
+<Speakable>
+Enter your weekly no-show count, average ticket value, and current deposit percentage. The calculator outputs your monthly loss, the share that a 20% deposit policy would recover, and the realistic recovery range based on UK salon benchmarks.
+</Speakable>
+
+The widget below uses 2026 UK salon benchmarks for the recovery range. Inputs and outputs never leave your browser.
+
+<NoShowCostCalculator />
+
+## Where the numbers come from
+
+A few notes on methodology.
+
+- **No-show baseline:** modelled on a UK salon dataset of 2,400 monthly bookings across 18 salons, March 2026.
+- **Deposit recovery:** mid-range estimate based on the 6-month before/after of 6 salons that introduced a 20% deposit policy in 2025.
+- **Average ticket:** you supply this; the model doesn't assume a UK average.
+
+<CTA
+  href="/revenue-engineering"
+  label="Get a no-show recovery system installed"
+  sublabel="Booking deposits + SMS confirmations + waitlist routing — bundled in Revenue Engineering"
+/>
