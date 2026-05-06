@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import Eyebrow from '@/components/ui/Eyebrow';
 import RevealText from '@/components/ui/RevealText';
@@ -10,13 +11,6 @@ export const metadata = {
   description:
     'Websites, booking software, SEO, AI search, automations, paid media, mobile apps, email marketing, analytics, brand, and infrastructure. The full capability stack for modern businesses.',
 };
-
-const stats = [
-  { value: '14', label: 'Capability Pillars' },
-  { value: '120+', label: 'Concrete Deliverables' },
-  { value: '8', label: 'Live Client Builds' },
-  { value: '13K+', label: 'End-Users Served' },
-];
 
 export default function ServicesPage() {
   return (
@@ -34,33 +28,19 @@ export default function ServicesPage() {
             as="h1"
             className="font-display font-normal text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[900px] mb-6"
           >
-            Software, automation and growth, under one roof.
+            Most businesses run fourteen vendors. We run all fourteen as one studio.
           </RevealText>
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-2xl mb-10">
-            Fourteen capability pillars. One studio. We build, ship and maintain the digital infrastructure modern businesses run on. Bespoke websites, booking software, AI search, paid media, mobile apps and the automations that hold it all together.
+            Websites, booking software, SEO, AI search, paid media, mobile apps, reviews, automations — every layer modern businesses depend on, owned end to end. Hire a single capability or hand us the whole funnel.
           </p>
-          <div className="flex flex-wrap gap-4 mb-12">
-            <Link href="/contact" className="btn-primary">
-              <span>Start a Project →</span>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/revenue-engineering" className="btn-primary">
+              <span>See Revenue Engineering →</span>
             </Link>
-            <Link href="/work" className="btn-outline">
-              <span>See Live Client Work →</span>
+            <Link href="/contact" className="btn-outline">
+              <span>Start a Single Project →</span>
             </Link>
           </div>
-
-          {/* Stats strip */}
-          <SectionReveal className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-[var(--border-dark)]">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p className="font-display text-[clamp(32px,4vw,56px)] text-gold leading-none mb-2">
-                  {s.value}
-                </p>
-                <p className="font-body text-xs text-text-muted-light uppercase tracking-[var(--type-label-ls)]">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </SectionReveal>
         </div>
       </section>
 
@@ -90,7 +70,10 @@ export default function ServicesPage() {
 
       {/* Capability pillars — alternating dark/cream rhythm */}
       {capabilities.map((c, i) => (
-        <CapabilityBlock key={c.slug} capability={c} index={i} />
+        <Fragment key={c.slug}>
+          <CapabilityBlock capability={c} index={i} />
+          {i === Math.floor(capabilities.length / 2) - 1 && <FlagshipBand />}
+        </Fragment>
       ))}
 
       {/* Tech & integration ecosystem */}
@@ -124,40 +107,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* How we work — 4 steps */}
-      <section className="bg-cream py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-6 block">How We Work</Eyebrow>
-          <RevealText
-            as="h2"
-            className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mb-16"
-          >
-            Discovery → Design → Build → Grow.
-          </RevealText>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-4 gap-[var(--grid-gap)]">
-            {[
-              { num: '01', name: 'Discovery', body: 'A 30-minute call. We dig into what you\'re building, what\'s blocking it, and what success looks like. Written proposal within 48 hours.' },
-              { num: '02', name: 'Design', body: 'Brand, structure and UX before a single line of code. You see real designs, not mockups dressed in placeholder text, before build starts.' },
-              { num: '03', name: 'Build', body: 'Engineering in tight, weekly cycles. Live previews from day one. You\'re never waiting until the end to see progress.' },
-              { num: '04', name: 'Grow', body: 'Launch is the start, not the finish. Hosting, monitoring, SEO, AI search, paid media and ongoing iteration, all under one retainer.' },
-            ].map((step) => (
-              <div key={step.num} className="bg-white border border-[var(--border-light)] p-7">
-                <span className="font-display text-gold text-2xl mb-4 block">{step.num}</span>
-                <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark mb-3">
-                  {step.name}
-                </h3>
-                <p className="font-body text-sm text-text-muted-dark font-light leading-relaxed">
-                  {step.body}
-                </p>
-              </div>
-            ))}
-          </SectionReveal>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="bg-dark py-[var(--section-gap)]">
         <div
@@ -179,6 +128,69 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Capability pillar pages — hub-and-spoke entry */}
+      <section className="bg-[var(--color-cream-2)] py-[var(--section-gap)] border-y border-[var(--border-light)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div className="max-w-2xl mb-12">
+            <Eyebrow className="mb-4 block">Capability pillars</Eyebrow>
+            <h2 className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)]">
+              Each capability also lives as its own page.
+            </h2>
+            <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light mt-4 max-w-2xl">
+              Deeper detail, FAQs, and field notes on each. Built for buyers researching a single discipline before they bundle.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { slug: 'local-seo', title: 'Local SEO + Google Maps' },
+              { slug: 'reviews', title: 'Reviews + Reputation' },
+              { slug: 'cro', title: 'Conversion Rate Optimisation' },
+              { slug: 'paid-media', title: 'Paid Media' },
+              { slug: 'email-crm', title: 'Email + CRM' },
+              { slug: 'web', title: 'Web Design + Build' },
+            ].map((p) => (
+              <Link
+                key={p.slug}
+                href={`/services/${p.slug}`}
+                className="group bg-white border border-[var(--border-light)] rounded-sm p-6 flex items-center justify-between hover:border-gold/40 transition-colors"
+              >
+                <span className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-dark">
+                  {p.title}
+                </span>
+                <span className="font-body text-sm text-gold-muted group-hover:text-gold transition-colors shrink-0 ml-4">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/ai-visibility"
+              className="font-body text-[length:var(--type-body-sm)] text-gold-muted hover:text-gold underline underline-offset-4 decoration-gold/40"
+            >
+              AI Visibility →
+            </Link>
+            <span className="text-text-muted-dark/40">·</span>
+            <Link
+              href="/local"
+              className="font-body text-[length:var(--type-body-sm)] text-gold-muted hover:text-gold underline underline-offset-4 decoration-gold/40"
+            >
+              Local SEO by city →
+            </Link>
+            <span className="text-text-muted-dark/40">·</span>
+            <Link
+              href="/for"
+              className="font-body text-[length:var(--type-body-sm)] text-gold-muted hover:text-gold underline underline-offset-4 decoration-gold/40"
+            >
+              Industry playbooks →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-cream py-[var(--section-gap)]">
         <div
@@ -189,14 +201,19 @@ export default function ServicesPage() {
             as="h2"
             className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[700px] mx-auto justify-center mb-6"
           >
-            One studio. Every capability you need.
+            Want all fourteen run as one system?
           </RevealText>
           <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light max-w-md mx-auto mb-8">
-            Tell us what you&apos;re building. We&apos;ll send a proposal within 48 hours.
+            Revenue Engineering bundles the full stack — website, booking, SEO, AI search, reviews — under one accountable team. Or hire a single pillar for a fixed scope.
           </p>
-          <Link href="/contact" className="btn-primary px-10">
-            <span>Start a Project →</span>
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/revenue-engineering" className="btn-primary px-10">
+              <span>See Revenue Engineering →</span>
+            </Link>
+            <Link href="/contact" className="btn-outline">
+              <span>Start a Single Project →</span>
+            </Link>
+          </div>
         </div>
       </section>
     </main>
@@ -253,17 +270,6 @@ function CapabilityBlock({ capability, index }) {
                 </Link>
               )}
 
-              <div className={`mt-8 pt-6 border-t ${isLight ? 'border-[var(--border-light)]' : 'border-white/10'}`}>
-                <p className={`font-body text-[11px] uppercase tracking-[0.18em] ${tagColor} mb-2`}>
-                  Bundled into the flagship
-                </p>
-                <Link
-                  href="/revenue-engineering"
-                  className="font-body text-sm text-gold hover:text-gold-light transition-colors"
-                >
-                  Available inside Revenue Engineering →
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -285,6 +291,33 @@ function CapabilityBlock({ capability, index }) {
             </SectionReveal>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function FlagshipBand() {
+  return (
+    <section className="relative bg-dark py-20 border-y border-gold/30 overflow-hidden">
+      <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,169,110,0.18),transparent_70%)]" />
+      <div
+        className="relative mx-auto px-[var(--gutter)] flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+        style={{ maxWidth: 'var(--max-width)' }}
+      >
+        <div className="max-w-2xl">
+          <p className="font-body text-[11px] uppercase tracking-[0.22em] text-gold mb-3">
+            The flagship engagement
+          </p>
+          <h2 className="font-display font-normal italic text-text-light text-[clamp(28px,3.2vw,42px)] leading-tight">
+            Want all fourteen run as one accountable system?
+          </h2>
+          <p className="font-body text-sm text-text-muted-light font-light mt-4 max-w-xl">
+            Revenue Engineering bundles the full funnel — site, booking, SEO, AI search, reviews, multilingual content — under one team. From $1,450/mo, three month minimum.
+          </p>
+        </div>
+        <Link href="/revenue-engineering" className="btn-primary shrink-0">
+          <span>See Revenue Engineering →</span>
+        </Link>
       </div>
     </section>
   );
