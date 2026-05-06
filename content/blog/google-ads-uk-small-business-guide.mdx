@@ -1,0 +1,318 @@
+---
+title: "The UK Small Business Guide to Google Ads in 2026"
+slug: "google-ads-uk-small-business-guide"
+description: "A practical 2026 Google Ads guide for UK small businesses, covering account structure, campaign types, tracking, GDPR, budgets and bidding strategies that work."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "paid-media"
+vertical: null
+tags: ["google ads", "paid media", "uk smb", "ppc", "performance max"]
+featured: false
+
+hero:
+  search: "uk laptop google ads dashboard small business"
+  alt: "UK small business owner reviewing a Google Ads dashboard on a laptop at a wooden desk in soft daylight."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "Should a UK small business use a single Google Ads account or an MCC?"
+    a: "Single accounts suit most UK SMBs running one brand from one or two locations. Open a Google Ads Manager (MCC) only when you operate multiple legal entities, run ads on behalf of clients, or need to consolidate billing across more than three sub-accounts. The common mistake is creating an MCC too early, which fragments conversion data and complicates Consent Mode v2 setup. If you are a sole owner with one website and one phone number, stay on a single account, lock down billing alerts at 80 per cent of monthly cap, and add a second user with admin rights so you are not the only person who can pause campaigns when the card declines."
+  - q: "What campaign types should a UK SMB run in 2026?"
+    a: "Start with a Search campaign on your three highest-intent service terms, then add Performance Max once you have at least 30 conversions in the prior 30 days for the bidder to learn from. Demand Gen suits visual brands and hospitality, not trades. Local Service Ads are eligible for plumbers, electricians, locksmiths, HVAC, garage door installers and a handful of other UK trades, and they sit above the Map Pack on mobile. Skip Display, Discovery and broad video for most SMB budgets under 1,500 pounds per month. The order matters: Search proves the offer converts, then Performance Max scales, then layer brand defence."
+  - q: "How does Consent Mode v2 affect Google Ads for UK businesses?"
+    a: "Consent Mode v2 is Google's compliance layer for UK and EEA traffic and it has been mandatory since March 2024. Without it your remarketing audiences shrink, conversion modelling breaks, and Performance Max degrades within weeks. The setup is two parts: a Google-certified consent banner (CookieYes, Cookiebot, Iubenda, Usercentrics) and a Google Tag or GTM container reading the consent signals. Test using the Tag Assistant Companion in Chrome, looking for ad_storage and ad_user_data flags. The ICO has been clear that consent must be active and granular, and reject-all needs to be as prominent as accept-all under PECR enforcement guidance."
+  - q: "What is the minimum monthly budget to run Google Ads profitably in the UK?"
+    a: "Honest answer: 500 pounds per month is the floor for any campaign with a chance of returning positive contribution, and only in low-CPC verticals like cafes, beauty, fitness or independent retail. Trades sit at 750 to 1,500 pounds per month minimum because cost-per-click is higher and conversion rates rely on phone calls. Solicitors, accountants and private healthcare typically need 2,000 pounds plus to outbid established firms. Below the floor, you cannot give Smart Bidding enough conversion data to learn from, and the account stays in a permanent under-performance loop. The fix is either to raise the budget, narrow the geography sharply, or move to Local Service Ads."
+  - q: "Do match types still matter in 2026 with Smart Bidding?"
+    a: "Yes, but less than they did in 2020. Broad match plus Maximise Conversions has become Google's preferred default and it works in higher-intent verticals once Smart Bidding has 30 conversions to learn from. Phrase match remains the safer middle ground for UK SMBs starting out, especially in regulated sectors where stray queries waste budget fast. Exact match is still valuable for brand defence and for the three or four highest-intent terms you want absolute control over. The decisive lever is no longer match type but the negative keyword list, which most accounts neglect after week one and which is where 20 to 35 per cent of spend leaks in audited UK SMB accounts."
+  - q: "How long before a new UK Google Ads account starts to perform?"
+    a: "Plan for a 60 to 90 day learning curve from a cold start. Weeks one to two are configuration: tracking, conversion actions, audience setup, Consent Mode v2 verification, the first set of negatives. Weeks three to six are calibration: Smart Bidding accumulates the 30 conversion threshold, the negative list expands, the landing page gets its first round of edits. Weeks seven to twelve are scale: budget increases of 15 to 20 per cent per week once cost per acquisition is stable. Accounts that try to scale before week six almost always blow up CPA. The 90-day arc is the realistic route to a Google Ads account that pays for itself, in line with Google's Economic Impact Report UK 2025 modelling."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/services/paid-media"
+  - "/for/plumbers"
+  - "/for/dentists"
+  - "/services/cro"
+  - "/blog/google-maps-seo-uk-guide"
+  - "/blog/google-business-profile-uk-setup-verification"
+  - "/revenue-engineering"
+
+related: []
+
+schema:
+  howTo: false
+  speakable: true
+
+reviewedBy: null
+---
+
+> **Disclosure:** I publish Irvale Studio. We run Google Ads for UK SMBs as part of our Revenue Engineering engagements. Pricing and platform claims in this post were verified against the Google Ads UK help centre, the Information Commissioner's Office guidance and the Competition and Markets Authority enforcement notes on the date of publication.
+
+## What "Google Ads in 2026" actually means for a UK small business
+
+<Speakable>
+Google Ads in 2026 is a Smart Bidding system wrapped around four campaign types that matter for UK SMBs: Search, Performance Max, Demand Gen and Local Service Ads. The interface that owner-operators learnt in 2018 has been quietly replaced. Manual CPC is gone for most accounts, broad match plus AI bidding has become the default recommendation, and Performance Max now consumes a growing share of small-account spend whether the owner planned for it or not.
+</Speakable>
+
+The practical impact for a UK small business is that the levers you can still pull are narrower and more strategic. Conversion tracking quality, audience signals, negative keywords, ad creative, landing page experience and Consent Mode v2 setup matter more than ever. Match types, manual bid adjustments and granular keyword lists matter less than they did. The accounts that perform in 2026 are the ones built around clean data going in, not clever bidding tricks.
+
+If you have not run Google Ads since 2022, expect to relearn the surface. Optiscore now factors in AI-suggested asset adoption, the recommendations tab pushes Performance Max aggressively, and the legacy Search-only structure many UK agencies still sell looks under-built next to a properly assembled hybrid account.
+
+## Account structure: single account or Manager (MCC)
+
+<Speakable>
+Most UK SMBs should run a single Google Ads account, not a Manager account. Open an MCC only when you have multiple legal entities, manage ads on behalf of clients, or need to consolidate billing across three or more sub-accounts. Premature MCC setup fragments your conversion data, complicates Consent Mode v2, and slows Smart Bidding learning by splitting signal across siblings.
+</Speakable>
+
+The decision tree is short.
+
+Run a single account if you operate one brand from one or two physical locations or service areas, you bill through one company, and you have one website. This describes 80 per cent of UK SMBs.
+
+Open an MCC if you run a multi-brand group (three salons under separate trading names, a dental group with five practices each on its own Companies House number), if you are an agency invoicing clients for ad spend, or if you have international subsidiaries needing separate billing currencies.
+
+The mistake we see most often in UK SMB account audits is owners opening an MCC because a YouTube tutorial recommended it, then ending up with their conversion goals split across two child accounts that never share data. Smart Bidding then has half the signal it needs, and Performance Max takes twice as long to leave its learning phase.
+
+## The 2026 campaign types worth running
+
+<Speakable>
+The four Google Ads campaign types that earn their place in a UK SMB account in 2026 are Search, Performance Max, Demand Gen and Local Service Ads. Display, standard Shopping and the legacy Discovery format are either consolidated into Performance Max or under-performing for accounts spending under 3,000 pounds per month. Start with Search, prove the offer converts, then layer Performance Max and the rest.
+</Speakable>
+
+<Comparison
+  caption="Google Ads campaign types for UK SMBs in 2026"
+  headers={["Campaign type", "Best for", "Minimum monthly budget", "When to run it"]}
+  rows={[
+    ["Search", "Direct-response, high-intent queries", "500 GBP", "Always run first. Proves the offer converts."],
+    ["Performance Max", "Scaling once Search converts", "1,000 GBP", "Add after 30 conversions in 30 days from Search."],
+    ["Demand Gen", "Visual brands, hospitality, beauty, retail", "750 GBP", "Layer after Search when creative assets are strong."],
+    ["Local Service Ads", "Eligible UK trades and home services", "Pay-per-lead, no minimum", "Apply on day one if your trade is eligible."],
+    ["Display", "Brand awareness only", "Skip below 3,000 GBP", "Generally skip for SMBs. Subsumed into PMax."],
+    ["Standard Shopping", "Ecommerce with strict ROAS targets", "1,500 GBP", "Use only if PMax under-performs on the same feed."],
+  ]}
+/>
+
+A few campaign-type notes specific to the UK SMB context.
+
+**Search** remains the workhorse. The 2026 best practice is two or three tightly themed ad groups per service, one or two responsive search ads per ad group, and two or three sitelinks per ad group rather than account-wide. Smart Bidding wants signal; tightly themed ad groups give it clean signal.
+
+**Performance Max** has become the default scaling vehicle Google pushes hardest. It works for UK SMBs once you have a steady conversion stream and proper asset groups, but it can quietly cannibalise your Search brand traffic if you do not exclude branded terms inside the campaign settings. Add the brand exclusion list on day one. Audit your search terms report monthly and feed losers back as account-level negatives.
+
+**Local Service Ads (LSA)** sit above the Map Pack on UK mobile results and are eligible for plumbers, electricians, locksmiths, garage door services, HVAC, pest control, lawn care, painters, water-damage restoration, and several adjacent home-services categories. Eligibility expands quietly. Re-check the LSA UK eligibility page quarterly. The Google Guaranteed badge requires a CRB or DBS check on the technicians plus public liability insurance proof. The pay-per-lead model removes click-cost variance but still needs review velocity to compete; see [Google Maps SEO for UK Small Businesses](/blog/google-maps-seo-uk-guide) for the review side of that flywheel.
+
+**Demand Gen** replaced Discovery in 2024. It works for hospitality, beauty and retail brands with strong photo and short video assets. For trades and professional services, the creative bar is too high to justify the spend at SMB scale.
+
+## Match types and Smart Bidding in 2026: the honest reality
+
+<Speakable>
+Google's 2026 default recommendation is broad match keywords plus Maximise Conversions bidding, and for accounts above the 30-conversion learning threshold this combination genuinely outperforms tightly matched campaigns from a few years ago. Below the threshold, broad match is a budget incinerator. The decision rule for UK SMBs is simple: phrase match on the way up, broad match once Smart Bidding has data to steer with.
+</Speakable>
+
+The three match types still matter, just in narrower roles than the textbooks describe.
+
+**Exact match** earns its place for brand defence and for the three to five highest-intent terms in the account. If you spend 50 pounds of every 500 pounds defending the brand term against a competitor bidding on it, the rest of the campaign breathes easier.
+
+**Phrase match** is the safer middle ground for new UK accounts. It gives Smart Bidding more flexibility than exact while preventing the worst broad-match drift, where ads start serving against tangentially related queries that drain budget without converting.
+
+**Broad match** plus Maximise Conversions or Target CPA becomes the right answer once you have at least 30 conversions in the prior 30 days, a robust negative keyword list, and a clean conversion action setup. Below those thresholds, broad match in 2026 will eat your budget faster than at any point in Google Ads history because the bidder has so little signal to filter the noise.
+
+## Negative keywords: where 20 to 35 per cent of UK SMB spend leaks
+
+<Speakable>
+The fastest single intervention in any under-performing UK Google Ads account is a negative keyword review. Audited accounts typically reveal 20 to 35 per cent of monthly spend going to queries that will never convert. The fix takes two hours per quarter, requires no platform expertise, and recovers more profit than any Smart Bidding tweak.
+</Speakable>
+
+The negative-keyword discipline:
+
+1. Pull the search terms report for the last 30 days.
+2. Sort by cost descending.
+3. For every term that has spent over 5 pounds without a conversion, decide: relevant and worth more time, or noise.
+4. Add the noise terms as exact-match or phrase-match negatives at the campaign level.
+5. Build a permanent shared negative list for account-wide exclusions: job boards, "free", "DIY", "salary", "training", competitor brand names you do not want to be served against, and the obvious geographic exclusions outside your service area.
+6. Repeat monthly for the first three months, quarterly thereafter.
+
+UK-specific shared negatives that consistently appear in trades and professional-services audits: "jobs", "career", "salary", "course", "training", "apprenticeship", "wholesale", "trade only", and the names of the major retail chains operating in the same vertical (B&Q for trades, Boots for healthcare, Curry's for electricals).
+
+## Conversion tracking: GA4, Enhanced Conversions and Consent Mode v2
+
+<Speakable>
+Conversion tracking quality is the single highest leverage variable in a 2026 Google Ads account, more important than match types, bidding or budget. The 2026 stack for a UK SMB is Google Analytics 4 with measurement protocol enabled, Enhanced Conversions for first-party data, and Consent Mode v2 for compliant signal recovery. Get the three working in concert and Smart Bidding has clean data to optimise against. Skip any of the three and the account underperforms by 30 to 50 per cent.
+</Speakable>
+
+The three components, briefly.
+
+**Google Analytics 4** is now the only option after Universal Analytics was sunset in 2024. Set up a property, configure conversion events for the three or four actions that actually matter (form submit, phone call, booking confirmed, purchase), and link it to Google Ads. Avoid the temptation to mark every micro-event as a conversion. Smart Bidding optimises against whatever you tell it is a conversion, and a polluted conversion goal trains the bidder to chase low-value actions.
+
+**Enhanced Conversions** sends hashed first-party data (email, phone, name) from your website forms back to Google to recover conversions lost to ad blockers, iOS privacy and Consent Mode reject-all clicks. UK SMBs see 8 to 15 per cent additional reported conversions when Enhanced Conversions is correctly installed, which directly improves Smart Bidding's signal and lowers CPA. Setup is via Google Tag Manager or via the Google Tag native integration.
+
+**Consent Mode v2** is mandatory for UK and EEA traffic since March 2024 under Google's published policy. The two-part setup: a certified consent management platform (CookieYes, Cookiebot, Iubenda, Usercentrics, OneTrust, Termly) and a Google Tag or GTM container that reads `ad_storage`, `ad_user_data`, `ad_personalization` and `analytics_storage` consent signals. Test in Tag Assistant Companion. The Information Commissioner's Office published clarifying guidance in 2023 and again in 2025 emphasising that under PECR consent must be active and reject-all must be as prominent as accept-all. Hidden reject-all buttons are the single most common compliance failure in UK SMB accounts.
+
+<Callout variant="warning" title="The compliance trap most UK SMBs miss">
+PECR enforcement under the ICO targets the consent banner itself, not just the analytics behind it. A reject-all button that is harder to find than accept-all is a documented breach. The CMA has also been increasingly active on dark patterns in cookie banners since 2024. Get the banner shape right before you optimise the ads behind it.
+</Callout>
+
+## Bidding strategies: pick one and let it learn
+
+<Speakable>
+The right bidding strategy for a UK SMB Google Ads account depends on conversion volume more than industry. Below 15 monthly conversions, run Maximise Clicks with a manual CPC ceiling. Between 15 and 30, switch to Maximise Conversions. Above 30 monthly conversions with stable cost per acquisition, layer Target CPA. Only ecommerce accounts with stable transaction values should run Target ROAS, and only above 50 conversions per month.
+</Speakable>
+
+The bidding strategy decision tree:
+
+1. **Maximise Clicks (with bid cap)** for brand-new accounts and any campaign with under 15 conversions in the prior month. Maximises learning velocity while protecting against runaway CPC.
+2. **Maximise Conversions** once you have 15 to 30 conversions in the prior 30 days. The bidder now has enough signal to optimise.
+3. **Target CPA** once you have 30 plus conversions and a stable CPA you can defend. Set the target 10 per cent above your trailing 30-day average to give the bidder room.
+4. **Target ROAS** for ecommerce accounts with 50 plus monthly conversions and stable transaction values. Service businesses with variable job sizes should stay on Target CPA.
+
+The 2026 mistake to avoid: chasing the lowest CPC. Smart Bidding optimises against conversions, not clicks. A campaign that costs more per click but converts at twice the rate is the goal. Owners who fixate on bringing CPC down often end up with an account that converts less and costs more in CPA.
+
+## Geo-targeting at UK postcode level
+
+<Speakable>
+Postcode and radius targeting in Google Ads is more powerful in 2026 than most UK SMBs realise. The platform accepts UK postcode districts (the first half: M1, SW1, BN3) and postcode sectors (M1 1, SW1A 0). Combined with radius targeting and bid adjustments by postcode performance, this is the single biggest local-spend efficiency lever available to multi-area SMBs.
+</Speakable>
+
+How to set this up properly:
+
+- For a single-shop business, use a radius around the shop. Three to five miles for retail and hospitality. Eight to twelve miles for trades. Twenty miles for professional services with mostly digital delivery.
+- For a multi-area trade, build campaign-level location targeting using the postcode districts where you actually take 80 per cent of jobs. Avoid the temptation to list every London borough; you will outbid yourself in low-value areas.
+- Use the location report after 30 days to add bid modifiers. Postcode districts converting at half the average get -50 per cent. Districts converting at twice the average get +20 to +30 per cent.
+- Exclude the obvious noise. If you are a Manchester plumber, exclude Liverpool, Sheffield, Leeds, Preston and Bolton at the campaign level rather than letting them slowly drain budget.
+
+## Ad extensions (now "assets") that move the needle
+
+<Speakable>
+Ad extensions were renamed to assets in 2023 but the impact is unchanged: assets lift click-through rates by 10 to 20 per cent on average and Optiscore now penalises accounts without the four core asset types. The assets that consistently earn their place for UK SMBs in 2026 are sitelinks, callouts, structured snippets, lead form assets, location, and call assets.
+</Speakable>
+
+The asset stack worth building:
+
+- **Sitelinks**: four to six per campaign, each pointing to a different service or page. "Boiler service Manchester", "Emergency call-out", "Bathroom installs", "Customer reviews". Avoid sending all sitelinks to the homepage.
+- **Callouts**: short, factual benefits. "Gas Safe registered", "Same-day call-out", "12-month workmanship guarantee", "Free quotes within 24 hours". No marketing fluff.
+- **Structured snippets**: services, brands, types, courses, neighbourhoods. Pick one or two header types relevant to your business.
+- **Lead form assets**: native lead capture inside the ad. Strong for trades and professional services. Test against a landing page form; one or the other typically wins by a wide margin.
+- **Location assets**: linked from your verified Google Business Profile. Mandatory for any local SMB. The setup connects to the [Google Business Profile UK setup](/blog/google-business-profile-uk-setup-verification) work.
+- **Call assets**: phone number with click-to-call on mobile. Set business-hours-only delivery. Track call conversions through Google's call forwarding number; phone calls are the dominant conversion type for UK trades and missing this signal cripples Smart Bidding.
+- **Image assets**: at least four landscape and four square. Real photos. No AI-generated images. Performance Max especially leans on image assets.
+
+## Budget allocation: the 500, 1,000, 3,000 pound tiers
+
+<Speakable>
+Google Ads budget allocation for UK SMBs follows three meaningful tiers: 500 pounds per month for proof-of-concept in low-CPC verticals, 1,000 pounds for a properly structured Search plus Performance Max account in most service businesses, and 3,000 pounds for accounts that need to compete in dense urban markets or regulated sectors. Below 500 pounds Smart Bidding cannot learn fast enough. Above 3,000 pounds the marginal lever is creative and landing pages, not budget.
+</Speakable>
+
+<Stats items={[
+  { value: "30 conversions", label: "Threshold the Smart Bidding learning phase needs to exit and produce stable CPA", source: "Google Ads Help Centre, January 2026" },
+  { value: "8 to 15 percent", label: "Additional reported conversions UK accounts gain from correctly installed Enhanced Conversions", source: "Google Ads Help Centre + Search Engine Land coverage, 2025" },
+  { value: "20 to 35 percent", label: "Share of monthly spend going to non-converting queries in audited UK SMB accounts before negative keyword cleanup", source: "WordStream Industry Benchmarks Report 2025" },
+  { value: "27 GBP", label: "Reported value of economic activity generated for every 1 GBP spent on Google Search Ads in the UK", source: "Google Economic Impact Report UK 2025" },
+]} />
+
+The detailed breakdown of what each budget tier realistically buys, in low-to-mid CPC sectors:
+
+**500 pounds per month** funds a single Search campaign, two ad groups, postcode-radius geo-targeting, the four core asset types, and around 15 to 25 conversions per month in cafes, beauty, fitness, retail and similar. It is the floor for any meaningful Smart Bidding learning. This budget is too low for trades, healthcare, legal and most professional services.
+
+**1,000 pounds per month** funds a Search campaign plus Performance Max, broader geo-targeting, the full asset suite, and 30 to 60 conversions per month for most service businesses. This is the realistic minimum for a UK plumber, electrician, dentist, accountant, or beauty salon outside London.
+
+**3,000 pounds per month** funds three or four Search campaigns themed by service line, Performance Max, retargeting, broader urban geo-targeting, and the creative budget for refreshed assets every six weeks. Dense urban markets (London, Manchester city centre, central Birmingham) and high-CPC sectors (legal, finance, private healthcare) start at this tier. The [Revenue Engineering](/revenue-engineering) Scale tier is the budget level we typically build accounts at when paid-media is the primary growth lever.
+
+## GDPR, ICO, ASA and CMA: the UK regulatory layer
+
+<Speakable>
+UK Google Ads regulation in 2026 sits across four bodies: the ICO enforces UK GDPR and PECR consent rules including Consent Mode v2, the ASA governs ad creative claims, the CMA polices misleading advertising and unfair commercial practices including fake reviews, and Companies House registration affects which Google Ads policies you qualify for. Owners who treat compliance as a tick-box rather than an ongoing discipline lose accounts to suspension or burn budget on creative the ASA later orders down.
+</Speakable>
+
+The four-body checklist:
+
+- **ICO + UK GDPR + PECR**: Consent Mode v2 fully configured, certified consent banner, reject-all as prominent as accept-all, data retention configured in GA4, privacy policy linked from every ad-served landing page.
+- **ASA**: ad copy claims are substantiable. "Cheapest in Manchester" needs proof. "Award-winning" needs a real award named. "Free" must be genuinely free with conditions stated. The ASA's rulings on UK SMB ads since 2024 have hit small accounts as much as big ones; the regulator now monitors automatically through partnerships with the major ad platforms.
+- **CMA**: post-2024 Digital Markets, Competition and Consumers Act, fake-review rules carry direct fines. If you run a review-driven Performance Max campaign or Local Service Ads, every review used in the ads must be verifiable. See [the Polite British Way to Ask Customers for Reviews](/blog/get-more-google-reviews-uk-ethically) for the compliant collection side.
+- **Companies House**: Google Ads account verification now cross-references Companies House registration for limited companies. Sole traders and partnerships are still eligible but face higher manual review rates, particularly in regulated verticals (financial services, healthcare).
+
+## Google Ads vs Meta Ads vs Local Service Ads: where to spend first
+
+<Speakable>
+The 2026 channel-mix decision for UK SMBs comes down to intent versus interruption. Google Search and Local Service Ads catch existing demand. Meta and Demand Gen create demand from cold audiences. The default starting allocation for most UK SMBs is 70 per cent Google Search plus LSA, 30 per cent Meta or Demand Gen. Reverse the ratio only if you sell something nobody is actively searching for.
+</Speakable>
+
+The decision framework:
+
+- If your service is searched for by name (plumber, dentist, accountant, restaurant), Google Search and LSA are the right first channel. Meta is the second channel.
+- If your service requires education and creates its own demand (a niche product launch, a new fitness modality, a specialty food brand), Meta and Demand Gen come first. Google Search is the second channel after Meta has educated the market.
+- If you are eligible for Local Service Ads, apply for them on day one. They sit above the Map Pack on mobile and pay-per-lead removes click-cost variance. Eligible UK trades include plumbers, electricians, locksmiths, garage door services, HVAC, pest control and several adjacent home-services categories. The eligibility list expands quietly; check the Google LSA UK page quarterly.
+
+## A 90-day plan for a UK SMB starting from zero
+
+<Speakable>
+A UK SMB can build a profitable Google Ads account from a cold start in 90 days. The plan: weeks one to two configure tracking, account structure and Consent Mode v2, weeks three to six run a Search campaign to gather the first 30 conversions, weeks seven to twelve layer Performance Max and scale at 15 to 20 per cent budget increases per week.
+</Speakable>
+
+The week-by-week shape of a clean 90-day rollout:
+
+**Weeks 1 to 2: foundations**
+
+- Open or audit the Google Ads account.
+- Install Google Analytics 4 with conversion events for the actions that matter.
+- Install Enhanced Conversions through GTM or the Google Tag.
+- Install a certified Consent Mode v2 banner. Verify with Tag Assistant Companion.
+- Apply for Local Service Ads if eligible. The verification queue runs two to four weeks for UK trades.
+- Build the first Search campaign: two ad groups, three responsive search ads each, four sitelinks, six callouts, two structured snippets.
+
+**Weeks 3 to 6: prove the offer**
+
+- Launch Search at the chosen budget tier.
+- Run on Maximise Clicks with a CPC cap for the first two weeks while learning.
+- Switch to Maximise Conversions once you hit 15 conversions in the prior 30 days.
+- Pull the search terms report weekly. Add negatives. Cut underperforming keywords.
+- Iterate the landing page. The single biggest lever in this window is landing page conversion rate. See [the CRO services page](/services/cro) for the conversion side.
+- Aim for 30 conversions in the prior 30 days by end of week six.
+
+**Weeks 7 to 12: scale**
+
+- Layer Performance Max with brand exclusions on day one.
+- Move Search to Target CPA at 110 per cent of trailing average.
+- Increase budget by 15 to 20 per cent per week so long as CPA stays inside target.
+- Add retargeting audiences from GA4.
+- Build the second-tier campaigns: brand defence, secondary services.
+- Refresh ad creative and image assets at week ten to prevent fatigue.
+
+By end of week twelve a competently executed account is at 60 to 100 monthly conversions, has stable cost per acquisition, and is ready for the next budget step. Vertical-specific rollouts for [/for/plumbers](/for/plumbers) and [/for/dentists](/for/dentists) cover the trade-specific configuration and creative.
+
+## How to start tomorrow
+
+A UK SMB Google Ads account that converts in 90 days is genuinely accessible with a 1,000 pound monthly budget, clean tracking, and the discipline to leave Smart Bidding alone for the first six weeks. The shortlist for tomorrow:
+
+1. Audit your current conversion tracking. If GA4 conversions disagree with Google Ads conversions by more than 15 per cent, fix tracking before touching anything else.
+2. Install Consent Mode v2 if it is not already live. Test in Tag Assistant Companion.
+3. Pull the search terms report and build the first round of negative keywords.
+4. Decide the budget tier honestly against the verticals above. Below the floor, the account will not work.
+
+If that feels like a lot to coordinate alongside running the actual business, the [Revenue Engineering](/revenue-engineering) engagement bundles paid-media, the website that backs it up, the conversion tracking, and the review automation through Zatrovo. Otherwise work through the linked posts above in order.
+
+## Common questions
+
+<FAQ items={[
+  { q: "Should a UK small business use a single Google Ads account or an MCC?", a: "Single accounts suit most UK SMBs running one brand from one or two locations. Open a Google Ads Manager (MCC) only when you operate multiple legal entities, run ads on behalf of clients, or need to consolidate billing across more than three sub-accounts. The common mistake is creating an MCC too early, which fragments conversion data and complicates Consent Mode v2 setup. If you are a sole owner with one website and one phone number, stay on a single account, lock down billing alerts at 80 per cent of monthly cap, and add a second user with admin rights so you are not the only person who can pause campaigns when the card declines." },
+  { q: "What campaign types should a UK SMB run in 2026?", a: "Start with a Search campaign on your three highest-intent service terms, then add Performance Max once you have at least 30 conversions in the prior 30 days for the bidder to learn from. Demand Gen suits visual brands and hospitality, not trades. Local Service Ads are eligible for plumbers, electricians, locksmiths, HVAC, garage door installers and a handful of other UK trades, and they sit above the Map Pack on mobile. Skip Display, Discovery and broad video for most SMB budgets under 1,500 pounds per month. The order matters: Search proves the offer converts, then Performance Max scales, then layer brand defence." },
+  { q: "How does Consent Mode v2 affect Google Ads for UK businesses?", a: "Consent Mode v2 is Google's compliance layer for UK and EEA traffic and it has been mandatory since March 2024. Without it your remarketing audiences shrink, conversion modelling breaks, and Performance Max degrades within weeks. The setup is two parts: a Google-certified consent banner (CookieYes, Cookiebot, Iubenda, Usercentrics) and a Google Tag or GTM container reading the consent signals. Test using the Tag Assistant Companion in Chrome, looking for ad_storage and ad_user_data flags. The ICO has been clear that consent must be active and granular, and reject-all needs to be as prominent as accept-all under PECR enforcement guidance." },
+  { q: "What is the minimum monthly budget to run Google Ads profitably in the UK?", a: "Honest answer: 500 pounds per month is the floor for any campaign with a chance of returning positive contribution, and only in low-CPC verticals like cafes, beauty, fitness or independent retail. Trades sit at 750 to 1,500 pounds per month minimum because cost-per-click is higher and conversion rates rely on phone calls. Solicitors, accountants and private healthcare typically need 2,000 pounds plus to outbid established firms. Below the floor, you cannot give Smart Bidding enough conversion data to learn from, and the account stays in a permanent under-performance loop. The fix is either to raise the budget, narrow the geography sharply, or move to Local Service Ads." },
+  { q: "Do match types still matter in 2026 with Smart Bidding?", a: "Yes, but less than they did in 2020. Broad match plus Maximise Conversions has become Google's preferred default and it works in higher-intent verticals once Smart Bidding has 30 conversions to learn from. Phrase match remains the safer middle ground for UK SMBs starting out, especially in regulated sectors where stray queries waste budget fast. Exact match is still valuable for brand defence and for the three or four highest-intent terms you want absolute control over. The decisive lever is no longer match type but the negative keyword list, which most accounts neglect after week one and which is where 20 to 35 per cent of spend leaks in audited UK SMB accounts." },
+  { q: "How long before a new UK Google Ads account starts to perform?", a: "Plan for a 60 to 90 day learning curve from a cold start. Weeks one to two are configuration: tracking, conversion actions, audience setup, Consent Mode v2 verification, the first set of negatives. Weeks three to six are calibration: Smart Bidding accumulates the 30 conversion threshold, the negative list expands, the landing page gets its first round of edits. Weeks seven to twelve are scale: budget increases of 15 to 20 per cent per week once cost per acquisition is stable. Accounts that try to scale before week six almost always blow up CPA. The 90-day arc is the realistic route to a Google Ads account that pays for itself, in line with Google's Economic Impact Report UK 2025 modelling." }
+]} />
+
+## Where to next
+
+If you would rather have the Google Ads work engineered for you with the website, conversion tracking, landing page and review flow built around it, that is what [Revenue Engineering](/revenue-engineering) bundles. The Launch tier covers the 90-day rollout above, and the higher tiers add the ongoing optimisation and retainer-led creative refresh.
+
+For DIY readers, the companion pieces are [How Much Do Google Ads Cost in the UK?](/blog/google-ads-cost-uk-2026) for the budget side, [Google Maps SEO for UK Small Businesses](/blog/google-maps-seo-uk-guide) for the organic local layer that compounds with paid, and [Google Business Profile UK setup](/blog/google-business-profile-uk-setup-verification) for the GBP work that LSA and location assets depend on. Vertical playbooks live at [/for/plumbers](/for/plumbers) and [/for/dentists](/for/dentists), and the conversion side is at [/services/cro](/services/cro).
+
+<CTA
+  href="/revenue-engineering"
+  label="Get Google Ads engineered into your growth stack"
+  sublabel="$1,450 / $3,450 / $5,500 per month — website + Zatrovo included"
+/>

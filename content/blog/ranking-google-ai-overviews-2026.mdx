@@ -1,0 +1,278 @@
+---
+title: "Ranking in Google AI Overviews: The 2026 Playbook"
+slug: "ranking-google-ai-overviews-2026"
+description: "How Google AI Overviews actually pick sources in 2026, and the schema, content patterns and fan-out tactics that earn citations for UK SMBs."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "ai-search"
+vertical: null
+tags: ["ai overviews", "google search", "ai search", "geo", "uk smb"]
+featured: true
+
+hero:
+  search: "uk laptop google ai overview screen result"
+  alt: "UK laptop on a wooden desk showing a Google AI Overview answer above the classical blue link results."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "What are Google AI Overviews and how do they differ from featured snippets?"
+    a: "AI Overviews are the generative answer block that Google now renders above the classical ten blue links on roughly half of all UK searches, replacing the old Search Generative Experience that ran from May 2023 to mid 2024. A featured snippet lifts a single passage from one source. An AI Overview synthesises three to eight sources into a written answer, citing each one as a clickable card to the right of the box. The retrieval is also different: AI Overviews issue many sub queries in parallel, a process Google calls query fan out, and stitch the strongest passages from each result into the final summary. Featured snippets do neither."
+  - q: "How does Google AI Overviews choose its sources?"
+    a: "AI Overviews retrieve in two stages. Stage one runs a query fan out, breaking the user prompt into eight to sixteen sub queries and pulling top results for each. Stage two scores candidate passages on relevance to the sub query, source authority, freshness, and structural clarity, then selects three to eight for synthesis. Sources cited inside an AI Overview overlap with the classical top ten roughly half the time according to Authoritas analysis from late 2025, which means classical ranking still matters but is no longer sufficient. Pages that lead with a definitional sentence, use heading hierarchy cleanly and ship FAQPage or Article schema are extracted at materially higher rates."
+  - q: "Does ranking number one in Google guarantee an AI Overview citation?"
+    a: "No. Authoritas data from late 2025 found citation overlap between AI Overviews and the classical top ten averaging about fifty four per cent across UK queries, with significant variance by sector. Health and finance overlap is higher because Google leans on its quality raters guidelines for those topics. Local and product queries overlap is lower because AI Overviews pull from forums, video transcripts and review sites that rarely sit in the blue links. The practical implication for UK SMBs is that classical SEO buys you a coin flip on inclusion, and the structural and schema work decides the rest."
+  - q: "What is query fan out and why does it matter for AI Overviews ranking?"
+    a: "Query fan out is the process of breaking one user prompt into multiple sub queries, running each in parallel, and combining the results. Google AI Mode runs about sixteen parallel sub queries per prompt according to internal documentation surfaced in May 2025. The implication for content design is that you should not optimise a single page against one head term. You should write so that the page contains direct answers to the obvious sub queries a buyer would also ask. A guide on Google Maps SEO that also answers what is the Map Pack, how many reviews do I need and what schema should I ship will be extracted at higher rates than a guide that only covers the head term."
+  - q: "Which schema types help most for AI Overviews citation in 2026?"
+    a: "Article and BlogPosting with a full author Person node are the foundational types. Add FAQPage on every page with a Q and A block, even though the rich result was deprecated in 2023, because Gemini and the AI Overviews extractor still parse it during answer assembly. Add Speakable on the answer first paragraph after every H2 to flag the most citation worthy passage. Add HowTo on process pages where the headings really are sequential steps. Schema is now treated as a verification layer by Gemini powered AI Mode, so accuracy beats volume. A clean Article plus FAQPage plus Speakable plus accurate Organization with sameAs outperforms a sprawling but inconsistent stack."
+  - q: "How long until AI Overviews work shows up in citations?"
+    a: "Schema, heading and content fixes typically take two to four weeks to be reflected in AI Overview citations once Googlebot has recrawled and reindexed the changed pages. Entity reconciliation work, including Wikidata claims, sameAs additions and cross platform mention building, takes sixty to ninety days because corroboration across multiple sources is what shifts the model prior. Recovery from a content quality issue takes longer still because freshness signals must accumulate. The honest answer is that AI Overviews ranking is a slower compounding game than classical SEO, and anyone promising movement inside thirty days is selling a story rather than a result."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/ai-visibility"
+  - "/services/web"
+  - "/revenue-engineering"
+  - "/blog/how-to-get-cited-by-chatgpt"
+  - "/blog/llms-txt-uk-smb-implementation"
+  - "/blog/google-maps-seo-uk-guide"
+  - "/blog/google-business-profile-uk-setup-verification"
+
+related: []
+
+schema:
+  howTo: false
+  speakable: true
+
+reviewedBy: null
+---
+
+> **Disclosure:** I publish Irvale Studio. We sell AI search visibility work to brands and UK SMBs through our AI Visibility pillar and our flagship Revenue Engineering engagement. Citation overlap and ranking factor claims below were verified against the cited sources on the date of publication.
+
+## What Google AI Overviews are in 2026, and what they replaced
+
+<Speakable>
+Google AI Overviews are the generative answer block that now sits above the classical ten blue links on roughly half of all UK searches. They replaced the Search Generative Experience that ran in beta from May 2023 to mid 2024, and they synthesise three to eight cited sources into a written answer using a Gemini model rather than lifting a single passage from one source.
+</Speakable>
+
+The lineage matters because the failure modes carry over. SGE prioritised long, generic syntheses and was retired partly because click through rates collapsed. AI Overviews use shorter answers, named citation cards on the right rail, and a much harder freshness bias. According to Search Engine Land coverage of Google's I/O 2024 announcement, AI Overviews launched to general US availability in May 2024 and rolled into UK English search through 2024 and 2025 (Search Engine Land, 2024).
+
+Trigger frequency varies by query class. Authoritas tracking across UK desktop SERPs through Q4 2025 found AI Overviews triggering on around forty eight per cent of informational queries, twenty two per cent of commercial queries and under five per cent of clear navigational ones (Authoritas, 2025). Pew Research found click through rates on results with an AI summary running at roughly eight per cent, about half the traditional rate (Pew Research, 2025). The volume of clicks lost to zero click answers is now the single biggest reason organic traffic flatlines for content sites in 2026.
+
+For UK SMBs, the practical question is no longer "do AI Overviews matter to my category" but "where do they trigger on the queries my buyers actually run, and am I cited inside them when they do".
+
+## How AI Overviews choose their sources, in mechanical detail
+
+<Speakable>
+AI Overviews retrieve sources in two stages. First, the prompt is broken into eight to sixteen sub queries through query fan out and run in parallel. Second, candidate passages are scored on relevance, source authority, freshness and structural clarity, then three to eight are selected for synthesis. Citation overlap with the classical top ten averages around fifty four per cent in 2025 UK data.
+</Speakable>
+
+This is the part most agency content gets wrong. AI Overviews are not a re skinned featured snippet. Their retrieval is a different system with different inputs.
+
+### How does AI Overviews work under the hood?
+
+The architecture is described in a mix of Google's own developer blog posts and the May 2025 documentation leak. The pipeline runs roughly as follows.
+
+1. **Query parsing.** The user prompt is classified by intent and broken into sub queries via query fan out. Mike King's iPullRank analysis of leaked AI Mode documentation puts the sub query count at sixteen on average for AI Mode and meaningfully lower for classical AI Overviews (iPullRank, 2025).
+2. **Parallel retrieval.** Each sub query runs against Google's index. Top candidates surface for each one.
+3. **Passage scoring.** Candidate passages are scored. The model prefers self contained two to three sentence answers, definitional first sentences, structured lists, and passages near a clean H2 heading.
+4. **Source diversification.** Google deliberately pulls from a mix of source types, which is why YouTube transcripts, Reddit threads and forum posts appear inside answers where blue links from those sources are rare.
+5. **Synthesis and citation.** Three to eight passages are stitched into the answer with citation cards on the right rail.
+
+### Why classical ranking still matters but is no longer sufficient
+
+Authoritas measured citation overlap between AI Overviews and the classical top ten across one hundred thousand UK queries through Q4 2025. The headline number was about fifty four per cent (Authoritas, 2025). The two implications:
+
+- A page outside the top ten organically still has a roughly fifty per cent chance of being cited if its passage and schema profile are strong.
+- A page inside the top ten still has a roughly fifty per cent chance of being skipped if the page leads with marketing copy rather than a direct answer.
+
+Sistrix's UK AI Overview tracking through 2025 found that pages with FAQPage schema were extracted thirty seven per cent more often than equivalent pages without it, even when classical rankings were identical (sistrix, 2025). The structural work moves the needle inside the citation layer in ways the blue link rank alone does not.
+
+## How AI Overviews differ from the rest of the SERP
+
+<Speakable>
+AI Overviews, featured snippets, People Also Ask boxes and the classical blue links each follow a different ranking model. Optimising for one does not automatically lift the others. The fastest reading of any UK SERP is to identify which surfaces trigger for your target queries and design content with the structural shape each one rewards.
+</Speakable>
+
+<Comparison
+  caption="UK SERP surfaces in 2026 — selection rules and structural preferences"
+  headers={["Surface", "Trigger frequency UK", "Selection rule", "Optimal content shape"]}
+  rows={[
+    ["AI Overviews", "About 48% on informational queries", "Query fan out, multi source synthesis, schema verified", "Definitional first sentences, FAQPage, Speakable, Article schema, fresh dateModified"],
+    ["Featured snippet", "About 12% across all queries", "Single passage match against the head term", "Short paragraph or numbered list directly under an H2 phrased as the question"],
+    ["People Also Ask", "About 70% across informational queries", "Question expansion model, related sub queries", "FAQ blocks, exact match question H3s, two to three sentence answers"],
+    ["Classical top ten", "100% on every query", "Page rank, content quality, classical relevance signals", "Long form authoritative content, internal links, backlinks, technical SEO basics"],
+    ["Knowledge panel", "About 15% on entity queries", "Entity match against Knowledge Graph, sameAs corroboration", "Wikidata entry, accurate Organization schema, ProfilePage with Person node"],
+  ]}
+/>
+
+The shapes overlap but they do not collapse into a single optimisation target. A guide page that wants the AI Overview citation, the People Also Ask appearance and the classical top three needs to satisfy all three rule sets, which is why this post is structured the way it is.
+
+## Define the jargon before you optimise for it
+
+<Speakable>
+The acronyms used in AI search optimisation are not interchangeable. GEO, AEO, LLMO and RAG describe different layers of the stack. Use the right term for the work and you will brief contractors and internal teams more accurately.
+</Speakable>
+
+<KeywordTable
+  rows={[
+    ["GEO", "Generative Engine Optimisation. Getting cited inside AI generated answers across Google AI Overviews, ChatGPT, Perplexity, Claude and similar engines."],
+    ["AEO", "Answer Engine Optimisation. Engineering pages so the answer to a specific question is directly extractable, regardless of engine."],
+    ["LLMO", "Large Language Model Optimisation. Being correctly represented inside model training data and retrieval indexes."],
+    ["RAG", "Retrieval Augmented Generation. The architecture every modern AI search engine uses. Live retrieval combined with generative synthesis."],
+    ["Query fan out", "The process of breaking one user prompt into multiple parallel sub queries before retrieval. Used in Google AI Mode and AI Overviews."],
+    ["Speakable", "Schema.org markup that flags a passage as the most citation worthy on the page. Read by AI Overviews, Perplexity and ChatGPT browse."],
+    ["sameAs", "JSON-LD property that links your entity to its other identities online. Wikipedia, Wikidata, LinkedIn, Companies House. The single highest leverage entity property for AI."],
+    ["Passage retrieval", "Indexing and scoring at the paragraph or sentence level rather than the whole page level. Underpins AI Overview extraction."],
+  ]}
+/>
+
+GEO is the most overloaded term in the field. Aleyda Solis's working definition, summarised on Search Engine Land in 2025, treats GEO as the umbrella covering AEO and LLMO with engine specific tactics on top (Aleyda Solis, Search Engine Land, 2025). That is the definition we use throughout this post.
+
+## Content patterns that get extracted
+
+<Speakable>
+Five content patterns are extracted into AI Overviews at materially higher rates than the alternatives. Definitional first sentences. Self contained two to three sentence answers under each H2. Numbered lists with three to seven items. Comparison tables with named rows and columns. FAQ blocks with exact match question phrasing. Pages built around these patterns earn citations even when their classical ranking is mid table.
+</Speakable>
+
+The empirical work behind these patterns comes from a mix of sources. Profound's analysis of about six hundred and eighty million AI citations across major engines through April 2026 found self contained passages of forty to one hundred words extracted at three times the rate of longer paragraphs (Profound, 2026). Mike King's iPullRank work on the AI Mode documentation describes the model's preference for "encyclopaedic" answer structures, meaning a clear first sentence definition, then elaboration (iPullRank, 2025).
+
+### The definitional first sentence
+
+The first sentence after every H2 should answer the heading directly, not introduce the topic. Bad: "Google AI Overviews are an exciting new feature." Good: "Google AI Overviews are the generative answer block that sits above the classical ten blue links on roughly half of UK searches."
+
+The difference is that the second sentence stands alone as a citation. The first sentence requires context.
+
+### The forty to one hundred word answer block
+
+The Speakable wrapper exists for this. Forty words is enough to be a real answer; one hundred is enough to be substantive. Beyond one hundred and twenty words the model has to truncate and the citation accuracy drops.
+
+### Numbered lists with three to seven items
+
+Lists outside that range are extracted less often. Two item lists read as incomplete; lists over eight items get summarised rather than quoted. The sweet spot for ordered list extraction in AI Overviews and ChatGPT browse is four to six items, based on Profound's 2026 analysis (Profound, 2026).
+
+### Comparison tables with semantic headers
+
+Tables are extracted as structured data when their first row is genuinely a header and their first column is a clean entity name. Avoid styling tables that look like tables but are not actually `<table>` elements; AI extractors will skip them.
+
+### Exact match question H3s and FAQ blocks
+
+A heading phrased as "How does query fan out work in AI Overviews" gets extracted at higher rates than "Query fan out explained". The model's prior is that exact question phrasing maps to an answerable Q and A pair. Combine the H3 with a FAQPage schema entry and a clear two sentence answer below.
+
+<Callout variant="insight" title="Quick win">
+The fastest single content lift on an existing post is to rewrite the first paragraph after every H2 into a forty to eighty word self contained answer, wrap it in a `<Speakable>` component, and make sure the H2 phrasing matches a real query a buyer would type. We see citation rates lift inside two index cycles, typically two to four weeks.
+</Callout>
+
+## Optimising for fan out — the under priced tactic
+
+<Speakable>
+Query fan out means a single page needs to satisfy not just one head query but the eight to sixteen sub queries Google generates from it. Pages that answer the obvious sub queries inline earn citations across multiple variants of the same parent search. Pages that only optimise for the head term miss the citation on every variant.
+</Speakable>
+
+If a buyer searches "how to rank in Google AI Overviews", Google's fan out will likely include sub queries like "what are AI Overviews", "how often do AI Overviews appear", "what schema for AI Overviews", "how to get cited by Google AI", "AI Overviews vs featured snippets", and similar. Each sub query has its own retrieval pass.
+
+A page that contains direct answers to those sub queries can be cited multiple times across the variants. A page that only writes around the head term will lose the variants to whatever competitor did answer them.
+
+Practical structure:
+
+- **Map the fan out before writing.** Use a tool like AlsoAsked or surface the People Also Ask block for the head term to seed it. Add the obvious "how", "what", "why", "vs" and "for" variants.
+- **Build an H2 or H3 for each meaningful sub query.** This is why the post you are reading runs to eighteen H2 and H3 blocks rather than five.
+- **Self contained answer per heading.** Each block must stand on its own without reading the section above.
+
+This is the discipline the iPullRank team have been writing about under the heading of "passage level optimisation" through 2025 and 2026 (iPullRank, 2025).
+
+## The signals that decide AI Overview inclusion
+
+<Stats items={[
+  { value: "About 48%", label: "Of UK informational queries trigger an AI Overview in 2026", source: "Authoritas, UK SERP analysis 2025" },
+  { value: "About 54%", label: "Average citation overlap between AI Overviews and the classical top ten", source: "Authoritas, UK SERP analysis 2025" },
+  { value: "About 8%", label: "Click through rate on results with an AI summary, roughly half the traditional rate", source: "Pew Research, 2025" },
+]} />
+
+The three numbers above set the stakes. Almost half of UK informational queries now have an AI Overview. The blue links rank still moves about half the citation slots. The traffic per click has halved when an AI Overview triggers. The remaining half of citation slots are decided inside the structural, schema and entity layer — which is where most agencies do not work.
+
+### Schema as a verification contract
+
+Late 2026 Gemini powered AI Mode actively cross references schema claims against live page content and discounts mismatches (Google Search Central, 2026). Inaccurate schema is now worse than no schema. The minimum stack:
+
+- **Article or BlogPosting** with full `author` `Person` node, `datePublished`, `dateModified`, `mainEntityOfPage`, `image`.
+- **Organization** at the site level with accurate `sameAs` to LinkedIn, Companies House, GitHub, X, Crunchbase.
+- **FAQPage** for every Q and A block on the page.
+- **Speakable** flagging the answer first paragraph after each H2.
+- **BreadcrumbList** with real URLs.
+
+Plus a stable JSON-LD `@id` strategy so the entity reconciles across pages.
+
+### Freshness — the under appreciated lever
+
+Profound's citation analysis found AI cited content skews about twenty six per cent fresher than the classical search picks for the same query (Profound, 2026). The implication: pages with a stale `dateModified` lose to pages with a recent one, even when the underlying content has not meaningfully changed. The discipline is to bump `dateModified` only on substantive change, but to make substantive changes regularly. Quarterly is a defensible cadence for evergreen content.
+
+### EEAT signals through Person and ProfilePage schema
+
+Qwairy's EEAT study from 2026 found content with a verifiable author Person node earning about forty per cent more AI citations than identical content with no author schema (Qwairy, 2026). The effort here is small. Ship a `/about/[author]` page with full `Person` and `ProfilePage`, link the article author by `@id`, list the credentials and `sameAs` links, and the model has more to anchor the citation against.
+
+## Multimedia answer boxes and the YouTube angle
+
+<Speakable>
+AI Overviews increasingly include video and image content directly in the answer box. YouTube transcripts are extracted into AI Overviews about twenty three per cent of the time on procedural queries, according to Profound's 2026 data. UK SMBs that have not yet shipped any video content are missing a citation surface that is growing in share faster than any other.
+</Speakable>
+
+The format of the YouTube content matters more than the production polish. Profound's analysis suggests AI Overviews extract from videos with a tight definitional opening, accurate auto generated transcripts, and a corresponding written companion page on the publisher's own site (Profound, 2026). A two minute explainer with a clean transcript and a paired blog post outperforms a forty minute deep dive with no transcript.
+
+If video is not on the cards, the equivalent for SMBs is an audio Speakable wrap and a clean podcast feed. AI Overviews multimedia extraction is the surface most likely to grow through 2026 and 2027.
+
+## What we don't know yet — the open questions
+
+<Speakable>
+Several aspects of AI Overviews behaviour are not publicly documented and are worth treating as open questions rather than firm tactics. The honest list helps you avoid spending budget on things nobody has yet proven move the needle.
+</Speakable>
+
+In the spirit of being a calm expert who tells the truth about emerging tactics, here is what we do not know in May 2026.
+
+- **The exact scoring weights inside passage selection.** Authoritas, sistrix and Profound have all reverse engineered correlations. None of them are running Google's live model. The weights drift between rolls.
+- **How much weight Wikidata claims carry versus other corroboration signals.** Practitioners report a lift after a Wikidata entry resolves. The mechanism is plausible. The magnitude is not measured.
+- **Whether Google penalises AI generated content directly.** Google's public position since the March 2024 helpful content update is that the source of the writing does not matter, only the helpfulness. The empirical tracking work suggests heavily templated AI content is downranked by quality classifiers regardless. The two positions are not the same.
+- **The lifespan of the current AI Overview behaviour.** Google has shipped major changes to the surface roughly every six to nine months since launch. Tactics published in May 2026 may be out of date by November.
+- **How AI Overviews interact with classical core updates.** Anecdotally, citation slots reshuffle when a core update lands. Whether the same algorithm is doing both is unclear.
+
+The pragmatic stance is to invest in the structural and schema work that is durable across model changes, and to treat the engine specific tactics as quarterly review rather than set and forget.
+
+## What to ship this week — the seven item checklist
+
+The order is by leverage divided by cost.
+
+1. **Rewrite the first paragraph after every H2 on your top ten pages into a forty to eighty word self contained answer.** Wrap each in a Speakable component.
+2. **Add FAQPage schema to every page with a Q and A block.** Use exact match question phrasing in the H3s.
+3. **Ship Article schema with a full Person author node** linked by `@id` to a `/about/[author]` ProfilePage. Add `sameAs` to LinkedIn and any other corroborating profile.
+4. **Map the query fan out for your top five head terms** and add an H2 or H3 for each meaningful sub query. Self contained answer underneath each one.
+5. **Audit your Organization schema** for accurate `sameAs`, `logo`, `contactPoint`, `founder` linked to a Person. Mismatched schema is now worse than no schema.
+6. **Set up freshness discipline.** Quarterly review of evergreen content. Bump `dateModified` only on substantive change.
+7. **Pair your highest traffic guide with a two minute YouTube explainer and accurate transcript.** This is the surface most likely to grow through 2026.
+
+If you would rather have this engineered for you end to end across every engine that matters, that is what our [AI Visibility](/ai-visibility) pillar covers. We run the diagnostic, ship the schema and content engineering, build the citation programme and monitor the share of voice across ChatGPT, Perplexity, Gemini, Claude, AI Overviews, AI Mode, Copilot and Meta AI.
+
+The companion posts in this cluster cover the engine specific tactics: [How to Get Cited by ChatGPT](/blog/how-to-get-cited-by-chatgpt) for the OpenAI side, and [llms.txt: The New robots.txt for AI](/blog/llms-txt-uk-smb-implementation) for the file format that may matter when models start consuming it.
+
+For the classical SEO foundation that AI Overviews still partly inherits, our [Google Maps SEO guide](/blog/google-maps-seo-uk-guide) and [Google Business Profile setup walkthrough](/blog/google-business-profile-uk-setup-verification) are the starting points for UK SMBs.
+
+## Common questions
+
+<FAQ items={[
+  { q: "What are Google AI Overviews and how do they differ from featured snippets?", a: "AI Overviews are the generative answer block that Google now renders above the classical ten blue links on roughly half of all UK searches, replacing the old Search Generative Experience that ran from May 2023 to mid 2024. A featured snippet lifts a single passage from one source. An AI Overview synthesises three to eight sources into a written answer, citing each one as a clickable card to the right of the box. The retrieval is also different: AI Overviews issue many sub queries in parallel, a process Google calls query fan out, and stitch the strongest passages from each result into the final summary. Featured snippets do neither." },
+  { q: "How does Google AI Overviews choose its sources?", a: "AI Overviews retrieve in two stages. Stage one runs a query fan out, breaking the user prompt into eight to sixteen sub queries and pulling top results for each. Stage two scores candidate passages on relevance to the sub query, source authority, freshness, and structural clarity, then selects three to eight for synthesis. Sources cited inside an AI Overview overlap with the classical top ten roughly half the time according to Authoritas analysis from late 2025, which means classical ranking still matters but is no longer sufficient. Pages that lead with a definitional sentence, use heading hierarchy cleanly and ship FAQPage or Article schema are extracted at materially higher rates." },
+  { q: "Does ranking number one in Google guarantee an AI Overview citation?", a: "No. Authoritas data from late 2025 found citation overlap between AI Overviews and the classical top ten averaging about fifty four per cent across UK queries, with significant variance by sector. Health and finance overlap is higher because Google leans on its quality raters guidelines for those topics. Local and product queries overlap is lower because AI Overviews pull from forums, video transcripts and review sites that rarely sit in the blue links. The practical implication for UK SMBs is that classical SEO buys you a coin flip on inclusion, and the structural and schema work decides the rest." },
+  { q: "What is query fan out and why does it matter for AI Overviews ranking?", a: "Query fan out is the process of breaking one user prompt into multiple sub queries, running each in parallel, and combining the results. Google AI Mode runs about sixteen parallel sub queries per prompt according to internal documentation surfaced in May 2025. The implication for content design is that you should not optimise a single page against one head term. You should write so that the page contains direct answers to the obvious sub queries a buyer would also ask. A guide on Google Maps SEO that also answers what is the Map Pack, how many reviews do I need and what schema should I ship will be extracted at higher rates than a guide that only covers the head term." },
+  { q: "Which schema types help most for AI Overviews citation in 2026?", a: "Article and BlogPosting with a full author Person node are the foundational types. Add FAQPage on every page with a Q and A block, even though the rich result was deprecated in 2023, because Gemini and the AI Overviews extractor still parse it during answer assembly. Add Speakable on the answer first paragraph after every H2 to flag the most citation worthy passage. Add HowTo on process pages where the headings really are sequential steps. Schema is now treated as a verification layer by Gemini powered AI Mode, so accuracy beats volume. A clean Article plus FAQPage plus Speakable plus accurate Organization with sameAs outperforms a sprawling but inconsistent stack." },
+  { q: "How long until AI Overviews work shows up in citations?", a: "Schema, heading and content fixes typically take two to four weeks to be reflected in AI Overview citations once Googlebot has recrawled and reindexed the changed pages. Entity reconciliation work, including Wikidata claims, sameAs additions and cross platform mention building, takes sixty to ninety days because corroboration across multiple sources is what shifts the model prior. Recovery from a content quality issue takes longer still because freshness signals must accumulate. The honest answer is that AI Overviews ranking is a slower compounding game than classical SEO, and anyone promising movement inside thirty days is selling a story rather than a result." }
+]} />
+
+<CTA
+  href="/ai-visibility"
+  label="See how Irvale engineers AI-search visibility"
+  sublabel="Diagnostic, schema, citation engineering and weekly share-of-voice monitoring across every engine that matters"
+/>

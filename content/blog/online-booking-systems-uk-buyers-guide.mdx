@@ -1,0 +1,292 @@
+---
+title: "Online Booking Systems for UK Small Businesses: 2026 Buyer's Guide"
+slug: "online-booking-systems-uk-buyers-guide"
+description: "An honest 2026 buyer's guide to online booking systems for UK small businesses, with pricing in pounds, GDPR posture, deposit handling and PECR notes."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "cro"
+vertical: null
+tags: ["bookings", "cro", "uk smb", "saas comparison", "no shows"]
+featured: false
+
+hero:
+  search: "uk smartphone calendar booking screen"
+  alt: "UK customer holding a smartphone showing a calendar booking screen on a wooden cafe table beside a cup of coffee."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "What is the best online booking system for a UK small business in 2026?"
+    a: "There is no single best system, only a best fit per sector. Fresha leads on free core software for UK salons and barbers when the owner accepts marketplace economics. Cal.com leads on cost and developer flexibility for consultants and small teams. Square Appointments leads on retail and hospitality where card hardware already runs Square. SimplyBook.me and Setmore lead on cheapest paid tiers for sole traders. Zatrovo leads on member led studios where booking sits beside review automation and posting. The wrong question is which is best overall. The right question is which fits your sector, ticket size, deposit volume and integration stack."
+  - q: "How much does a booking system cost per month in the UK?"
+    a: "UK booking software ranges from zero pounds to roughly one hundred and fifty pounds per month per location for small business tiers in 2026. Fresha core software is free and earns its money on payment processing and marketplace fees. Cal.com starts at zero pounds for the open source self host or about twelve pounds per user per month for the hosted Teams plan. Setmore and SimplyBook.me free tiers cap at one user. Acuity sits at fourteen to forty nine pounds per month. Square Appointments is free for one user, then twenty nine pounds per month per location. Treatwell Connect starts at thirty five pounds per month plus marketplace commission."
+  - q: "Are UK booking systems GDPR compliant by default?"
+    a: "Most major platforms ship GDPR aware defaults but the UK GDPR responsibility sits with the controller, which is your business, not the platform. The system is your processor. You need a written processor agreement, a privacy notice that names the platform, a lawful basis for storing customer data, and clarity on international transfers when the platform hosts data outside the UK or EEA. Fresha, Treatwell, Cal.com EU, Acuity and Square publish processor agreements. Check whether the data is stored in the UK or EU before routing. The Information Commissioner's Office expects this to be documented before launch."
+  - q: "How do I take deposits for appointments under UK PCI rules?"
+    a: "You take deposits through a PCI compliant payment processor that handles the card data on your behalf, never on your own server. Stripe, Square, Adyen, Worldpay and Mollie are the common options. Most UK booking systems integrate Stripe natively, which means card details are tokenised inside Stripe's iframe and your business inherits PCI DSS SAQ A scope, the lightest version. Self hosted card collection is rarely worth the compliance overhead for a UK small business. Deposit amounts in the UK typically run twenty to fifty per cent of service value, captured at booking, refunded on cancellation outside the policy window."
+  - q: "Can I send SMS booking reminders in the UK without breaching PECR?"
+    a: "Yes, transactional SMS reminders for confirmed bookings sit comfortably inside PECR because they are service communications, not direct marketing. The Privacy and Electronic Communications Regulations apply to marketing messages, and the Information Commissioner's Office has been clear that booking confirmations, reminders, and post service follow ups are not marketing. Marketing messages, such as a promotion or rebooking nudge, do require consent or the soft opt in for existing customers about similar services. Use a recognisable sender ID, include an opt out path on any marketing message, and keep records of when each customer consented."
+  - q: "Can a UK booking system integrate with Xero or QuickBooks UK?"
+    a: "Most established UK booking systems integrate with Xero and QuickBooks UK either natively or through Zapier and Make. Fresha exports CSV to both. Square Appointments integrates with Xero natively. Acuity and SimplyBook.me push transactions through Zapier. Treatwell exports settlement data into Xero on a daily schedule. Cal.com routes to accounting through Stripe or webhook. The integration depth varies. Native integrations sync customer, invoice and payment data including VAT lines. Zapier integrations move headline data and often need a manual adjustment for VAT. Verify the depth before you commit to migrating."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/services/cro"
+  - "/zatrovo"
+  - "/revenue-engineering"
+  - "/blog/google-maps-seo-uk-guide"
+  - "/blog/get-more-google-reviews-uk-ethically"
+  - "/blog/how-to-ask-for-reviews-uk-polite"
+
+related: []
+
+schema:
+  howTo: false
+  speakable: true
+
+reviewedBy: null
+---
+
+> **Disclosure:** I publish Irvale Studio. We sell booking and CRO work to UK SMBs as part of our Revenue Engineering engagements, and we build Zatrovo, a member booking and review automation product. Pricing claims about competitor products were verified on 2026-05-06 against each vendor's UK pricing page or UK partner support documentation.
+
+## What a UK booking system actually has to do in 2026
+
+<Speakable>
+A UK booking system in 2026 has to take an appointment, capture a deposit through a PCI compliant processor, send a transactional reminder under PECR rules, write the booking to a calendar the owner already uses, and route customer data through a UK or EEA data centre with a documented processor agreement. Anything beyond those five jobs is a feature, not a requirement. Picking a platform that fails any one of the five is what makes a migration painful eighteen months later.
+</Speakable>
+
+The buying mistake I see most often in UK small businesses is treating the booking system as a calendar widget rather than a regulated transaction surface. The widget has to clear UK PCI DSS handling, UK GDPR processor terms, and PECR rules on reminder messaging. The platform either does that work for you or pushes it back onto your business in the small print. The difference shows up the first time a chargeback happens or the Information Commissioner's Office sends a query.
+
+This guide compares the eleven platforms UK small businesses ask about most often, sets out the compliance baseline, and gives a sector by sector recommendation. It is not a league table. The right platform depends on your ticket size, deposit volume, integration stack and how much marketplace exposure you actually want.
+
+## The five jobs that decide the choice
+
+<Speakable>
+Five jobs decide which UK booking platform fits a small business: deposit handling, reminder messaging, calendar sync, accounting integration, and data residency. Score each platform out of five against your sector, then weight by frequency. A sole trader doing twenty bookings a week scores reminders and deposits highest. A multi location salon scores accounting and staff scheduling highest. The platform that wins on the weighted score wins, regardless of brand recognition.
+</Speakable>
+
+### Job one: deposit handling under UK PCI DSS
+
+A UK small business taking deposits or full prepayments needs the card data tokenised inside the processor's iframe, not stored on its own server. That keeps your business inside the lightest PCI DSS scope, SAQ A, which is broadly an annual self assessment rather than a full audit. Every platform on this list achieves SAQ A scope by default through Stripe, Square or Adyen integration. None of them pass the PCI compliance work back to you in 2026, but the deposit terms, refund flow and chargeback handling vary widely.
+
+### Job two: PECR aware reminder messaging
+
+The Privacy and Electronic Communications Regulations apply to electronic marketing in the UK, not to transactional service communications. A booking confirmation and reminder for a confirmed appointment is transactional and does not need consent. A rebooking nudge, a promotion or a "we miss you" message is marketing and does need consent or the soft opt in for existing customers about similar services. Good platforms separate the two flows in the user interface so the wrong template cannot be sent down the wrong channel. Weak platforms blend them, leaving the owner to spot the breach.
+
+### Job three: calendar sync that actually holds
+
+Two way Google Calendar and iCloud sync is table stakes. Outlook 365 sync is non negotiable for professional services. Microsoft Bookings, Calendly and Cal.com lead on Outlook depth. Fresha and Treatwell are weaker on Outlook because their primary surface is the in app calendar. If your business runs on Microsoft 365, the platform shortlist narrows immediately.
+
+### Job four: UK accounting integration with VAT lines
+
+Xero and QuickBooks UK are the two accounting systems most UK small businesses use. The integration question is whether the booking platform pushes individual transactions with the VAT line attached, or just aggregate settlement totals. Native integrations carry the VAT line. Zapier integrations often do not. The difference is one bookkeeper hour a week, which compounds.
+
+### Job five: data residency and processor agreement
+
+UK GDPR requires you to know where customer data is stored and to have a written processor agreement with each platform that handles it. UK or EEA hosting is the cleanest position. US hosting requires a documented transfer mechanism, currently the UK addendum to the EU US Data Privacy Framework. Fresha, Treatwell, Acuity, Square, SimplyBook.me and Cal.com EU host inside the UK or EEA. Calendly and Setmore route through US infrastructure with the addendum in place. Either is workable, but the privacy notice on your site has to match what the platform actually does.
+
+## The eleven platforms UK small businesses ask about
+
+<Stats items={[
+  { value: "1.3 billion", label: "Annual UK consumer appointments booked online (estimated, all sectors)", source: "Statista UK appointment booking forecast, 2025" },
+  { value: "23 per cent", label: "UK service business no show rate without deposits or SMS reminders", source: "Tend industry data, 2025" },
+  { value: "62 per cent", label: "UK consumers who say a deposit requirement does not deter them from booking", source: "BrightLocal Local Consumer Review Survey, 2025" },
+]} />
+
+The headline comparison covers the eleven platforms UK small businesses raise in our intake calls. Pricing was verified on 2026-05-06. Where a platform offers tiered pricing, the figure shown is the entry tier most relevant to a UK small business.
+
+<Comparison
+  caption="UK booking platforms compared, May 2026"
+  headers={["Platform", "Cost from", "Best fit", "Deposits", "GDPR posture", "UK support"]}
+  rows={[
+    ["Fresha", "Free core software", "Salons, barbers, beauty studios", "Native via Stripe, instant payouts (fee)", "EEA hosted, processor agreement published", "Email, phone in UK hours"],
+    ["Treatwell Connect", "From £35/month + commission", "Salons wanting marketplace exposure", "Native via Treatwell payments", "EEA hosted, controller side documented", "Email, phone in UK hours"],
+    ["Cal.com", "Free self host or £12/user/month", "Consultants, agencies, technical teams", "Stripe via app integration", "EU host option, open source self host available", "Email, community Slack"],
+    ["Calendly", "From £8/user/month", "Professional services, individual schedulers", "Stripe and PayPal via integrations", "US host, UK addendum to DPF", "Email, chat"],
+    ["Setmore", "Free for one user, £9/user/month above", "Sole traders, very small teams", "Stripe via integration", "US host, UK addendum to DPF", "Email, chat"],
+    ["Square Appointments", "Free for one, £29/month/location above", "Retail, hospitality on Square hardware", "Native Square payments", "EEA hosted via Square UK", "Email, phone in UK hours"],
+    ["Acuity Scheduling", "From £14/month", "Coaches, clinics, studios", "Stripe, Square, PayPal via integration", "US host, UK addendum to DPF", "Email, chat"],
+    ["SimplyBook.me", "Free tier, paid from £8/month", "Sole traders, small clinics", "Stripe and others via integration", "EEA hosted (EU servers)", "Email, chat in UK hours"],
+    ["Phorest", "From £79/month/location", "Mid sized salons and clinics", "Native via Phorest Pay", "UK and EU hosted", "Phone in UK hours, account manager"],
+    ["Timely", "From £30/month", "Salons and clinics in UK and AU", "Native via Timely Pay", "EEA hosted", "Email, phone in business hours"],
+    ["Zatrovo", "Bundled inside Revenue Engineering", "Member led studios, gyms, yoga, pilates, small clinics", "Stripe native, deposit and full pay", "UK hosted, processor agreement on file", "Owner direct, UK hours"],
+  ]}
+/>
+
+The table covers the published pricing surface. None of these platforms run their full revenue model on subscription cost alone. The economics show up in payment processing fees, marketplace commissions on new clients, and add on charges for SMS bundles. The next sections walk through the platforms in groups.
+
+## Group one: marketplace platforms (Fresha, Treatwell)
+
+<Speakable>
+Fresha and Treatwell are marketplace platforms first and booking systems second. Their core economics is the commission they charge on new clients introduced through the marketplace, not the subscription. For a UK salon willing to accept the marketplace listing, both can be net profitable. For a UK salon that already has a full chair from local repeat clients, the marketplace overhead is a leak and a smaller, owner controlled platform will earn more per client.
+</Speakable>
+
+### Fresha
+
+Fresha publishes free core software for UK salons, barbers and beauty studios. The platform monetises through payment processing on cards taken through Fresha (1.29% plus 20p for UK Visa and Mastercard, plus instant payout fees), marketplace introduction fees on new clients booked through fresha.com (currently 20% on the first appointment), and optional add ons. The free core proposition is genuine. A small UK salon can run its calendar, take deposits, send reminders and process payments without paying a monthly subscription.
+
+The trade off is the marketplace exposure. Salons listed on fresha.com appear in client search and are subject to the marketplace fee on new bookings sourced through that channel. Existing clients who book directly with the salon are not subject to the fee. The economics swing on how many new clients the marketplace actually introduces. Salons in central London and Manchester report meaningful new client volume from the marketplace. Salons in smaller towns where the marketplace has lower client density report almost none.
+
+UK support runs through email and phone in business hours. GDPR posture is documented, processor agreements are signed at onboarding, hosting is EEA based. PECR aware messaging is built in: confirmations and reminders are separate from marketing.
+
+### Treatwell
+
+Treatwell Connect is the salon facing software product. Treatwell.co.uk is the consumer marketplace. The Connect software starts at £35 per month per location plus marketplace commission on Treatwell sourced bookings. Commission is tiered and ranges from 20 to 30 per cent depending on plan, with the higher rate applied to plans that include heavier marketing exposure on the marketplace.
+
+Treatwell is the UK incumbent in the salon marketplace category, with measurable consumer brand awareness in London and the south east. New client volume from the marketplace is typically higher than Fresha for a UK salon in those regions. The trade off is the higher software cost and higher commission compared with Fresha, plus a longer notice period to exit if you want to leave. Data export is supported but the customer profiles delivered by Treatwell are commercially sensitive and the contract limits how those profiles can be marketed to after exit.
+
+For a fuller side by side on these two, see [Fresha vs Treatwell: Which Wins for UK Salons?](/blog/fresha-vs-treatwell-uk-salons).
+
+## Group two: scheduler platforms (Calendly, Cal.com, Setmore, Acuity, SimplyBook.me)
+
+<Speakable>
+Scheduler platforms suit UK professional services, coaches, consultants and sole traders where the booking is for a meeting or consultation rather than an in store appointment. The five platforms in this group all do the core scheduling job competently. The differences come down to UK pricing, integration depth, calendar sync quality, and data residency posture. Cal.com leads on cost and integrations for technical teams. Calendly leads on UI polish. Acuity leads on features for clinics and coaches.
+</Speakable>
+
+### Cal.com
+
+Cal.com is the open source scheduler. The hosted plan is free for individuals and starts at twelve pounds per user per month for the Teams plan as of 2026-05-06. Self hosting is free if you have the engineering capacity. The integrations layer is the deepest in this group: Outlook 365, Google Workspace, Stripe, Zoom, Google Meet, MS Teams, plus a long tail of community apps. UK GDPR posture is solid because the EU hosted option keeps data in the EEA and the open source self host gives full control.
+
+Cal.com fits UK consultants, agencies and small teams that already run on Slack, Notion or similar developer leaning stacks. It is overkill for a one chair barber.
+
+### Calendly
+
+Calendly is the UI polished incumbent. UK pricing starts at eight pounds per user per month for the Standard plan. Outlook and Google Calendar sync is excellent. Stripe and PayPal integrations are mature. The trade off is US hosting, which requires the UK addendum to the EU US Data Privacy Framework on your privacy notice. The platform is well configured for compliance, but the controller paperwork is on you.
+
+Calendly fits UK professional services individuals and sole traders who value polish over integration depth.
+
+### Setmore
+
+Setmore offers a free tier for one user that is genuinely usable as a small business booking page. Paid plans start at nine pounds per user per month and add Stripe integration, recurring appointments and reminders. UI is functional rather than polished. UK support is email led. Hosting is US, so the same DPF addendum applies as Calendly.
+
+Setmore fits UK sole traders who want a free or near free starter that scales to a small team.
+
+### Acuity Scheduling
+
+Acuity, owned by Squarespace, starts at fourteen pounds per month for the Emerging Entrepreneur plan and rises to forty nine pounds per month for Powerhouse. The product feature set leans toward coaches, clinics and studios, with intake forms, package handling and group classes. Stripe, Square and PayPal integrations are all native. Hosting is US.
+
+Acuity fits UK coaches, therapists and small clinics that need intake form depth and packaged services.
+
+### SimplyBook.me
+
+SimplyBook.me has the most generous free tier for a multi service small business and a paid range starting at eight pounds per month. Hosting is EEA based, which is the cleanest UK GDPR posture in this scheduler group. The UI is dated. The trade off is paid for in feature breadth: SimplyBook bundles class scheduling, intake forms, memberships, gift cards, and a basic POS at price points the others charge twice for.
+
+SimplyBook fits UK small clinics, language schools, tutoring services and any small business willing to accept a slightly older interface in exchange for EEA hosting and a wide feature set at a low price.
+
+## Group three: vertical specialists (Phorest, Timely, Square Appointments)
+
+<Speakable>
+Vertical specialist platforms add depth in one sector at the cost of breadth. Phorest leads on mid sized UK salons and clinics that have outgrown Fresha. Timely is the credible Phorest alternative for UK and Australia. Square Appointments wins where the business already runs Square card hardware in store, because the booking sits beside the till natively. The trade off is higher cost and stronger sector lock in.
+</Speakable>
+
+### Phorest
+
+Phorest starts at seventy nine pounds per month per location. The platform is a full salon and clinic stack: bookings, payments, marketing, loyalty, gift cards, staff scheduling and inventory. Phorest Pay handles deposits natively. UK and EU hosting is documented. Account managers are part of the standard service, which is unusual at this price tier. Phorest is heavier and pricier than Fresha and Treatwell, and it earns the difference for mid sized salons running multi chair operations or multi location groups.
+
+### Timely
+
+Timely starts at thirty pounds per month and rises with location count and feature tier. The product is similar to Phorest in scope: bookings, payments, marketing, loyalty. Timely is strong in Australia, with growing UK presence. EEA hosting is documented. The product feels lighter than Phorest, which suits salons that want depth without the heaviest enterprise wrapper.
+
+### Square Appointments
+
+Square Appointments is free for one user, then twenty nine pounds per month per location for the Plus plan, fifty nine pounds for Premium. The economics work hardest for businesses already paying Square's card processing fees, because the booking and the till are the same product. Hospitality, retail, beauty and small clinics that already run Square hardware get the booking layer at near zero marginal cost.
+
+The trade off is feature depth in beauty specific workflows, which lags Fresha, Phorest and Timely. Square Appointments is a great fit for a hairdresser running a single Square terminal. It is a weaker fit for a six chair salon needing colour retention reporting.
+
+## Group four: member led studios (Zatrovo)
+
+<Speakable>
+Zatrovo sits in the member led studio category alongside Mindbody and Glofox. It is built for UK yoga, pilates, gyms, small group fitness and member led wellness studios where booking sits beside class capacity, member credits, recurring billing and review automation. It is bundled inside Revenue Engineering rather than sold as standalone software. For non member led businesses, the platforms above are usually a better fit.
+</Speakable>
+
+The member led category has different mechanics from the appointment based category. The booking is for a slot in a class with limited capacity, not a one to one service. Members hold credit packs, monthly memberships or class passes. Recurring billing is the spine of the revenue model. Booking software in this category needs class capacity management, waitlists, recurring billing under FCA accepted payment processor rules, and member portals.
+
+Zatrovo handles those jobs and bundles review automation and posting flows on top, which is unusual in the category. It is worth evaluating for UK studios in this niche where booking, members, reviews and posting belong in a single system. For UK salons, barbers, single chair beauty rooms or appointment based clinics, Fresha, Phorest, Timely or Acuity are usually a better fit.
+
+If your business runs on memberships and class capacity, [Revenue Engineering](/revenue-engineering) bundles Zatrovo with the website rebuild and the local SEO work that feeds it. The economics typically clear at six to ten new members a month attributable to the new system.
+
+## Sector recommendations
+
+<Callout variant="insight" title="The honest sector guide">
+Picking the right platform takes ten minutes if you start from sector and ticket size, not from feature lists. The eleven platforms above cover most UK small business needs. The pattern below is what we recommend on intake calls when the answer is straightforward.
+</Callout>
+
+- **Single chair salon or barber, low ticket, low new client volume:** Fresha free core, accept Stripe processing fees.
+- **Multi chair salon, central London or major city, marketplace exposure desired:** Treatwell Connect, accept commission for new client volume.
+- **Mid sized salon or clinic, six plus chairs, multi location ambition:** Phorest or Timely.
+- **Beauty therapist running from home, sole trader:** Setmore free or SimplyBook free, upgrade as volume justifies.
+- **UK consultant, coach or freelancer:** Cal.com if technical, Calendly if not, Acuity if you run packages.
+- **Cafe, retail or hospitality on Square hardware:** Square Appointments, free or twenty nine pounds tier.
+- **UK dental practice, opticians, vet:** Phorest, Timely or a sector specialist (we usually shortlist three).
+- **Yoga studio, pilates, gym, small group fitness:** Zatrovo if member led, otherwise Mindbody or Glofox.
+- **Trades quoting work rather than booking slots:** none of the above. A quote request form on your site, integrated with a CRM, beats a booking system. See [The Quote-Request Form That Wins UK Tradesmen More Jobs](/blog/quote-request-form-uk-tradesmen) when published.
+
+## How to migrate without losing bookings
+
+<Speakable>
+A booking system migration in a UK small business is a four week project if done deliberately. Week one is platform decision and account setup. Week two is data import, calendar sync and staff training. Week three runs both systems in parallel for a soft launch. Week four cuts over with a press release, a website update, and a final reconciliation. Skipping any week is what causes the lost bookings and angry customers that give migrations a bad reputation.
+</Speakable>
+
+### Week one: decision and setup
+
+- Score the eleven platforms against the five jobs at the top of this guide.
+- Pick the winner. Sign the processor agreement and read the data residency clause.
+- Open the account, add staff users, configure services and pricing.
+- Connect the payment processor, run a one penny test transaction to confirm the flow.
+
+### Week two: import and train
+
+- Export the customer list and historical bookings from the old platform.
+- Import into the new platform, manually fix the merge fields the export mangles.
+- Set up calendar sync to Google or Outlook 365 and verify two way write.
+- Train staff on the new interface for two hours, recorded for absentees.
+
+### Week three: parallel run
+
+- Take new bookings on the new platform only.
+- Honour existing bookings on the old platform until they complete.
+- Reconcile daily for the first week to catch any drop outs.
+- Run reminder messaging on the new platform from day one.
+
+### Week four: cut over
+
+- Update the website "book now" button to point at the new platform.
+- Email existing customers to announce the change, in line with your privacy notice.
+- Cancel the old subscription on the date all old bookings are honoured.
+- File the processor agreement and update the privacy notice with the new processor.
+
+The work compounds. By month three the new system is paying back the migration cost, the no show rate is a third lower because the deposit and reminder flows are tighter, and the owner has two hours a week back from manual booking admin.
+
+## Common questions
+
+<FAQ items={[
+  { q: "What is the best online booking system for a UK small business in 2026?", a: "There is no single best system, only a best fit per sector. Fresha leads on free core software for UK salons and barbers when the owner accepts marketplace economics. Cal.com leads on cost and developer flexibility for consultants and small teams. Square Appointments leads on retail and hospitality where card hardware already runs Square. SimplyBook.me and Setmore lead on cheapest paid tiers for sole traders. Zatrovo leads on member led studios where booking sits beside review automation and posting. The wrong question is which is best overall. The right question is which fits your sector, ticket size, deposit volume and integration stack." },
+  { q: "How much does a booking system cost per month in the UK?", a: "UK booking software ranges from zero pounds to roughly one hundred and fifty pounds per month per location for small business tiers in 2026. Fresha core software is free and earns its money on payment processing and marketplace fees. Cal.com starts at zero pounds for the open source self host or about twelve pounds per user per month for the hosted Teams plan. Setmore and SimplyBook.me free tiers cap at one user. Acuity sits at fourteen to forty nine pounds per month. Square Appointments is free for one user, then twenty nine pounds per month per location. Treatwell Connect starts at thirty five pounds per month plus marketplace commission." },
+  { q: "Are UK booking systems GDPR compliant by default?", a: "Most major platforms ship GDPR aware defaults but the UK GDPR responsibility sits with the controller, which is your business, not the platform. The system is your processor. You need a written processor agreement, a privacy notice that names the platform, a lawful basis for storing customer data, and clarity on international transfers when the platform hosts data outside the UK or EEA. Fresha, Treatwell, Cal.com EU, Acuity and Square publish processor agreements. Check whether the data is stored in the UK or EU before routing. The Information Commissioner's Office expects this to be documented before launch." },
+  { q: "How do I take deposits for appointments under UK PCI rules?", a: "You take deposits through a PCI compliant payment processor that handles the card data on your behalf, never on your own server. Stripe, Square, Adyen, Worldpay and Mollie are the common options. Most UK booking systems integrate Stripe natively, which means card details are tokenised inside Stripe's iframe and your business inherits PCI DSS SAQ A scope, the lightest version. Self hosted card collection is rarely worth the compliance overhead for a UK small business. Deposit amounts in the UK typically run twenty to fifty per cent of service value, captured at booking, refunded on cancellation outside the policy window." },
+  { q: "Can I send SMS booking reminders in the UK without breaching PECR?", a: "Yes, transactional SMS reminders for confirmed bookings sit comfortably inside PECR because they are service communications, not direct marketing. The Privacy and Electronic Communications Regulations apply to marketing messages, and the Information Commissioner's Office has been clear that booking confirmations, reminders, and post service follow ups are not marketing. Marketing messages, such as a promotion or rebooking nudge, do require consent or the soft opt in for existing customers about similar services. Use a recognisable sender ID, include an opt out path on any marketing message, and keep records of when each customer consented." },
+  { q: "Can a UK booking system integrate with Xero or QuickBooks UK?", a: "Most established UK booking systems integrate with Xero and QuickBooks UK either natively or through Zapier and Make. Fresha exports CSV to both. Square Appointments integrates with Xero natively. Acuity and SimplyBook.me push transactions through Zapier. Treatwell exports settlement data into Xero on a daily schedule. Cal.com routes to accounting through Stripe or webhook. The integration depth varies. Native integrations sync customer, invoice and payment data including VAT lines. Zapier integrations move headline data and often need a manual adjustment for VAT. Verify the depth before you commit to migrating." }
+]} />
+
+## Action list for tomorrow morning
+
+The shortlist for Monday, in this order:
+
+1. List your weekly booking volume, average ticket size, deposit policy and current integration stack on a single sheet of paper.
+2. Score the eleven platforms above against the five jobs section using your sheet. Pick the top three.
+3. Open free trials on the top three. Run a one penny Stripe test transaction on each. Send a test SMS reminder to your own phone. The platform that fails any of those tests drops out.
+4. Read the processor agreement and the data residency clause on the survivor. Sign only when both match your privacy notice.
+
+If you would rather have the whole booking, review and revenue stack engineered for you, including the deposit policy, the reminder flow, the calendar sync and the website behind it, that is exactly what [Revenue Engineering](/revenue-engineering) bundles. The Launch tier covers a single location migration with Zatrovo where appropriate.
+
+For DIY readers continuing the sequence: pair this with [How UK Small Businesses Can Earn More Google Reviews Ethically](/blog/get-more-google-reviews-uk-ethically) for the review side of the system, [The Polite British Way to Ask Customers for Reviews](/blog/how-to-ask-for-reviews-uk-polite) for the templates, and [Google Maps SEO for UK Small Businesses](/blog/google-maps-seo-uk-guide) for the local visibility that feeds the bookings in the first place.
+
+<CTA
+  href="/revenue-engineering"
+  label="Get the booking and review stack engineered for you"
+  sublabel="$1,450 / $3,450 / $5,500 per month — website + Zatrovo included"
+/>

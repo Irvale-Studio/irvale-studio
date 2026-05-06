@@ -1,0 +1,319 @@
+---
+title: "llms.txt: The New robots.txt for AI? What to Ship This Week"
+slug: "llms-txt-uk-smb-implementation"
+description: "What llms.txt actually is, what it does and does not do, and how UK SMBs should ship a working file this week using Irvale's own as a worked example."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "ai-search"
+vertical: null
+tags: ["llms.txt", "ai search", "technical seo", "geo", "uk smb"]
+featured: false
+
+hero:
+  search: "uk laptop terminal llms txt code editor"
+  alt: "UK laptop on a dark desk showing a code editor open on an llms.txt file with a terminal pane below it."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "Does any major AI model actually read llms.txt in 2026?"
+    a: "Not for retrieval, in any publicly documented way. As of May 2026 OpenAI, Anthropic, Google, Perplexity and Microsoft have not publicly committed to reading llms.txt during retrieval or training. Anthropic, Stripe, Cloudflare, Zapier and a long list of well known sites publish one. Several agentic browser tools and small open source assistants consume it. The model providers themselves do not. The pragmatic stance is to ship the file because it costs almost nothing, signals intent and may matter when models start consuming it. Do not ship it expecting a citation lift this quarter, because there is no public mechanism by which a citation lift could occur."
+  - q: "How is llms.txt different from robots.txt and sitemap.xml?"
+    a: "Robots.txt tells crawlers what they may and may not fetch. Sitemap.xml tells crawlers what URLs exist and when they last changed. Llms.txt is a curator's note for language models, written in markdown rather than the machine readable formats of the other two. It pairs a short brand summary with a curated list of the most important pages, prioritised by the publisher rather than discovered by the crawler. The three files complement each other rather than replace each other. A proper AI search programme ships all three, not one or two of them. Llms.txt is the editorial layer, robots.txt is the access layer, sitemap.xml is the discovery layer."
+  - q: "What is the difference between llms.txt and llms-full.txt?"
+    a: "Llms.txt is short, link only and curatorial. It contains a brand summary, then sections of links with one line descriptions. Llms-full.txt is long, content full and exhaustive. It concatenates the full markdown of the most important pages on the site into one document so that an agentic tool can read everything in one fetch. The two files serve different consumers. Llms.txt is for tools that need to understand what your site is. Llms-full.txt is for tools that want the entire context window to read. Most UK SMBs should ship llms.txt first, then llms-full.txt as a build artefact concatenating the top ten to twenty pages."
+  - q: "Where does the llms.txt format come from and who wrote it?"
+    a: "The proposal comes from Jeremy Howard, a co-founder of Answer.AI and fast.ai, published at llmstxt.org in September 2024. The format is deliberately simple: a markdown file with a single H1 brand name, a blockquote summary, then H2 sections of links written as standard markdown bullet items. The proposal is not a W3C standard, an IETF RFC or a vendor backed protocol. It is a community proposal that has accumulated meaningful adoption through 2025 and 2026, around ten per cent of three hundred thousand surveyed domains by early 2026, but is not yet read by any major AI model provider for retrieval or training."
+  - q: "What should a UK SMB actually put in their llms.txt file?"
+    a: "An H1 with the business name. A blockquote of two to four sentences summarising what the business does, where it operates, and any defining characteristics. An H2 Core pages section with five to eight links to the most important pages on the site, each with a short description. An H2 Guides section if you publish content. An H2 Optional section for secondary links like the blog or sitemap. Total length around fifty to one hundred lines. The discipline is curation, not exhaustiveness. The point is to tell a model in markdown what a careful human editor would say if they had thirty seconds to summarise the site. Ship Irvale's file at irvale.com/llms.txt as a worked example."
+  - q: "Will llms.txt eventually become a real ranking signal?"
+    a: "Possibly, but the honest answer is that nobody knows. The proposal has the right shape to become a signal. It is publisher controlled, machine readable, and focused on the kind of curated context that improves model output. It is also vulnerable to the same gaming problems that affected meta descriptions in classical SEO, which is partly why no major model provider has yet committed to reading it. The probability that some agentic tool starts consuming it in a meaningful way within the next twelve months is high. The probability that ChatGPT Search, Google AI Overviews or Perplexity reads it as a primary signal in 2026 is low. Ship it for the option value, not for the certain return."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/ai-visibility"
+  - "/services/web"
+  - "/revenue-engineering"
+  - "/blog/ranking-google-ai-overviews-2026"
+  - "/blog/how-to-get-cited-by-chatgpt"
+  - "/blog/google-maps-seo-uk-guide"
+  - "/blog/google-business-profile-uk-setup-verification"
+
+related: []
+
+schema:
+  howTo: true
+  speakable: true
+
+reviewedBy: null
+---
+
+> **Disclosure:** I publish Irvale Studio. We sell AI search visibility work to UK SMBs and global brands through our AI Visibility pillar and our Revenue Engineering engagement. Vendor adoption claims, specification details and behaviour observations below were verified against the cited primary sources on the date of publication.
+
+## What llms.txt actually is, in plain English
+
+<Speakable>
+Llms.txt is a markdown file proposed by Jeremy Howard at llmstxt.org in September 2024 as a publisher controlled summary of a site for language models. It contains an H1 with the site name, a blockquote summary, and then H2 sections of curated links with one line descriptions. It is not a W3C standard, an IETF RFC or a vendor backed protocol. It is a community proposal that several well known sites have adopted, but no major AI model provider has publicly committed to reading for retrieval or training as of May 2026.
+</Speakable>
+
+The file is meant to live at the root of the domain at `https://yourdomain.com/llms.txt`. It is plain markdown, not JSON, not XML, not YAML. The format is deliberately simple so that small open source tools, agentic browsers and human editors can all read and write it without specialist tooling.
+
+Two related files belong in the same conversation.
+
+- **llms-full.txt** — a longer concatenation of the actual markdown content of the most important pages, intended for tools that want the whole site in one fetch.
+- **ai.txt** — an older proposal, more like a robots-style access control file for AI crawlers, with limited adoption.
+
+We will compare all three later in this post.
+
+## Where llms.txt came from
+
+<Speakable>
+The proposal was published by Jeremy Howard at llmstxt.org in September 2024. Howard is the co-founder of Answer.AI and fast.ai, a researcher with significant standing in the open source AI community. The motivation was straightforward: large language models have small context windows compared to the size of most websites, so a curated summary written by the publisher gives the model a faster path to the most important content than a full crawl. The format borrowed from the simplicity of robots.txt and humans.txt while staying readable as markdown.
+</Speakable>
+
+The reception across 2025 was a mix of enthusiasm and caution. Adoption climbed steadily, with around ten per cent of three hundred thousand surveyed domains shipping one by early 2026 (No Hacks, 2026 survey reported in Search Engine Land). High signal sites that publish one include Anthropic, Stripe, Zapier, Cloudflare, Vercel and a long list of developer-first SaaS tools.
+
+The caution comes from the same place every voluntary metadata proposal comes from. Robots.txt was honoured because crawlers found the cost of ignoring it higher than the cost of obeying. Sitemap.xml was honoured because submitting one made indexing faster. Llms.txt has neither lever in 2026. There is no public commitment from any model provider that consuming an llms.txt will improve indexing, citation eligibility or training inclusion.
+
+The honest read on the proposal in May 2026 is option value plus signalling, not measurable lift.
+
+## How does llms.txt compare to robots.txt, sitemap.xml, ai.txt and schema.org
+
+<Speakable>
+Robots.txt controls crawler access. Sitemap.xml lists URLs and last modified dates. Ai.txt was an early proposal for AI specific access rules with limited adoption. Schema.org sameAs sits inside JSON-LD on each page and links your entity to its other identities online. Llms.txt is the editorial layer that none of the others occupy. The five files complement each other rather than substitute for each other.
+</Speakable>
+
+<Comparison
+  caption="Publisher metadata files for AI and search — what each one does in 2026"
+  headers={["File", "Format", "Primary purpose", "Major model adoption 2026", "Should UK SMBs ship it"]}
+  rows={[
+    ["robots.txt", "Plain text directives", "Crawler access control by user agent", "Universal, all reputable bots honour it", "Yes, mandatory"],
+    ["sitemap.xml", "XML, listed URLs with lastmod", "Discovery layer for crawlers, IndexNow integration", "Universal, all major search engines", "Yes, mandatory"],
+    ["llms.txt", "Markdown, curated summary plus links", "Editorial layer for language models", "Not used by any major model provider for retrieval as of May 2026", "Yes, low cost option value"],
+    ["llms-full.txt", "Markdown, concatenated full content", "Long form context for agentic tools", "Same as llms.txt, plus several agentic browsers", "Yes if your site is small enough to fit"],
+    ["ai.txt", "Plain text, AI specific access rules", "AI crawler access control", "Limited adoption, largely superseded by AI specific user agents in robots.txt", "No, robots.txt covers it"],
+    ["schema.org sameAs", "JSON-LD, inline on each page", "Entity reconciliation across platforms", "Universal across AI engines and classical search", "Yes, mandatory inside Organization and Person nodes"],
+  ]}
+/>
+
+The mistake to avoid is treating llms.txt as a replacement for any of the others. The mistake to avoid in the other direction is dismissing llms.txt because no model reads it yet. The cost of shipping is one afternoon. The downside if it never matters is approximately zero. The upside if even one major agentic tool starts consuming it in 2026 is meaningful free distribution.
+
+## The format spec, in mechanical detail
+
+<Speakable>
+The format is deliberately minimal. One H1 with the site name. One blockquote with a two to four sentence summary. Then H2 sections, each containing a short paragraph of context plus a markdown bullet list of links written as title plus URL plus colon plus description. An optional Optional section at the bottom for secondary links. Plain markdown, no extensions, no front matter, no schema.
+</Speakable>
+
+The full reference, paraphrased from llmstxt.org with our editorial conventions added.
+
+```markdown
+# Site name
+
+> One to four sentence blockquote summary. State what the business does, who
+> it serves, where it operates, and any single defining differentiator.
+
+## Core pages
+
+Optional one paragraph context introducing this section.
+
+- [Page title](https://example.com/page): one line description ending without a full stop
+- [Another page](https://example.com/another): another short description
+- [Third page](https://example.com/third): another description
+
+## Guides
+
+Optional one paragraph context.
+
+- [Guide one](https://example.com/guides/one): description
+- [Guide two](https://example.com/guides/two): description
+
+## Optional
+
+Secondary links that the model can deprioritise.
+
+- [Sitemap](https://example.com/sitemap.xml): full XML sitemap
+- [Robots](https://example.com/robots.txt): crawler policy
+```
+
+Three points worth noting.
+
+- **No front matter.** Unlike MDX, there is no YAML block. The H1 is the title.
+- **No HTML.** Markdown only. Links use standard markdown link syntax.
+- **Curate, do not exhaustively list.** The whole point is editorial selection. Aim for five to fifteen links per section, not fifty.
+
+The longer companion file is `llms-full.txt`, which concatenates the actual markdown content of each linked page. This is intended for agentic tools that want the entire site context in one fetch. For a small SMB site, llms-full.txt is feasible. For a large publisher, it is not.
+
+## A worked example using Irvale's own llms.txt
+
+<Speakable>
+The fastest way to understand the format is to read a working example. Irvale Studio's own file at irvale.com/llms.txt follows the spec exactly. It contains an H1 with the studio name, a blockquote summarising the UK plus Chiang Mai hybrid presence and the USD pricing, then sections for core pages, guides, authors and optional links. The file is around forty lines and took about thirty minutes to write.
+</Speakable>
+
+The current file, with annotations explaining each block.
+
+```markdown
+# Irvale Studio
+
+> UK + Chiang Mai hybrid digital studio engineering revenue systems for SMBs —
+> websites, AI visibility, conversion, reviews, paid media, and APAC market
+> entry. Founded by Jacob Horgan. USD pricing globally.
+
+## Core pages
+
+- [Home](https://irvale.com/): Studio overview, capability map, current work
+- [Revenue Engineering](https://irvale.com/revenue-engineering): Flagship full-takeover engagement at $1,450 / $3,450 / $5,500 per month
+- [AI Visibility](https://irvale.com/ai-visibility): Getting cited by ChatGPT, Claude, Perplexity, Gemini, Copilot
+- [Services](https://irvale.com/services): Hub of the 14 capability pillars
+- [Zatrovo](https://irvale.com/zatrovo): Booking + member CRM platform for studios
+- [Work](https://irvale.com/work): Case studies
+- [Contact](https://irvale.com/contact): Hello, briefs, partnerships
+
+## Field Notebook (blog)
+
+- [Blog index](https://irvale.com/blog): Tactical, sourced writing for UK SMBs
+- [Google Maps SEO for UK Small Businesses](https://irvale.com/blog/google-maps-seo-uk-guide): Map Pack guide
+- [Google Business Profile UK setup](https://irvale.com/blog/google-business-profile-uk-setup-verification): Claim, verify, configure
+- [How UK Small Businesses Can Earn More Google Reviews Ethically](https://irvale.com/blog/get-more-google-reviews-uk-ethically): CMA-aligned guide
+
+## Authors
+
+- [Jacob Horgan](https://irvale.com/about/jacob-horgan): Founder, writes on revenue engineering, programmatic SEO, AI search visibility
+
+## Optional
+
+- [llms-full.txt](https://irvale.com/llms-full.txt): Full machine-readable index
+- [Sitemap](https://irvale.com/sitemap.xml): XML sitemap
+- [Robots](https://irvale.com/robots.txt): Crawler policy
+```
+
+Four observations from writing it.
+
+- **The blockquote summary is the most edited block.** It needs to land the brand frame in two to four sentences. Get it right and every downstream link section reads as confirmation of the same identity.
+- **Descriptions are short on purpose.** A good description is six to ten words. Anything longer reads like marketing copy and the model will not extract it cleanly.
+- **Section ordering matters.** The model reads top down. Put the pages you want cited first.
+- **The Optional section is for the model's benefit, not the buyer's.** Sitemap and robots are not buyer destinations. Putting them in Optional tells an agentic tool "these exist if you need them, but they are not the editorial story".
+
+## Sourced numbers worth knowing
+
+<Stats items={[
+  { value: "About 10%", label: "Of 300,000 surveyed domains shipped an llms.txt by early 2026", source: "No Hacks AI user agent landscape survey, 2026" },
+  { value: "September 2024", label: "Date Jeremy Howard published the original llms.txt proposal at llmstxt.org", source: "llmstxt.org, 2024" },
+  { value: "Zero", label: "Major AI model providers with public commitments to reading llms.txt for retrieval as of May 2026", source: "OpenAI, Anthropic, Google, Microsoft public docs review, May 2026" },
+]} />
+
+The third number is the one most agencies skip past in their llms.txt content. It matters. The cost benefit case for shipping the file is option value, not measurable lift. Anyone selling llms.txt as an AI search ranking factor today is selling a story.
+
+## Step by step — how to ship a working llms.txt this week
+
+<Speakable>
+The work is one afternoon at most. Step one, write a two to four sentence blockquote summary that lands the brand frame. Step two, list five to eight core pages with six to ten word descriptions. Step three, add a guides section if you publish content. Step four, add an Optional section for sitemap, robots and any secondary links. Step five, save the file at the public web root and verify the URL returns plain markdown. Step six, link to it from llms-full.txt and from your sitemap.
+</Speakable>
+
+The mechanical steps for a Next.js site like Irvale's.
+
+### 1. Write the file
+
+Open a text editor. Write the H1, blockquote, and section structure described above. Ten lines per section is plenty. Total length around forty to a hundred lines.
+
+### 2. Save it to the public root
+
+For a Next.js project, drop the file at `public/llms.txt`. Next.js serves files in `public/` directly at the root of the domain. After deploy, the file should be available at `https://yourdomain.com/llms.txt`.
+
+### 3. Confirm the response is plain markdown
+
+Use `curl https://yourdomain.com/llms.txt` from a terminal. The response body should be the markdown source. The `Content-Type` header may be `text/plain` or `text/markdown` depending on your hosting setup. Either is acceptable; most consumers will sniff the content.
+
+If you can configure the response, prefer `Content-Type: text/markdown; charset=utf-8`. Some agentic tools will check the header before parsing.
+
+### 4. Generate llms-full.txt as a build artefact
+
+For sites with under fifty pages, llms-full.txt is feasible. The mechanic is to concatenate the markdown of each linked page into one file at build time, separated by H1 page titles.
+
+For Next.js + MDX projects, a build script reading the MDX sources, stripping front matter, prepending an H1, and writing the result to `public/llms-full.txt` does the job in about one hundred lines of code.
+
+### 5. Reference both files from your sitemap and robots
+
+In `robots.txt`, the convention is to add a comment line referencing the file:
+
+```
+# AI editorial summary
+# https://yourdomain.com/llms.txt
+```
+
+In your sitemap, the files do not need to be listed (they are not regular HTML pages). Adding them is harmless. Most consumers will discover them by convention at the root.
+
+### 6. Update the file when content changes
+
+The most common failure mode for llms.txt is staleness. The file lists curated pages by URL. Pages move, get deleted, or get renamed. A stale llms.txt is worse than no file because it gives a model misleading context. Set a quarterly review cadence, or wire the file generation into your build pipeline so it regenerates from the same source of truth as your sitemap.
+
+<Callout variant="warning" title="Watch out">
+A stale llms.txt with broken links or out of date page descriptions actively harms credibility with any model that does start consuming it. The fix is process discipline. Either review the file every quarter, or generate it from the same source as your sitemap so it cannot drift. Hand maintained files drift fastest.
+</Callout>
+
+## What llms.txt does not do
+
+<Speakable>
+Llms.txt does not block AI crawlers. It does not improve classical search rankings. It does not directly influence ChatGPT, Perplexity, Google AI Overviews or Claude citations in 2026. It does not replace robots.txt, sitemap.xml, or schema.org. It does not contain access rules. It is a curated editorial summary for language models, nothing more, nothing less. Treat it as one component of an AI search programme rather than the programme itself.
+</Speakable>
+
+The agency narrative around llms.txt has overshot the evidence. To stay calibrated:
+
+- **It is not a ranking factor.** Not in classical search, not in any documented AI search retrieval pipeline.
+- **It does not protect your content from training.** That is what robots.txt with GPTBot or ClaudeBot blocked is for.
+- **It does not signal authority.** Your Organization schema with sameAs cluster, your author Person nodes, your third party mentions and your trade press placements do that.
+- **It does not replace anything.** It is additive. Ship it alongside the work that does move citation rates, not instead of it.
+
+The honest reframe: llms.txt is a low cost insurance policy with non zero option value. That is a reasonable thing to ship. It is not a strategy.
+
+## What we don't know yet — the open questions
+
+<Speakable>
+Several aspects of llms.txt adoption are open questions worth treating honestly. Naming them stops a programme from spending budget on speculation dressed up as tactic. The honest list helps you make better decisions about where else to invest the same hour.
+</Speakable>
+
+The list of things the field genuinely does not know in May 2026.
+
+- **Whether any major model provider will commit to reading llms.txt for retrieval.** OpenAI, Anthropic, Google and Microsoft have all been silent. The probability is non zero, the timeline is unknown.
+- **Whether llms-full.txt will displace the shorter file.** Some agentic tools prefer the long form. Whether the long form becomes the default is unclear.
+- **How llms.txt interacts with agentic browsing tools.** Tools like Browser-Use, Claude Computer Use and ChatGPT's agent mode each handle the file differently or not at all. Standardisation is not yet visible.
+- **Whether a vendor will fork the spec.** OpenAI could ship `openai.txt`. Google could ship `gemini.txt`. The risk of format fragmentation is real and would weaken the case for the original.
+- **Whether the file becomes a vector for prompt injection.** Llms.txt content is by design read into model context. A malicious file could attempt to manipulate model behaviour. No major vendor has documented mitigation. This is a real open security question.
+
+The pragmatic stance is unchanged. Ship the file because the cost is low. Track the field. Be ready to update or retire the file as the picture clarifies.
+
+## What to ship this week — the seven item checklist
+
+The ordered list, by leverage divided by cost.
+
+1. **Write the H1, blockquote summary and Core pages section** for your site. Five to eight links, six to ten word descriptions. Thirty minutes maximum.
+2. **Save the file at `public/llms.txt`** in your repo. Deploy. Verify it returns plain markdown at the root.
+3. **Generate `llms-full.txt` as a build artefact** if your site has fewer than fifty pages. Concatenate the markdown content with H1 separators.
+4. **Reference both files from robots.txt** as a comment line. Optional but tidy.
+5. **Set a quarterly review cadence** so the file does not go stale. Or wire it into your build pipeline so it regenerates from the same source as the sitemap.
+6. **Stop treating llms.txt as a ranking factor.** Spend the rest of the week on the work that does move citation rates: schema, EEAT, Bing visibility, IndexNow, third party mentions.
+7. **Track the field quarterly.** If a major model provider commits to reading the file, revisit the cost benefit. If a vendor fragmentation event happens, update the file or retire it.
+
+If you would rather have all of this engineered for you across every engine that matters, that is what our [AI Visibility](/ai-visibility) pillar covers. The diagnostic, the schema work, the citation engineering, the file shipping and the weekly share of voice monitoring run inside one named programme. The full Revenue Engineering engagement bundles it with the website, reviews and reporting under one team.
+
+The companion posts in this cluster cover the engine specific tactics that do move citation rates: [Ranking in Google AI Overviews](/blog/ranking-google-ai-overviews-2026) for the Google side, and [How to Get Cited by ChatGPT](/blog/how-to-get-cited-by-chatgpt) for the OpenAI side. For the classical SEO foundation that underwrites it all, our [Google Maps SEO guide](/blog/google-maps-seo-uk-guide) and [Google Business Profile setup walkthrough](/blog/google-business-profile-uk-setup-verification) are the starting points for UK SMBs.
+
+## Common questions
+
+<FAQ items={[
+  { q: "Does any major AI model actually read llms.txt in 2026?", a: "Not for retrieval, in any publicly documented way. As of May 2026 OpenAI, Anthropic, Google, Perplexity and Microsoft have not publicly committed to reading llms.txt during retrieval or training. Anthropic, Stripe, Cloudflare, Zapier and a long list of well known sites publish one. Several agentic browser tools and small open source assistants consume it. The model providers themselves do not. The pragmatic stance is to ship the file because it costs almost nothing, signals intent and may matter when models start consuming it. Do not ship it expecting a citation lift this quarter, because there is no public mechanism by which a citation lift could occur." },
+  { q: "How is llms.txt different from robots.txt and sitemap.xml?", a: "Robots.txt tells crawlers what they may and may not fetch. Sitemap.xml tells crawlers what URLs exist and when they last changed. Llms.txt is a curator's note for language models, written in markdown rather than the machine readable formats of the other two. It pairs a short brand summary with a curated list of the most important pages, prioritised by the publisher rather than discovered by the crawler. The three files complement each other rather than replace each other. A proper AI search programme ships all three, not one or two of them. Llms.txt is the editorial layer, robots.txt is the access layer, sitemap.xml is the discovery layer." },
+  { q: "What is the difference between llms.txt and llms-full.txt?", a: "Llms.txt is short, link only and curatorial. It contains a brand summary, then sections of links with one line descriptions. Llms-full.txt is long, content full and exhaustive. It concatenates the full markdown of the most important pages on the site into one document so that an agentic tool can read everything in one fetch. The two files serve different consumers. Llms.txt is for tools that need to understand what your site is. Llms-full.txt is for tools that want the entire context window to read. Most UK SMBs should ship llms.txt first, then llms-full.txt as a build artefact concatenating the top ten to twenty pages." },
+  { q: "Where does the llms.txt format come from and who wrote it?", a: "The proposal comes from Jeremy Howard, a co-founder of Answer.AI and fast.ai, published at llmstxt.org in September 2024. The format is deliberately simple: a markdown file with a single H1 brand name, a blockquote summary, then H2 sections of links written as standard markdown bullet items. The proposal is not a W3C standard, an IETF RFC or a vendor backed protocol. It is a community proposal that has accumulated meaningful adoption through 2025 and 2026, around ten per cent of three hundred thousand surveyed domains by early 2026, but is not yet read by any major AI model provider for retrieval or training." },
+  { q: "What should a UK SMB actually put in their llms.txt file?", a: "An H1 with the business name. A blockquote of two to four sentences summarising what the business does, where it operates, and any defining characteristics. An H2 Core pages section with five to eight links to the most important pages on the site, each with a short description. An H2 Guides section if you publish content. An H2 Optional section for secondary links like the blog or sitemap. Total length around fifty to one hundred lines. The discipline is curation, not exhaustiveness. The point is to tell a model in markdown what a careful human editor would say if they had thirty seconds to summarise the site. Ship Irvale's file at irvale.com/llms.txt as a worked example." },
+  { q: "Will llms.txt eventually become a real ranking signal?", a: "Possibly, but the honest answer is that nobody knows. The proposal has the right shape to become a signal. It is publisher controlled, machine readable, and focused on the kind of curated context that improves model output. It is also vulnerable to the same gaming problems that affected meta descriptions in classical SEO, which is partly why no major model provider has yet committed to reading it. The probability that some agentic tool starts consuming it in a meaningful way within the next twelve months is high. The probability that ChatGPT Search, Google AI Overviews or Perplexity reads it as a primary signal in 2026 is low. Ship it for the option value, not for the certain return." }
+]} />
+
+<CTA
+  href="/ai-visibility"
+  label="See how Irvale engineers AI-search visibility"
+  sublabel="Diagnostic, schema, citation engineering and weekly share-of-voice monitoring across every engine that matters"
+/>

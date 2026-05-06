@@ -1,0 +1,330 @@
+---
+title: "How to Get Cited by ChatGPT (and Stay Cited)"
+slug: "how-to-get-cited-by-chatgpt"
+description: "How ChatGPT Search picks sources in 2026, why Bing visibility now matters, and the concrete schema, robots and EEAT fixes UK SMBs should ship this week."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "ai-search"
+vertical: null
+tags: ["chatgpt", "ai search", "citations", "geo", "uk smb"]
+featured: false
+
+hero:
+  search: "uk laptop chatgpt citation screen browse"
+  alt: "UK laptop showing a ChatGPT answer with three citation cards drawn from independent web sources on the right rail."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "How does ChatGPT Search actually choose its sources in 2026?"
+    a: "ChatGPT Search runs three retrieval surfaces. The default is OpenAI's own search index built on top of the Bing index, accessed through OAI-SearchBot. The second is live browse via the ChatGPT-User agent when the model decides a fresh fetch is needed. The third is Browse with Bing as a fallback for queries OpenAI's own retrieval cannot answer. All three rely on Bing's underlying index for discovery, which is why Bing visibility matters more in 2026 than at any point since 2009. The model then reranks candidates on freshness, source authority, schema clarity and corroboration across multiple domains before citing two to six sources inline."
+  - q: "Does llms.txt help my site get cited by ChatGPT?"
+    a: "Not yet, in any documented way. As of May 2026 OpenAI has not publicly committed to reading llms.txt during retrieval, and no public evidence exists that ChatGPT Search uses it to score or select sources. Anthropic, Stripe, Cloudflare and Zapier ship one, and several agentic browser tools consume it, but the model providers themselves have not. Ship llms.txt because it costs almost nothing, signals intent, and may matter when models start consuming it. Do not ship it expecting a citation lift this quarter. The work that actually moves citation rates is schema, EEAT, Bing visibility and corroborated mentions across third party sources."
+  - q: "Should I allow OAI-SearchBot, ChatGPT-User and GPTBot in robots.txt?"
+    a: "If you want to be cited, allow OAI-SearchBot and ChatGPT-User without exception. OAI-SearchBot powers retrieval indexing for ChatGPT Search; ChatGPT-User fetches pages live when a user pastes a URL or the model decides to browse. Blocking either removes you from the citation surface. GPTBot is the training crawler. Blocking GPTBot does not affect retrieval but does remove your content from future model training data, which weakens brand recall in zero click answers. Irvale's stance for SMBs is allow all three. The benefit of being inside training data outweighs the IP exposure for content you have already published publicly."
+  - q: "How important is Bing visibility for ChatGPT citations?"
+    a: "Critical, and rising. ChatGPT Search retrieves candidates through OpenAI's own index, which is built on top of the Bing index, plus Browse with Bing as a fallback. Pages indexed by Bing are eligible for ChatGPT citation. Pages not indexed by Bing are not. Bing Webmaster Tools verification, an accurate sitemap submitted to Bing, and IndexNow integration are the three concrete steps that get you eligible. The IndexNow protocol pushes URL changes to Bing within minutes rather than waiting for the next crawl, which compounds the freshness advantage that ChatGPT favours when reranking candidates."
+  - q: "What schema does ChatGPT actually consume when it cites sources?"
+    a: "ChatGPT Search reads the same JSON-LD types every modern engine consumes, with three carrying particular weight in the citation layer. Organization with accurate sameAs to LinkedIn, Wikidata, Companies House and similar identity anchors helps the model resolve your entity. Article or BlogPosting with a full Person author node gives the model an authorial signal it can score for EEAT. FAQPage and HowTo flag passage level structure that maps cleanly onto the model's preferred extraction shape. Less load bearing but still useful: BreadcrumbList, ProfilePage wrapping the Person node, and ImageObject on hero images. Schema is read as a verification layer rather than a decoration."
+  - q: "How long does it take to start getting cited by ChatGPT?"
+    a: "Three to four weeks for technical and schema fixes to surface, six to twelve weeks for content and EEAT work, and three to six months for entity reconciliation to compound. The fastest moving lever is Bing indexing combined with IndexNow submission, which can land a new page inside ChatGPT's retrievable candidate pool within forty eight hours. The slowest moving lever is third party corroboration through trade press, podcasts, Reddit threads and structured directories. The middle lever is schema and Person author node hygiene, which compounds quietly across every page once shipped. Anyone promising consistent ChatGPT citations inside thirty days is selling a story rather than a method."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/ai-visibility"
+  - "/services/web"
+  - "/revenue-engineering"
+  - "/blog/ranking-google-ai-overviews-2026"
+  - "/blog/llms-txt-uk-smb-implementation"
+  - "/blog/google-maps-seo-uk-guide"
+  - "/blog/google-business-profile-uk-setup-verification"
+
+related: []
+
+schema:
+  howTo: false
+  speakable: true
+
+reviewedBy: null
+---
+
+> **Disclosure:** I publish Irvale Studio. We sell AI search visibility work to UK SMBs and global brands through our AI Visibility pillar and our Revenue Engineering engagement. Vendor behaviour and citation overlap claims below were verified against the cited primary sources on the date of publication.
+
+## What ChatGPT Search actually is in 2026
+
+<Speakable>
+ChatGPT Search is the integrated retrieval layer inside ChatGPT, launched generally in October 2024 and expanded across free, Plus and Enterprise tiers through 2025. It runs on three surfaces: OpenAI's own search index built on top of Bing, live browse via the ChatGPT-User agent, and Browse with Bing as a fallback. About nine hundred million people now run weekly active queries through ChatGPT, an increasing share of which are search style rather than chat style according to OpenAI's published metrics.
+</Speakable>
+
+The architecture matters because the optimisation work follows from it. ChatGPT Search is not a wrapper around the OpenAI training corpus. It is a retrieval system that fetches live web pages and reranks them with a generative model on top.
+
+Three components are worth naming clearly.
+
+- **OAI-SearchBot.** OpenAI's retrieval crawler, indexing the public web for the OpenAI search index. Documented in OpenAI's developer docs (OpenAI, 2024).
+- **ChatGPT-User.** The user initiated agent that fetches live pages when a user pastes a URL or the model needs a fresh read. Read by ChatGPT itself during a session.
+- **GPTBot.** The training crawler. Different beast. Used to ingest content into model training data.
+
+ChatGPT Search defaults to OpenAI's own index, which is built on top of Bing's underlying web index per the November 2024 announcement and Microsoft Bing engineering posts. When the index lacks a current answer, it falls back to Browse with Bing for live retrieval (Bing Webmaster blog, 2024). The practical implication for UK SMBs is that Bing visibility now sits upstream of ChatGPT visibility, which makes Bing Webmaster Tools setup a precondition rather than a nice to have.
+
+## How does ChatGPT Search choose sources?
+
+<Speakable>
+ChatGPT Search scores candidate sources on freshness, schema clarity, source authority, and cross domain corroboration before citing two to six of them inline. Pages with a clear Article or BlogPosting schema, a Person author node, a recent dateModified, and a sameAs cluster across LinkedIn, Wikidata and other identity anchors are extracted at materially higher rates than pages without those signals.
+</Speakable>
+
+The retrieval and rerank pipeline runs roughly as follows, based on OpenAI's documentation, third party reverse engineering work and Profound's citation analysis through 2026.
+
+1. **Query intent classification.** Search style queries route to retrieval; pure conversational queries skip it.
+2. **Candidate retrieval.** Top results from OAI-SearchBot's index, expanded with live browse where needed.
+3. **Passage scoring.** Candidate passages scored on relevance, freshness, schema verified entity alignment, and corroboration with other retrieved sources.
+4. **Reranking and selection.** Two to six sources picked for the final answer.
+5. **Citation rendering.** Source cards rendered inline or in the right rail depending on UI surface.
+
+Profound's analysis through April 2026 found that ChatGPT Search skews toward encyclopaedic and professionally written sources. Wikipedia leaning extraction sat at around forty eight per cent of citations across general queries, with a long tail of news, trade press and well structured SMB content (Profound, 2026).
+
+The pattern that gets cited is what we call EEAT signals plus passage extractability plus freshness. None of those three are optional.
+
+## ChatGPT, Perplexity and AI Overviews — citation behaviour compared
+
+<Speakable>
+The three biggest AI search surfaces choose sources differently. ChatGPT skews encyclopaedic and Bing indexed. Perplexity skews recent and forum heavy. Google AI Overviews skew toward classical search authority with a multimedia bias. A single channel optimisation strategy under serves at least one of them. Knowing the bias of each engine lets you ship the right structural and corroboration work for each.
+</Speakable>
+
+<Comparison
+  caption="Source citation behaviour — ChatGPT, Perplexity, Google AI Overviews — 2026"
+  headers={["Behaviour", "ChatGPT Search", "Perplexity", "Google AI Overviews"]}
+  rows={[
+    ["Underlying retrieval index", "OpenAI index built on Bing, plus live browse fallback", "Perplexity index, plus live browse and partner data", "Google index, fan-out across multiple sub queries"],
+    ["Crawler user agents", "OAI-SearchBot, ChatGPT-User, GPTBot for training", "PerplexityBot, Perplexity-User", "Googlebot, Google-Extended for Gemini"],
+    ["Citations per answer", "Two to six inline", "Three to eight numbered citations", "Three to eight cards on right rail"],
+    ["Source bias", "Encyclopaedic, Wikipedia leaning, ~48% per Profound 2026", "Reddit and forums ~47%, recency biased ~82% within 30 days", "Classical top ten overlap ~54%, multimedia ~23%"],
+    ["Freshness weighting", "High, dateModified material", "Very high, recency dominant", "Moderate to high, depends on query class"],
+    ["Schema sensitivity", "High, Article + Person + sameAs", "Moderate, schema parsed but corroboration dominates", "High, FAQPage + Speakable + Article load bearing"],
+    ["llms.txt influence in 2026", "Not documented to use it for retrieval", "Not documented to use it for retrieval", "Not documented to use it for retrieval"],
+  ]}
+/>
+
+The takeaway is that there is no single AI search optimisation. There is a stack. The schema and EEAT work is shared. The corroboration and freshness work needs different distribution channels per engine.
+
+## Bing Webmaster Tools setup — the precondition
+
+<Speakable>
+Bing visibility is the single biggest precondition for ChatGPT citation eligibility in 2026. The work is mechanical. Verify the site in Bing Webmaster Tools, submit an accurate sitemap, generate an IndexNow API key and wire it into your build pipeline so URL changes push to Bing within minutes rather than waiting for the next crawl.
+</Speakable>
+
+The three concrete steps, in order.
+
+### 1. Verify the site in Bing Webmaster Tools
+
+Go to bing.com/webmasters, sign in with a Microsoft account, and add the site. Verification methods are the same as Google Search Console: meta tag, DNS TXT record, or XML file. The meta tag is fastest for a Next.js site. Drop it in your root layout once, deploy, click verify in Bing, done.
+
+Once verified, import the sitemap. Bing reads `/sitemap.xml` by default but does not auto discover unless told. Submit it explicitly through the Sitemaps panel.
+
+### 2. Set up IndexNow
+
+IndexNow is a protocol that lets you push URL changes to Bing, Yandex, Naver and Seznam within minutes. According to Bing's own engineering blog, around twenty two per cent of Bing clicked URLs in 2025 came through IndexNow rather than the slower crawl path (Bing Webmaster blog, 2025).
+
+The mechanical setup:
+
+1. Generate an IndexNow API key inside Bing Webmaster Tools.
+2. Host the key file at `https://yourdomain.com/<key>.txt` containing the key.
+3. POST changed URLs to `https://api.indexnow.org/IndexNow` on every successful build that changes a route's `lastmod`.
+
+For a Next.js site, this is one post build script that diffs the previous sitemap against the new one and submits only changed URLs. The boost is measurable inside a week.
+
+### 3. Confirm the index includes your priority pages
+
+Use the `site:yourdomain.com` operator inside Bing once a week for the first month. Pages missing from the index after IndexNow submission should be checked in the URL Inspection tool. The most common cause of missing indexing is unintentional `noindex` headers or incorrect canonicals carried over from a previous CMS.
+
+<Callout variant="insight" title="Quick win">
+The fastest single technical lift on an existing site is to verify Bing Webmaster Tools, generate an IndexNow key, and wire the key file plus a one off bulk POST of every URL on the site. We see ChatGPT citation eligibility shift inside fourteen days, often less. The script lives in our boilerplate at `scripts/indexnow.mjs`.
+</Callout>
+
+## Robots.txt — the allow list that decides citation eligibility
+
+<Speakable>
+Robots.txt decides whether you are eligible to be cited at all. To be cited by ChatGPT Search, allow OAI-SearchBot and ChatGPT-User without exception. Allow GPTBot if you want to be inside future training data. Blocking either retrieval bot removes you from the citation surface entirely, regardless of how strong your content or schema is.
+</Speakable>
+
+Reference robots.txt block for ChatGPT eligibility, plus the wider AI search ecosystem.
+
+```
+# Classical search
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# OpenAI / ChatGPT — retrieval
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI / ChatGPT — training
+User-agent: GPTBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI training opt out
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Hard blocks for known bad actors
+User-agent: Bytespider
+Disallow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://yourdomain.com/sitemap.xml
+```
+
+The decision matrix on GPTBot is worth treating honestly. GPTBot only affects training data, not retrieval. Blocking GPTBot does not prevent you from being cited inside ChatGPT today. It does prevent your content from being absorbed into the next model checkpoint, which weakens your brand recall in zero click answers where the model is responding from memory rather than retrieval.
+
+For most UK SMBs, the cost benefit favours allow. Your blog content is already public. The benefit of being inside the training corpus is a stronger model prior on your brand. The risk of allowing is content that you have already published publicly being seen by the model. For a regulated client or a brand with sensitive proprietary data behind a paywall, the answer flips.
+
+## EEAT signals ChatGPT actually consumes
+
+<Speakable>
+ChatGPT consumes EEAT signals in three layers. Entity layer through Organization with a complete sameAs cluster. Author layer through Article author Person and a ProfilePage wrapper. Corroboration layer through third party mentions of the brand and author across LinkedIn, Reddit, podcasts, trade press and structured directories. Pages strong in all three earn citations at materially higher rates than pages strong in only one.
+</Speakable>
+
+EEAT in 2026 is a specific set of structured and unstructured signals, not a vibe. Qwairy's 2026 study found content with verifiable author credentials earning about forty per cent more AI citations than identical content without (Qwairy, 2026). The signals worth shipping, in order of leverage divided by cost.
+
+### sameAs on Organization
+
+The single most load bearing entity property. Inside the Organization JSON-LD at site level, list every authoritative identity for the brand:
+
+- LinkedIn company page
+- Companies House (for UK)
+- Wikidata entry, even a stub
+- Crunchbase profile
+- X / Twitter handle
+- GitHub organisation, if relevant
+- Trustpilot / G2 page, if relevant
+
+The model uses this list to resolve "is this Irvale Studio the same Irvale Studio that has a LinkedIn page" and to corroborate factual claims across them.
+
+### Author Person + ProfilePage
+
+For every article, ship a real `/about/[author]` page with a `ProfilePage` wrapping a complete `Person` node. Include `name`, `givenName`, `familyName`, `jobTitle`, `worksFor` linked by `@id` to the Organization, `sameAs` to LinkedIn and similar, `knowsAbout` array of topics, and `hasCredential` if applicable.
+
+Reference the author from each Article by `@id`, not by inline name. The model resolves the author once and carries the EEAT signal across every piece they have published.
+
+### Third party mentions
+
+Unlinked brand mentions in 2026 correlate roughly three times more strongly with AI visibility than backlinks, based on Profound's 2026 analysis (Profound, 2026). The mechanism is corroboration. The model trusts a brand that appears across multiple independent domains saying roughly the same thing.
+
+The work is unglamorous. Trade press placements, podcast guest spots, structured directory entries, Reddit thread participation, LinkedIn newsletter syndication. The cumulative effect over six months is the difference between being a citation candidate and being a default citation.
+
+### Branded query strategy
+
+A non obvious lever: own the branded query. ChatGPT increasingly answers branded queries by retrieval rather than memory. If a user asks "what is Irvale Studio", you want the top three retrieval candidates to be your own owned channels. The site's About page, the LinkedIn company page, and the Crunchbase entry. Ship all three with consistent copy. Misalignment between the three is one of the easiest sources of hallucination on branded queries.
+
+## Sourced numbers worth knowing
+
+<Stats items={[
+  { value: "About 900M", label: "Weekly active users on ChatGPT in early 2026", source: "OpenAI public metrics, Feb 2026" },
+  { value: "About 22%", label: "Of Bing-clicked URLs that came through IndexNow rather than crawl in 2025", source: "Bing Webmaster blog, 2025" },
+  { value: "About 40%", label: "More AI citations earned by content with a verifiable author Person node", source: "Qwairy EEAT study, 2026" },
+]} />
+
+The compounding effect of those three numbers is the case for prioritising AI search visibility now. The audience size is real. The plumbing for inclusion is already standardised. The structural work that lifts citation rates is durable across model changes.
+
+## Citing your own sources to be cited by them
+
+<Speakable>
+The simplest content pattern for ChatGPT citation is to cite your own sources transparently. Inline citations of named sources with dates, paired with an author Person node and a Speakable answer first paragraph, give the model a structural template to copy. Pages built this way are extracted at higher rates because the model recognises the shape from training data.
+</Speakable>
+
+The mechanic is mundane and works. Every numerical claim gets a `(Source name, Year)` inline citation. Every section opens with a definitional sentence. Every important answer is wrapped in `<Speakable>`. The model learns from extraction patterns: pages that look like clean primary sources are cited as clean primary sources. Pages that look like marketing copy are skipped.
+
+This is also the discipline that makes content survive across model changes. Schema is volatile. Heading structure is volatile. The fundamental shape of an extractable, attributable answer block is durable.
+
+## Monitoring your share of voice — what to actually measure
+
+<Speakable>
+Manual ChatGPT citation tracking does not scale beyond about twenty queries. Several tooling vendors now offer automated tracking across ChatGPT, Perplexity, Gemini and AI Overviews, including Profound, Athena Intelligence, Otterly and ALLMO. The metric that matters is share of voice on a defined prompt universe, tracked weekly, with citation, position and sentiment scored separately.
+</Speakable>
+
+The measurement stack we recommend for UK SMBs running an AI visibility programme:
+
+- **Prompt universe.** A named list of one hundred to three hundred prompts that real buyers run, mapped to discovery, comparison and purchase intent.
+- **Engine coverage.** ChatGPT, Perplexity, Gemini AI Mode, Google AI Overviews, Claude, Copilot, Meta AI. Manual sampling for any not yet supported by your tooling vendor.
+- **Metric set.** Citation rate (per cent of prompts where you are cited), share of voice (your citation count divided by total citations on the prompt set), position (which slot you appear in), sentiment (factual versus negative versus positive), hallucination patrol (any descriptor that is wrong).
+- **Cadence.** Weekly run. Monthly review. Quarterly model recalibration.
+
+Profound, Athena Intelligence and similar tools automate the run. They do not automate the editorial response. The response is where the engineering work happens.
+
+## What we don't know yet — the open questions
+
+<Speakable>
+Several aspects of ChatGPT Search behaviour are not publicly documented and are worth treating as open questions rather than firm tactics. Being honest about the limits of current knowledge keeps a programme from spending budget on things nobody has yet proven move the needle.
+</Speakable>
+
+The honest list, as of May 2026.
+
+- **Whether OpenAI applies a quality classifier in addition to Bing's.** OAI-SearchBot is documented as a separate crawler. Whether it filters Bing's index or accepts it wholesale is not public.
+- **The exact freshness window for ChatGPT citations.** Profound's analysis suggests fresh content (under thirty days) is preferred but not exclusively. The decay curve is not measured.
+- **How ChatGPT handles paywalled content.** It can cite paywalled content. It is unclear whether it does so via OAI-SearchBot index entries, via partnerships with publishers, or via training data leakage.
+- **Whether llms.txt will become a real retrieval signal.** OpenAI has not committed publicly. Anthropic has not committed publicly. Both ship one. Neither documents using it. Treat as zero benefit until proven otherwise.
+- **The effect of GPTBot blocking on retrieval citation rates.** Logically blocking training should not affect retrieval. Anecdotally some practitioners report citation drops. The mechanism is not understood and the data is thin.
+
+The pragmatic stance is the same as for Google AI Overviews: invest in durable structural work, treat engine specific tactics as quarterly review, and stay honest about what is measurement versus speculation.
+
+## What to ship this week — the seven item checklist
+
+The ordered list, by leverage divided by cost.
+
+1. **Verify Bing Webmaster Tools** and submit an accurate sitemap. This is the precondition.
+2. **Generate an IndexNow API key**, host the key file at root, and wire a post build script to push changed URLs.
+3. **Audit robots.txt.** Allow OAI-SearchBot, ChatGPT-User, GPTBot, PerplexityBot, ClaudeBot at minimum. Block Bytespider. Document the policy.
+4. **Ship Article or BlogPosting schema** with a full Person author node on every blog and guide. Reference the author by `@id`.
+5. **Build the `/about/[author]` page** with ProfilePage wrapping Person. Include `sameAs`, `knowsAbout`, credentials.
+6. **Audit Organization schema** for accurate `sameAs` cluster covering LinkedIn, Wikidata, Companies House, Crunchbase, X.
+7. **Set up share of voice tracking** on a defined prompt universe of fifty to three hundred prompts, run weekly across at least ChatGPT, Perplexity and Google AI Overviews.
+
+If you would rather have this engineered for you across every engine that matters, that is what our [AI Visibility](/ai-visibility) pillar covers. The diagnostic, the schema work, the citation engineering and the weekly share of voice monitoring run inside one named programme.
+
+The sister posts in this cluster cover the surfaces you optimise for next: [Ranking in Google AI Overviews](/blog/ranking-google-ai-overviews-2026) for the Google side, and [llms.txt: The New robots.txt for AI](/blog/llms-txt-uk-smb-implementation) for the file format that may matter when models start consuming it. For the classical SEO foundation that underwrites all of it, our [Google Maps SEO guide](/blog/google-maps-seo-uk-guide) and [Google Business Profile setup walkthrough](/blog/google-business-profile-uk-setup-verification) are the starting points for UK SMBs.
+
+## Common questions
+
+<FAQ items={[
+  { q: "How does ChatGPT Search actually choose its sources in 2026?", a: "ChatGPT Search runs three retrieval surfaces. The default is OpenAI's own search index built on top of the Bing index, accessed through OAI-SearchBot. The second is live browse via the ChatGPT-User agent when the model decides a fresh fetch is needed. The third is Browse with Bing as a fallback for queries OpenAI's own retrieval cannot answer. All three rely on Bing's underlying index for discovery, which is why Bing visibility matters more in 2026 than at any point since 2009. The model then reranks candidates on freshness, source authority, schema clarity and corroboration across multiple domains before citing two to six sources inline." },
+  { q: "Does llms.txt help my site get cited by ChatGPT?", a: "Not yet, in any documented way. As of May 2026 OpenAI has not publicly committed to reading llms.txt during retrieval, and no public evidence exists that ChatGPT Search uses it to score or select sources. Anthropic, Stripe, Cloudflare and Zapier ship one, and several agentic browser tools consume it, but the model providers themselves have not. Ship llms.txt because it costs almost nothing, signals intent, and may matter when models start consuming it. Do not ship it expecting a citation lift this quarter. The work that actually moves citation rates is schema, EEAT, Bing visibility and corroborated mentions across third party sources." },
+  { q: "Should I allow OAI-SearchBot, ChatGPT-User and GPTBot in robots.txt?", a: "If you want to be cited, allow OAI-SearchBot and ChatGPT-User without exception. OAI-SearchBot powers retrieval indexing for ChatGPT Search; ChatGPT-User fetches pages live when a user pastes a URL or the model decides to browse. Blocking either removes you from the citation surface. GPTBot is the training crawler. Blocking GPTBot does not affect retrieval but does remove your content from future model training data, which weakens brand recall in zero click answers. Irvale's stance for SMBs is allow all three. The benefit of being inside training data outweighs the IP exposure for content you have already published publicly." },
+  { q: "How important is Bing visibility for ChatGPT citations?", a: "Critical, and rising. ChatGPT Search retrieves candidates through OpenAI's own index, which is built on top of the Bing index, plus Browse with Bing as a fallback. Pages indexed by Bing are eligible for ChatGPT citation. Pages not indexed by Bing are not. Bing Webmaster Tools verification, an accurate sitemap submitted to Bing, and IndexNow integration are the three concrete steps that get you eligible. The IndexNow protocol pushes URL changes to Bing within minutes rather than waiting for the next crawl, which compounds the freshness advantage that ChatGPT favours when reranking candidates." },
+  { q: "What schema does ChatGPT actually consume when it cites sources?", a: "ChatGPT Search reads the same JSON-LD types every modern engine consumes, with three carrying particular weight in the citation layer. Organization with accurate sameAs to LinkedIn, Wikidata, Companies House and similar identity anchors helps the model resolve your entity. Article or BlogPosting with a full Person author node gives the model an authorial signal it can score for EEAT. FAQPage and HowTo flag passage level structure that maps cleanly onto the model's preferred extraction shape. Less load bearing but still useful: BreadcrumbList, ProfilePage wrapping the Person node, and ImageObject on hero images. Schema is read as a verification layer rather than a decoration." },
+  { q: "How long does it take to start getting cited by ChatGPT?", a: "Three to four weeks for technical and schema fixes to surface, six to twelve weeks for content and EEAT work, and three to six months for entity reconciliation to compound. The fastest moving lever is Bing indexing combined with IndexNow submission, which can land a new page inside ChatGPT's retrievable candidate pool within forty eight hours. The slowest moving lever is third party corroboration through trade press, podcasts, Reddit threads and structured directories. The middle lever is schema and Person author node hygiene, which compounds quietly across every page once shipped. Anyone promising consistent ChatGPT citations inside thirty days is selling a story rather than a method." }
+]} />
+
+<CTA
+  href="/ai-visibility"
+  label="See how Irvale engineers AI-search visibility"
+  sublabel="Diagnostic, schema, citation engineering and weekly share-of-voice monitoring across every engine that matters"
+/>

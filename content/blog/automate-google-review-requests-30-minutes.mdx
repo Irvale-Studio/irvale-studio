@@ -1,0 +1,302 @@
+---
+title: "How to Automate Google Review Requests in 30 Minutes"
+slug: "automate-google-review-requests-30-minutes"
+description: "A 30-minute UK build for compliant Google review automation, with platform comparison, PECR-safe SMS triggers, and the Stripe webhook flow that works in 2026."
+publishedAt: "2026-05-06"
+updatedAt: "2026-05-06"
+author: "jacob-horgan"
+
+category: "reviews"
+vertical: null
+tags: ["reviews", "automation", "zatrovo", "uk smb", "review request"]
+featured: false
+
+hero:
+  search: "uk shop counter sms phone customer"
+  alt: "UK shop counter with a customer holding a phone showing an SMS review request beside a card reader and a small QR card."
+  focalPoint: "0.5 0.4"
+
+faq:
+  - q: "How long does it really take to set up automated Google review requests in the UK?"
+    a: "Thirty minutes for the basic flow if the booking system or payment provider already exposes a webhook for job complete or order paid events. The thirty minutes covers wiring the webhook to a review platform, configuring the SMS or email template with first name and service merge fields, and testing on three real customers. A more polished build with retry logic, opt out handling, and link routing through a tracker takes two to three hours over a couple of evenings. Anything past four hours suggests the integration is fighting the underlying tools, in which case switching the booking platform or the review automation tool is a better use of time than continuing to glue them together."
+  - q: "What is the legal way to send Google review SMS requests in the UK?"
+    a: "Under the Privacy and Electronic Communications Regulations soft opt in framework, a UK business can send SMS review requests to existing customers about similar services without explicit prior consent, provided three conditions are met. The customer's number was collected during a sale or negotiations of a sale. The message relates to similar products or services, and a review request from a business the customer has just bought from generally meets that test. The customer was given a clear opportunity to opt out at the point of collection and on every message, usually a Reply STOP to opt out tag. The Information Commissioner's Office published guidance on PECR soft opt in for transactional follow up in 2024 confirming this interpretation for review requests."
+  - q: "What is the correct Google review link format for a UK SMB?"
+    a: "The direct review link format is `https://g.page/r/<placeId>/review` where the place ID comes from the Google Business Profile dashboard, found under the Share your profile section. This format lands the customer directly on the review form ready to type, while sharing the generic profile URL or the Google Maps URL forces the customer to find the review button manually, which halves conversion. Save the direct link, shorten it through a tracker like a self hosted Plausible outbound link if attribution matters, and use the same link across SMS, email, QR card, and printed receipt prompts. Test the link on a phone and a desktop browser before automating, because some shorteners break the deep link behaviour and route customers to a generic web page."
+  - q: "How does a Stripe webhook actually trigger a Google review SMS in the UK?"
+    a: "Stripe emits a `payment_intent.succeeded` event when a card payment completes, which a review automation platform listens for via a webhook endpoint. The endpoint receives the event payload including customer email, name, phone where collected, and the amount paid, then schedules an SMS or email at a configurable delay, typically four hours for trades and forty eight hours for e commerce. The webhook URL goes into the Stripe dashboard under Developers, Webhooks, with the relevant event type selected. For booking platforms like Calendly, Cliniko, Phorest, or Treatwell, the equivalent event is appointment.completed or booking.completed and the webhook flow is identical. The whole setup takes ten to fifteen minutes once the API keys are to hand, with most of the time spent testing the trigger fires on a real transaction."
+  - q: "Which review automation platform is the best fit for a UK SMB in 2026?"
+    a: "There is no universal best fit, the right tool depends on sector, existing stack, and budget. Birdeye and Reviews.io are the strongest enterprise options with SMS, email, QR, and embedded widget support, priced at roughly forty to one hundred and twenty pounds per location per month verified May 2026. NiceJob targets US trades primarily and is a weaker UK fit. Trustpilot Automated handles e commerce well but is built around the Trustpilot ecosystem rather than Google. Zatrovo, the product I publish, is built specifically for UK SMBs with PECR aware SMS triggers, the direct GBP review link format, and bundled into Revenue Engineering. Whichever platform is chosen, the deciding question is whether it integrates cleanly with the existing booking or payment provider without manual sync."
+  - q: "What goes wrong with review automation, and how do you spot it early?"
+    a: "Three failure modes catch UK SMBs in the first month of running review automation. The trigger does not fire because the webhook is misconfigured or the event name has been changed by the platform, which shows up as zero new reviews after a week of normal trade. The link format is wrong and lands the customer on the generic profile page rather than the review form, which shows up as high SMS open rate but conversion below five per cent. The personalisation merge field breaks because the booking system uses different field names, which shows up as messages addressed to {first_name} or empty service descriptions. All three are caught by sending the first ten messages manually before automating, then auditing the actual messages received by a phone you control."
+
+seo:
+  canonical: null
+  noindex: false
+
+internalLinks:
+  - "/zatrovo"
+  - "/services/reviews"
+  - "/blog/get-more-google-reviews-uk-ethically"
+  - "/blog/how-to-ask-for-reviews-uk-polite"
+  - "/blog/google-maps-seo-uk-guide"
+  - "/blog/google-business-profile-uk-setup-verification"
+  - "/revenue-engineering"
+
+related: []
+
+schema:
+  howTo: false
+  speakable: true
+
+reviewedBy: null
+---
+
+> **Disclosure:** I publish Irvale Studio. We sell review automation work to UK SMBs as part of our Revenue Engineering engagements, and we build Zatrovo, a review automation product. Pricing claims about competitor products were verified on the date noted alongside each citation in May 2026.
+
+## What thirty minutes of automation actually buys you
+
+<Speakable>
+A correctly wired Google review automation in the UK lifts review velocity from one or two reviews a month to two to five reviews each week, in thirty minutes of setup time. The flow runs without daily attention. Trigger on payment success or job complete, send a personalised SMS within four hours, route the link to the direct review form rather than the profile page. The work compounds. By month three the Map Pack signal is materially stronger and the cost per inbound enquiry drops.
+</Speakable>
+
+The mechanics that make the thirty minute number real. Modern booking platforms and payment providers expose webhooks. Review automation tools listen for those webhooks and fire a templated SMS or email. The wiring is plumbing, not engineering, once the API keys are to hand. The thirty minute build is genuine if the tools cooperate, with about ten minutes per integration step and ten minutes of testing on real customers.
+
+This guide covers the platform comparison, the legal frame for SMS under the Privacy and Electronic Communications Regulations, the exact Stripe and booking webhook flow, the link format that actually converts, and the failure modes to watch for in the first thirty days. The aim is a working flow on the same day you start, not a six week procurement cycle.
+
+## The five platform options for UK SMBs in 2026
+
+<Speakable>
+Five review automation platforms are worth considering for a UK SMB in 2026. Birdeye and Reviews.io are the strongest enterprise options. NiceJob is US trades focused and a weaker UK fit. Trustpilot Automated handles e commerce well but is built around Trustpilot rather than Google. Zatrovo is built specifically for UK SMBs and bundles into the Irvale Revenue Engineering offer. The right choice depends on sector, existing stack, and whether the integration with the booking or payment provider is clean rather than manual.
+</Speakable>
+
+The honest comparison, with pricing verified in May 2026.
+
+<Comparison
+  caption="UK review automation platforms compared, May 2026"
+  headers={["Platform", "Starting price (GBP)", "SMS in UK", "Direct GBP link routing", "Best for", "Watch out for"]}
+  rows={[
+    ["Birdeye", "From £100 per location per month", "Yes, native", "Yes", "Multi location SMBs, hospitality groups", "Heavy contracts, twelve month minimums, US sales motion"],
+    ["Reviews.io", "From £40 per month for SMB tier", "Yes, native", "Yes", "E-commerce, retail, professional services", "Best for product reviews, Google review flow is the secondary product"],
+    ["NiceJob", "From £55 per month", "Yes but US first", "Yes", "US trades, weak UK fit", "UK SMS deliverability is patchy, sender ID handling is US centric"],
+    ["Trustpilot Automated", "From £159 per month", "Yes, native", "Limited, Trustpilot is the primary surface", "E-commerce already on Trustpilot", "Built for the Trustpilot ecosystem, Google review routing is secondary"],
+    ["Zatrovo", "Bundled inside Revenue Engineering tiers", "Yes, native, PECR aware", "Yes, default", "UK SMBs across trades, hospitality, beauty, professional services", "Built by Irvale, bundled with Revenue Engineering, not sold standalone in 2026"],
+    ["DIY Zapier or Make plus Twilio", "From £20 per month", "Yes, you build it", "If you configure correctly", "Technical owners who already use Zapier", "Maintenance burden, no compliance guard rails, easy to get the link format wrong"],
+  ]}
+/>
+
+The honest read. For most UK SMBs running between £100k and £2m in revenue, Reviews.io or a DIY Zapier build sits in the right cost band. For multi location groups or businesses that already run a tightly integrated stack, Birdeye is the safe enterprise choice but the contract terms are stiff. NiceJob underdelivers on UK SMS unless the business does not mind the US sender ID quirks. Trustpilot Automated is the right answer only if Trustpilot is already the primary review surface, which is the exception rather than the rule for UK SMBs in 2026. Zatrovo is honest to mention as a bundled option inside Revenue Engineering, but standalone it is not the right fit for businesses that already run a comprehensive review platform.
+
+The deciding question is not feature parity, it is integration cleanliness with the existing booking or payment provider. A platform that integrates natively with Stripe, Calendly, Phorest, Cliniko, Treatwell, Shopify, or whatever the business already uses saves more in ongoing maintenance than the licence cost difference saves in cash.
+
+## The PECR legal frame for UK SMS review requests
+
+<Speakable>
+The Privacy and Electronic Communications Regulations soft opt in framework allows UK businesses to send SMS review requests to existing customers without explicit prior consent, provided three conditions are met: the number was collected during a sale, the message relates to similar services, and an opt out path is provided on every message. A review request from a business the customer has just bought from generally meets the similar services test, confirmed by ICO guidance published in 2024.
+</Speakable>
+
+Three numbers that decide whether the SMS automation is legal in the UK.
+
+<Stats items={[
+  { value: "10 per cent", label: "Maximum CMA fine as a share of annual global turnover for fake review offences under the DMCC Act", source: "Competition and Markets Authority, Digital Markets Act guidance, 2024" },
+  { value: "£17.5m", label: "Maximum ICO fine for serious PECR or UK GDPR breaches involving electronic marketing", source: "Information Commissioner's Office, PECR enforcement guide, 2025" },
+  { value: "55 to 70 per cent", label: "Reply rate on personalised SMS sent within 4 hours of job completion in UK trades", source: "BrightLocal Local Search Industry Report, 2025" },
+]} />
+
+The PECR soft opt in test in plain English.
+
+- **Condition 1: number collected during a sale or negotiations.** A customer who paid for a service, completed a booking, or had a quote prepared has provided their number in the course of a sale. A scraped contact, a marketing list rented from a third party, or a number obtained through a competition entry does not pass.
+- **Condition 2: similar services.** A review request about the service the customer just bought meets the test. A marketing message about a different category of service might not. The interpretation is conservative, but transactional review requests are well inside the safe zone.
+- **Condition 3: opt out on every message.** Each SMS must include a clear opt out path, usually a Reply STOP to opt out tag at the end of the message. The opt out must be processed automatically, with the contact removed from any further automated sends within a working day.
+
+The Information Commissioner's Office published guidance on PECR soft opt in in 2024 confirming this interpretation for review request messages. The full guidance is on the ICO website under Direct marketing using electronic mail.
+
+The compliance reminder that catches UK SMBs out. Under the Digital Markets, Competition and Consumers Act 2024, in force since the sixth of April 2025, offering anything specifically in exchange for a review is unlawful, with fines up to ten per cent of annual global turnover. The automated SMS template must not include discount codes, free gifts, prize draw entries, future credit, or any other inducement tied to leaving a review. The compliant template is unconditional. For the full regulatory frame, see [How UK Small Businesses Can Earn More Google Reviews Ethically](/blog/get-more-google-reviews-uk-ethically).
+
+<Callout variant="warning" title="Do not skip the opt out tag">
+The single most common PECR breach by UK SMBs running automated SMS review requests is omitting the Reply STOP to opt out tag from the message body. The ICO has issued penalties for SMS marketing without an opt out path even where the underlying soft opt in test was met. Add the tag to every template, every variant, every reminder. Sender ID, opt out, message body. Three things, every send.
+</Callout>
+
+## The exact Stripe webhook flow
+
+<Speakable>
+A Stripe payment triggers a Google review SMS through a `payment_intent.succeeded` webhook, configured in the Stripe dashboard under Developers, Webhooks. The webhook URL points to the review automation platform's endpoint. The platform receives the event payload including customer name, email, and phone where collected, schedules the SMS at a configurable delay, and sends through a UK SMS provider. The setup takes ten to fifteen minutes once API keys are to hand.
+</Speakable>
+
+The thirty minute build, broken into five steps.
+
+### Step 1: get the direct GBP review link, two minutes
+
+- Open the Google Business Profile dashboard.
+- Find Share your profile.
+- Copy the link, which will be in the format `https://g.page/r/<placeId>/review`.
+- Test the link on a phone and a desktop browser. It should land directly on the review form, not the profile page.
+
+### Step 2: open the review automation platform and add the link, three minutes
+
+- Sign up for the platform of choice from the comparison above.
+- Add the GBP review link to the platform's link routing settings.
+- Verify the platform's outbound SMS is using a UK alphanumeric sender ID, ideally the business name shortened to eleven characters.
+
+### Step 3: configure the SMS template, five minutes
+
+The compliant UK SMS template, under one hundred and sixty characters with merge fields:
+
+> Hi {first_name}, this is {staff_name} at {business_name}. Thanks for {service_or_today}. If you have a moment, an honest Google review would mean a lot: {review_link}. Reply STOP to opt out.
+
+- Add the template to the platform.
+- Map the merge fields to the customer name, staff name, business name, and direct review link.
+- Set the send delay: four hours for trades, point of sale immediate for hospitality and beauty, forty eight hours for e commerce.
+- Set send hours to between nine in the morning and seven in the evening UK time, never weekends without good reason.
+
+### Step 4: wire the trigger, ten minutes
+
+For Stripe direct integration:
+
+- Open the Stripe dashboard, navigate to Developers, Webhooks.
+- Add a new endpoint pointing to the review automation platform's webhook URL, found in the platform's integrations section.
+- Subscribe to the `payment_intent.succeeded` event.
+- Save and copy the signing secret if the platform requires it.
+
+For booking platform integration, Calendly, Cliniko, Phorest, Treatwell, or Shopify:
+
+- Open the booking platform's integrations or developer settings.
+- Find the webhook configuration for `appointment.completed`, `booking.completed`, or `order.fulfilled` depending on the platform.
+- Add the review automation platform's webhook URL.
+- Save and verify the test webhook fires correctly.
+
+### Step 5: test on three real customers, ten minutes
+
+- Run the next three real transactions through the system.
+- Verify the SMS arrives on a phone you control, ideally a business owner number that received messages from past customers.
+- Check the message body shows the customer first name, the staff name, and the direct link rendering correctly.
+- Click the link from the actual SMS and confirm it lands on the Google review form ready to type.
+- Confirm the Reply STOP path works by replying STOP from a test number and verifying the platform processes the opt out.
+
+If all three tests pass, the automation is live. If any test fails, the issue is almost always one of three things: webhook trigger not firing, merge field mapping wrong, or link format wrong. Each is fixable inside ten minutes.
+
+## What good and bad automation looks like
+
+<Speakable>
+Good review automation in the UK fires within four hours of job completion, addresses the customer by first name, mentions the specific service, lands the customer on the direct review form, and includes a clear opt out path. Bad automation fires three days late, addresses the customer as Hi there, points to the generic profile page, and has no opt out tag. The reply rate gap between the two patterns is fifteen to thirty percentage points.
+</Speakable>
+
+The pattern that compounds.
+
+- The trigger fires on the actual moment of peak satisfaction, not on a fixed weekly batch.
+- The personalisation pulls from booking or CRM data, not from a generic template.
+- The link is the direct review form, not the profile page.
+- The opt out is on every message, not just the first.
+- The reply happens inside seventy two hours, ideally inside twenty four for negative reviews. See [Responding to Negative Google Reviews](/blog/respond-to-negative-google-reviews-uk) for the response routine.
+
+The pattern that fails.
+
+- A Mailchimp newsletter style email blast labelled monthly review request, sent at no particular trigger.
+- A Google review link that goes to the GBP profile page, requiring the customer to find the review button manually.
+- An SMS without first name personalisation, addressed to Customer or Hi there.
+- An SMS without an opt out tag, in breach of PECR.
+- A flow that runs for a week then stops because the webhook trigger broke and nobody noticed.
+
+The single biggest failure mode is the silent automation, where the trigger has stopped firing and review velocity has dropped to zero, but no monitoring exists to flag the problem. The fix is to set a weekly calendar reminder for thirty days after launch, and again at sixty and ninety days, to verify the platform's dashboard shows messages going out at the expected rate.
+
+## A 30 minute build, walked through end to end
+
+<Speakable>
+The full thirty minute build, broken into a working sequence: pick the platform in the first three minutes, copy the direct GBP review link in two, configure the SMS template in five, wire the webhook in ten, test on three real transactions in ten. Anything that takes longer suggests an integration issue rather than a build issue, and switching platform or trigger source is usually faster than continuing to debug.
+</Speakable>
+
+The clean version, with timing.
+
+### Minutes 0 to 3: pick the platform
+
+- Read the comparison table above.
+- Decide based on sector, existing stack, and whether the integration is native rather than glue.
+- Sign up to the platform's trial.
+
+### Minutes 3 to 5: get the GBP review link
+
+- Open the GBP dashboard.
+- Copy the link from the Share your profile section.
+- Verify on phone and desktop.
+
+### Minutes 5 to 10: configure the SMS template
+
+- Add the template above to the platform.
+- Map merge fields.
+- Set send delay and send hours.
+- Add the Reply STOP opt out tag.
+
+### Minutes 10 to 20: wire the webhook
+
+- Stripe direct or booking platform.
+- Add the webhook URL to the source platform.
+- Subscribe to the relevant event type.
+- Save and verify.
+
+### Minutes 20 to 30: test on three real customers
+
+- Process the next three real transactions.
+- Verify SMS arrival, content, and link.
+- Verify opt out works.
+
+If all three tests pass, the automation is live. From the next transaction onward, the flow runs without manual attention. Review velocity should rise from a baseline of one to two reviews a month to two to five reviews a week within thirty to sixty days.
+
+## What goes wrong in the first thirty days, and how to fix it
+
+<Speakable>
+Three failure modes catch UK SMBs in the first thirty days of running review automation. The webhook stops firing because the source platform changed event names or the API key expired. The merge fields break because the booking system uses different field names than the template expected. The reply rate is below five per cent because the link format is wrong or the message is sent at the wrong time. All three are diagnosable in under fifteen minutes with the right monitoring.
+</Speakable>
+
+The diagnostic flow for each.
+
+### Failure 1: zero new reviews after a week of normal trade
+
+- Open the review automation platform dashboard.
+- Check the messages sent count for the last seven days.
+- If the count is zero, the webhook trigger has not fired. Open the source platform's webhook log and check for recent events.
+- If the count matches the trade volume but no reviews are landing, the link format or send time is the issue.
+
+### Failure 2: messages sending but reply rate below five per cent
+
+- Open the SMS audit log on the platform.
+- Read the actual message body delivered to a real customer phone.
+- Check the merge fields rendered correctly. {first_name} as a literal string is the most common bug.
+- Click the link from the actual SMS. If it lands on the GBP profile page rather than the review form, the link format is wrong.
+
+### Failure 3: complaints from customers about repeated messages
+
+- Open the platform's contact log.
+- Verify the opt out flag is being respected.
+- Confirm the platform is not sending second reminders without a configured cadence rule.
+- Check that the customer is not in the system twice under different identifiers.
+
+The pattern that prevents all three. Set a calendar reminder for thirty, sixty, and ninety days after launch to audit the platform dashboard, the SMS log, and the actual messages delivered. Five minutes a quarter is enough to keep the flow honest.
+
+## Common questions
+
+<FAQ items={[
+  { q: "How long does it really take to set up automated Google review requests in the UK?", a: "Thirty minutes for the basic flow if the booking system or payment provider already exposes a webhook for job complete or order paid events. The thirty minutes covers wiring the webhook to a review platform, configuring the SMS or email template with first name and service merge fields, and testing on three real customers. A more polished build with retry logic, opt out handling, and link routing through a tracker takes two to three hours over a couple of evenings. Anything past four hours suggests the integration is fighting the underlying tools, in which case switching the booking platform or the review automation tool is a better use of time than continuing to glue them together." },
+  { q: "What is the legal way to send Google review SMS requests in the UK?", a: "Under the Privacy and Electronic Communications Regulations soft opt in framework, a UK business can send SMS review requests to existing customers about similar services without explicit prior consent, provided three conditions are met. The customer's number was collected during a sale or negotiations of a sale. The message relates to similar products or services, and a review request from a business the customer has just bought from generally meets that test. The customer was given a clear opportunity to opt out at the point of collection and on every message, usually a Reply STOP to opt out tag. The Information Commissioner's Office published guidance on PECR soft opt in for transactional follow up in 2024 confirming this interpretation for review requests." },
+  { q: "What is the correct Google review link format for a UK SMB?", a: "The direct review link format is `https://g.page/r/<placeId>/review` where the place ID comes from the Google Business Profile dashboard, found under the Share your profile section. This format lands the customer directly on the review form ready to type, while sharing the generic profile URL or the Google Maps URL forces the customer to find the review button manually, which halves conversion. Save the direct link, shorten it through a tracker like a self hosted Plausible outbound link if attribution matters, and use the same link across SMS, email, QR card, and printed receipt prompts. Test the link on a phone and a desktop browser before automating, because some shorteners break the deep link behaviour and route customers to a generic web page." },
+  { q: "How does a Stripe webhook actually trigger a Google review SMS in the UK?", a: "Stripe emits a `payment_intent.succeeded` event when a card payment completes, which a review automation platform listens for via a webhook endpoint. The endpoint receives the event payload including customer email, name, phone where collected, and the amount paid, then schedules an SMS or email at a configurable delay, typically four hours for trades and forty eight hours for e commerce. The webhook URL goes into the Stripe dashboard under Developers, Webhooks, with the relevant event type selected. For booking platforms like Calendly, Cliniko, Phorest, or Treatwell, the equivalent event is appointment.completed or booking.completed and the webhook flow is identical. The whole setup takes ten to fifteen minutes once the API keys are to hand, with most of the time spent testing the trigger fires on a real transaction." },
+  { q: "Which review automation platform is the best fit for a UK SMB in 2026?", a: "There is no universal best fit, the right tool depends on sector, existing stack, and budget. Birdeye and Reviews.io are the strongest enterprise options with SMS, email, QR, and embedded widget support, priced at roughly forty to one hundred and twenty pounds per location per month verified May 2026. NiceJob targets US trades primarily and is a weaker UK fit. Trustpilot Automated handles e commerce well but is built around the Trustpilot ecosystem rather than Google. Zatrovo, the product I publish, is built specifically for UK SMBs with PECR aware SMS triggers, the direct GBP review link format, and bundled into Revenue Engineering. Whichever platform is chosen, the deciding question is whether it integrates cleanly with the existing booking or payment provider without manual sync." },
+  { q: "What goes wrong with review automation, and how do you spot it early?", a: "Three failure modes catch UK SMBs in the first month of running review automation. The trigger does not fire because the webhook is misconfigured or the event name has been changed by the platform, which shows up as zero new reviews after a week of normal trade. The link format is wrong and lands the customer on the generic profile page rather than the review form, which shows up as high SMS open rate but conversion below five per cent. The personalisation merge field breaks because the booking system uses different field names, which shows up as messages addressed to {first_name} or empty service descriptions. All three are caught by sending the first ten messages manually before automating, then auditing the actual messages received by a phone you control." }
+]} />
+
+## How to start tomorrow
+
+The shortlist for tomorrow morning, in this order.
+
+1. Open the Google Business Profile dashboard, copy the direct review link from the Share your profile section, and test it on a phone and a desktop browser. Save the link.
+2. Pick a platform from the comparison table above, sign up for the trial, and install the GBP link in the platform's link routing settings. Configure the compliant SMS template with first name and staff name merge fields, the four hour delay for trades, and the Reply STOP opt out tag.
+3. Wire the trigger to the existing booking or payment provider, then run three real transactions through the system to verify the messages, the link, and the opt out behaviour. Once tested, leave the flow to run.
+
+For UK SMBs that prefer a bundled solution rather than self hosted glue, [Zatrovo](/zatrovo) handles the PECR aware SMS triggers, the direct GBP review link routing, the personalisation merge fields, the response prompts, and the daily monitoring. For full takeover that includes the website, the Google Business Profile, the review automation, and the response routine, [Revenue Engineering](/revenue-engineering) bundles the lot at $1,450, $3,450, and $5,500 per month tiers.
+
+For DIY readers, sequence the work: [How UK Small Businesses Can Earn More Google Reviews Ethically](/blog/get-more-google-reviews-uk-ethically) for the regulatory frame, [The Polite British Way to Ask Customers for Reviews](/blog/how-to-ask-for-reviews-uk-polite) for the wording that converts, [Google Business Profile UK: Setup, Verification and First 90 Days](/blog/google-business-profile-uk-setup-verification) for the foundations, and [Google Maps SEO for UK Small Businesses: A Plain-English Guide](/blog/google-maps-seo-uk-guide) for the wider Map Pack picture.
+
+<CTA
+  href="/revenue-engineering"
+  label="Get review automation engineered for you"
+  sublabel="$1,450 / $3,450 / $5,500 per month — website + Zatrovo included"
+/>

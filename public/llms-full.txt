@@ -16,12 +16,84 @@
 
 ## Field Notebook — posts
 
+- [Responding to Negative Google Reviews: A UK Owner's Playbook](https://irvale.com/blog/respond-to-negative-google-reviews-uk): A UK owner playbook for responding to negative Google reviews, with response tiers, templates, removal flags and 2026 CMA, GDPR and defamation guardrails.
+- [Ranking in Google AI Overviews: The 2026 Playbook](https://irvale.com/blog/ranking-google-ai-overviews-2026): How Google AI Overviews actually pick sources in 2026, and the schema, content patterns and fan-out tactics that earn citations for UK SMBs.
+- [Online Booking Systems for UK Small Businesses: 2026 Buyer's Guide](https://irvale.com/blog/online-booking-systems-uk-buyers-guide): An honest 2026 buyer's guide to online booking systems for UK small businesses, with pricing in pounds, GDPR posture, deposit handling and PECR notes.
+- [Local SEO for UK Plumbers: From Boiler Calls to Booked Out](https://irvale.com/blog/local-seo-plumbers-uk): A 2026 plain-English local SEO playbook for UK plumbers, from service-area GBP setup to review velocity, with the tactics that actually fill the diary.
+- [llms.txt: The New robots.txt for AI? What to Ship This Week](https://irvale.com/blog/llms-txt-uk-smb-implementation): What llms.txt actually is, what it does and does not do, and how UK SMBs should ship a working file this week using Irvale's own as a worked example.
+- [How to Get Cited by ChatGPT (and Stay Cited)](https://irvale.com/blog/how-to-get-cited-by-chatgpt): How ChatGPT Search picks sources in 2026, why Bing visibility now matters, and the concrete schema, robots and EEAT fixes UK SMBs should ship this week.
 - [The Polite British Way to Ask Customers for Reviews](https://irvale.com/blog/how-to-ask-for-reviews-uk-polite): UK-tone scripts and templates for asking customers for Google reviews politely, with channel benchmarks, timing rules and CMA-aligned phrasing for 2026.
 - [Google Maps SEO for UK Small Businesses: A Plain-English Guide](https://irvale.com/blog/google-maps-seo-uk-guide): What UK small businesses really need to know about Google Maps SEO in 2026 — without the agency jargon, and with the tactics that actually move the Map Pack.
 - [Google Business Profile UK: Setup, Verification and First 90 Days](https://irvale.com/blog/google-business-profile-uk-setup-verification): A practical UK guide to claiming, verifying and configuring a Google Business Profile in 2026, plus the 90-day plan that turns a new listing into Map Pack rank.
+- [The UK Small Business Guide to Google Ads in 2026](https://irvale.com/blog/google-ads-uk-small-business-guide): A practical 2026 Google Ads guide for UK small businesses, covering account structure, campaign types, tracking, GDPR, budgets and bidding strategies that work.
+- [How Much Do Google Ads Cost in the UK? Real 2026 Benchmarks](https://irvale.com/blog/google-ads-cost-uk-2026): Real 2026 Google Ads benchmarks for UK SMBs, with average CPC and CPL by sector, monthly budget tiers, LSA costs and where 500 pounds a month falls short.
 - [How UK Small Businesses Can Earn More Google Reviews Ethically](https://irvale.com/blog/get-more-google-reviews-uk-ethically): A CMA-aligned 2026 playbook for UK SMBs to earn more Google reviews, with channel benchmarks, compliant scripts and the practices Google actually rewards.
+- [Fresha vs Treatwell for UK Salons: An Honest 2026 Comparison](https://irvale.com/blog/fresha-vs-treatwell-uk-salons): An honest 2026 side by side comparison of Fresha vs Treatwell for UK salons, covering cost, commission, deposits, exit risk, marketing reach and ownership.
+- [Email Marketing for UK Small Businesses: The 2026 Revenue Playbook](https://irvale.com/blog/email-marketing-uk-small-business-2026): How UK small businesses turn email into a measurable revenue channel in 2026: lifecycle flows, deliverability, PECR rules, platform fit and benchmarks.
+- [CRM for UK Small Business: The 2026 Buyer's Guide (Free vs Paid)](https://irvale.com/blog/crm-for-small-business-uk-buyers-guide): A 2026 buyer's guide to CRM for UK small businesses: free vs paid tiers, honest pros and cons, UK integrations and a decision framework by team size.
+- [How to Automate Google Review Requests in 30 Minutes](https://irvale.com/blog/automate-google-review-requests-30-minutes): A 30-minute UK build for compliant Google review automation, with platform comparison, PECR-safe SMS triggers, and the Stripe webhook flow that works in 2026.
 
 ## Post metadata
+
+### Responding to Negative Google Reviews: A UK Owner's Playbook
+- url: https://irvale.com/blog/respond-to-negative-google-reviews-uk
+- slug: respond-to-negative-google-reviews-uk
+- category: reviews
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: reviews, reputation, uk smb, negative reviews, customer service
+- description: A UK owner playbook for responding to negative Google reviews, with response tiers, templates, removal flags and 2026 CMA, GDPR and defamation guardrails.
+
+### Ranking in Google AI Overviews: The 2026 Playbook
+- url: https://irvale.com/blog/ranking-google-ai-overviews-2026
+- slug: ranking-google-ai-overviews-2026
+- category: ai-search
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: ai overviews, google search, ai search, geo, uk smb
+- description: How Google AI Overviews actually pick sources in 2026, and the schema, content patterns and fan-out tactics that earn citations for UK SMBs.
+
+### Online Booking Systems for UK Small Businesses: 2026 Buyer's Guide
+- url: https://irvale.com/blog/online-booking-systems-uk-buyers-guide
+- slug: online-booking-systems-uk-buyers-guide
+- category: cro
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: bookings, cro, uk smb, saas comparison, no shows
+- description: An honest 2026 buyer's guide to online booking systems for UK small businesses, with pricing in pounds, GDPR posture, deposit handling and PECR notes.
+
+### Local SEO for UK Plumbers: From Boiler Calls to Booked Out
+- url: https://irvale.com/blog/local-seo-plumbers-uk
+- slug: local-seo-plumbers-uk
+- category: local-seo
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: local seo, plumbers, trades, uk smb, google business profile
+- description: A 2026 plain-English local SEO playbook for UK plumbers, from service-area GBP setup to review velocity, with the tactics that actually fill the diary.
+
+### llms.txt: The New robots.txt for AI? What to Ship This Week
+- url: https://irvale.com/blog/llms-txt-uk-smb-implementation
+- slug: llms-txt-uk-smb-implementation
+- category: ai-search
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: llms.txt, ai search, technical seo, geo, uk smb
+- description: What llms.txt actually is, what it does and does not do, and how UK SMBs should ship a working file this week using Irvale's own as a worked example.
+
+### How to Get Cited by ChatGPT (and Stay Cited)
+- url: https://irvale.com/blog/how-to-get-cited-by-chatgpt
+- slug: how-to-get-cited-by-chatgpt
+- category: ai-search
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: chatgpt, ai search, citations, geo, uk smb
+- description: How ChatGPT Search picks sources in 2026, why Bing visibility now matters, and the concrete schema, robots and EEAT fixes UK SMBs should ship this week.
 
 ### The Polite British Way to Ask Customers for Reviews
 - url: https://irvale.com/blog/how-to-ask-for-reviews-uk-polite
@@ -53,6 +125,26 @@
 - tags: google business profile, local seo, google maps, uk smb
 - description: A practical UK guide to claiming, verifying and configuring a Google Business Profile in 2026, plus the 90-day plan that turns a new listing into Map Pack rank.
 
+### The UK Small Business Guide to Google Ads in 2026
+- url: https://irvale.com/blog/google-ads-uk-small-business-guide
+- slug: google-ads-uk-small-business-guide
+- category: paid-media
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: google ads, paid media, uk smb, ppc, performance max
+- description: A practical 2026 Google Ads guide for UK small businesses, covering account structure, campaign types, tracking, GDPR, budgets and bidding strategies that work.
+
+### How Much Do Google Ads Cost in the UK? Real 2026 Benchmarks
+- url: https://irvale.com/blog/google-ads-cost-uk-2026
+- slug: google-ads-cost-uk-2026
+- category: paid-media
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: google ads, paid media cost, uk smb, ppc benchmarks, budget
+- description: Real 2026 Google Ads benchmarks for UK SMBs, with average CPC and CPL by sector, monthly budget tiers, LSA costs and where 500 pounds a month falls short.
+
 ### How UK Small Businesses Can Earn More Google Reviews Ethically
 - url: https://irvale.com/blog/get-more-google-reviews-uk-ethically
 - slug: get-more-google-reviews-uk-ethically
@@ -62,4 +154,44 @@
 - updatedAt: 2026-05-06
 - tags: google reviews, reputation, uk smb, cma compliance
 - description: A CMA-aligned 2026 playbook for UK SMBs to earn more Google reviews, with channel benchmarks, compliant scripts and the practices Google actually rewards.
+
+### Fresha vs Treatwell for UK Salons: An Honest 2026 Comparison
+- url: https://irvale.com/blog/fresha-vs-treatwell-uk-salons
+- slug: fresha-vs-treatwell-uk-salons
+- category: cro
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: fresha, treatwell, salons, uk smb, bookings
+- description: An honest 2026 side by side comparison of Fresha vs Treatwell for UK salons, covering cost, commission, deposits, exit risk, marketing reach and ownership.
+
+### Email Marketing for UK Small Businesses: The 2026 Revenue Playbook
+- url: https://irvale.com/blog/email-marketing-uk-small-business-2026
+- slug: email-marketing-uk-small-business-2026
+- category: revenue
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: email marketing, crm, uk smb, revenue, lifecycle email
+- description: How UK small businesses turn email into a measurable revenue channel in 2026: lifecycle flows, deliverability, PECR rules, platform fit and benchmarks.
+
+### CRM for UK Small Business: The 2026 Buyer's Guide (Free vs Paid)
+- url: https://irvale.com/blog/crm-for-small-business-uk-buyers-guide
+- slug: crm-for-small-business-uk-buyers-guide
+- category: revenue
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: crm, uk smb, sales, pipeline, saas comparison
+- description: A 2026 buyer's guide to CRM for UK small businesses: free vs paid tiers, honest pros and cons, UK integrations and a decision framework by team size.
+
+### How to Automate Google Review Requests in 30 Minutes
+- url: https://irvale.com/blog/automate-google-review-requests-30-minutes
+- slug: automate-google-review-requests-30-minutes
+- category: reviews
+- author: jacob-horgan
+- publishedAt: 2026-05-06
+- updatedAt: 2026-05-06
+- tags: reviews, automation, zatrovo, uk smb, review request
+- description: A 30-minute UK build for compliant Google review automation, with platform comparison, PECR-safe SMS triggers, and the Stripe webhook flow that works in 2026.
 
