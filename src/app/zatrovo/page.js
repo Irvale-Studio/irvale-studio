@@ -89,38 +89,15 @@ const features = [
 
 const testimonials = [
   {
-    quote:
-      'We had three tools before Zatrovo. Scheduling, payments, email reminders. Zatrovo killed all three. Wish we\'d switched sooner.',
-    author: 'Sarah Mitchell',
-    role: 'Yoga Studio Owner',
-  },
-  {
-    quote: 'Live in 10 minutes. No joke.',
-    author: 'James Cooper',
-    role: 'CrossFit Box Owner',
-  },
-  {
-    quote:
-      'The AI assistant genuinely handles the repetitive stuff. Reminders, waitlists, member questions. My front desk is way less stressed.',
-    author: 'Priya Sharma',
-    role: 'Pilates Studio Manager',
-  },
-  {
-    quote:
-      'Our members have no idea they\'re using Zatrovo. It has our logo, our colours, our name. That matters to us.',
-    author: 'Marcus Johnson',
-    role: 'Gym Owner',
-  },
-  {
     quote: 'Cut our software bill by $130/month after leaving Mindbody. Not even using paid features yet.',
     author: 'Elena Rodriguez',
     role: 'Dance School Director',
   },
   {
     quote:
-      'Running two locations used to be chaos. Different systems, different logins, no big picture. Now it\'s one dashboard.',
-    author: 'Olivia Chen',
-    role: 'Multi-Studio Owner',
+      'The AI assistant genuinely handles the repetitive stuff. Reminders, waitlists, member questions. My front desk is way less stressed.',
+    author: 'Priya Sharma',
+    role: 'Pilates Studio Manager',
   },
   {
     quote:
@@ -381,29 +358,55 @@ export default function ZatrovoPage() {
         </div>
       </section>
 
+      {/* Founder note */}
+      <section className="bg-cream py-[var(--section-gap)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <Eyebrow className="mb-6 block">A Note From The Founder</Eyebrow>
+          <SectionReveal>
+            <h2 className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[800px] mb-8">
+              I built Zatrovo because I love active groups and small businesses.
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="md:col-span-2 space-y-5 font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
+                <p>
+                  Hi, I&apos;m Jake. Every activity I do, from my friend&apos;s boxing gym to booking a massage, runs on clunky software and too much manual admin.
+                </p>
+                <p>
+                  So I built the tool I wished existed. One that helps studios run their business, and helps people like me book the sessions that make life better.
+                </p>
+                <p>
+                  Zatrovo is a founder-led project and it&apos;s growing fast. I always want feedback, so please reach out.
+                </p>
+              </div>
+              <div className="border-l border-gold/30 pl-6">
+                <p className="font-display text-[length:var(--type-h3)] text-text-dark mb-1">Jake Horgan</p>
+                <p className="font-body text-sm text-text-muted-dark mb-4">Founder, Zatrovo · Irvale Studio</p>
+                <a
+                  href="mailto:jake@zatrovo.com"
+                  className="font-body text-sm text-gold-muted hover:text-gold transition-colors"
+                >
+                  jake@zatrovo.com →
+                </a>
+              </div>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* Module board marquee */}
       <section className="bg-dark-2 py-16 border-y border-[var(--border-dark)] relative noise-overlay">
         <div className="mx-auto px-[var(--gutter)] mb-8 text-center" style={{ maxWidth: 'var(--max-width)' }}>
           <Eyebrow className="block">Module Board · 36+ Built-In Features</Eyebrow>
         </div>
-        <div className="relative overflow-hidden mb-3">
+        <div className="relative overflow-hidden">
           <div className="marquee-track gap-4" style={{ '--marquee-speed': '90s' }}>
             {[...modules, ...modules].map((m, i) => (
               <span
                 key={i}
                 className="font-body text-sm text-text-light/70 border border-white/10 bg-dark/40 px-4 py-2 rounded-full whitespace-nowrap shrink-0"
-              >
-                {m}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="relative overflow-hidden">
-          <div className="marquee-track gap-4" style={{ '--marquee-speed': '110s', animationDirection: 'reverse' }}>
-            {[...modules.slice().reverse(), ...modules.slice().reverse()].map((m, i) => (
-              <span
-                key={i}
-                className="font-body text-sm text-gold/70 border border-gold/15 bg-gold/[0.03] px-4 py-2 rounded-full whitespace-nowrap shrink-0"
               >
                 {m}
               </span>
@@ -446,6 +449,114 @@ export default function ZatrovoPage() {
               </div>
             ))}
           </SectionReveal>
+        </div>
+      </section>
+
+      {/* Zatrovo in action: BOXX screenshots */}
+      <section className="bg-dark py-[var(--section-gap)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <Eyebrow className="mb-6 block">Zatrovo in Action</Eyebrow>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <h2 className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px]">
+              See how BOXX Thailand runs their entire studio on Zatrovo.
+            </h2>
+            <Link
+              href="/work/boxx-thailand"
+              className="font-body text-sm text-gold hover:text-gold-light transition-colors shrink-0"
+            >
+              Read the case study →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <BrowserShot
+              src="/images/projects/boxx-zatrovo-admin.webp"
+              alt="Zatrovo admin panel showing BOXX class pack products"
+              caption="Admin · Class Packs & Memberships"
+            />
+            <BrowserShot
+              src="/images/projects/boxx-zatrovo-booking.webp"
+              alt="Zatrovo booking interface showing BOXX class schedule"
+              caption="Client · Class Schedule & Booking"
+            />
+            <div className="md:col-span-2">
+              <BrowserShot
+                src="/images/projects/boxx-zatrovo-services.webp"
+                alt="Zatrovo service booking with coach selection and time slots"
+                caption="Client · Service Selection & Time Slots"
+                aspect="aspect-[21/9]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-cream py-[var(--section-gap)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <Eyebrow className="mb-12 block">What Studio Owners Say</Eyebrow>
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-[var(--grid-gap)]">
+            {testimonials.map((t, i) => (
+              <figure
+                key={i}
+                className="bg-white border border-[var(--border-light)] p-7 flex flex-col"
+              >
+                <div className="text-gold text-2xl leading-none mb-4">&ldquo;</div>
+                <blockquote className="font-display italic text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-dark font-light flex-1 mb-6">
+                  {t.quote}
+                </blockquote>
+                <figcaption>
+                  <p className="font-body text-sm font-medium text-text-dark">{t.author}</p>
+                  <p className="font-body text-xs text-text-muted-dark mt-0.5">{t.role}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* Built On + Compliance */}
+      <section className="bg-dark py-20 border-y border-[var(--border-dark)]">
+        <div
+          className="mx-auto px-[var(--gutter)] grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div>
+            <p className="font-body text-[length:var(--type-caption)] text-gold/60 uppercase tracking-[var(--type-label-ls)] mb-5">
+              Built On & Secured By
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {builtOn.map((b) => (
+                <span
+                  key={b}
+                  className="font-display text-text-light/70 text-lg border border-white/10 px-5 py-2.5"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="font-body text-[length:var(--type-caption)] text-gold/60 uppercase tracking-[var(--type-label-ls)] mb-5">
+              Compliance & Accreditations
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {compliance.map((c) => (
+                <span
+                  key={c}
+                  className="font-body text-sm text-text-light/80 border border-gold/30 px-4 py-2"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -524,75 +635,6 @@ export default function ZatrovoPage() {
         </div>
       </section>
 
-      {/* Zatrovo in action: BOXX screenshots */}
-      <section className="bg-dark py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-6 block">Zatrovo in Action</Eyebrow>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-            <h2 className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[600px]">
-              See how BOXX Thailand runs their entire studio on Zatrovo.
-            </h2>
-            <Link
-              href="/work/boxx-thailand"
-              className="font-body text-sm text-gold hover:text-gold-light transition-colors shrink-0"
-            >
-              Read the case study →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <BrowserShot
-              src="/images/projects/boxx-zatrovo-admin.webp"
-              alt="Zatrovo admin panel showing BOXX class pack products"
-              caption="Admin · Class Packs & Memberships"
-            />
-            <BrowserShot
-              src="/images/projects/boxx-zatrovo-booking.webp"
-              alt="Zatrovo booking interface showing BOXX class schedule"
-              caption="Client · Class Schedule & Booking"
-            />
-            <div className="md:col-span-2">
-              <BrowserShot
-                src="/images/projects/boxx-zatrovo-services.webp"
-                alt="Zatrovo service booking with coach selection and time slots"
-                caption="Client · Service Selection & Time Slots"
-                aspect="aspect-[21/9]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-cream py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-12 block">What Studio Owners Say</Eyebrow>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--grid-gap)]">
-            {testimonials.map((t, i) => (
-              <figure
-                key={i}
-                className="bg-white border border-[var(--border-light)] p-7 flex flex-col"
-              >
-                <div className="text-gold text-2xl leading-none mb-4">&ldquo;</div>
-                <blockquote className="font-display italic text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-dark font-light flex-1 mb-6">
-                  {t.quote}
-                </blockquote>
-                <figcaption>
-                  <p className="font-body text-sm font-medium text-text-dark">{t.author}</p>
-                  <p className="font-body text-xs text-text-muted-dark mt-0.5">{t.role}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </SectionReveal>
-        </div>
-      </section>
-
       {/* Migration */}
       <section className="bg-dark-2 py-[var(--section-gap)] relative noise-overlay">
         <div
@@ -630,59 +672,19 @@ export default function ZatrovoPage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {migrationFrom.map((p) => (
-                <div
-                  key={p}
-                  className="border border-white/10 bg-dark/40 p-5 text-center font-body text-sm text-text-light/80"
-                >
-                  {p}
-                </div>
-              ))}
-              <div className="col-span-2 border border-gold/40 bg-gold/[0.03] p-5 text-center font-display text-xl text-gold">
-                zatrovo
-              </div>
+            <div className="border border-white/10 bg-dark/40 p-8">
+              <p className="font-body text-[11px] uppercase tracking-[0.22em] text-gold-muted mb-4">
+                From
+              </p>
+              <p className="font-body text-sm text-text-muted-light font-light leading-relaxed mb-8">
+                {migrationFrom.join(' · ')}
+              </p>
+              <p className="font-body text-[11px] uppercase tracking-[0.22em] text-gold mb-3">
+                To
+              </p>
+              <p className="font-display text-3xl text-gold">zatrovo</p>
             </div>
           </SectionReveal>
-        </div>
-      </section>
-
-      {/* Built On + Compliance */}
-      <section className="bg-dark py-20 border-y border-[var(--border-dark)]">
-        <div
-          className="mx-auto px-[var(--gutter)] grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <div>
-            <p className="font-body text-[length:var(--type-caption)] text-gold/60 uppercase tracking-[var(--type-label-ls)] mb-5">
-              Built On & Secured By
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {builtOn.map((b) => (
-                <span
-                  key={b}
-                  className="font-display text-text-light/70 text-lg border border-white/10 px-5 py-2.5"
-                >
-                  {b}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="font-body text-[length:var(--type-caption)] text-gold/60 uppercase tracking-[var(--type-label-ls)] mb-5">
-              Compliance & Accreditations
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {compliance.map((c) => (
-                <span
-                  key={c}
-                  className="font-body text-sm text-text-light/80 border border-gold/30 px-4 py-2"
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -697,44 +699,6 @@ export default function ZatrovoPage() {
             {faqs.map((faq, i) => (
               <ZatrovoFAQItem key={i} question={faq.question} answer={faq.answer} />
             ))}
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* Founder note */}
-      <section className="bg-cream py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-6 block">A Note From The Founder</Eyebrow>
-          <SectionReveal>
-            <h2 className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[800px] mb-8">
-              I built Zatrovo because I love active groups and small businesses.
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="md:col-span-2 space-y-5 font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
-                <p>
-                  Hi, I&apos;m Jake. Every activity I do, from my friend&apos;s boxing gym to booking a massage, runs on clunky software and too much manual admin.
-                </p>
-                <p>
-                  So I built the tool I wished existed. One that helps studios run their business, and helps people like me book the sessions that make life better.
-                </p>
-                <p>
-                  Zatrovo is a founder-led project and it&apos;s growing fast. I always want feedback, so please reach out.
-                </p>
-              </div>
-              <div className="border-l border-gold/30 pl-6">
-                <p className="font-display text-[length:var(--type-h3)] text-text-dark mb-1">Jake Horgan</p>
-                <p className="font-body text-sm text-text-muted-dark mb-4">Founder, Zatrovo · Irvale Studio</p>
-                <a
-                  href="mailto:jake@zatrovo.com"
-                  className="font-body text-sm text-gold-muted hover:text-gold transition-colors"
-                >
-                  jake@zatrovo.com →
-                </a>
-              </div>
-            </div>
           </SectionReveal>
         </div>
       </section>

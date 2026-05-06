@@ -12,10 +12,10 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '1', label: 'Accountable team' },
-  { value: '9', label: 'Capabilities owned end to end' },
-  { value: '4 wks', label: 'Foundation live' },
-  { value: '3 mo', label: 'Minimum engagement' },
+  { value: '0%', label: 'Commission paid to OTAs' },
+  { value: '5 → 1', label: 'Vendors collapsed into one team' },
+  { value: '4 wks', label: 'Foundation live and converting' },
+  { value: '90 d', label: 'Compounding window before review' },
 ];
 
 const capabilities = [
@@ -24,63 +24,36 @@ const capabilities = [
     label: 'Foundation',
     title: 'Website rebuild and Zatrovo booking',
     body: 'Bespoke build, no template. Multilingual where it fits. Zatrovo, our own SaaS, runs your bookings under your brand. Both included free at every tier.',
-    partner: false,
   },
   {
     code: '02',
     label: 'Discovery',
     title: 'Programmatic SEO and content',
-    body: 'AI augmented production at a volume traditional agencies cannot match. Location pages, treatment pages, FAQ libraries, topical clusters. Platform-native content in every language we ship.',
-    partner: false,
+    body: 'AI augmented production at a volume traditional agencies cannot match. Location pages, treatment pages, FAQ libraries, topical clusters. Platform-native in every language.',
   },
   {
     code: '03',
-    label: 'Emerging',
-    title: 'AEO and GEO for AI search',
+    label: 'AI search',
+    title: 'AEO and GEO for ChatGPT, Perplexity, AI Overviews',
     body: 'Engineered presence inside ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews. Schema, structured content and source placement so the LLMs can quote you.',
-    partner: false,
   },
   {
     code: '04',
-    label: 'Korean market',
-    title: 'Naver presence and optimisation',
-    body: 'Naver Place, Naver Blog, Naver Map. Korean tourists do not use Google. Most agencies skip Naver entirely, which is exactly why it is a real competitive gap.',
-    partner: false,
+    label: 'APAC + local discovery',
+    title: 'Naver, Google Business Profile, local SEO',
+    body: 'Korean tourists do not use Google. Naver Place, Blog, Map covered alongside multilingual GBP posts, citations and location pages. Highest-ROI channels most agencies skip.',
   },
   {
     code: '05',
-    label: 'Local discovery',
-    title: 'Google Business Profile and local SEO',
-    body: 'Profile optimisation, citations, multilingual GBP posts, location pages. Often the highest-ROI digital channel for service businesses, and almost always under-utilised.',
-    partner: false,
+    label: 'Reputation',
+    title: 'Review and reputation systems',
+    body: 'Automated requests post-visit, multi-platform monitoring across Google, Facebook, TripAdvisor and Naver, AI-assisted responses with human approval. Reviews run as a system.',
   },
   {
     code: '06',
-    label: 'Reputation',
-    title: 'Review and reputation systems',
-    body: 'Automated requests post-visit, multi-platform monitoring across Google, Facebook, TripAdvisor and Naver, AI-assisted responses with human approval. Reviews run as a system, not a hope.',
-    partner: false,
-  },
-  {
-    code: '07',
     label: 'Measurement',
-    title: 'Analytics, GA4 and insights',
-    body: 'GA4 set up to track traffic, bookings and channel mix. Performance reporting against the metrics that matter.',
-    partner: false,
-  },
-  {
-    code: '08',
-    label: 'Partner studio · Chinese market',
-    title: 'Xiaohongshu (RED) and KOC partnerships',
-    body: 'Account setup, content production, channel management and KOL/KOC partnerships, run end-to-end via our partner content studio. Optional add-on, quoted separately.',
-    partner: true,
-  },
-  {
-    code: '09',
-    label: 'Partner studio · Social and video',
-    title: 'Active social, video production and Meta ads',
-    body: 'Day-to-day social channel management, short-form video for Reels, TikTok and Xiaohongshu, and Meta ad campaigns. Run via our partner content studio when you need active social. Optional add-on.',
-    partner: true,
+    title: 'GA4, attribution and revenue reporting',
+    body: 'GA4 wired to track traffic, bookings and channel mix. Reporting against the metrics that matter — direct bookings, channel revenue, citation share. No vanity dashboards.',
   },
 ];
 
@@ -122,20 +95,14 @@ const principles = [
   },
   {
     label: 'Owned infrastructure',
-    body: 'Zatrovo, our own SaaS, handles bookings, payments and messaging. Included free, not outsourced. Fixed when you need it fixed.',
+    body: 'Zatrovo, our own SaaS, handles bookings, payments and messaging under your brand. Included free, not outsourced.',
   },
-  {
-    label: 'AI augmented production',
-    body: 'Modern workflows produce content and optimise at a volume traditional agencies cannot match. Lower hours per output, higher cadence per retainer dollar.',
-  },
-  {
-    label: 'Skin in the game',
-    body: 'Reporting on real metrics. Bookings, revenue, enquiries, citation share. No vanity dashboards.',
-  },
-  {
-    label: 'Small client list',
-    body: 'A small number of clients at a time. Each one gets a senior team, not a junior on rotation.',
-  },
+];
+
+const proofStats = [
+  { value: '13K+', label: 'Members served on Zatrovo, our own playbook proven on ourselves' },
+  { value: '300+', label: 'Programmatic SEO pages shipped on the same engine clients run' },
+  { value: '4', label: 'Languages handled natively across discovery, booking and reviews' },
 ];
 
 const caseStudies = [
@@ -257,10 +224,10 @@ export default function RevenueEngineeringPage() {
             as="h1"
             className="font-display font-normal italic text-text-light text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[1000px] mb-6"
           >
-            Discovery and conversion, owned end to end as one system.
+            Stop leaking bookings to OTAs and a patchwork of vendors.
           </RevealText>
           <p className="font-body text-[length:var(--type-body-lg)] text-text-muted-light font-light max-w-2xl mb-10">
-            Revenue Engineering is what Irvale specialises in. Making your business discoverable across every channel that matters, then converting that traffic into paying, repeat customers. One accountable team for the full funnel.
+            One team rebuilds discovery and conversion as a single revenue system. Site, booking, SEO, AI search, reviews, multilingual content. Direct bookings into your calendar, commission free. Compounding every month.
           </p>
           <div className="flex flex-wrap gap-4 mb-12">
             <Link href="/contact" className="btn-primary">
@@ -349,17 +316,17 @@ export default function RevenueEngineeringPage() {
               as="h2"
               className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] mb-4"
             >
-              Nine capabilities. Seven core. Two partner-studio add-ons.
+              Six capabilities, run by one team.
             </RevealText>
             <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light">
-              Seven layers of the funnel run by Irvale directly. Two delivered through a partner content studio when you need active social, video and Meta ads. Single point of contact across all nine.
+              Every layer of the discovery and conversion funnel, owned end to end. Active social, short-form video, KOC partnerships and Meta ads available through our partner studio when you need them — single point of contact, quoted separately.
             </p>
           </div>
           <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-dark)]">
             {capabilities.map((c) => (
               <div
                 key={c.code}
-                className={`p-7 lg:p-8 ${c.partner ? 'bg-dark-2/60' : 'bg-dark'}`}
+                className="p-7 lg:p-8 bg-dark"
               >
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="font-display text-gold/40 text-base">{c.code}</span>
@@ -370,17 +337,23 @@ export default function RevenueEngineeringPage() {
                 <h3 className="font-display text-xl leading-snug text-text-light mb-3">
                   {c.title}
                 </h3>
-                <p className="font-body text-sm text-text-muted-light font-light leading-relaxed mb-4">
+                <p className="font-body text-sm text-text-muted-light font-light leading-relaxed">
                   {c.body}
                 </p>
-                {c.partner && (
-                  <span className="inline-block font-body text-[10px] uppercase tracking-[0.2em] text-gold border border-gold/30 px-2 py-1">
-                    Partner studio · optional
-                  </span>
-                )}
               </div>
             ))}
           </SectionReveal>
+
+          <div className="mt-10 border border-gold/25 bg-gold/5 p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <p className="font-body text-[10px] uppercase tracking-[0.22em] text-gold mb-2">
+                Partner studio · optional add-on
+              </p>
+              <p className="font-body text-sm text-text-muted-light font-light leading-relaxed max-w-2xl">
+                Active social management, short-form video for Reels / TikTok / Xiaohongshu, Meta ad campaigns and Chinese-market KOC partnerships. Run via our partner content studio. Single Irvale contact, quoted separately.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -533,36 +506,6 @@ export default function RevenueEngineeringPage() {
         </div>
       </section>
 
-      {/* Why This Works */}
-      <section className="bg-cream py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <div className="mb-14 max-w-2xl">
-            <Eyebrow className="mb-6 block">Why This Works</Eyebrow>
-            <RevealText
-              as="h2"
-              className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)]"
-            >
-              Six principles. One operating model.
-            </RevealText>
-          </div>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-            {principles.map((p) => (
-              <div key={p.label}>
-                <p className="font-body text-[11px] uppercase tracking-[0.18em] text-gold-muted mb-3">
-                  {p.label}
-                </p>
-                <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
-                  {p.body}
-                </p>
-              </div>
-            ))}
-          </SectionReveal>
-        </div>
-      </section>
-
       {/* Recent Work */}
       <section className="bg-cream-2 py-[var(--section-gap)] border-y border-[var(--border-light)]">
         <div
@@ -613,6 +556,66 @@ export default function RevenueEngineeringPage() {
                 </ul>
               </div>
             ))}
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* Why This Works + Proof + Honest Edges (close-the-deal block, runs straight into pricing) */}
+      <section className="bg-cream py-[var(--section-gap)]">
+        <div
+          className="mx-auto px-[var(--gutter)]"
+          style={{ maxWidth: 'var(--max-width)' }}
+        >
+          <div className="mb-12 max-w-2xl">
+            <Eyebrow className="mb-6 block">Why This Works</Eyebrow>
+            <RevealText
+              as="h2"
+              className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)]"
+            >
+              Three principles. Proven on ourselves first.
+            </RevealText>
+          </div>
+
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10 mb-16">
+            {principles.map((p) => (
+              <div key={p.label}>
+                <p className="font-body text-[11px] uppercase tracking-[0.18em] text-gold-muted mb-3">
+                  {p.label}
+                </p>
+                <p className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed">
+                  {p.body}
+                </p>
+              </div>
+            ))}
+          </SectionReveal>
+
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-[var(--border-light)] mb-16">
+            {proofStats.map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-[clamp(36px,4vw,56px)] text-gold-muted leading-none mb-3">
+                  {s.value}
+                </p>
+                <p className="font-body text-sm text-text-muted-dark font-light leading-relaxed">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </SectionReveal>
+
+          <SectionReveal className="border-t border-[var(--border-light)] pt-10 max-w-3xl">
+            <p className="font-body text-[11px] uppercase tracking-[0.22em] text-gold-muted mb-4">
+              Honest edges
+            </p>
+            <ul className="space-y-3">
+              {wedontdo.map((line, i) => (
+                <li
+                  key={i}
+                  className="font-body text-sm text-text-muted-dark font-light leading-relaxed pl-6 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-gold-muted"
+                >
+                  {line}
+                </li>
+              ))}
+            </ul>
           </SectionReveal>
         </div>
       </section>
@@ -676,34 +679,6 @@ export default function RevenueEngineeringPage() {
           <p className="font-body text-xs text-text-muted-light/60 font-light mt-10 max-w-3xl">
             Indicative starting prices. Scopes are sized to brand, category and competitive set. Multi-location estates and enterprise engagements quoted individually. Pricing is in USD and excludes VAT where applicable.
           </p>
-        </div>
-      </section>
-
-      {/* What We Don't Do */}
-      <section className="bg-cream py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <div className="mb-12 max-w-2xl">
-            <Eyebrow className="mb-6 block">Honest Edges</Eyebrow>
-            <RevealText
-              as="h2"
-              className="font-display font-normal text-text-dark text-[length:var(--type-h2)] leading-[var(--type-h2-lh)]"
-            >
-              What sits outside the engagement.
-            </RevealText>
-          </div>
-          <SectionReveal className="space-y-5 max-w-3xl">
-            {wedontdo.map((line, i) => (
-              <p
-                key={i}
-                className="font-body text-[length:var(--type-body)] text-text-muted-dark font-light leading-relaxed pl-6 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-gold-muted"
-              >
-                {line}
-              </p>
-            ))}
-          </SectionReveal>
         </div>
       </section>
 

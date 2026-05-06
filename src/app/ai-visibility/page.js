@@ -44,87 +44,42 @@ const stats = [
   },
 ];
 
-const phases = [
+const buildBlocks = [
   {
     n: '01',
-    name: 'Diagnose',
-    summary:
-      'We baseline your presence across every surface that matters. The output is a named, scored visibility report, not a generic audit.',
-    deliverables: [
-      'AI Visibility Index across 8 engines',
-      'Prompt universe mapping (discovery, comparison, intent prompts)',
-      'Competitor share-of-voice and citation overlap',
-      'Hallucination & sentiment audit on branded queries',
-    ],
+    phase: 'Diagnose',
+    title: 'AI Visibility Index + Prompt Universe',
+    body: 'A named, scored diagnostic across ChatGPT, Perplexity, Gemini, Claude, AI Overviews, AI Mode, Copilot and Meta AI. Mapped to the actual prompts your buyers type — discovery, comparison and high-intent queries.',
   },
   {
     n: '02',
-    name: 'Engineer',
-    summary:
-      'We rebuild the substrate AI engines actually read: structured entities, passage-level content, schema markup, and render guarantees.',
-    deliverables: [
-      'Entity reconciliation: Wikidata, Knowledge Graph, sameAs linking',
-      'JSON-LD schema architecture (Organization, Service, Review, FAQPage, Speakable, sector schemas)',
-      'Passage level content design (80 to 100 word answer blocks, inverted pyramid)',
-      'SSR & crawler policy: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot',
-    ],
+    phase: 'Engineer',
+    title: 'Entity reconciliation + Knowledge Graph',
+    body: 'Wikidata claims, Knowledge Panel acquisition, sameAs linking, entity disambiguation. Brands with verified Wikidata are 3.2× more likely to appear in AI Overview citations.',
   },
   {
     n: '03',
-    name: 'Earn',
-    summary:
-      'LLMs cite the sources they trust. We engineer placement on the domains they over index on: Tier 1 press, Wikipedia, YouTube and the trade titles your buyers already read.',
-    deliverables: [
-      'Tier-1 PR placement (Condé Nast Traveler, Robb Report, FT, Bloomberg, trade-vertical press)',
-      'YouTube transcript & podcast strategy',
-      'Wikipedia & Wikidata seeding (where notability is genuinely earned)',
-      'Reddit, Quora and review-platform corroboration',
-    ],
+    phase: 'Engineer',
+    title: 'Content + schema architecture',
+    body: 'Passage-level content engineered for retrieval (80–100 word answer blocks). JSON-LD layered for sector — LodgingBusiness, SpaBusiness, GolfCourse — with Review, FAQPage and Speakable nodes.',
   },
   {
     n: '04',
-    name: 'Monitor',
-    summary:
-      'AI rankings move weekly. We track citation share, position-of-mention, and sentiment continuously, and ship adjustments against perception drift.',
-    deliverables: [
-      'Weekly share-of-voice tracking across all major engines',
-      'Sentiment & description audits on branded prompts',
-      'Perception-drift alerts when descriptors shift in AI answers',
-      'Quarterly authority engineering & content cadence reviews',
-    ],
-  },
-];
-
-const modules = [
-  {
-    title: 'AI Visibility Index',
-    description:
-      'A named, scored diagnostic across ChatGPT, Perplexity, Gemini, Claude, AI Overviews, AI Mode, Copilot and Meta AI. Establishes the baseline every other deliverable is measured against.',
+    phase: 'Earn',
+    title: 'Citation + source placement',
+    body: 'Tier-1 PR (Condé Nast Traveler, Robb Report, FT, Bloomberg), trade press, YouTube transcripts, Reddit and review-platform corroboration. Unlinked brand mentions now correlate ~3× more strongly with AI visibility than backlinks.',
   },
   {
-    title: 'Prompt Universe Research',
-    description:
-      'We surface the actual queries your guests type, like "quiet boutique hotel in Mallorca with adults only pool" or "best private golf experience in Surrey", and engineer your presence inside them.',
+    n: '05',
+    phase: 'Engineer',
+    title: 'Crawler + render substrate',
+    body: 'GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot governed in robots.txt. Critical content shipped server-rendered — these crawlers do not execute JavaScript. The plumbing most agencies miss.',
   },
   {
-    title: 'Entity & Knowledge Graph',
-    description:
-      'Wikidata claims, Knowledge Panel acquisition, sameAs linking and entity disambiguation. Brands with verified Wikidata are 3.2× more likely to appear in AI Overview citations.',
-  },
-  {
-    title: 'Citation & Source Strategy',
-    description:
-      'Tier 1 PR, vertical trade press, YouTube, podcasts and review platforms placed on the exact domains LLMs over index on. Unlinked brand mentions now correlate ~3× more strongly with AI visibility than backlinks.',
-  },
-  {
-    title: 'Content & Schema Architecture',
-    description:
-      'Passage level content engineered for retrieval. JSON-LD schema layered for sector (LodgingBusiness, Resort, SpaBusiness, GolfCourse, Restaurant) with full nested amenityFeature, starRating and Review nodes.',
-  },
-  {
-    title: 'AI Share-of-Voice Monitoring',
-    description:
-      'Continuous tracking across the eight engines. Visibility, position, sentiment, perception drift, hallucination patrol, and a monthly report tied to the prompts that drive direct bookings.',
+    n: '06',
+    phase: 'Monitor',
+    title: 'Share-of-voice + perception drift',
+    body: 'Weekly tracking across all eight engines. Visibility, position, sentiment, hallucination patrol. Perception-drift alerts when descriptors shift. Monthly report tied to the prompts that drive direct bookings.',
   },
 ];
 
@@ -143,21 +98,6 @@ const technicals = [
     label: 'Schema layering',
     body:
       'JSON-LD remains the only structured data format every major engine ingests reliably. We layer Organization, Service, FAQPage, Speakable, Review and sector specific types, and validate them against each engine\'s extraction model.',
-  },
-  {
-    label: 'Wikidata first',
-    body:
-      'Wikidata\'s notability bar is lower than Wikipedia\'s and the data feeds Knowledge Panels and LLM training simultaneously. We seed claims, sameAs links and descriptors that compound over time.',
-  },
-  {
-    label: 'llms.txt',
-    body:
-      'No major model provider has confirmed production ingestion in 2026. We implement it because it is cheap insurance, not because it moves the needle.',
-  },
-  {
-    label: 'Narrative anchors',
-    body:
-      'Three to five descriptor phrases reinforced consistently across press, transcripts, founder bios, schema and reviews. After ~90 days of corroboration across 8 to 12 independent domains, the model\'s prior shifts.',
   },
 ];
 
@@ -252,9 +192,14 @@ export default function AIVisibilityPage() {
             ))}
           </div>
 
-          <Link href="/contact" className="btn-primary">
-            <span>Book an AI Visibility Audit →</span>
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/contact" className="btn-primary">
+              <span>Book an AI Visibility Audit →</span>
+            </Link>
+            <div className="font-body text-sm text-text-muted-light font-light">
+              <span className="text-gold font-medium">$1,150</span> · fixed scope · two-week turnaround
+            </div>
+          </div>
         </div>
       </section>
 
@@ -295,15 +240,9 @@ export default function AIVisibilityPage() {
                 The result page is being replaced by the answer.
               </h2>
             </div>
-            <div className="md:col-span-7 space-y-5">
+            <div className="md:col-span-7">
               <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                For twenty years the question was &ldquo;rank on page one.&rdquo; The page is now the answer itself. AI Overviews trigger on roughly half of all Google searches. Perplexity, ChatGPT and Claude have eaten the discovery layer for high intent buyers: affluent, time poor, mobile native.
-              </p>
-              <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                Generative Engine Optimisation (GEO) decides whether your brand is named, fairly described and recommended inside those answers. It is not SEO with a new acronym. It is information retrieval, entity engineering, schema architecture and citation strategy working in concert.
-              </p>
-              <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light leading-relaxed">
-                Done well, it is the highest-leverage marketing investment a luxury brand can make right now. Done late, your competitors own the answer.
+                The page is now the answer itself. AI Overviews trigger on roughly half of all Google searches; Perplexity, ChatGPT and Claude have eaten the discovery layer for high-intent buyers. Generative Engine Optimisation decides whether your brand is named, fairly described and recommended inside those answers — through entity engineering, schema architecture and citation strategy. Done late, your competitors own the answer.
               </p>
             </div>
           </SectionReveal>
@@ -340,75 +279,35 @@ export default function AIVisibilityPage() {
         </div>
       </section>
 
-      {/* The Method · 4 Phases */}
+      {/* How We Build It · 6 modules across 4 phases */}
       <section className="py-[var(--section-gap)] border-t border-gold/10">
         <div
           className="mx-auto px-[var(--gutter)]"
           style={{ maxWidth: 'var(--max-width)' }}
         >
           <div className="mb-14 max-w-2xl">
-            <Eyebrow className="mb-4 block">The Method</Eyebrow>
+            <Eyebrow className="mb-4 block">How We Build It</Eyebrow>
             <h2 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light mb-4">
               Diagnose. Engineer. Earn. Monitor.
             </h2>
             <p className="font-body text-[length:var(--type-body)] text-text-muted-light font-light">
-              Four disciplines, run in sequence and then in parallel. Each phase produces a named artefact your team can inspect, review and own.
+              Six modules across four disciplines. Each one produces a named artefact your team can inspect, review and own.
             </p>
           </div>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold/15">
-            {phases.map((p, i) => (
-              <div key={i} className="bg-navy p-8 lg:p-10">
-                <div className="flex items-baseline gap-4 mb-5">
-                  <span className="font-display text-gold/40 text-lg">{p.n}</span>
-                  <h3 className="font-display text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] text-text-light">
-                    {p.name}
-                  </h3>
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15">
+            {buildBlocks.map((b) => (
+              <div key={b.n} className="bg-navy p-7 lg:p-8">
+                <div className="flex items-baseline gap-3 mb-4">
+                  <span className="font-display text-gold/40 text-base">{b.n}</span>
+                  <span className="font-body text-[10px] uppercase tracking-[0.18em] text-gold">
+                    {b.phase}
+                  </span>
                 </div>
-                <p className="font-body text-sm text-text-muted-light font-light leading-relaxed mb-6">
-                  {p.summary}
-                </p>
-                <ul className="space-y-2">
-                  {p.deliverables.map((d, di) => (
-                    <li
-                      key={di}
-                      className="font-body text-xs text-text-muted-light/90 font-light leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-2 before:h-px before:bg-gold/60"
-                    >
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* What We Engineer · 6 Modules */}
-      <section className="py-[var(--section-gap)] border-t border-gold/10">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <div className="mb-14 max-w-2xl">
-            <Eyebrow className="mb-4 block">What We Engineer</Eyebrow>
-            <h2 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light">
-              Six modules. One coherent visibility system.
-            </h2>
-          </div>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--grid-gap)]">
-            {modules.map((m, i) => (
-              <div
-                key={i}
-                className="border border-gold/20 p-7 md:p-8 bg-[rgba(255,255,255,0.02)]"
-              >
-                <span className="font-display text-gold/40 text-base block mb-4">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="font-display text-xl leading-snug text-text-light mb-3">
-                  {m.title}
+                <h3 className="font-display text-lg leading-snug text-text-light mb-3">
+                  {b.title}
                 </h3>
                 <p className="font-body text-sm text-text-muted-light font-light leading-relaxed">
-                  {m.description}
+                  {b.body}
                 </p>
               </div>
             ))}
@@ -431,7 +330,7 @@ export default function AIVisibilityPage() {
               An AI visibility programme that does not address crawler policy, render guarantees, schema validity and entity reconciliation is a content programme with a new logo. Here is what we audit and ship at the infrastructure layer.
             </p>
           </div>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+          <SectionReveal className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
             {technicals.map((t, i) => (
               <div key={i}>
                 <p className="font-body text-[11px] uppercase tracking-[0.18em] text-gold mb-3">
@@ -601,39 +500,6 @@ export default function AIVisibilityPage() {
                     </p>
                   </div>
                 </details>
-              </div>
-            ))}
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* What Happens Next */}
-      <section className="py-[var(--section-gap)] border-t border-gold/10 bg-[rgba(0,0,0,0.18)]">
-        <div
-          className="mx-auto px-[var(--gutter)]"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <div className="mb-14 max-w-2xl">
-            <Eyebrow className="mb-4 block">What Happens Next</Eyebrow>
-            <h2 className="font-display text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] text-text-light">
-              From first email to first report.
-            </h2>
-          </div>
-          <SectionReveal className="grid grid-cols-1 md:grid-cols-4 gap-px bg-gold/15">
-            {[
-              { n: '01', name: 'You enquire', body: 'Brief form. Two minutes. Tell us your brand, category and competitive set.' },
-              { n: '02', name: 'We respond in 24 hours', body: 'A 30 minute discovery call slot, or a direct email if scope is clear.' },
-              { n: '03', name: 'Audit kicks off', body: 'Two week fixed scope sprint. Visibility Index built. Prompt universe mapped. Hallucinations logged.' },
-              { n: '04', name: 'Named report delivered', body: 'You receive a scored, named report you can inspect, share with your team and act on, with or without us.' },
-            ].map((s) => (
-              <div key={s.n} className="bg-navy p-7 lg:p-8">
-                <span className="font-display text-gold/40 text-base block mb-4">{s.n}</span>
-                <h3 className="font-display text-lg leading-snug text-text-light mb-3">
-                  {s.name}
-                </h3>
-                <p className="font-body text-sm text-text-muted-light font-light leading-relaxed">
-                  {s.body}
-                </p>
               </div>
             ))}
           </SectionReveal>
