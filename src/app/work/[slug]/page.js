@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { projects } from '@/lib/data/projects';
 import CaseStudyContent from '@/components/work/CaseStudyContent';
-import { CreativeWorkSchema } from '@/components/SchemaMarkup';
+import { CreativeWorkSchema, workImageUrl } from '@/components/SchemaMarkup';
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -30,7 +30,7 @@ export default async function CaseStudyPage({ params }) {
       <CreativeWorkSchema
         name={project.name}
         description={project.description}
-        image={`https://irvale.studio${project.image}`}
+        image={workImageUrl(project.image)}
         datePublished={project.year}
       />
       <CaseStudyContent project={project} nextProject={nextProject} />

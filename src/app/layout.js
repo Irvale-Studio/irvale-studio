@@ -6,6 +6,12 @@ import Preloader from "@/components/Preloader";
 import TransitionLayout from "@/components/TransitionLayout";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  organizationJsonLd,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+} from "@/lib/seo/jsonld";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -23,14 +29,14 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://irvale.studio'),
+  metadataBase: new URL('https://irvale.com'),
   title: "Irvale Studio",
   description: "Where luxury brands meet their digital moment.",
   openGraph: {
     title: "Irvale Studio",
     description: "Where luxury brands meet their digital moment.",
     siteName: "Irvale Studio",
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
@@ -46,6 +52,24 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" translate="no">
       <body className={`${cormorant.variable} ${raleway.variable} antialiased notranslate`}>
+        <JsonLd
+          data={[
+            organizationJsonLd(),
+            webSiteJsonLd(),
+            localBusinessJsonLd({
+              city: 'London',
+              country: 'GB',
+              region: 'Greater London',
+              slug: 'london',
+            }),
+            localBusinessJsonLd({
+              city: 'Chiang Mai',
+              country: 'TH',
+              region: 'Chiang Mai',
+              slug: 'chiang-mai',
+            }),
+          ]}
+        />
         <Preloader />
         <SmoothScroll>
           <Navbar />

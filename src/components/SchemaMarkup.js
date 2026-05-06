@@ -1,334 +1,51 @@
-export function LocalBusinessSchema() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Irvale Studio',
-    description: 'Premium software solutions for hospitality, wellness & professional services. Operating from London and Chiang Mai.',
-    email: 'jake@irvale.com',
-    url: 'https://irvale.studio',
-    address: [
-      {
-        '@type': 'PostalAddress',
-        addressLocality: 'London',
-        addressCountry: 'United Kingdom',
-      },
-      {
-        '@type': 'PostalAddress',
-        addressLocality: 'Chiang Mai',
-        addressCountry: 'Thailand',
-      },
-    ],
-  };
+// Schema spec version: 2026-05-06
+//
+// Legacy compatibility shims. Site-wide Organization, WebSite, and
+// LocalBusiness schemas are now emitted by the root layout via
+// `<JsonLd />` + factories in `src/lib/seo/jsonld.js`.
+//
+// New code should import directly from `@/lib/seo/jsonld` and render with
+// `<JsonLd />` from `@/components/seo/JsonLd`. The exports below remain for
+// existing callsites in /revenue-engineering and /work/[slug].
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
+import JsonLd from '@/components/seo/JsonLd';
+import { absUrl, SITE_URL, BRAND } from '@/lib/seo/site';
+import { serviceJsonLd } from '@/lib/seo/jsonld';
 
+// /revenue-engineering — delegates to the new serviceJsonLd factory.
 export function RevenueEngineeringSchema() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const data = serviceJsonLd({
     name: 'Revenue Engineering',
-    serviceType: 'Full-funnel digital operations',
     description:
       'One accountable team for your entire digital funnel. Website, booking software, SEO, AI search, multilingual expansion, reviews, paid media and reporting, engineered end to end. Bespoke website rebuild and Zatrovo booking platform included at every tier.',
-    provider: {
-      '@type': 'Organization',
-      name: 'Irvale Studio',
-      url: 'https://irvale.studio',
-    },
-    areaServed: ['United Kingdom', 'Thailand', 'Worldwide'],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Revenue Engineering Tiers',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          name: 'Foundation',
-          price: '1450',
-          priceCurrency: 'USD',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '1450',
-            priceCurrency: 'USD',
-            unitText: 'MONTH',
-            description: 'Starting from, 6-month minimum',
-          },
-        },
-        {
-          '@type': 'Offer',
-          name: 'Growth',
-          price: '3450',
-          priceCurrency: 'USD',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '3450',
-            priceCurrency: 'USD',
-            unitText: 'MONTH',
-            description: 'Starting from, 6-month minimum',
-          },
-        },
-        {
-          '@type': 'Offer',
-          name: 'Bespoke',
-          price: '5500',
-          priceCurrency: 'USD',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '5500',
-            priceCurrency: 'USD',
-            unitText: 'MONTH',
-            description: 'Starting from, 12-month minimum',
-          },
-        },
-      ],
-    },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
-export function ServiceSchema() {
-  const services = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Essential Website Build',
-      description:
-        'Up to 5 custom-designed pages with responsive design, speed optimisation, SSL, domain hosting, contact form, and on-page SEO foundations.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Irvale Studio',
-        url: 'https://irvale.studio',
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '599',
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          price: '599',
-          priceCurrency: 'USD',
-          description: 'One-time project fee',
-        },
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Professional Website Build',
-      description:
-        'Up to 12 custom-designed pages with responsive design, speed optimisation, SSL, domain hosting, CTA integration, full on-page SEO and Schema markup.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Irvale Studio',
-        url: 'https://irvale.studio',
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '999',
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          price: '999',
-          priceCurrency: 'USD',
-          description: 'One-time project fee',
-        },
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Premium Website Build',
-      description:
-        'Unlimited pages with full SEO suite, AI search optimisation, multi-language support, staff admin portal, e-commerce, API integrations, and custom automations.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Irvale Studio',
-        url: 'https://irvale.studio',
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '1599',
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          price: '1599',
-          priceCurrency: 'USD',
-          description: 'Starting from',
-        },
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Managed Hosting & Maintenance',
-      description:
-        'Managed cloud hosting with SSL, weekly backups, security monitoring, monthly updates, and content change support.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Irvale Studio',
-        url: 'https://irvale.studio',
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '29',
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          price: '29',
-          priceCurrency: 'USD',
-          unitText: 'MONTH',
-          description: 'Monthly retainer',
-        },
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Growth Hosting & Maintenance',
-      description:
-        'Managed cloud hosting with daily backups, malware scanning, performance monitoring, dedicated account manager, and 5 hours of content changes per month.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Irvale Studio',
-        url: 'https://irvale.studio',
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '59',
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          price: '59',
-          priceCurrency: 'USD',
-          unitText: 'MONTH',
-          description: 'Monthly retainer',
-        },
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Premium Hosting & Maintenance',
-      description:
-        'Managed cloud hosting with daily backups, offsite redundancy, web application firewall, unlimited content changes, real-time monitoring, and a dedicated engineer.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'Irvale Studio',
-        url: 'https://irvale.studio',
-      },
-      offers: {
-        '@type': 'Offer',
-        price: '99',
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          price: '99',
-          priceCurrency: 'USD',
-          unitText: 'MONTH',
-          description: 'Starting from',
-        },
-      },
-    },
-  ];
-
-  return (
-    <>
-      {services.map((service, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
-        />
-      ))}
-    </>
-  );
-}
-
-export function FAQPageSchema() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
+    url: '/revenue-engineering',
+    areaServed: ['GB', 'EU', 'US', 'AU', 'TH', 'SG'],
+    offers: [
       {
-        '@type': 'Question',
-        name: 'How long does a website build take?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Essential sites are typically delivered within 2\u20133 weeks. Professional builds take around 4\u20136 weeks. Premium projects vary based on scope \u2014 we provide a detailed timeline after our initial consultation.',
-        },
+        name: 'Foundation',
+        price: '1450',
+        description: 'Starting from, 6-month minimum',
       },
       {
-        '@type': 'Question',
-        name: 'What does the monthly hosting subscription cover?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Your hosting fee covers managed cloud hosting, SSL certificate, automated backups, security monitoring, software updates, content changes, and customer support. Think of it as your entire web presence, professionally managed.',
-        },
+        name: 'Growth',
+        price: '3450',
+        description: 'Starting from, 6-month minimum',
       },
       {
-        '@type': 'Question',
-        name: 'What is Zatrovo?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Zatrovo is our proprietary booking and scheduling platform built specifically for professional service businesses. We handle the full setup, embed it into your website, and support you throughout. Every tier includes a dedicated admin panel.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can I upgrade my plan later?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Absolutely. We build every site with scalability in mind. Many clients start with Essential and move to Professional as their business grows. The same applies to hosting and Zatrovo tiers \u2014 upgrading is seamless.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What if I need changes to my website?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Content edits are included in every hosting plan \u2014 from 2 hours per month on Managed up to unlimited changes on Premium. For larger structural changes or new features, we provide a clear quote before any work begins.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Do I own my website?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. You own all custom design and content created for your site. The monthly hosting subscription covers the infrastructure, maintenance, and support that keeps it running.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What are the payment terms?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Website builds are invoiced 50% upfront and 50% on launch day. Monthly subscriptions (hosting and Zatrovo) can be cancelled at any time and continue until the end of the billing month. All prices are in USD and exclude VAT where applicable.',
-        },
+        name: 'Bespoke',
+        price: '5500',
+        description: 'Starting from, 12-month minimum',
       },
     ],
-  };
+  });
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
+  return <JsonLd data={data} />;
 }
 
+// /work/[slug] — case-study CreativeWork. Kept inline; fixed canonical domain
+// and now rendered via the hardened JsonLd component.
 export function CreativeWorkSchema({ name, description, image, datePublished }) {
-  const schema = {
+  const data = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     name,
@@ -337,15 +54,19 @@ export function CreativeWorkSchema({ name, description, image, datePublished }) 
     datePublished,
     author: {
       '@type': 'Organization',
-      name: 'Irvale Studio',
-      url: 'https://irvale.studio',
+      '@id': `${SITE_URL}#organization`,
+      name: BRAND.name,
+      url: SITE_URL,
     },
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
+  return <JsonLd data={data} />;
 }
+
+// Removed (now redundant with root-layout schemas or unused):
+//   - LocalBusinessSchema  → replaced by site-wide localBusinessJsonLd × 2
+//   - ServiceSchema        → unused; tier copy migrated into pages/factories
+//   - FAQPageSchema        → unused; new pages use faqJsonLd from @/lib/seo/jsonld
+
+// Helper for absolute work-image URLs at callsites.
+export const workImageUrl = (path) => absUrl(path);
