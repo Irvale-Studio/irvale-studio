@@ -5,8 +5,6 @@ import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Eyebrow from '@/components/ui/Eyebrow';
-import RevealText from '@/components/ui/RevealText';
 import { projects } from '@/lib/data/projects';
 
 const featured = projects.slice(0, 3);
@@ -117,19 +115,6 @@ export default function FeaturedWork() {
   return (
     <section ref={sectionRef} className="bg-dark overflow-hidden">
       <div className="py-[var(--section-gap)]">
-        <div
-          className="mx-auto px-[var(--gutter)] mb-12"
-          style={{ maxWidth: 'var(--max-width)' }}
-        >
-          <Eyebrow className="mb-4 block">Selected Work · Live Clients</Eyebrow>
-          <RevealText
-            as="h2"
-            className="font-display font-normal text-text-light text-[length:var(--type-h3)] leading-[var(--type-h3-lh)] max-w-[600px]"
-          >
-            Real software running real businesses.
-          </RevealText>
-        </div>
-
         {/* Desktop: horizontal scroll track */}
         <div
           ref={trackRef}

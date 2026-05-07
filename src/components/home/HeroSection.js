@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { gsap } from '@/lib/gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
@@ -228,10 +228,28 @@ function HeroConstellation() {
   );
 }
 
+const HERO_PILLS = ['Websites', 'Mobile Apps', 'AI Systems', 'AI Automations', 'Digital Growth', 'Management Systems'];
+
 export default function HeroSection() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const overlayRef = useRef(null);
+  const [activePill, setActivePill] = useState(-1);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let timeoutId;
+    const pickNext = () => {
+      setActivePill((prev) => {
+        let next = Math.floor(Math.random() * HERO_PILLS.length);
+        if (next === prev) next = (next + 1) % HERO_PILLS.length;
+        return next;
+      });
+      timeoutId = setTimeout(pickNext, 1600 + Math.random() * 900);
+    };
+    timeoutId = setTimeout(pickNext, 800);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useGSAP(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -280,19 +298,12 @@ export default function HeroSection() {
         className="relative z-10 text-center px-[var(--gutter)] w-full"
         style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}
       >
-        <p
-          className="font-display text-gold tracking-[0.35em] text-[length:var(--type-body-sm)] uppercase mb-8"
-          style={{ textShadow: '0 2px 20px rgba(201,169,110,0.3)' }}
-        >
-          Irvale Studio
-        </p>
-
         <RevealText
           as="h1"
           className="font-display font-normal text-white text-[length:var(--type-h1)] leading-[var(--type-h1-lh)] max-w-[700px] mx-auto justify-center"
           style={{ textShadow: '0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3)' }}
         >
-          Software Solutions.
+          Elevate your business.
         </RevealText>
 
         <p
@@ -304,7 +315,7 @@ export default function HeroSection() {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))' }}>
           <Link href="/contact" className="btn-primary w-full sm:w-auto text-center">
-            <span>Start a Project →</span>
+            <span>Talk to us</span>
           </Link>
           <Link href="/work" className="btn-outline border-white/30 text-text-light hover:text-dark w-full sm:w-auto text-center">
             <span>See Client Results</span>
@@ -312,14 +323,25 @@ export default function HeroSection() {
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-2">
-          {['Bespoke Websites', 'Booking Systems', 'AI Automations', 'E-commerce', 'Managed Hosting', 'Email Marketing'].map((service) => (
-            <span
-              key={service}
-              className="font-body text-xs text-text-light/50 border border-gold/15 bg-gold/5 px-3 py-1.5 rounded-full"
-            >
-              {service}
-            </span>
-          ))}
+          {HERO_PILLS.map((service, i) => {
+            const isActive = i === activePill;
+            return (
+              <span
+                key={service}
+                className="font-body text-xs px-3 py-1.5 rounded-full border transition-all duration-700 ease-out"
+                style={{
+                  color: isActive ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.5)',
+                  borderColor: isActive ? 'rgba(201,169,110,0.55)' : 'rgba(201,169,110,0.15)',
+                  backgroundColor: isActive ? 'rgba(201,169,110,0.12)' : 'rgba(201,169,110,0.05)',
+                  boxShadow: isActive
+                    ? '0 0 18px 2px rgba(201,169,110,0.35), inset 0 0 12px rgba(201,169,110,0.15)'
+                    : '0 0 0 0 rgba(201,169,110,0)',
+                }}
+              >
+                {service}
+              </span>
+            );
+          })}
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-2">

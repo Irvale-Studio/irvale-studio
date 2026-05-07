@@ -52,17 +52,8 @@ export default function IntroStatement() {
           as="h2"
           className="font-display font-normal text-text-light text-[length:var(--type-h2)] leading-[var(--type-h2-lh)] max-w-[800px] mb-12"
         >
-          We handle the technology so you can focus on what you do best.
+          We handle the technology so you can focus on growing your business.
         </RevealText>
-
-        <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <p className="font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
-            One accountable team for your entire digital funnel. Website, booking, SEO, AI search, paid media, all engineered end to end. One point of accountability instead of five vendors who blame each other.
-          </p>
-          <p className="hidden md:block font-body text-[length:var(--type-body-lg)] leading-[var(--type-body-lg-lh)] text-text-muted-light font-light">
-            No templates. No outsourced freelancers. Our team works from London and Chiang Mai with direct experience of Western, Chinese, Korean and Thai buyer markets. The channels Western agencies miss.
-          </p>
-        </SectionReveal>
 
         {/* Client result stats · expanding cards */}
         <SectionReveal className="pt-8 border-t border-[var(--border-dark)]">
