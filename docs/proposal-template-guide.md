@@ -310,6 +310,8 @@ These get struck through every time. Don't use them.
 
 - `meta name="robots" content="noindex, nofollow"`
 - `lang="en" translate="no"` on `<html>`
+- Hero uses `min-height: 100svh` (small viewport height) — **never** `100vh` or `100dvh`. `dvh` recalculates when Chrome's mobile toolbar collapses, causing a visible page jump on scroll.
+- Constellation canvas reads its parent's `clientWidth`/`clientHeight`, never `window.innerWidth/innerHeight` — same toolbar-jump reason. Only re-init nodes if dims actually changed (>2px delta), so resize events from toolbar collapse don't reset the field.
 - `prefers-reduced-motion` respected on every animation (constellation, score rings, pillar plus rotation, video play pulse, scroll reveals).
 - `@media print` rules: hide nav/canvas/scroll, force dark sections white, force accordions/pillars open.
 - IntersectionObserver `.reveal` system with `data-delay="1|2|3"` increments.

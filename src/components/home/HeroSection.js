@@ -37,8 +37,9 @@ function HeroConstellation() {
 
     function resize() {
       const dpr = window.devicePixelRatio || 1;
-      w = window.innerWidth;
-      h = window.innerHeight;
+      const parent = canvas.parentElement;
+      w = parent ? parent.clientWidth : window.innerWidth;
+      h = parent ? parent.clientHeight : window.innerHeight;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       canvas.style.width = w + 'px';
@@ -199,7 +200,12 @@ function HeroConstellation() {
     let resizeTimer;
     const onResize = () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => { resize(); initNodes(); }, 250);
+      resizeTimer = setTimeout(() => {
+        const prevW = w;
+        const prevH = h;
+        resize();
+        if (Math.abs(w - prevW) > 2 || Math.abs(h - prevH) > 2) initNodes();
+      }, 250);
     };
     const onMouse = (e) => { mouseRef.current = { x: e.clientX, y: e.clientY }; };
     const onMouseLeave = () => { mouseRef.current = { x: -1000, y: -1000 }; };
@@ -278,7 +284,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-dvh flex items-center justify-center overflow-hidden bg-dark"
+      className="relative h-svh flex items-center justify-center overflow-hidden bg-dark"
     >
       {/* Constellation */}
       <div className="absolute inset-0">
